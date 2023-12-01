@@ -3,9 +3,10 @@ Skvělá hra v ASP.NET pro pana Stehlíka.
 
 ## Zasazení
 
-zatím vidím 2 možnosti
-a) budoucnost, na způsob Dogtownu z Phantom Liberty, rozbořené budovy, nepřátelské gangy a vojáci, futuristické zbraně a meče
-b) fantasy minulost, draci a orkové, prostě DND
+zatím vidím 2 možnosti:
+
+- budoucnost, na způsob Dogtownu z Phantom Liberty, rozbořené budovy, nepřátelské gangy a vojáci, futuristické zbraně a meče
+- fantasy minulost, draci a orkové, prostě DND
 
 ## Příběh
 
