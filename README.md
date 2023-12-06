@@ -1,21 +1,9 @@
 # Gamebook
-Skvělá hra v ASP.NET pro pana Stehlíka.
+<p>Odehrávajíci se ve fantasy světě, konkrétně v "opuštěné" pevnosti, ze které se pokusí hráč dostat ztrastiplnou cestou ven na svobodu.</p>
 
-## Zasazení
 
-zatím vidím 2 možnosti:
-
-- budoucnost, na způsob Dogtownu z Phantom Liberty, rozbořené budovy, nepřátelské gangy a vojáci, futuristické zbraně a meče
-- fantasy minulost, draci a orkové, prostě DND
-
-## Příběh
-
-to se bude odvíjet od zasazení
-
-## Souboj
-
-Ty bych viděl, že budou krokové a zčásti náhodné. Hráč si bude vyměňovat poškození s nepřáteli a v lokacích bude moci najít předměty co mu obnoví zdraví nebo vyleší útok atd.
-V případě, že zvolíme DND styl tak může být hod kostkou. V případě cyberpunku bych kostku nahradil možná něčím jiným.
+## Model tříd
+<p><img src="./Assets/GamebookModels.jpg"/></p>
 
 
 
