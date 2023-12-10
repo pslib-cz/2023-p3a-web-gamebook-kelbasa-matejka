@@ -1,6 +1,12 @@
 # Gamebook
 <p>Odehrávajíci se ve fantasy světě, konkrétně v "opuštěné" pevnosti, ze které se pokusí hráč dostat strastiplnou cestou ven na svobodu.</p>
 
+## Mechaniky
+<ol>
+    <li>Hráči každém zabití protivníka se zvyšuje damage, protože má logicky více zkušeností s bojem</li>
+    <li>Každá lokace je rozložena na 4 pod lokace, </li>
+</ol>
+
 ## Figma návrh
 <a href="https://www.figma.com/file/QgTaAXxr2krxgQlMT8mOTe/GAMEBOOK?type=design&node-id=0-1&mode=design">zde</a>
 
