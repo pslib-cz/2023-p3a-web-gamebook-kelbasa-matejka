@@ -31,7 +31,7 @@
         Minimálné 1 místnost v podlaží bude náhodně generováná. Pohráváme si s myšlenkou, že by každá místnost mohla být sama o sobě náhodná a to tak, že bychom náhodně vybírali assety => musel by být min. pár assetů, protože ne každý enemy se bude hodit do každé místnosti
     </li>
     <li>Klíče budou sloužit k odemikání místností, nebo ke věcem v místnostech</li>
-    <li>LocationID by mohli být ve formátu nPodlaží|nMístnost, při cestování mezi místnostami budeme tedy ověřovat, pro přechod mezi podlažími bude jiné náhodně generováné id co hráč nebude znát</li>
+    <li>Každá lokace má pole connection, při přesunu budeme porovnávat zda id místnosti kam chceme jít je shodná s id _ToLocationID, id budou náhodná</li>
 </ul>
 
 ### Data
