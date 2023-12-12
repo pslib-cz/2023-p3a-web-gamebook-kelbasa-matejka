@@ -1,4 +1,4 @@
-# Gamebook
+# Gamebook: Escape The Fortress
 <p>Odehrávající se ve fantasy světě, konkrétně v "opuštěné" pevnosti, ze které se pokusí hráč dostat strastiplnou cestou skrz katakomby ven na svobodu.</p>
 <p>Hráč bude moct poznat v jakém podlaží je podle poškození interiéru či enemáků nebude muset koukat jen tupě na hodnoty...</p>
 <p>Dokud mě nic lepšího nenapadne, tak hlavní postava bude obyčejná lapka nebo prostě jen chudák co tam skončil.</p>
