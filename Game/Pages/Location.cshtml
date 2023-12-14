@@ -1,14 +1,18 @@
 @page
+@using Game.Services;
 @model Game.Pages.Location
 
 @{
     Layout = null;
+    
 }
 
 <div>
-    <p>@Model.lModel.Name</p>
+    <h1>@Model.lModel.Name</h1>
     <p>@Model.lModel.Description</p>
-    <p>@Model.lModel.Background</p>
-    <img src="Assets/@Model.lModel.Background"/>
-    <button asp/>
+    <img style="display: block;" width="500" src="Assets/@Model.lModel.Background"/>
+    @foreach(var v in Model.lModel.Connections)
+    {
+        <a asp-page="Location" asp-route-id="@v.ToLocationID">@v.Description</a>
+    }
 </div>

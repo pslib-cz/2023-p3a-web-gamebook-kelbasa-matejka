@@ -23,4 +23,18 @@ public class LocationService
     {
         return Connections.Where(a => a.FromLocationID == locationID).ToList();
     }
+
+    public bool ExistsLocation(int locationID)
+    {
+        return Locations.Count(a => a.LocationID == locationID) > 0;
+    }
+
+    public bool IsNavigationLegitimate(int fromID, int toID, PlayerModel p)
+    {
+        if(p.Hp > 0)
+        {
+            return GetConnections(fromID).Count(a => a.ToLocationID == toID) >= 1;
+        }
+        return false;
+    }
 }
