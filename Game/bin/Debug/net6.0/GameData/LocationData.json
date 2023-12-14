@@ -1,0 +1,50 @@
+[{
+    "LocationID": 1,
+    "Name": "Ancient Forest",
+    "Description": "A mysterious forest that has stood for thousands of years.",
+    "Background": "forest_background.jpg",
+    "Actions": [
+        {
+            "Description": "Explore the cave",
+            "Icon": "cave_icon.png",
+            "EnergyCost": 10
+        },
+        {
+            "Description": "Rest by the waterfall",
+            "Icon": "waterfall_icon.png",
+            "Effect": {
+                "Type": 1,
+                "EffectScale": 10
+            },
+            "EnergyCost": 5
+        }
+    ],
+    "Stage": 2,
+    "Connections": [
+        {
+            "Description": "A path leading to the Dark Mountains",
+            "FromLocationID": 1,
+            "ToLocationID": 2,
+            "RequiredItem": {
+                "Name": "Magic Lantern",
+                "Description": "A lantern that reveals the unseen",
+                "Effect": {
+                    "Type": 0,
+                    "EffectScale": 1
+                },
+                "Icon": "lantern_icon.png"
+            },
+            "Effect": {
+                "Type": 1,
+                "EffectScale": -5
+            }
+        }
+    ],
+    "Enemy": {
+        "Name": "Forest Troll",
+        "Damage": 15,
+        "Hp": 50,
+        "Img": "troll_img.png",
+        "NumberOfAttacks": 2
+    }
+}]
