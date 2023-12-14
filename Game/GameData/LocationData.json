@@ -175,7 +175,24 @@
     ],
     "Stage": 4,
     "Connections": [
-      
+      {
+        "Description": "A path leading back to Frozen Tundra",
+        "FromLocationID": 4,
+        "ToLocationID": 3,
+        "RequiredItem": {
+          "Name": "Magic Lantern",
+          "Description": "A lantern that reveals the unseen",
+          "Effect": {
+            "Type": 2,
+            "EffectScale": 1
+          },
+          "Icon": "lantern_icon.png"
+        },
+        "Effect": {
+          "Type": 1,
+          "EffectScale": -5
+        }
+      }
     ],
     "Enemy": null
   },

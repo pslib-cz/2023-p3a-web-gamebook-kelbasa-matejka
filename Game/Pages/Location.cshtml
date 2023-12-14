@@ -13,6 +13,8 @@
     <img style="display: block;" width="500" src="Assets/@Model.lModel.Background"/>
     @foreach(var v in Model.lModel.Connections)
     {
-        <a asp-page="Location" asp-route-id="@v.ToLocationID">@v.Description</a>
+        <div>
+            <p>@v.Description <a asp-page="Location" asp-route-id="@v.ToLocationID">-></a></p>
+        </div>   
     }
 </div>

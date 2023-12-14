@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Http;
 
 namespace Game.Services
 {
-    public class SessionService<T> : ISessionService<T>
+    public class SessionService<T> : ISessionService
     {
 
         private ISession _session;

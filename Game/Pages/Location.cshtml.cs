@@ -9,9 +9,11 @@ namespace Game.Pages;
 public class Location : PageModel
 {
     private readonly LocationService LocSer;
-    private readonly ISessionService<int> SessionSer;
+    private readonly ISessionService SessionSer;
+
+    private static readonly string SESSION_LASTID_KEY = "LastVisitedLocationId";
     
-    public Location(LocationService ls, ISessionService<int> ss)
+    public Location(LocationService ls, ISessionService ss)
     {
         LocSer = ls;
         SessionSer = ss;
@@ -23,26 +25,20 @@ public class Location : PageModel
     
     public void OnGet(int id)
     {
-        
-        Console.WriteLine(id);
-        int last = SessionSer.GetSession<int>("Current");
-        Console.WriteLine("Session" + last);
+        int last = SessionSer.GetSession<int>(SESSION_LASTID_KEY);
         if (id != 0 && last != 0 && LocSer.ExistsLocation(id))
         {
-
-            var check = LocSer.GetConnections(last).Select(a => a.ToLocationID).ToArray();
-            foreach(var i in check)
-            {
-                Console.WriteLine(i);
-            }
-            Console.WriteLine("Hledám " + id);
-            if (check.Contains(id))
+            if (LocSer.IsNavigationLegitimate(last, id))
             {
                 LocationID = id;
             }
+            else
+            {
+                LocationID = last;
+            }
 
         }
-        SessionSer.SaveSession("Current", LocationID);
+        SessionSer.SaveSession(SESSION_LASTID_KEY, LocationID);
         lModel = LocSer.GetLocation(LocationID);
     }
 }

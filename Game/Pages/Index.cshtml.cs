@@ -8,7 +8,6 @@ namespace Game.Pages
     {
         public void OnGet()
         {
-
         }
     }
 }

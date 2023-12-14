@@ -28,12 +28,15 @@ public class LocationService
     {
         return Locations.Count(a => a.LocationID == locationID) > 0;
     }
-
+    public bool IsNavigationLegitimate(int fromID, int toID)
+    {
+        return GetConnections(fromID).Count(a => a.ToLocationID == toID) >= 1;
+    }
     public bool IsNavigationLegitimate(int fromID, int toID, PlayerModel p)
     {
         if(p.Hp > 0)
         {
-            return GetConnections(fromID).Count(a => a.ToLocationID == toID) >= 1;
+            IsNavigationLegitimate(fromID, toID);
         }
         return false;
     }

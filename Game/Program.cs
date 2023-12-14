@@ -5,7 +5,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddSession();
-builder.Services.AddScoped<ISessionService<int>, SessionService<int>>();
+builder.Services.AddScoped<ISessionService, SessionService<int>>();
 builder.Services.AddSingleton<LocationService>();
 // Add services to the container.
 builder.Services.AddRazorPages();
