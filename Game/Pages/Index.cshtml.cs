@@ -6,8 +6,6 @@ namespace Game.Pages
 {
     public class IndexModel : PageModel
     {
-        private JsonContent _jsonContent = new JsonContent();
-        
         public void OnGet()
         {
 

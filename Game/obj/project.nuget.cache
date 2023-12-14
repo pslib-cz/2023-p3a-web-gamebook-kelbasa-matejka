@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "3rM5fLE8og+PYsJUzWvWIMSDs61NE26e8UREsxNpMXPsciVR/dG+AAD5jrLwOwOINmA8Ab5gHyDYOgKm7+PS4Q==",
+  "dgSpecHash": "H7/neX7lxw9iaIB0U6jA8bOj8z/ZkJ+Vg1TzZHD7uaxeP3UFcWP8hznqmOFdm8ULSTpPdcn2vz3V59iSiHMlOA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\pixel\\Documents\\Skola\\2023-p3a-web-gamebook-kelbasa-matejka\\game\\Game.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "/home/pixel/Documents/2023-p3a-web-gamebook-kelbasa-matejka/Game/Game.csproj",
+  "expectedPackageFiles": [
+    "/home/pixel/.nuget/packages/microsoft.netcore.app.host.linux-x64/6.0.24/microsoft.netcore.app.host.linux-x64.6.0.24.nupkg.sha512"
+  ],
   "logs": []
 }
