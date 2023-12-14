@@ -6,5 +6,16 @@
 }
 
 <div>
-    
+    <p>@Model.lModel.Name</p>
+    <p>@Model.lModel.Description</p>
+    <p>@Model.lModel.Background</p>
+    <img src="Assets/@Model.lModel.Background"/>
+    @foreach (var c in Model.lModel.Connections)
+    {
+        <div style="border: solid black 1px;">
+            <p>@c.FromLocationID</p>
+            <p>@c.ToLocationID</p>
+            <p>@c.Description</p>
+        </div>
+    }
 </div>

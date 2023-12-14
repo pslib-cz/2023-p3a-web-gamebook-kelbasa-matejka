@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets/Game.bundle.scp.css"
     },
     {
+      "Id": "/home/pixel/Documents/2023-p3a-web-gamebook-kelbasa-matejka/Game/wwwroot/Assets/forest_background.png",
+      "PackagePath": "staticwebassets/Assets/forest_background.png"
+    },
+    {
       "Id": "/home/pixel/Documents/2023-p3a-web-gamebook-kelbasa-matejka/Game/wwwroot/css/site.css",
       "PackagePath": "staticwebassets/css/site.css"
     },

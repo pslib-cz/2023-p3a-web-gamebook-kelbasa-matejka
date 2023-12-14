@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "91OerksB75NUWsDK2KWqY/iMPHjnwhd7063K5Hx47q8=",
+  "Hash": "ICseLgHBMzl1ADJTP2T6v1347bmJxxaEPXTI7OfABJM=",
   "Source": "Game",
   "BasePath": "_content/Game",
   "Mode": "Default",
@@ -49,6 +49,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "/home/pixel/Documents/2023-p3a-web-gamebook-kelbasa-matejka/Game/obj/Debug/net6.0/scopedcss/projectbundle/Game.bundle.scp.css"
+    },
+    {
+      "Identity": "/home/pixel/Documents/2023-p3a-web-gamebook-kelbasa-matejka/Game/wwwroot/Assets/forest_background.png",
+      "SourceId": "Game",
+      "SourceType": "Discovered",
+      "ContentRoot": "/home/pixel/Documents/2023-p3a-web-gamebook-kelbasa-matejka/Game/wwwroot/",
+      "BasePath": "_content/Game",
+      "RelativePath": "Assets/forest_background.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/Assets/forest_background.png"
     },
     {
       "Identity": "/home/pixel/Documents/2023-p3a-web-gamebook-kelbasa-matejka/Game/wwwroot/css/site.css",

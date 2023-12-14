@@ -11,9 +11,9 @@ public class Location : PageModel
     static Location()
     {
     
-        using (StreamReader r = new StreamReader(@"/home/pixel/Documents/2023-p3a-web-gamebook-kelbasa-matejka/Game/GameData/LocationData.json"))
+        using (StreamReader r = new StreamReader(@"GameData/LocationData.json"))
         {  
-            string json = r.ReadToEnd();  
+            string json = r.ReadToEnd();
             source = JsonSerializer.Deserialize<List<LocationModel>>(json);  
         }
 
@@ -32,5 +32,6 @@ public class Location : PageModel
         Console.WriteLine(LocationID);
         lModel = source.Where(a => a.LocationID == LocationID).FirstOrDefault();
         Console.WriteLine($"LocationID: {lModel.LocationID} Name: {lModel.Name}");
+        
     }
 }

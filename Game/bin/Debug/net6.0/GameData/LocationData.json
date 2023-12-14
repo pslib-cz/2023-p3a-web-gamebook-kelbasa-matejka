@@ -1,50 +1,165 @@
-[{
-    "LocationID": 1,
-    "Name": "Ancient Forest",
-    "Description": "A mysterious forest that has stood for thousands of years.",
-    "Background": "forest_background.jpg",
-    "Actions": [
-        {
-            "Description": "Explore the cave",
-            "Icon": "cave_icon.png",
-            "EnergyCost": 10
-        },
-        {
-            "Description": "Rest by the waterfall",
-            "Icon": "waterfall_icon.png",
-            "Effect": {
-                "Type": 1,
-                "EffectScale": 10
-            },
-            "EnergyCost": 5
-        }
-    ],
-    "Stage": 2,
-    "Connections": [
-        {
-            "Description": "A path leading to the Dark Mountains",
-            "FromLocationID": 1,
-            "ToLocationID": 2,
-            "RequiredItem": {
-                "Name": "Magic Lantern",
-                "Description": "A lantern that reveals the unseen",
+[
+    {
+        "LocationID": 1,
+        "Name": "Ancient Forest",
+        "Description": "A mysterious forest that has stood for thousands of years.",
+        "Background": "forest_background.png",
+        "Actions": [
+            {
+                "Description": "Explore the cave",
+                "Icon": "cave_icon.png",
                 "Effect": {
-                    "Type": 0,
-                    "EffectScale": 1
+                    "Type": 1,
+                    "EffectScale": 5
                 },
-                "Icon": "lantern_icon.png"
+                "EnergyCost": 10
             },
-            "Effect": {
-                "Type": 1,
-                "EffectScale": -5
+            {
+                "Description": "Rest by the waterfall",
+                "Icon": "waterfall_icon.png",
+                "Effect": {
+                    "Type": 3,
+                    "EffectScale": 10
+                },
+                "EnergyCost": 5
             }
+        ],
+        "Stage": 2,
+        "Connections": [
+            {
+                "Description": "A path leading to the Dark Mountains",
+                "FromLocationID": 1,
+                "ToLocationID": 2,
+                "RequiredItem": {
+                    "Name": "Magic Lantern",
+                    "Description": "A lantern that reveals the unseen",
+                    "Effect": {
+                        "Type": 2,
+                        "EffectScale": 1
+                    },
+                    "Icon": "lantern_icon.png"
+                },
+                "Effect": {
+                    "Type": 1,
+                    "EffectScale": -5
+                }
+            }
+            ,
+            {
+                "Description": "A path leading to the Frozen Tundra",
+                "FromLocationID": 1,
+                "ToLocationID": 3,
+                "RequiredItem": {
+                    "Name": "Magic Lantern",
+                    "Description": "A lantern that reveals the unseen",
+                    "Effect": {
+                        "Type": 2,
+                        "EffectScale": 1
+                    },
+                    "Icon": "lantern_icon.png"
+                },
+                "Effect": {
+                    "Type": 1,
+                    "EffectScale": -5
+                }
+            }
+        ],
+        "Enemy": {
+            "Name": "Forest Troll",
+            "Damage": 15,
+            "Hp": 50,
+            "Img": "troll_img.png",
+            "NumberOfAttacks": 2
         }
-    ],
-    "Enemy": {
-        "Name": "Forest Troll",
-        "Damage": 15,
-        "Hp": 50,
-        "Img": "troll_img.png",
-        "NumberOfAttacks": 2
+    },
+    {
+        "LocationID": 2,
+        "Name": "Lava Pits",
+        "Description": "Bubbling pools of lava",
+        "Background": "lava.jpg",
+        "Actions": [],
+        "Stage": 2,
+        "Connections": [],
+        "Enemy": null
+    },
+    {
+        "LocationID": 3,
+        "Name": "Frozen Tundra",
+        "Description": "A vast and cold barren land",
+        "Background": "tundra.jpg",
+        "Actions": [],
+        "Stage": 3,
+        "Connections": [],
+        "Enemy": null
+    },
+    {
+        "LocationID": 4,
+        "Name": "Haunted Mansion",
+        "Description": "An old mansion rumored to be haunted",
+        "Background": "mansion.jpg",
+        "Actions": [],
+        "Stage": 4,
+        "Connections": [],
+        "Enemy": null
+    },
+    {
+        "LocationID": 5,
+        "Name": "Mystic Mountains",
+        "Description": "Tall mountains shrouded in mystery",
+        "Background": "mountains.jpg",
+        "Actions": [],
+        "Stage": 5,
+        "Connections": [],
+        "Enemy": null
+    },
+    {
+        "LocationID": 6,
+        "Name": "Crimson Forest",
+        "Description": "A forest with red-leafed trees",
+        "Background": "forest.jpg",
+        "Actions": [],
+        "Stage": 6,
+        "Connections": [],
+        "Enemy": null
+    },
+    {
+        "LocationID": 7,
+        "Name": "Ancient Ruins",
+        "Description": "Ruins of an ancient civilization",
+        "Background": "ruins.jpg",
+        "Actions": [],
+        "Stage": 7,
+        "Connections": [],
+        "Enemy": null
+    },
+    {
+        "LocationID": 8,
+        "Name": "Bottomless Pit",
+        "Description": "A deep pit that seems to have no end",
+        "Background": "pit.jpg",
+        "Actions": [],
+        "Stage": 8,
+        "Connections": [],
+        "Enemy": null
+    },
+    {
+        "LocationID": 9,
+        "Name": "Cavern of Time",
+        "Description": "A cavern where time flows differently",
+        "Background": "cavern.jpg",
+        "Actions": [],
+        "Stage": 9,
+        "Connections": [],
+        "Enemy": null
+    },
+    {
+        "LocationID": 10,
+        "Name": "Isle of the Fey",
+        "Description": "An island inhabited by mystical creatures",
+        "Background": "isle.jpg",
+        "Actions": [],
+        "Stage": 10,
+        "Connections": [],
+        "Enemy": null
     }
-}]
+]
