@@ -1,5 +1,9 @@
+using Game.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
+
+builder.Services.AddSingleton<LocationService>();
 // Add services to the container.
 builder.Services.AddRazorPages();
 
