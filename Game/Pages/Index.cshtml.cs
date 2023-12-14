@@ -1,3 +1,4 @@
+using System.Reflection.Metadata;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -5,13 +6,8 @@ namespace Game.Pages
 {
     public class IndexModel : PageModel
     {
-        private readonly ILogger<IndexModel> _logger;
-
-        public IndexModel(ILogger<IndexModel> logger)
-        {
-            _logger = logger;
-        }
-
+        private JsonContent _jsonContent = new JsonContent();
+        
         public void OnGet()
         {
 

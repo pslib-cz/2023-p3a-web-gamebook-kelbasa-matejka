@@ -1,8 +1,8 @@
 namespace Game {
-    public class Action {
+    public class ActionModel {
         public string Description { get; set; }
         public string Icon { get; set; }
-        public Effect Effect { get; set; }
+        public EffectModel Effect { get; set; }
         public int EnergyCost { get; set; }
     }
 }

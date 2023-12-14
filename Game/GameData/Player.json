@@ -1,0 +1,27 @@
+{
+  "PlayerID": 1,
+  "Hp": 100,
+  "Items": [
+    {
+      "Name": "Sword of Truth",
+      "Description": "A legendary sword with great power",
+      "Effect": {
+        "Type": "Damage",
+        "EffectScale": 20
+      },
+      "Icon": "sword-icon.png"
+    },
+    {
+      "Name": "Shield of Fortitude",
+      "Description": "An ancient shield that provides exceptional protection",
+      "Effect": {
+        "Type": "Resistance",
+        "EffectScale": 15
+      },
+      "Icon": "shield-icon.png"
+    }
+  ],
+  "CurrentLocationId": 1,
+  "Damage": 15,
+  "Resistance": 10
+}
