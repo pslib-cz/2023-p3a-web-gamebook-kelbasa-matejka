@@ -11,34 +11,37 @@ public class Location : PageModel
     private readonly LocationService LocSer;
     private readonly ISessionService SessionSer;
 
-    private static readonly string SESSION_LASTID_KEY = "LastVisitedLocationId";
-    
+    private static readonly string PLAYER = "PlayerSessionKey";
+
     public Location(LocationService ls, ISessionService ss)
     {
         LocSer = ls;
         SessionSer = ss;
     }
-    
-    public int LocationID { get; private set; } = 1;
     public LocationModel lModel { get; private set; }
+    public PlayerModel pModel { get; private set; }
     
     
     public void OnGet(int id)
     {
-        int last = SessionSer.GetSession<int>(SESSION_LASTID_KEY);
+        pModel = SessionSer.GetSession<PlayerModel>(PLAYER);
+        int last = pModel.CurrentLocationId;
         if (id != 0 && last != 0 && LocSer.ExistsLocation(id))
         {
             if (LocSer.IsNavigationLegitimate(last, id))
             {
-                LocationID = id;
-            }
-            else
-            {
-                LocationID = last;
+                /*
+                 * TODO Connection required items check
+                 */
+
+                pModel.CurrentLocationId = id;
             }
 
         }
-        SessionSer.SaveSession(SESSION_LASTID_KEY, LocationID);
-        lModel = LocSer.GetLocation(LocationID);
+        /*
+         * TODO Connection effects
+         */
+        SessionSer.SaveSession<PlayerModel>(PLAYER, pModel);
+        lModel = LocSer.GetLocation(pModel.CurrentLocationId);
     }
 }

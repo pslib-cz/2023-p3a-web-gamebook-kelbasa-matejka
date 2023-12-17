@@ -10,6 +10,19 @@
 <div>
     <h1>@Model.lModel.Name</h1>
     <p>@Model.lModel.Description</p>
+    <div>
+        <h2>Player: </h2>
+        <p>Player has @Model.pModel.Hp HP</p>
+        <p>Player deals @Model.pModel.Damage DMG</p>
+        <p>Player is in location #@Model.pModel.CurrentLocationId</p>
+        <p>Players inventory: </p>
+        <ul>
+        @foreach(var item in Model.pModel.Items)
+        {
+            <li>@item.Name - @item.Description</li>
+        }
+        </ul>
+    </div>
     <img style="display: block;" width="500" src="Assets/@Model.lModel.Background"/>
     @foreach(var v in Model.lModel.Connections)
     {

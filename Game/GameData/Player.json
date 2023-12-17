@@ -6,7 +6,7 @@
       "Name": "Sword of Truth",
       "Description": "A legendary sword with great power",
       "Effect": {
-        "Type": "Damage",
+        "Type": 1,
         "EffectScale": 20
       },
       "Icon": "sword-icon.png"
@@ -15,7 +15,7 @@
       "Name": "Shield of Fortitude",
       "Description": "An ancient shield that provides exceptional protection",
       "Effect": {
-        "Type": "Resistance",
+        "Type": 2,
         "EffectScale": 15
       },
       "Icon": "shield-icon.png"

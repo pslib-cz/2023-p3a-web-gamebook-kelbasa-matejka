@@ -7,6 +7,7 @@ builder.Services.AddHttpContextAccessor();
 builder.Services.AddSession();
 builder.Services.AddScoped<ISessionService, SessionService<int>>();
 builder.Services.AddSingleton<LocationService>();
+builder.Services.AddSingleton<PlayerService>();
 // Add services to the container.
 builder.Services.AddRazorPages();
 
