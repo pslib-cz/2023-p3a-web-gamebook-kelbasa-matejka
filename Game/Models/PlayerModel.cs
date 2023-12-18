@@ -1,3 +1,5 @@
+using Game.Models;
+
 namespace Game {
     public class PlayerModel {
         public int PlayerID { get; set; }
@@ -7,6 +9,6 @@ namespace Game {
         public int Damage { get; set; }
         public int Energy { get; set; }
         public int Resistance { get; set; }
-        public string VisitedConnections { get; set; }
+        public List<ShortConnection> VisitedConnections { get; set; }
     }
 }

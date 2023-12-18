@@ -79,22 +79,22 @@
         "Background": "lava.jpg",
         "Actions": [],
         "Stage": 2,
-      "Connections": [
-        {
-          "Description": "A path leading back to beginning",
-          "FromLocationID": 2,
-          "ToLocationID": 1,
-          "RequiredItem": {
-            "Name": "Magic Lantern",
-            "Description": "A lantern that reveals the unseen",
-            "Effect": {
-              "Type": 2,
-              "EffectScale": 1
-            },
-            "Icon": "lantern_icon.png"
+        "Connections": [
+          {
+            "Description": "A path leading back to beginning",
+            "FromLocationID": 2,
+            "ToLocationID": 1,
+            "RequiredItem": {
+              "Name": "Magic Lantern",
+              "Description": "A lantern that reveals the unseen",
+              "Effect": {
+                "Type": 2,
+                "EffectScale": 1
+              },
+              "Icon": "lantern_icon.png"
+            }
           }
-        }
-      ],
+        ],
         "Enemy": null
     },
     {
@@ -117,10 +117,6 @@
               "EffectScale": 1
             },
             "Icon": "lantern_icon.png"
-          },
-          "Effect": {
-            "Type": 1,
-            "EffectScale": -5
           }
         },
         {
@@ -137,8 +133,8 @@
             "Icon": "lantern_icon.png"
           },
           "Effect": {
-            "Type": 1,
-            "EffectScale": -5
+            "Type": 0,
+            "EffectScale": -50
           }
         }
       ],
@@ -183,10 +179,6 @@
             "EffectScale": 1
           },
           "Icon": "lantern_icon.png"
-        },
-        "Effect": {
-          "Type": 1,
-          "EffectScale": -5
         }
       }
     ],

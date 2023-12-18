@@ -46,7 +46,10 @@ public class Location : PageModel
                 {
                     EffSer.ApplyEffect(con.Effect, pModel);
                     PlayerSer.SaveUsedConnection(pModel, con.FromLocationID, con.ToLocationID);
-                    Console.WriteLine(pModel.VisitedConnections);
+                    foreach(var v in pModel.VisitedConnections)
+                    {
+                        Console.WriteLine(v.FromId + "," + v.ToId);
+                    }
                 }
                 pModel.CurrentLocationId = id;
             }

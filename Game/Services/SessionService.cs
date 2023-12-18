@@ -1,5 +1,6 @@
 ﻿using Game.Helpers;
 using Microsoft.AspNetCore.Http;
+using System.Text.Json;
 
 namespace Game.Services
 {
@@ -15,13 +16,20 @@ namespace Game.Services
 
         public void SaveSession<T>(string key, T value)
         {
-            if(value != null)_session.Set(key, value);
+            if (value != null)
+            {
+                var serialized = JsonSerializer.Serialize(value);
+                _session.Set(key, serialized);
+            }
         }
 
         public T GetSession<T>(string key)
         {
-            T result = _session.Get<T>(key);
-            return result;
+            {
+                string result = _session.Get<string>(key);
+                return JsonSerializer.Deserialize<T>(result);
+            }
+            
         }
 
     }
