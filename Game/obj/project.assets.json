@@ -8,23 +8,23 @@
     "net6.0": []
   },
   "packageFolders": {
-    "C:\\Users\\tomas\\.nuget\\packages\\": {},
+    "C:\\Users\\pixel\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\tomas\\Source\\Repos\\2023-p3a-web-gamebook-kelbasa-matejka\\Game\\Game.csproj",
+      "projectUniqueName": "C:\\Users\\pixel\\Source\\Repos\\pslib-cz\\2023-p3a-web-gamebook-kelbasa-matejka\\Game\\Game.csproj",
       "projectName": "Game",
-      "projectPath": "C:\\Users\\tomas\\Source\\Repos\\2023-p3a-web-gamebook-kelbasa-matejka\\Game\\Game.csproj",
-      "packagesPath": "C:\\Users\\tomas\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\tomas\\Source\\Repos\\2023-p3a-web-gamebook-kelbasa-matejka\\Game\\obj\\",
+      "projectPath": "C:\\Users\\pixel\\Source\\Repos\\pslib-cz\\2023-p3a-web-gamebook-kelbasa-matejka\\Game\\Game.csproj",
+      "packagesPath": "C:\\Users\\pixel\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\pixel\\Source\\Repos\\pslib-cz\\2023-p3a-web-gamebook-kelbasa-matejka\\Game\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\tomas\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\pixel\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -70,7 +70,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   }

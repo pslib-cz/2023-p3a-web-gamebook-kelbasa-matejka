@@ -9,45 +9,47 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Game
 build_property.RootNamespace = Game
-build_property.ProjectDir = C:\Users\tomas\source\repos\2023-p3a-web-gamebook-kelbasa-matejka\Game\
+build_property.ProjectDir = C:\Users\pixel\Source\Repos\pslib-cz\2023-p3a-web-gamebook-kelbasa-matejka\Game\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\tomas\source\repos\2023-p3a-web-gamebook-kelbasa-matejka\Game
+build_property.MSBuildProjectDirectory = C:\Users\pixel\Source\Repos\pslib-cz\2023-p3a-web-gamebook-kelbasa-matejka\Game
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/tomas/source/repos/2023-p3a-web-gamebook-kelbasa-matejka/Game/Pages/Endgame.cshtml]
+[C:/Users/pixel/Source/Repos/pslib-cz/2023-p3a-web-gamebook-kelbasa-matejka/Game/Pages/Endgame.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRW5kZ2FtZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/tomas/source/repos/2023-p3a-web-gamebook-kelbasa-matejka/Game/Pages/Error.cshtml]
+[C:/Users/pixel/Source/Repos/pslib-cz/2023-p3a-web-gamebook-kelbasa-matejka/Game/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/tomas/source/repos/2023-p3a-web-gamebook-kelbasa-matejka/Game/Pages/Index.cshtml]
+[C:/Users/pixel/Source/Repos/pslib-cz/2023-p3a-web-gamebook-kelbasa-matejka/Game/Pages/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/tomas/source/repos/2023-p3a-web-gamebook-kelbasa-matejka/Game/Pages/Location.cshtml]
+[C:/Users/pixel/Source/Repos/pslib-cz/2023-p3a-web-gamebook-kelbasa-matejka/Game/Pages/Location.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9jYXRpb24uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/tomas/source/repos/2023-p3a-web-gamebook-kelbasa-matejka/Game/Pages/LocationCombat.cshtml]
+[C:/Users/pixel/Source/Repos/pslib-cz/2023-p3a-web-gamebook-kelbasa-matejka/Game/Pages/LocationCombat.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9jYXRpb25Db21iYXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/tomas/source/repos/2023-p3a-web-gamebook-kelbasa-matejka/Game/Pages/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/pixel/Source/Repos/pslib-cz/2023-p3a-web-gamebook-kelbasa-matejka/Game/Pages/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/tomas/source/repos/2023-p3a-web-gamebook-kelbasa-matejka/Game/Pages/_ViewImports.cshtml]
+[C:/Users/pixel/Source/Repos/pslib-cz/2023-p3a-web-gamebook-kelbasa-matejka/Game/Pages/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/tomas/source/repos/2023-p3a-web-gamebook-kelbasa-matejka/Game/Pages/_ViewStart.cshtml]
+[C:/Users/pixel/Source/Repos/pslib-cz/2023-p3a-web-gamebook-kelbasa-matejka/Game/Pages/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/tomas/source/repos/2023-p3a-web-gamebook-kelbasa-matejka/Game/Pages/Shared/_Layout.cshtml]
+[C:/Users/pixel/Source/Repos/pslib-cz/2023-p3a-web-gamebook-kelbasa-matejka/Game/Pages/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-sjiyedwha9

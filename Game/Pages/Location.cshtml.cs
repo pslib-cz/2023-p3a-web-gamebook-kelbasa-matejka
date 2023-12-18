@@ -14,7 +14,6 @@ public class Location : PageModel
     private readonly PlayerService PlayerSer;
 
     private static readonly string PLAYER = "PlayerSessionKey";
-    private static readonly string VISITED_CONNECTIONS = "VisitedConnectionsSessionKey";
     private static readonly int WINNING_LOCATION_ID = 3;
     
     public Location(LocationService ls, ISessionService ss, EffectService es, PlayerService ps)
@@ -32,6 +31,7 @@ public class Location : PageModel
     {
         //SESSION LOAD
         pModel = SessionSer.GetSession<PlayerModel>(PLAYER);
+
 
         int last = pModel.CurrentLocationId;
 
