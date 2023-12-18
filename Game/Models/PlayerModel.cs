@@ -5,6 +5,8 @@ namespace Game {
         public ItemModel[] Items { get; set; }
         public int CurrentLocationId { get; set; }
         public int Damage { get; set; }
+        public int Energy { get; set; }
         public int Resistance { get; set; }
+        public string VisitedConnections { get; set; }
     }
 }

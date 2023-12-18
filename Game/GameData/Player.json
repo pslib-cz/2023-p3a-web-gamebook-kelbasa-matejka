@@ -22,6 +22,7 @@
     }
   ],
   "CurrentLocationId": 1,
+  "Energy": 100,
   "Damage": 15,
   "Resistance": 10
 }

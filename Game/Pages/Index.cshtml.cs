@@ -8,6 +8,8 @@ namespace Game.Pages
     public class IndexModel : PageModel
     {
         private static readonly string PLAYER_KEY = "PlayerSessionKey";
+        private static readonly string VISITED_CONNECTIONS = "VisitedConnectionsSessionKey";
+
 
         private PlayerModel player;
         private PlayerService playerService;
