@@ -27,18 +27,20 @@
         "Stage": 2,
         "Connections": [
             {
-                "Description": "A path leading to the Dark Mountains",
-                "FromLocationID": 1,
-                "ToLocationID": 2,
-                "RequiredItem": {
-                    "Name": "Magic Lantern",
-                    "Description": "A lantern that reveals the unseen",
-                    "Effect": {
-                        "Type": 2,
-                        "EffectScale": 1
-                    },
-                    "Icon": "lantern_icon.png"
+              "Description": "A path leading to the Dark Mountains",
+              "FromLocationID": 1,
+              "ToLocationID": 2,
+
+              "RequiredItem": {
+                "ID": 3,
+                "Name": "Magic Lantern",
+                "Description": "A lantern that reveals the unseen",
+                "Effect": {
+                  "Type": 2,
+                  "EffectScale": 1
                 },
+                "Icon": "lantern_icon.png"
+              },
                 "Effect": {
                     "Type": 0,
                     "EffectScale": -5
@@ -46,22 +48,23 @@
             }
             ,
             {
-                "Description": "A path leading to the Frozen Tundra",
-                "FromLocationID": 1,
-                "ToLocationID": 3,
-                "RequiredItem": {
-                    "Name": "Magic Lantern",
-                    "Description": "A lantern that reveals the unseen",
-                    "Effect": {
-                        "Type": 2,
-                        "EffectScale": 1
-                    },
-                    "Icon": "lantern_icon.png"
-                },
+              "Description": "A path leading to the Frozen Tundra",
+              "FromLocationID": 1,
+              "ToLocationID": 3,
+              "RequiredItem": {
+                "ID": 1,
+                "Name": "Sword of Truth",
+                "Description": "A legendary sword with great power",
                 "Effect": {
-                    "Type": 0,
-                    "EffectScale": 10
-                }
+                  "Type": 1,
+                  "EffectScale": 20
+                },
+                "Icon": "sword-icon.png"
+              },
+              "Effect": {
+                  "Type": 0,
+                  "EffectScale": 10
+              }
             }
         ],
         "Enemy": {
@@ -83,16 +86,7 @@
           {
             "Description": "A path leading back to beginning",
             "FromLocationID": 2,
-            "ToLocationID": 1,
-            "RequiredItem": {
-              "Name": "Magic Lantern",
-              "Description": "A lantern that reveals the unseen",
-              "Effect": {
-                "Type": 2,
-                "EffectScale": 1
-              },
-              "Icon": "lantern_icon.png"
-            }
+            "ToLocationID": 1
           }
         ],
         "Enemy": null
@@ -108,33 +102,20 @@
         {
           "Description": "A path leading back to beginning",
           "FromLocationID": 3,
-          "ToLocationID": 1,
-          "RequiredItem": {
-            "Name": "Magic Lantern",
-            "Description": "A lantern that reveals the unseen",
-            "Effect": {
-              "Type": 2,
-              "EffectScale": 1
-            },
-            "Icon": "lantern_icon.png"
-          }
+          "ToLocationID": 1
+        },
+        {
+          "Description": "A path leading to victory",
+          "FromLocationID": 3,
+          "ToLocationID": -1
         },
         {
           "Description": "A road taking you to haunted mansion",
           "FromLocationID": 3,
           "ToLocationID": 4,
-          "RequiredItem": {
-            "Name": "Magic Lantern",
-            "Description": "A lantern that reveals the unseen",
-            "Effect": {
-              "Type": 2,
-              "EffectScale": 1
-            },
-            "Icon": "lantern_icon.png"
-          },
           "Effect": {
             "Type": 0,
-            "EffectScale": -50
+            "EffectScale": -200
           }
         }
       ],
@@ -151,6 +132,7 @@
         "FromLocationID": 4,
         "ToLocationID": 3,
         "RequiredItem": {
+          "ID": 3,
           "Name": "Magic Lantern",
           "Description": "A lantern that reveals the unseen",
           "Effect": {
@@ -170,8 +152,14 @@
       {
         "Description": "A path leading back to Frozen Tundra",
         "FromLocationID": 4,
-        "ToLocationID": 3,
+        "ToLocationID": 3
+      },
+      {
+        "Description": "A path leading to unknow location",
+        "FromLocationID": 4,
+        "ToLocationID": 5,
         "RequiredItem": {
+          "ID": 3,
           "Name": "Magic Lantern",
           "Description": "A lantern that reveals the unseen",
           "Effect": {

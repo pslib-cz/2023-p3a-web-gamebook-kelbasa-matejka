@@ -3,6 +3,7 @@
   "Hp": 100,
   "Items": [
     {
+      "ID": 1,
       "Name": "Sword of Truth",
       "Description": "A legendary sword with great power",
       "Effect": {
@@ -12,6 +13,7 @@
       "Icon": "sword-icon.png"
     },
     {
+      "ID": 2,
       "Name": "Shield of Fortitude",
       "Description": "An ancient shield that provides exceptional protection",
       "Effect": {

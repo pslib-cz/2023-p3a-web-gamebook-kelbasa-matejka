@@ -3,7 +3,7 @@
 @model Game.Pages.Location
 
 @{
-    Layout = null;
+
     
 }
 
@@ -24,11 +24,24 @@
         }
         </ul>
     </div>
-    <img style="display: block;" width="500" src="Assets/@Model.lModel.Background"/>
+    <img style="display: block;" width="300" src="Assets/@Model.lModel.Background"/>
     @foreach(var v in Model.lModel.Connections)
     {
         <div>
-            <p>@v.Description <a asp-page="Location" asp-route-id="@v.ToLocationID">-></a></p>
+            <p>@v.Description <a asp-page="Location" asp-route-id="@v.ToLocationID">-></a>
+                @if (v.RequiredItem != null)
+                {
+                    if(Model.pModel.Items.Count(a => a.ID == v.RequiredItem.ID) > 0)
+                    {
+                        <span>@v.RequiredItem.Name is required (you have it)</span>
+                    }
+                    else
+                    {
+                        <span style="color: red;">@v.RequiredItem.Name is required</span>
+                    }
+                    
+                }
+            </p>
         </div>   
     }
 </div>

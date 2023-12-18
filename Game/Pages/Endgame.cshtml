@@ -13,7 +13,15 @@
 </head>
 <body>
 <div>
-    
+        @if(Model.Win)
+        {
+            <h1>Win</h1>
+        }
+        else
+        {
+            <h1>Lost</h1>
+        }
+
 </div>
 </body>
 </html>

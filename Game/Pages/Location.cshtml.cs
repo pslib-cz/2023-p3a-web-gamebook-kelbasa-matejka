@@ -15,6 +15,7 @@ public class Location : PageModel
 
     private static readonly string PLAYER = "PlayerSessionKey";
     private static readonly string VISITED_CONNECTIONS = "VisitedConnectionsSessionKey";
+    private static readonly int WINNING_LOCATION_ID = 3;
     
     public Location(LocationService ls, ISessionService ss, EffectService es, PlayerService ps)
     {
@@ -29,34 +30,44 @@ public class Location : PageModel
     
     public void OnGet(int id)
     {
+        //SESSION LOAD
         pModel = SessionSer.GetSession<PlayerModel>(PLAYER);
-        Console.WriteLine("start: " + pModel.VisitedConnections);
+
         int last = pModel.CurrentLocationId;
-        ConnectionModel con;
-        if (id != 0 && last != 0 && LocSer.ExistsLocation(id))
+
+        if (pModel.CurrentLocationId == WINNING_LOCATION_ID && id == -1)
         {
-            if (LocSer.IsNavigationLegitimate(last, id))
+            Response.Redirect("Endgame");
+        }
+
+        if (id > 0 && last > 0 && LocSer.ExistsLocation(id))
+        {
+            if (LocSer.IsNavigationLegitimate(last, id, pModel))
             {
-                /*
-                 * TODO Connection required items check
-                 */
-                con = LocSer.GetConnections(last).Where(a => a.ToLocationID == id).FirstOrDefault();
+                var con = LocSer.GetConnection(last, id);
                 ;
-                if(con.Effect != null && !PlayerSer.ConnectionWasUsed(pModel, con.FromLocationID, con.ToLocationID))
+                if (con.Effect != null && !PlayerSer.ConnectionWasUsed(pModel, con.FromLocationID, con.ToLocationID))
                 {
                     EffSer.ApplyEffect(con.Effect, pModel);
                     PlayerSer.SaveUsedConnection(pModel, con.FromLocationID, con.ToLocationID);
-                    foreach(var v in pModel.VisitedConnections)
-                    {
-                        Console.WriteLine(v.FromId + "," + v.ToId);
-                    }
+
                 }
                 pModel.CurrentLocationId = id;
             }
 
         }
-        
+        if (pModel.Hp <= 0 || pModel.CurrentLocationId == -1)
+        {
+            Response.Redirect("Endgame");
+        }
         SessionSer.SaveSession<PlayerModel>(PLAYER, pModel);
-        lModel = LocSer.GetLocation(pModel.CurrentLocationId);
+        var temp = LocSer.GetLocation(pModel.CurrentLocationId);
+        if (temp == null) lModel = LocSer.GetLocation(1);
+        else lModel = temp;
+        
+
+
+
+
     }
 }

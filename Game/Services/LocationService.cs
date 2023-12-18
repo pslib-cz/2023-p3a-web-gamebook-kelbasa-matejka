@@ -24,6 +24,11 @@ public class LocationService
         return Connections.Where(a => a.FromLocationID == locationID).ToList();
     }
 
+    public ConnectionModel GetConnection(int fromID, int toID)
+    {
+        return GetConnections(fromID).Where(a => a.ToLocationID == toID).FirstOrDefault();
+    }
+
     public bool ExistsLocation(int locationID)
     {
         return Locations.Count(a => a.LocationID == locationID) > 0;
@@ -32,11 +37,19 @@ public class LocationService
     {
         return GetConnections(fromID).Count(a => a.ToLocationID == toID) >= 1;
     }
+
+    //check for required items
     public bool IsNavigationLegitimate(int fromID, int toID, PlayerModel p)
     {
         if(p.Hp > 0)
         {
-            IsNavigationLegitimate(fromID, toID);
+            if(IsNavigationLegitimate(fromID, toID))
+            {
+                var connection = GetConnection(fromID, toID);
+                if (connection.RequiredItem == null) return true;
+                if (p.Items.Count(a => a.ID == connection.RequiredItem?.ID) > 0) return true;
+            }
+
         }
         return false;
     }
