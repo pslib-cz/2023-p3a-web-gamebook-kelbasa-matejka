@@ -5,7 +5,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddSession();
-builder.Services.AddScoped<ISessionService, SessionService>();
+builder.Services.AddSingleton<ISessionService, SessionService>();
 builder.Services.AddSingleton<LocationService>();
 builder.Services.AddSingleton<EffectService>();
 builder.Services.AddScoped<PlayerService>();

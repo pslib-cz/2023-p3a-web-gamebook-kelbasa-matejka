@@ -2,7 +2,7 @@
 {
     public interface ISessionService
     {
-        public void SaveSession<T>(string key, T value);
-        public T GetSession<T>(string key);
+        public void SaveSession<T>(HttpContext httpContext, string key, T value);
+        public T GetSession<T>(HttpContext httpContext, string key);
     }
 }

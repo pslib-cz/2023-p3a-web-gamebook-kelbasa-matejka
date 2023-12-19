@@ -23,7 +23,7 @@ public class Endgame : PageModel
 
     public void OnGet()
     {
-        pModel = SessionSer.GetSession<PlayerModel>(PLAYER);
+        pModel = SessionSer.GetSession<PlayerModel>(HttpContext, PLAYER);
         if(pModel.CurrentLocationId == WINNING_LOCATION_ID && pModel.Hp > 0)
         {
             Win = true;
@@ -37,6 +37,6 @@ public class Endgame : PageModel
             Win = false;
         }
         pModel.CurrentLocationId = -1;
-        SessionSer.SaveSession(PLAYER, pModel);
+        SessionSer.SaveSession(HttpContext, PLAYER, pModel);
     }
 }

@@ -7,23 +7,16 @@ namespace Game.Services
     public class SessionService: ISessionService
     {
 
-        private ISession _session;
-
-        public SessionService(IHttpContextAccessor hca)
+        public void SaveSession<T>(HttpContext httpContext, string key, T value)
         {
-            _session = hca.HttpContext.Session;
+            var session = httpContext.Session;
+            SessionExtension.Set(session, key, value);
         }
 
-        public void SaveSession<T>(string key, T value)
+        public T GetSession<T>(HttpContext httpContext, string key)
         {
-               SessionExtension.Set(_session, key, value);
-        }
-
-        public T GetSession<T>(string key)
-        {
-            
-            return SessionExtension.Get<T>(_session, key);
-            
+            var session = httpContext.Session;
+            return SessionExtension.Get<T>(session, key);
         }
 
     }

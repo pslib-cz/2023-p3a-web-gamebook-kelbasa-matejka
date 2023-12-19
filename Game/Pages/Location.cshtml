@@ -17,12 +17,15 @@
         <p>Player energy: @Model.pModel.Energy</p>
         <p>Player is in location #@Model.pModel.CurrentLocationId</p>
         <p>Players inventory: </p>
+        @if (Model.pModel.Items != null) {
         <ul>
+            
         @foreach(var item in Model.pModel.Items)
         {
             <li>@item.Name - @item.Description</li>
         }
         </ul>
+        }
     </div>
 	@if (Model.lModel.Enemy != null)
 	{
@@ -43,7 +46,7 @@
             <p>@v.Description <a asp-page="Location" asp-route-id="@v.ToLocationID">-></a>
                 @if (v.RequiredItem != null)
                 {
-                    if(Model.pModel.Items.Count(a => a.ID == v.RequiredItem.ID) > 0)
+                    if (Model.pModel.Items != null && Model.pModel.Items.Count(a => a.ID == v.RequiredItem.ID) > 0)
                     {
                         <span>@v.RequiredItem.Name is required (you have it)</span>
                     }

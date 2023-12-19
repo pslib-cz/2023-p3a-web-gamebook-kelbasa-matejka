@@ -21,16 +21,16 @@ public class Location : PageModel
         LocSer = ls;
         SessionSer = ss;
         EffSer = es;
-        PlayerSer = ps;        
+        PlayerSer = ps;     
     }
     public LocationModel lModel { get; private set; }
     public PlayerModel pModel { get; set; }
-    
-    
+
+
     public void OnGet(int id)
     {
         //SESSION LOAD
-        pModel = SessionSer.GetSession<PlayerModel>(PLAYER);
+        pModel = SessionSer.GetSession<PlayerModel>(HttpContext, PLAYER);
 
 
         int last = pModel.CurrentLocationId;
@@ -60,7 +60,7 @@ public class Location : PageModel
         {
             Response.Redirect("Endgame");
         }
-        SessionSer.SaveSession<PlayerModel>(PLAYER, pModel);
+        SessionSer.SaveSession<PlayerModel>(HttpContext, PLAYER, pModel);
         var temp = LocSer.GetLocation(pModel.CurrentLocationId);
         if (temp == null) lModel = LocSer.GetLocation(1);
         else lModel = temp;
