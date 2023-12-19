@@ -13,7 +13,7 @@ namespace Game.Services
 
         public PlayerModel CreateDefaultModel()
         {
-            var p =JsonSerializer.Deserialize<PlayerModel>(DEFAULT_PLAYER_JSON);
+            var p = JsonSerializer.Deserialize<PlayerModel>(DEFAULT_PLAYER_JSON);
             p.VisitedConnections = new List<ShortConnection>();
             return p;
         }

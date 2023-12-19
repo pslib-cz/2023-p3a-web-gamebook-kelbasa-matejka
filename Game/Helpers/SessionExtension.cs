@@ -7,7 +7,14 @@ namespace Game.Helpers
 
         public static void Set<T>(this ISession session, string key, T value)
         {
-            session.SetString(key, JsonSerializer.Serialize(value));
+            if(value != null && session != null)
+            {
+                if (session.IsAvailable)
+                {
+                    session.SetString(key, JsonSerializer.Serialize(value));
+                }
+            }
+            
         }
 
         public static T? Get<T>(this ISession session, string key)

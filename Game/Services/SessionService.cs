@@ -4,7 +4,7 @@ using System.Text.Json;
 
 namespace Game.Services
 {
-    public class SessionService<T> : ISessionService
+    public class SessionService: ISessionService
     {
 
         private ISession _session;
@@ -16,19 +16,13 @@ namespace Game.Services
 
         public void SaveSession<T>(string key, T value)
         {
-            if (value != null)
-            {
-                var serialized = JsonSerializer.Serialize(value);
-                _session.Set(key, serialized);
-            }
+               SessionExtension.Set(_session, key, value);
         }
 
         public T GetSession<T>(string key)
         {
-            {
-                string result = _session.Get<string>(key);
-                return JsonSerializer.Deserialize<T>(result);
-            }
+            
+            return SessionExtension.Get<T>(_session, key);
             
         }
 

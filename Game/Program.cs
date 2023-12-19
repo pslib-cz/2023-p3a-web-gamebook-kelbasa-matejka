@@ -5,10 +5,10 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddSession();
-builder.Services.AddScoped<ISessionService, SessionService<int>>();
+builder.Services.AddScoped<ISessionService, SessionService>();
 builder.Services.AddSingleton<LocationService>();
 builder.Services.AddSingleton<EffectService>();
-builder.Services.AddSingleton<PlayerService>();
+builder.Services.AddScoped<PlayerService>();
 // Add services to the container.
 builder.Services.AddRazorPages();
 

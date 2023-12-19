@@ -2,12 +2,12 @@
 @using Game.Services;
 @model Game.Pages.Location
 
+
 @{
 
-    
 }
 
-<div>
+<div class="location" style="background-image: url(Assets/@Model.lModel.Background);">
     <h1>@Model.lModel.Name</h1>
     <p>@Model.lModel.Description</p>
     <div>
@@ -24,7 +24,19 @@
         }
         </ul>
     </div>
-    <img style="display: block;" width="300" src="Assets/@Model.lModel.Background"/>
+	@if (Model.lModel.Enemy != null)
+	{
+        <h2>@Model.lModel.Enemy.Name</h2>
+        <h2>@Model.lModel.Enemy.Hp hp</h2>
+	}
+    @if (Model.lModel.PuzzleKey != null)
+    {
+        <form method="POST">
+            <p>Zadejte správnou odpovìï</p>
+            <input type="text">
+            <button></button>
+        </form>
+    }
     @foreach(var v in Model.lModel.Connections)
     {
         <div>
