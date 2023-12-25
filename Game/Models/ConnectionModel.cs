@@ -5,5 +5,6 @@ namespace Game {
         public int ToLocationID { get; set; }
         public ItemModel RequiredItem { get; set; }
         public EffectModel Effect { get; set; }
+        public bool Locked { get; set; } = false;
     }
 }

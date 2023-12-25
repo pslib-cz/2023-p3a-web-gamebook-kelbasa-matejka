@@ -12,17 +12,20 @@ namespace Game.Pages
 
         private PlayerService playerService;
         private ISessionService sessionService;
+        private LocationService locationService;
 
-        public IndexModel(PlayerService ps, ISessionService ss)
+        public IndexModel(PlayerService ps, ISessionService ss, LocationService ls)
         {
             playerService = ps;
             sessionService = ss;
+            locationService = ls;
 
         }
 
         public void OnGet()
         {
             sessionService.SaveSession<PlayerModel>(HttpContext, PLAYER_KEY, playerService.CreateDefaultModel());
+            locationService.ReloadAll();
         }
     }
 }

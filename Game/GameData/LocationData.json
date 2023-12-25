@@ -47,25 +47,30 @@
                 }
             }
             ,
-            {
-              "Description": "A path leading to the Frozen Tundra",
-              "FromLocationID": 1,
-              "ToLocationID": 3,
-              "RequiredItem": {
-                "ID": 1,
-                "Name": "Sword of Truth",
-                "Description": "A legendary sword with great power",
-                "Effect": {
-                  "Type": 1,
-                  "EffectScale": 20
-                },
-                "Icon": "sword-icon.png"
-              },
+          {
+            "Description": "A path leading to the Frozen Tundra",
+            "FromLocationID": 1,
+            "ToLocationID": 3,
+            "RequiredItem": {
+              "ID": 1,
+              "Name": "Sword of Truth",
+              "Description": "A legendary sword with great power",
               "Effect": {
-                  "Type": 0,
-                  "EffectScale": 10
-              }
+                "Type": 1,
+                "EffectScale": 20
+              },
+              "Icon": "sword-icon.png"
+            },
+            "Effect": {
+              "Type": 0,
+              "EffectScale": 10
             }
+          },
+          {
+            "Description": "A path leading puzzle created by TOMYSLAV",
+            "FromLocationID": 1,
+            "ToLocationID": 7
+          }
         ],
         "Enemy": {
             "Name": "Forest Troll",
@@ -182,54 +187,68 @@
         "Connections": [],
         "Enemy": null
     },
-    {
-        "LocationID": 6,
-        "Name": "Crimson Forest",
-        "Description": "A forest with red-leafed trees",
-        "Background": "forest.jpg",
-        "Actions": [],
-        "Stage": 6,
-        "Connections": [],
-        "Enemy": null
-    },
-    {
-        "LocationID": 7,
-        "Name": "Ancient Ruins",
-        "Description": "Ruins of an ancient civilization",
-        "Background": "ruins.jpg",
-        "Actions": [],
-        "Stage": 7,
-        "Connections": [],
-        "Enemy": null
-    },
-    {
-        "LocationID": 8,
-        "Name": "Bottomless Pit",
-        "Description": "A deep pit that seems to have no end",
-        "Background": "pit.jpg",
-        "Actions": [],
-        "Stage": 8,
-        "Connections": [],
-        "Enemy": null
-    },
-    {
-        "LocationID": 9,
-        "Name": "Cavern of Time",
-        "Description": "A cavern where time flows differently",
-        "Background": "cavern.jpg",
-        "Actions": [],
-        "Stage": 9,
-        "Connections": [],
-        "Enemy": null
-    },
-    {
-        "LocationID": 10,
-        "Name": "Isle of the Fey",
-        "Description": "An island inhabited by mystical creatures",
-        "Background": "isle.jpg",
-        "Actions": [],
-        "Stage": 10,
-        "Connections": [],
-        "Enemy": null
-    }
+  {
+    "LocationID": 6,
+    "Name": "Crimson Forest",
+    "Description": "A forest with red-leafed trees",
+    "Background": "forest.jpg",
+    "Actions": [],
+    "Stage": 6,
+    "Connections": [],
+    "Enemy": null
+  },
+  {
+    "LocationID": 7,
+    "Name": "Ancient Ruins",
+    "Description": "Math is very important: sqrt(121) = ?",
+    "Background": "ruins.jpg",
+    "PuzzleKey": "11",
+    "Actions": [],
+    "Stage": 7,
+    "Connections": [
+      {
+        "Description": "A path leading back",
+        "FromLocationID": 7,
+        "ToLocationID": 1
+      },
+      {
+        "Description": "Big iron doors, bigger than you",
+        "FromLocationID": 7,
+        "ToLocationID": 8,
+        "Locked": true
+      }
+    ],
+    "Enemy": null
+  },
+  {
+    "LocationID": 8,
+    "Name": "Bottomless Pit",
+    "Description": "A deep pit that seems to have no end",
+    "Background": "pit.jpg",
+    "Actions": [],
+    "Stage": 8,
+    "Connections": [],
+    "Enemy": null
+  },
+  {
+    "LocationID": 9,
+    "Name": "Cavern of Time",
+    "Description": "A cavern where time flows differently",
+    "Background": "cavern.jpg",
+    "Actions": [],
+    "Stage": 9,
+    "Connections": [],
+    "Enemy": null
+
+  },
+  {
+      "LocationID": 10,
+      "Name": "Isle of the Fey",
+      "Description": "An island inhabited by mystical creatures",
+      "Background": "isle.jpg",
+      "Actions": [],
+      "Stage": 10,
+      "Connections": [],
+      "Enemy": null
+  }
 ]

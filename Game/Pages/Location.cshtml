@@ -1,8 +1,6 @@
 @page
 @using Game.Services;
 @model Game.Pages.Location
-
-
 @{
 
 }
@@ -34,16 +32,19 @@
 	}
     @if (Model.lModel.PuzzleKey != null)
     {
-        <form method="POST">
-            <p>Zadejte správnou odpovìï</p>
-            <input type="text">
-            <button></button>
+        <form method="post">
+            <label for="answer">Type in the answer:</label>
+            <input type="text" id="answer" name="Answer" required />
+            <button type="submit">OK</button>
         </form>
     }
     @foreach(var v in Model.lModel.Connections)
     {
         <div>
             <p>@v.Description <a asp-page="Location" asp-route-id="@v.ToLocationID">-></a>
+                @if (v.Locked){
+                    <span style ="color: red;" >LOCKED</span>
+                }
                 @if (v.RequiredItem != null)
                 {
                     if (Model.pModel.Items != null && Model.pModel.Items.Count(a => a.ID == v.RequiredItem.ID) > 0)

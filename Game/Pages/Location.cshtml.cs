@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Text.Json;
 using Game.Services;
 using Microsoft.AspNetCore.Mvc;
-
+using Game.Models;
 
 namespace Game.Pages;
 
@@ -25,6 +25,8 @@ public class Location : PageModel
     }
     public LocationModel lModel { get; private set; }
     public PlayerModel pModel { get; set; }
+
+
 
 
     public void OnGet(int id)
@@ -64,10 +66,20 @@ public class Location : PageModel
         var temp = LocSer.GetLocation(pModel.CurrentLocationId);
         if (temp == null) lModel = LocSer.GetLocation(1);
         else lModel = temp;
-        
-
-
 
 
     }
+
+    // prozatím pouze kontrola hádanky
+    public void OnPost(LocationFormModel ffm)
+    {
+        OnGet(0);
+        if (ffm == null) return;
+        if (ffm.Answer == lModel.PuzzleKey)
+        {
+            LocSer.SolvedPuzzle(lModel.LocationID);
+            OnGet(0);
+        }
+    }
+
 }
