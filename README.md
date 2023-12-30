@@ -1,10 +1,12 @@
-# Gamebook: Escape The Fortress
+<h1>Gamebook: Escape The Fortress</h1>
 <p>Odehrávající se ve fantasy světě, konkrétně v "opuštěné" pevnosti, ze které se pokusí hráč dostat strastiplnou cestou skrz katakomby ven na svobodu.</p>
 <p>Hráč bude moct poznat v jakém podlaží je podle poškození interiéru či enemáků nebude muset koukat jen tupě na hodnoty...</p>
 <p>Dokud mě nic lepšího nenapadne, tak hlavní postava bude obyčejný lapka nebo prostě jen chudák co tam skončil.</p>
 <p>Hráč by mohl začínat v pekle a končit někde v krásné krajině okolo pevnosti, například hory při západu slunce nebo klidný les => kontrast</p>
 <p>Do popisu místností bychom mohli zakomponovat monology hráče na reakci toho kde je. Mohlo by mu vyvolat nějaké vzpomínky (Konflikty, které má sám se sebou, ...)</p>
 <p>Postava by měla mít i jinou motivaci proč z pevnosti odejít než jen pud sebezáchovy</p>
+
+<img style="display: block;" width=800 src="https://github.com/pslib-cz/2023-p3a-web-gamebook-kelbasa-matejka/assets/91247802/5d8d95cb-33d7-4c81-99cc-c133dfbeeacc">
 
 ## Mechaniky
 ### Hráč
