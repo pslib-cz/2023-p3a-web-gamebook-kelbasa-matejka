@@ -71,15 +71,15 @@ public class Location : PageModel
     }
 
     // prozatím pouze kontrola hádanky
-    public void OnPost(LocationFormModel ffm)
+    public IActionResult OnPostGuessPuzzle(LocationFormModel ffm)
     {
         OnGet(0);
-        if (ffm == null) return;
+        if (ffm == null || lModel.PuzzleKey == null) return Page();
         if (ffm.Answer == lModel.PuzzleKey)
         {
             LocSer.SolvedPuzzle(lModel.LocationID);
-            OnGet(0);
         }
+        return Page();
     }
 
 }
