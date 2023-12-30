@@ -32,11 +32,7 @@
 	}
     @if (Model.lModel.PuzzleKey != null)
     {
-        <form method="post">
-            <label for="answer">Type in the answer:</label>
-            <input type="text" id="answer" name="Answer" required />
-            <button type="submit">OK</button>
-        </form>
+        @await Html.PartialAsync("PuzzleForm", Model);
     }
     @foreach(var v in Model.lModel.Connections)
     {
