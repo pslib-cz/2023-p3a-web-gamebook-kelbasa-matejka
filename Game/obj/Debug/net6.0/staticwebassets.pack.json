@@ -5,6 +5,82 @@
       "PackagePath": "staticwebassets\\Game.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\tomas\\source\\repos\\2023-p3a-web-gamebook-kelbasa-matejka\\Game\\wwwroot\\Assets\\Fortress.png",
+      "PackagePath": "staticwebassets\\Assets\\Fortress.png"
+    },
+    {
+      "Id": "C:\\Users\\tomas\\source\\repos\\2023-p3a-web-gamebook-kelbasa-matejka\\Game\\wwwroot\\Assets\\bg_1.png",
+      "PackagePath": "staticwebassets\\Assets\\bg_1.png"
+    },
+    {
+      "Id": "C:\\Users\\tomas\\source\\repos\\2023-p3a-web-gamebook-kelbasa-matejka\\Game\\wwwroot\\Assets\\bg_10.png",
+      "PackagePath": "staticwebassets\\Assets\\bg_10.png"
+    },
+    {
+      "Id": "C:\\Users\\tomas\\source\\repos\\2023-p3a-web-gamebook-kelbasa-matejka\\Game\\wwwroot\\Assets\\bg_11.png",
+      "PackagePath": "staticwebassets\\Assets\\bg_11.png"
+    },
+    {
+      "Id": "C:\\Users\\tomas\\source\\repos\\2023-p3a-web-gamebook-kelbasa-matejka\\Game\\wwwroot\\Assets\\bg_12.png",
+      "PackagePath": "staticwebassets\\Assets\\bg_12.png"
+    },
+    {
+      "Id": "C:\\Users\\tomas\\source\\repos\\2023-p3a-web-gamebook-kelbasa-matejka\\Game\\wwwroot\\Assets\\bg_13.png",
+      "PackagePath": "staticwebassets\\Assets\\bg_13.png"
+    },
+    {
+      "Id": "C:\\Users\\tomas\\source\\repos\\2023-p3a-web-gamebook-kelbasa-matejka\\Game\\wwwroot\\Assets\\bg_14.png",
+      "PackagePath": "staticwebassets\\Assets\\bg_14.png"
+    },
+    {
+      "Id": "C:\\Users\\tomas\\source\\repos\\2023-p3a-web-gamebook-kelbasa-matejka\\Game\\wwwroot\\Assets\\bg_15.png",
+      "PackagePath": "staticwebassets\\Assets\\bg_15.png"
+    },
+    {
+      "Id": "C:\\Users\\tomas\\source\\repos\\2023-p3a-web-gamebook-kelbasa-matejka\\Game\\wwwroot\\Assets\\bg_16.png",
+      "PackagePath": "staticwebassets\\Assets\\bg_16.png"
+    },
+    {
+      "Id": "C:\\Users\\tomas\\source\\repos\\2023-p3a-web-gamebook-kelbasa-matejka\\Game\\wwwroot\\Assets\\bg_17.png",
+      "PackagePath": "staticwebassets\\Assets\\bg_17.png"
+    },
+    {
+      "Id": "C:\\Users\\tomas\\source\\repos\\2023-p3a-web-gamebook-kelbasa-matejka\\Game\\wwwroot\\Assets\\bg_18.png",
+      "PackagePath": "staticwebassets\\Assets\\bg_18.png"
+    },
+    {
+      "Id": "C:\\Users\\tomas\\source\\repos\\2023-p3a-web-gamebook-kelbasa-matejka\\Game\\wwwroot\\Assets\\bg_2.png",
+      "PackagePath": "staticwebassets\\Assets\\bg_2.png"
+    },
+    {
+      "Id": "C:\\Users\\tomas\\source\\repos\\2023-p3a-web-gamebook-kelbasa-matejka\\Game\\wwwroot\\Assets\\bg_3.png",
+      "PackagePath": "staticwebassets\\Assets\\bg_3.png"
+    },
+    {
+      "Id": "C:\\Users\\tomas\\source\\repos\\2023-p3a-web-gamebook-kelbasa-matejka\\Game\\wwwroot\\Assets\\bg_4.png",
+      "PackagePath": "staticwebassets\\Assets\\bg_4.png"
+    },
+    {
+      "Id": "C:\\Users\\tomas\\source\\repos\\2023-p3a-web-gamebook-kelbasa-matejka\\Game\\wwwroot\\Assets\\bg_5.png",
+      "PackagePath": "staticwebassets\\Assets\\bg_5.png"
+    },
+    {
+      "Id": "C:\\Users\\tomas\\source\\repos\\2023-p3a-web-gamebook-kelbasa-matejka\\Game\\wwwroot\\Assets\\bg_6.png",
+      "PackagePath": "staticwebassets\\Assets\\bg_6.png"
+    },
+    {
+      "Id": "C:\\Users\\tomas\\source\\repos\\2023-p3a-web-gamebook-kelbasa-matejka\\Game\\wwwroot\\Assets\\bg_7.png",
+      "PackagePath": "staticwebassets\\Assets\\bg_7.png"
+    },
+    {
+      "Id": "C:\\Users\\tomas\\source\\repos\\2023-p3a-web-gamebook-kelbasa-matejka\\Game\\wwwroot\\Assets\\bg_8.png",
+      "PackagePath": "staticwebassets\\Assets\\bg_8.png"
+    },
+    {
+      "Id": "C:\\Users\\tomas\\source\\repos\\2023-p3a-web-gamebook-kelbasa-matejka\\Game\\wwwroot\\Assets\\bg_9.png",
+      "PackagePath": "staticwebassets\\Assets\\bg_9.png"
+    },
+    {
       "Id": "C:\\Users\\tomas\\source\\repos\\2023-p3a-web-gamebook-kelbasa-matejka\\Game\\wwwroot\\Assets\\forest_background.png",
       "PackagePath": "staticwebassets\\Assets\\forest_background.png"
     },
