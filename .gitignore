@@ -1,4 +1,6 @@
-./Game/.idea
-./Game/.vs
+Game/.idea
+Game/.vs
 .vs
 .idea
+Game/bin
+Game/obj
