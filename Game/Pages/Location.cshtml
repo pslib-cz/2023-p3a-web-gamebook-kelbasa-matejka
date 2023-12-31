@@ -32,7 +32,11 @@
 	}
     @if (Model.lModel.PuzzleKey != null)
     {
-        @await Html.PartialAsync("PuzzleForm", Model);
+        <form method="post">
+            <label for="answer">Type in the answer:</label>
+            <input type="text" id="answer" name="Answer" required />
+            <button asp-page-handler="GuessPuzzle" type="submit">OK</button>
+        </form>
     }
     @foreach(var v in Model.lModel.Connections)
     {
