@@ -76,7 +76,7 @@
             "Name": "Forest Troll",
             "Damage": 15,
             "Hp": 50,
-            "Img": "troll_img.png",
+            "Img": "ForestTroll.png",
             "NumberOfAttacks": 2
         }
     },

@@ -6,33 +6,19 @@ using Game.Models;
 
 namespace Game.Pages;
 
-public class Location : PageModel
+public class Location(LocationService ls, ISessionService ss, EffectService es, PlayerService ps)
+    : PageModel
 {
-    private readonly LocationService LocSer;
-    private readonly ISessionService SessionSer;
-    private readonly EffectService EffSer;
-    private readonly PlayerService PlayerSer;
-
     private static readonly string PLAYER = "PlayerSessionKey";
     private static readonly int WINNING_LOCATION_ID = 3;
-    
-    public Location(LocationService ls, ISessionService ss, EffectService es, PlayerService ps)
-    {
-        LocSer = ls;
-        SessionSer = ss;
-        EffSer = es;
-        PlayerSer = ps;     
-    }
+
     public LocationModel lModel { get; private set; }
     public PlayerModel pModel { get; set; }
-
-
-
 
     public void OnGet(int id)
     {
         //SESSION LOAD
-        pModel = SessionSer.GetSession<PlayerModel>(HttpContext, PLAYER);
+        pModel = ss.GetSession<PlayerModel>(HttpContext, PLAYER);
 
 
         int last = pModel.CurrentLocationId;
@@ -42,16 +28,16 @@ public class Location : PageModel
             Response.Redirect("Endgame");
         }
 
-        if (id > 0 && last > 0 && LocSer.ExistsLocation(id))
+        if (id > 0 && last > 0 && ls.ExistsLocation(id))
         {
-            if (LocSer.IsNavigationLegitimate(last, id, pModel))
+            if (ls.IsNavigationLegitimate(last, id, pModel))
             {
-                var con = LocSer.GetConnection(last, id);
+                var con = ls.GetConnection(last, id);
                 ;
-                if (con.Effect != null && !PlayerSer.ConnectionWasUsed(pModel, con.FromLocationID, con.ToLocationID))
+                if (con.Effect != null && !ps.ConnectionWasUsed(pModel, con.FromLocationID, con.ToLocationID))
                 {
-                    EffSer.ApplyEffect(con.Effect, pModel);
-                    PlayerSer.SaveUsedConnection(pModel, con.FromLocationID, con.ToLocationID);
+                    es.ApplyEffect(con.Effect, pModel);
+                    ps.SaveUsedConnection(pModel, con.FromLocationID, con.ToLocationID);
 
                 }
                 pModel.CurrentLocationId = id;
@@ -62,9 +48,9 @@ public class Location : PageModel
         {
             Response.Redirect("Endgame");
         }
-        SessionSer.SaveSession<PlayerModel>(HttpContext, PLAYER, pModel);
-        var temp = LocSer.GetLocation(pModel.CurrentLocationId);
-        if (temp == null) lModel = LocSer.GetLocation(1);
+        ss.SaveSession<PlayerModel>(HttpContext, PLAYER, pModel);
+        var temp = ls.GetLocation(pModel.CurrentLocationId);
+        if (temp == null) lModel = ls.GetLocation(1);
         else lModel = temp;
 
 
@@ -77,8 +63,29 @@ public class Location : PageModel
         if (ffm == null || lModel.PuzzleKey == null) return Page();
         if (ffm.Answer == lModel.PuzzleKey)
         {
-            LocSer.SolvedPuzzle(lModel.LocationID);
+            ls.SolvedPuzzle(lModel.LocationID);
         }
+        return Page();
+    }
+    
+    // probehne kolo utoku mezi hracem a enemakem
+    public IActionResult OnPostAttack(string attackType)
+    {
+        if (attackType == "WeakAttack")
+        {
+            
+        }
+        else if (attackType == "StrongAttack")
+        {
+            // Logika pro silný útok
+        }
+
+        return Page();
+    }
+
+    // Metoda pro použití pøedmìtu
+    public IActionResult OnPostUseItem()
+    {
         return Page();
     }
 

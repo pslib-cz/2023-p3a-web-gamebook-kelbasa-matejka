@@ -22,6 +22,10 @@
 ### Souboje
 <ul>
     <li>Hráč i protivník mají šanci na blok</li>
+    <li>Hráč i protivník mají šanci na kritický zásah</li>
+    <li>Na protivníka lze použít item, který ho instakillne</li>
+    <li>Lze použít consumables</li>
+    <li>Na výběr bude z klasického útoku a silného, silný bude ubírat více než půlku energie hráče</li>
 </ul>
 
 ### Hádanky
