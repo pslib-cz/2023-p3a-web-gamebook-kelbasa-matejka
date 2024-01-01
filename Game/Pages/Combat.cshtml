@@ -1,10 +1,18 @@
 ﻿<div>
     <img src="Assets/Enemy/@Model.lModel.Enemy.Img" alt="@Model.lModel.Enemy.Name">
     <h2>@Model.lModel.Enemy.Name</h2>
-    <h2>@Model.pModel.CombatState.CurrentEnemyHp hp</h2>
-    <form method="post">
-        <button asp-page-handler="Attack" type="submit">Útok</button>
-        <button asp-page-handler="StrongAttack" type="submit">Silný útok</button>
-        <button asp-page-handler="UseItem" type="submit">Použít předmět</button>
-    </form>
+    
+    @if (!Model.pModel.CombatState.CleanedLocations.Contains(Model.lModel.LocationID))
+    {
+        <h2>@Model.pModel.CombatState.CurrentEnemyHp hp</h2>
+        <form method="post">
+            <button asp-page-handler="Attack"  type="submit" name="attackType" value="WeakAttack">Slabý Útok</button>
+            <button asp-page-handler="Attack" type="submit" name="attackType" value="StrongAttack">Silný Útok</button>
+        </form>    
+    }
+    else
+    {
+        <h2>Už jsi zabil tohoto nepřítele</h2>
+    }
+    
 </div>
