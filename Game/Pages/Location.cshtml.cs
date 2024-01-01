@@ -33,7 +33,11 @@ public class Location(LocationService ls, ISessionService ss, EffectService es, 
             if (ls.IsNavigationLegitimate(last, id, pModel))
             {
                 var con = ls.GetConnection(last, id);
-                ;
+                if(pModel.CombatState.CurrentEnemyHp == 0 && lModel.Enemy != null)
+                {
+                    pModel.CombatState.CurrentEnemyHp = lModel.Enemy.Hp;
+                }
+                
                 if (con.Effect != null && !ps.ConnectionWasUsed(pModel, con.FromLocationID, con.ToLocationID))
                 {
                     es.ApplyEffect(con.Effect, pModel);

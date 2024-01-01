@@ -10,5 +10,6 @@ namespace Game {
         public int Energy { get; set; }
         public int Resistance { get; set; }
         public List<ShortConnection> VisitedConnections { get; set; }
+        public CombatStateModel CombatState { get; set; }
     }
 }

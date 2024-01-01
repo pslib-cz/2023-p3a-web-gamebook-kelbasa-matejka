@@ -1,7 +1,7 @@
 ﻿<div>
     <img src="Assets/Enemy/@Model.lModel.Enemy.Img" alt="@Model.lModel.Enemy.Name">
     <h2>@Model.lModel.Enemy.Name</h2>
-    <h2>@Model.lModel.Enemy.Hp hp</h2>
+    <h2>@Model.pModel.CombatState.CurrentEnemyHp hp</h2>
     <form method="post">
         <button asp-page-handler="Attack" type="submit">Útok</button>
         <button asp-page-handler="StrongAttack" type="submit">Silný útok</button>

@@ -26,5 +26,9 @@
   "CurrentLocationId": 1,
   "Energy": 100,
   "Damage": 15,
-  "Resistance": 10
+  "Resistance": 10,
+  "CombatState": {
+    "CurrentEnemyHp": 0,
+    "CleanedLocations": []
+  }
 }
