@@ -7,9 +7,6 @@ namespace Game.Services
     {
         private static readonly string DEFAULT_PLAYER_JSON = File.ReadAllText(@"GameData/Player.json");
 
-        public PlayerService() { 
-        
-        }
 
         public PlayerModel CreateDefaultModel()
         {
@@ -33,6 +30,20 @@ namespace Game.Services
             }
             Console.WriteLine("Počet shod s " + from + " -> " + to + " je " + det);
             return det >= 1;
+        }
+        
+        public void PlayerAttack(PlayerModel p, AttackTypeModel a)
+        {
+            if (p.Energy >= 15 * (int)a)
+            {
+                p.CombatState.CurrentEnemyHp = (p.Damage*(int)a >= p.CombatState.CurrentEnemyHp) ? 0 : p.CombatState.CurrentEnemyHp - p.Damage*(int)a;
+                p.Energy -= 15 * (int)a;
+            }
+            if (p.CombatState.CurrentEnemyHp <= 0)
+            {
+                p.CombatState.CleanedLocations.Add(p.CurrentLocationId);
+            }
+        
         }
     }
 }

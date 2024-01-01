@@ -1,4 +1,5 @@
 using System.Text.Json;
+using Game.Models;
 
 namespace Game.Services;
 
@@ -58,7 +59,7 @@ public class LocationService
         }
         return false;
     }
-
+    
     public void SolvedPuzzle(int fromID)
     {
         for(int i = 0; i < Connections.Count; i++)
@@ -68,6 +69,29 @@ public class LocationService
         var l = GetLocation(fromID);
         l.Description += " Answer was: " + l.PuzzleKey;
         l.PuzzleKey = null;
+    }
+    
+    
+    
+    public static void EnemyAttack(EnemyModel e, PlayerModel p)
+    {
+        if (p.CombatState.CurrentEnemyHp > 0)
+        {
+            p.Hp -= CalculateDamage(e.Damage);
+        }
+    }
+    
+    public static int CalculateDamage(int d)
+    {
+        switch(Random.Shared.Next(0, 10))
+{
+            case 0:
+                return d * 2;
+            case 1:
+                return d/2;
+            default:
+                return d;
+        }
     }
     
     
