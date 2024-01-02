@@ -5,39 +5,46 @@
     ViewData["Title"] = Model.lModel.Name;
 }
 
-<div class="location" style="background-image: url(Assets/LocationsBg/@Model.lModel.Background);">
-    <h1>@Model.lModel.Name</h1>
-    <p>@Model.lModel.Description</p>
-    <div>
+<main style="background-image: url(Assets/LocationsBg/@Model.lModel.Background);">
+    <div class="cont">
+        <h1>@Model.lModel.Name</h1>
+        <p>@Model.lModel.Description</p>    
+    </div>
+    
+
+    @if (Model.lModel.Enemy != null)
+    {
+        @await Html.PartialAsync("Combat", Model)
+    }
+    @if (Model.lModel.PuzzleKey != null)
+    {
+        @await Html.PartialAsync("PuzzleForm", Model)
+    }
+
+    <div class="cont">
         <h2>Player: </h2>
         <p>Player has @Model.pModel.Hp HP</p>
         <p>Player deals @Model.pModel.Damage DMG</p>
         <p>Player energy: @Model.pModel.Energy</p>
         <p>Player is in location #@Model.pModel.CurrentLocationId</p>
         <p>Players inventory: </p>
-        @if (Model.pModel.Items != null) {
-        <ul>
-        @foreach(var item in Model.pModel.Items)
+        @if (Model.pModel.Items != null)
         {
-            <li>@item.Name - @item.Description</li>
-        }
-        </ul>
+            <ul>
+                @foreach (var item in Model.pModel.Items)
+                {
+                    <li>@item.Name - @item.Description</li>
+                }
+            </ul>
         }
     </div>
-	@if (Model.lModel.Enemy != null)
-	{
-	    @await Html.PartialAsync("Combat", Model)
-	}
-    @if (Model.lModel.PuzzleKey != null)
-    {
-        @await Html.PartialAsync("PuzzleForm", Model)
-    }
-    @foreach(var v in Model.lModel.Connections)
+    @foreach (var v in Model.lModel.Connections)
     {
         <div>
             <p>@v.Description <a asp-page="Location" asp-route-id="@v.ToLocationID">-></a>
-                @if (v.Locked){
-                    <span style ="color: red;" >LOCKED</span>
+                @if (v.Locked)
+                {
+                    <span style="color: red;">LOCKED</span>
                 }
                 @if (v.RequiredItem != null)
                 {
@@ -49,10 +56,10 @@
                     {
                         <span style="color: red;">@v.RequiredItem.Name is required</span>
                     }
-                    
+
                 }
             </p>
-        </div>   
+        </div>
     }
-</div>
+</main>
 <script src="/_framework/aspnetcore-browser-refresh.js"></script>
