@@ -8,10 +8,20 @@
     <h1>Escape The Fortress</h1>
     <menu>
         <a asp-page="/Location" asp-route-id="1">Začít dobrodružství</a>
-        <a>O hře</a>
+        <form method="post">
+            <button type="submit" asp-page-handler="ShowInfo">O hře</button>
+        </form>
     </menu>
-    <div id="about" class="home-about">
-        <p>Hokus pokus ja ztratil svůj fokus</p>
-    </div>
+    @if (Model.ShowInfo)
+    {
+        <div id="about" class="home-about">
+            <p>Hokus pokus ja ztratil svůj fokus</p>
+            <form method="post">
+                <button type="submit" asp-page-handler="HideInfo">Schovat</button>
+            </form>
+        </div>
+
+    }
+
 </div>
 

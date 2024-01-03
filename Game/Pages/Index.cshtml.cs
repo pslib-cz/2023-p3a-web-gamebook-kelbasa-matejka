@@ -14,6 +14,8 @@ namespace Game.Pages
         private ISessionService sessionService;
         private LocationService locationService;
 
+        public bool ShowInfo { get; set; }
+        
         public IndexModel(PlayerService ps, ISessionService ss, LocationService ls)
         {
             playerService = ps;
@@ -26,6 +28,19 @@ namespace Game.Pages
         {
             sessionService.SaveSession<PlayerModel>(HttpContext, PLAYER_KEY, playerService.CreateDefaultModel());
             locationService.ReloadAll();
+        }
+
+        public IActionResult OnPostShowInfo()
+        {
+            ShowInfo = true;
+            Console.WriteLine("show info is" + ShowInfo);
+            return Page();
+        }
+
+        public IActionResult OnPostHideInfo()
+        {
+            ShowInfo = false;
+            return Page();
         }
     }
 }
