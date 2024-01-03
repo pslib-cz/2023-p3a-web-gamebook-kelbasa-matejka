@@ -1,5 +1,5 @@
 ﻿<form method="post">
     <label for="answer">Type in the answer:</label>
     <input type="text" id="answer" name="Answer" required />
-    <button asp-page-handler="GuessPuzzle" type="submit">Odeslat</button>
+    <button asp-page-handler="GuessPuzzle" onsubmit="(e) => e.preventDefault()" type="submit">Odeslat</button>
 </form>

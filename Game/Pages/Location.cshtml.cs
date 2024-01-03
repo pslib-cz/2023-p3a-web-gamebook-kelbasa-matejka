@@ -17,9 +17,7 @@ public class Location(LocationService ls, ISessionService ss, EffectService es, 
 
     public void OnGet(int id)
     {
-        //SESSION LOAD
-        pModel = ss.GetSession<PlayerModel>(HttpContext, PLAYER);
-
+        LoadPlayer();
 
         int last = pModel.CurrentLocationId;
 
@@ -68,10 +66,11 @@ public class Location(LocationService ls, ISessionService ss, EffectService es, 
         }
     }
 
-    // prozatím pouze kontrola hádanky
+    // prozatï¿½m pouze kontrola hï¿½danky
     public IActionResult OnPostGuessPuzzle(LocationFormModel ffm)
     {
-        OnGet(0);
+        LoadPlayer();
+        lModel = ls.GetLocation(pModel.CurrentLocationId);
         if (ffm == null || lModel.PuzzleKey == null) return Page();
         if (ffm.Answer == lModel.PuzzleKey)
         {
@@ -88,7 +87,8 @@ public class Location(LocationService ls, ISessionService ss, EffectService es, 
     // probehne kolo utoku mezi hracem a enemakem
     public IActionResult OnPostAttack(string attackType)
     {
-        OnGet(0);
+        LoadPlayer();
+        lModel = ls.GetLocation(pModel.CurrentLocationId);
         if (attackType == "WeakAttack" && pModel.Energy >= 15)
         {
             ps.PlayerAttack(pModel, AttackTypeModel.classic);
@@ -102,7 +102,7 @@ public class Location(LocationService ls, ISessionService ss, EffectService es, 
         return Page();
     }
 
-    // Metoda pro použití pøedmìtu
+    // Metoda pro pouï¿½itï¿½ pï¿½edmï¿½tu
     public IActionResult OnPostUseItem()
     {
         OnGet(0);
@@ -112,6 +112,11 @@ public class Location(LocationService ls, ISessionService ss, EffectService es, 
     public void SavePlayer()
     {
         ss.SaveSession<PlayerModel>(HttpContext, PLAYER, pModel);
+    }
+
+    public void LoadPlayer()
+    {
+        pModel = ss.GetSession<PlayerModel>(HttpContext, PLAYER);
     }
 
 }
