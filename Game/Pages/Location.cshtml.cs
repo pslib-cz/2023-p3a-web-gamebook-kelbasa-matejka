@@ -50,7 +50,7 @@ public class Location(LocationService ls, ISessionService ss, EffectService es, 
         {
             Response.Redirect("Endgame");
         }
-        ss.SaveSession<PlayerModel>(HttpContext, PLAYER, pModel);
+        SavePlayer();
         var temp = ls.GetLocation(pModel.CurrentLocationId);
         if (temp == null) lModel = ls.GetLocation(1);
         else lModel = temp;

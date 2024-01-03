@@ -4,6 +4,7 @@
     
     @if (!Model.pModel.CombatState.CleanedLocations.Contains(Model.lModel.LocationID))
     {
+        //HEALTHBAR
         <h2>@Model.pModel.CombatState.CurrentEnemyHp hp</h2>
         <form method="post">
             <button asp-page-handler="Attack"  type="submit" name="attackType" value="WeakAttack">Slabý Útok</button>
@@ -12,7 +13,7 @@
     }
     else
     {
-        <h2>Už jsi zabil tohoto nepřítele</h2>
+        <h2>Nepřítel je poražen</h2>
     }
     
 </div>
