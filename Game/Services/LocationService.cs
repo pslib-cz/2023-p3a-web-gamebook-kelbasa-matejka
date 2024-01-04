@@ -51,7 +51,10 @@ public class LocationService
             if(IsNavigationLegitimate(fromID, toID))
             {
                 var connection = GetConnection(fromID, toID);
-                if (connection.Locked) return false;
+                if (connection.Locked)
+                {
+                    if(!p.SolvedPuzzleLocations.Contains(fromID)) return false;
+                }
                 if (connection.RequiredItem == null) return true;
                 if (p.Items.Count(a => a.ID == connection.RequiredItem?.ID) > 0) return true;
             }
@@ -66,9 +69,6 @@ public class LocationService
         {
             if (Connections[i].FromLocationID == fromID) Connections[i].Locked = false;
         }
-        var l = GetLocation(fromID);
-        l.Description += " Answer was: " + l.PuzzleKey;
-        l.PuzzleKey = null;
     }
     
     

@@ -67,23 +67,42 @@ public class Location(LocationService ls, ISessionService ss, EffectService es, 
     }
 
     // prozat�m pouze kontrola h�danky
-    public IActionResult OnPostGuessPuzzle(LocationFormModel ffm)
+    public IActionResult OnPostGuessPuzzle(PuzzleFormModel ffm)
     {
         LoadPlayer();
         lModel = ls.GetLocation(pModel.CurrentLocationId);
-        if (ffm == null || lModel.PuzzleKey == null) return Page();
+        if (ffm == null || lModel.PuzzleKey == null || pModel.SolvedPuzzleLocations.Contains(lModel.LocationID)) return Page();
         if (ffm.Answer == lModel.PuzzleKey)
         {
+            pModel.SolvedPuzzleLocations.Add(lModel.LocationID);
             ls.SolvedPuzzle(lModel.LocationID);
         }
         else
         {
-            pModel.Hp -= 10;
-            SavePlayer();
+            es.ApplyEffect(new EffectModel { EffectScale = -10, Type = EffectTypeModel.Health }, pModel);
         }
+        SavePlayer();
         return Page();
     }
-    
+
+
+    public IActionResult OnPostPickUpItem(int ItemID)
+    {
+        LoadPlayer();
+        lModel = ls.GetLocation(pModel.CurrentLocationId);
+
+        if(pModel.PickedUpItems.Contains(ItemID) || !lModel.Items.Select(a => a.ID).Contains(ItemID))
+        {
+            return Page();
+        }
+
+        pModel.Items.Add(lModel.Items.Where(a => a.ID == ItemID).First());
+        pModel.PickedUpItems.Add(ItemID);
+        SavePlayer();
+        return Page();
+    }
+
+
     // probehne kolo utoku mezi hracem a enemakem
     public IActionResult OnPostAttack(string attackType)
     {

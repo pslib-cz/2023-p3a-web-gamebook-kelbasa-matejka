@@ -12,19 +12,15 @@
               "ToLocationID": 2,
 
               "RequiredItem": {
-                "ID": 3,
-                "Name": "Magic Lantern",
-                "Description": "A lantern that reveals the unseen",
-                "Effect": {
-                  "Type": 2,
-                  "EffectScale": 1
-                },
-                "Icon": "lantern_icon.png"
+                "ID": 5,
+                "Name": "Rusty key",
+                "Description": "This key must have rusted in the pit for hundreds of years"
               },
-                "Effect": {
-                    "Type": 0,
-                    "EffectScale": -5
-                }
+
+              "Effect": {
+                  "Type": 0,
+                  "EffectScale": -5
+              }
             }
             ,
           {
@@ -180,7 +176,21 @@
     "Description": "A deep pit that seems to have no end",
     "Background": "pit.jpg",
     "Stage": 8,
-    "Connections": [],
+    "Connections": [
+      {
+        "Description": "Path leading back from the pit",
+        "FromLocationID": 8,
+        "ToLocationID": 7,
+        "Locked": false
+      }
+    ],
+    "Items": [
+      {
+        "ID": 5,
+        "Name": "Rusty key",
+        "Description": "This key must have rusted in the pit for hundreds of years"
+      }
+    ],
     "Enemy": null
   },
   {

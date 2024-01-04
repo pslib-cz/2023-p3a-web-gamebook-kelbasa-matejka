@@ -1,6 +1,6 @@
 ﻿namespace Game.Models
 {
-    public class LocationFormModel
+    public class PuzzleFormModel
     {
         public string Answer { get; set; }
     }
