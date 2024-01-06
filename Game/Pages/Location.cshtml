@@ -5,7 +5,7 @@
     ViewData["Title"] = Model.lModel.Name;
 }
 
-<main style="background-image: url(Assets/LocationsBg/@Model.lModel.Background);">
+<main class="location" style="background-image: url(Assets/LocationsBg/@Model.lModel.Background);">
     <div class="cont">
         <h1>@Model.lModel.Name</h1>
         <p>@Model.lModel.Description</p>    
@@ -20,8 +20,12 @@
     {
         @await Html.PartialAsync("PuzzleForm", Model)
     }
+    @if (Model.lModel.Items != null && Model.lModel.Items.Count > 0)
+    {
+        @await Html.PartialAsync("Items", Model)
+    }
 
-    <div class="cont">
+    <section class="cont">
         <h2>Player: </h2>
         <p>Player has @Model.pModel.Hp HP</p>
         <p>Player deals @Model.pModel.Damage DMG</p>
@@ -37,10 +41,10 @@
                 }
             </ul>
         }
-    </div>
+    </section>
     @foreach (var v in Model.lModel.Connections)
     {
-        <div>
+        <section class="location__signpost">
             <p>@v.Description <a asp-page="Location" asp-route-id="@v.ToLocationID">-></a>
                 @if (v.Locked)
                 {
@@ -59,24 +63,9 @@
 
                 }
             </p>
-        </div>
+        </section>
     }
 
-    <div class="pick-ups">
-        @foreach(var i in Model.lModel.Items)
-        {
-            @if (!Model.pModel.PickedUpItems.Contains(i.ID))
-            {
-                <div>
-                    <p>@i.Name</p>
-                    <form method="post">
-                        <input hidden name="ItemID" value="@i.ID" />
-                        <button type="submit" asp-page-handler="PickUpItem">Pick up</button>
-                    </form>
-                    
-                </div>
-            }
-        }
-    </div>
+    
 </main>
 <script src="/_framework/aspnetcore-browser-refresh.js"></script>
