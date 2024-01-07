@@ -1,0 +1,16 @@
+﻿<div class="pick-ups">
+    @foreach(var i in Model.lModel.Items)
+    {
+        @if (!Model.pModel.PickedUpItems.Contains(i.ID))
+        {
+            <div>
+                <p>@i.Name</p>
+                <form method="post">
+                    <input hidden name="ItemID" value="@i.ID" />
+                    <button type="submit" asp-page-handler="PickUpItem">Pick up</button>
+                </form>
+                         
+            </div>
+        }
+    }
+</div>

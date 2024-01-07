@@ -1,12 +1,13 @@
 :root {
-    
+    --bg: rgb(37, 37, 37, .8);
 }
 
 body {
     background-color: black;
     margin:0;
-    padding:0;
     color:white;
+    height: 100svh;
+    overflow: hidden;
 }
 
 a {
@@ -14,22 +15,47 @@ a {
     text-decoration: none;
 }
 
-main {
-    overflow: hidden;
+.location {
+    height: 100%;
     background-size: cover;
-    //height: 100svh;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     padding: 1rem;
+    gap: 2rem;
+    position: relative;
+    
+}
+
+.location > * {
+    flex: 1 1 auto;
 }
 
 .cont {
+    padding: 1rem;
+    border-radius: 1.875rem;
+    background: var(--bg);
+    backdrop-filter: blur(15px);
+}
+
+.combat {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     padding: 1rem;
-    
+    gap: 1rem;
+}
+
+.combat__enemy { 
+    width: 100%;
+    object-fit: contain;
+}
+
+.location__signpost {
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%, -50%);
 }
