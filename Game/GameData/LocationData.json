@@ -1,215 +1,157 @@
 [
-    {
-        "LocationID": 1,
-        "Name": "Ancient Forest",
-        "Description": "A mysterious forest that has stood for thousands of years.",
-        "Background": "forest_background.png",
-        "Stage": 2,
-        "Connections": [
-            {
-              "Description": "A path leading to the Dark Mountains",
-              "FromLocationID": 1,
-              "ToLocationID": 2,
-
-              "RequiredItem": {
-                "ID": 5,
-                "Name": "Rusty key",
-                "Description": "This key must have rusted in the pit for hundreds of years"
-              },
-
-              "Effect": {
-                  "Type": 0,
-                  "EffectScale": -5
-              }
-            }
-            ,
-          {
-            "Description": "A path leading to the Frozen Tundra",
-            "FromLocationID": 1,
-            "ToLocationID": 3,
-            "RequiredItem": {
-              "ID": 1,
-              "Name": "Sword of Truth",
-              "Description": "A legendary sword with great power",
-              "Effect": {
-                "Type": 1,
-                "EffectScale": 20
-              },
-              "Icon": "sword-icon.png"
-            },
-            "Effect": {
-              "Type": 0,
-              "EffectScale": 10
-            }
-          },
-          {
-            "Description": "A path leading puzzle created by TOMYSLAV",
-            "FromLocationID": 1,
-            "ToLocationID": 7
-          }
-        ],
-        "Enemy": {
-            "Name": "Forest Troll",
-            "Damage": 15,
-            "Hp": 50,
-            "Img": "ForestTroll.png",
-            "NumberOfAttacks": 2
-        }
-    },
-    {
-        "LocationID": 2,
-        "Name": "Lava Pits",
-        "Description": "Bubbling pools of lava",
-        "Background": "lava.jpg",
-        "Stage": 2,
-        "Connections": [
-          {
-            "Description": "A path leading back to beginning",
-            "FromLocationID": 2,
-            "ToLocationID": 1
-          }
-        ],
-        "Enemy": null
-    },
-    {
-        "LocationID": 3,
-        "Name": "Frozen Tundra",
-        "Description": "A vast and cold barren land",
-        "Background": "tundra.jpg",
-        "Stage": 3,
-      "Connections": [
-        {
-          "Description": "A path leading back to beginning",
-          "FromLocationID": 3,
-          "ToLocationID": 1
-        },
-        {
-          "Description": "A path leading to victory",
-          "FromLocationID": 3,
-          "ToLocationID": -1
-        },
-        {
-          "Description": "A road taking you to haunted mansion",
-          "FromLocationID": 3,
-          "ToLocationID": 4,
-          "Effect": {
-            "Type": 0,
-            "EffectScale": -200
-          }
-        }
-      ],
-        "Enemy": null
-    },
   {
-    "LocationID": 4,
-    "Name": "Haunted Mansion",
-    "Description": "An old mansion rumored to be haunted",
-    "Background": "mansion.jpg",
-    "Stage": 4,
+    "LocationID": 1,
+    "Name": "Hluboká jáma",
+    "Description": "Nacházíš se úplně na dně hluboké kamenné jámy, stěny jsou mírně vlhké a v dálce slyšíš nějaké cvakání",
+    "Background": "deep_pit.png",
+    "Stage": 1,
     "Connections": [
       {
-        "Description": "A path leading back to Frozen Tundra",
-        "FromLocationID": 4,
-        "ToLocationID": 3
-      },
-      {
-        "Description": "A path leading to unknow location",
-        "FromLocationID": 4,
-        "ToLocationID": 5,
+        "Description": "Cesta vedoucí nahoru z jámy, bez lana se nahoru nedostaneš",
+        "FromLocationID": 1,
+        "ToLocationID": 2,
         "RequiredItem": {
-          "ID": 3,
-          "Name": "Magic Lantern",
-          "Description": "A lantern that reveals the unseen",
-          "Effect": {
-            "Type": 2,
-            "EffectScale": 1
-          },
-          "Icon": "lantern_icon.png"
+          "ID": 1,
+          "Name": "Dlouhé lano",
+          "Description": "Staré ale pevné lano"
         }
-      }
-    ],
-    "Enemy": null
-  },
-    {
-        "LocationID": 5,
-        "Name": "Mystic Mountains",
-        "Description": "Tall mountains shrouded in mystery",
-        "Background": "mountains.jpg",
-        "Stage": 5,
-        "Connections": [],
-        "Enemy": null
-    },
-  {
-    "LocationID": 6,
-    "Name": "Crimson Forest",
-    "Description": "A forest with red-leafed trees",
-    "Background": "forest.jpg",
-    "Stage": 6,
-    "Connections": [],
-    "Enemy": null
-  },
-  {
-    "LocationID": 7,
-    "Name": "Ancient Ruins",
-    "Description": "Math is very important: sqrt(121) = ?",
-    "Background": "ruins.jpg",
-    "PuzzleKey": "11",
-    "Stage": 7,
-    "Connections": [
-      {
-        "Description": "A path leading back",
-        "FromLocationID": 7,
-        "ToLocationID": 1
-      },
-      {
-        "Description": "Big iron doors, bigger than you",
-        "FromLocationID": 7,
-        "ToLocationID": 8,
-        "Locked": true
-      }
-    ],
-    "Enemy": null
-  },
-  {
-    "LocationID": 8,
-    "Name": "Bottomless Pit",
-    "Description": "A deep pit that seems to have no end",
-    "Background": "pit.jpg",
-    "Stage": 8,
-    "Connections": [
-      {
-        "Description": "Path leading back from the pit",
-        "FromLocationID": 8,
-        "ToLocationID": 7,
-        "Locked": false
       }
     ],
     "Items": [
       {
-        "ID": 5,
-        "Name": "Rusty key",
-        "Description": "This key must have rusted in the pit for hundreds of years"
+        "ID": 1,
+        "Name": "Dlouhé lano",
+        "Description": "Staré ale pevné lano",
+        "Icon": "icon_rope.png"
+      }
+    ]
+  },
+  {
+    "LocationID": 2,
+    "Name": "Jeskynní chodba",
+    "Description": "Jsi v relativně úzké jeskynní chodbě, která vznikla přírodně. Cvakání je nyní mnohem hlasitější",
+    "Background": "cave_tunnel.png",
+    "Stage": 1,
+    "Connections": [
+      {
+        "Description": "Cesta vedoucí zpět do jámy",
+        "FromLocationID": 2,
+        "ToLocationID": 1,
+        "RequiredItem": {
+          "ID": 1,
+          "Name": "Dlouhé lano",
+          "Description": "Staré ale pevné lano"
+        }
+      },
+      {
+        "Description": "Pokračovat dále chodbou",
+        "FromLocationID": 2,
+        "ToLocationID": 3
+      }
+    ]
+  },
+  {
+    "LocationID": 3,
+    "Name": "Pavoučí doupě",
+    "Description": "Nacházíš se v pavoučím doupěti, všude jsou pavučiny a nepříjemné klikavé zvuky",
+    "Background": "spiders_den.png",
+    "Stage": 1,
+    "Connections": [
+      {
+        "Description": "Cesta vedoucí zpět do jeskynní chodby",
+        "FromLocationID": 3,
+        "ToLocationID": 2
+      },
+      {
+        "Description": "Cesta vedoucí hlouběji do pavučího hnízda",
+        "FromLocationID": 3,
+        "ToLocationID": 4
+      },
+      {
+        "Description": "Cesta vedoucí do úzké chodbičky",
+        "FromLocationID": 3,
+        "ToLocationID": 6
       }
     ],
-    "Enemy": null
+    "Enemy": {
+      "Name": "Big spider",
+      "Damage": 5,
+      "Hp": 20,
+      "Img": "big_spider.png",
+      "NumberOfAttacks": 2
+    }
   },
   {
-    "LocationID": 9,
-    "Name": "Cavern of Time",
-    "Description": "A cavern where time flows differently",
-    "Background": "cavern.jpg",
-    "Stage": 9,
-    "Connections": [],
-    "Enemy": null
-
+    "LocationID": 4,
+    "Name": "Srdce pavoučího hnízda",
+    "Description": "Nacházíš se v hluboko v pavoučím hnízdě, všude je spousta pavučin a pavoučích kokonů",
+    "Background": "deep_spiders_den.png",
+    "Stage": 1,
+    "Connections": [
+      {
+        "Description": "Cesta vedoucí zpět do pavoučího hnízda",
+        "FromLocationID": 4,
+        "ToLocationID": 3
+      },
+      {
+        "Description": "Můžeš vlézt do jednoho napůl otevřeného kokonu",
+        "FromLocationID": 4,
+        "ToLocationID": 5
+      }
+    ],
+    "Enemy": {
+      "Name": "Spider queen",
+      "Damage": 10,
+      "Hp": 40,
+      "Img": "spider_queen.png",
+      "NumberOfAttacks": 2
+    }
   },
   {
-      "LocationID": 10,
-      "Name": "Isle of the Fey",
-      "Description": "An island inhabited by mystical creatures",
-      "Background": "isle.jpg",
-      "Stage": 10,
-      "Connections": [],
-      "Enemy": null
+    "LocationID": 5,
+    "Name": "Kokon",
+    "Description": "Nacházíš se uvnitř pavoučího kokonu",
+    "Background": "cocoon.png",
+    "Stage": 1,
+    "Connections": [
+      {
+        "Description": "Vylézt ven z kokonu",
+        "FromLocationID": 5,
+        "ToLocationID": 4
+      }
+    ],
+    "Items": [
+      {
+        "ID": 2,
+        "Name": "Ocelový meč",
+        "Description": "Blyštící se ocelový meč, vzácný (15 DMG)",
+        "Icon": "iron_sword.png",
+        "Effect": {
+          "Type": 1,
+          "EffectScale": 15
+        }
+      }
+    ]
+  },
+  {
+    "LocationID": 6,
+    "Name": "Most",
+    "Description": "Nacházíš se před vratkým dřevěným mostem vedoucí přes rozprouděnou podzemní řeku",
+    "Background": "bridge.png",
+    "Stage": 1,
+    "Connections": [
+      {
+        "Description": "Přeběhnout most",
+        "FromLocationID": 6,
+        "ToLocationID": 7
+      },
+      {
+        "Description": "Projít úzkou chodbou zpět do pavoučího hnízda",
+        "FromLocationID": 6,
+        "ToLocationID": 3
+      }
+    ]
   }
+
+
 ]

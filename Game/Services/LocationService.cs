@@ -69,30 +69,6 @@ public class LocationService
         {
             if (Connections[i].FromLocationID == fromID) Connections[i].Locked = false;
         }
-    }
-    
-    
-    
-    public static void EnemyAttack(EnemyModel e, PlayerModel p)
-    {
-        if (p.CombatState.CurrentEnemyHp > 0)
-        {
-            p.Hp -= CalculateDamage(e.Damage);
-        }
-    }
-    
-    public static int CalculateDamage(int d)
-    {
-        switch(Random.Shared.Next(0, 10))
-{
-            case 0:
-                return d * 2;
-            case 1:
-                return d/2;
-            default:
-                return d;
-        }
-    }
-    
+    }   
     
 }

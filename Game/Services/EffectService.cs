@@ -6,7 +6,7 @@ public class EffectService
         
     }
 
-    public void ApplyEffect(EffectModel e, PlayerModel p)
+    public static void ApplyEffect(EffectModel e, PlayerModel p)
     {
         switch (e.Type)
         {
@@ -24,6 +24,28 @@ public class EffectService
                 break;
         }
 
+    }
+
+    public static void EnemyAttack(EnemyModel e, PlayerModel p)
+    {
+        if (p.CombatState.CurrentEnemyHp > 0)
+        {
+            int damage = CalculateDamage(e.Damage);
+            ApplyEffect(new EffectModel { EffectScale = -1*damage, Type=EffectTypeModel.Health }, p);
+        }
+    }
+
+    public static int CalculateDamage(int d)
+    {
+        switch (Random.Shared.Next(0, 10))
+        {
+            case 0:
+                return d * 2;
+            case 1:
+                return d / 2;
+            default:
+                return d;
+        }
     }
 
 }

@@ -3,29 +3,29 @@
   "Hp": 100,
   "Items": [
     {
-      "ID": 1,
-      "Name": "Sword of Truth",
-      "Description": "A legendary sword with great power",
+      "ID": 100,
+      "Name": "Obyčejný meč",
+      "Description": "Mírně zarezlý meč (10 DMG)",
       "Effect": {
         "Type": 1,
-        "EffectScale": 20
+        "EffectScale": 10
       },
-      "Icon": "sword-icon.png"
+      "Icon": "basic_sword.png"
     },
     {
-      "ID": 2,
-      "Name": "Shield of Fortitude",
-      "Description": "An ancient shield that provides exceptional protection",
+      "ID": 101,
+      "Name": "Kožené boty",
+      "Description": "Mírně obnošené boty, moc tě neochrání (5 RES)",
       "Effect": {
         "Type": 2,
-        "EffectScale": 15
+        "EffectScale": 5
       },
-      "Icon": "shield-icon.png"
+      "Icon": "leather_boots.png"
     }
   ],
   "CurrentLocationId": 1,
-  "Energy": 100,
-  "Damage": 15,
+  "Energy": 1000,
+  "Damage": 5,
   "Resistance": 10,
   "CombatState": {
     "CurrentEnemyHp": 0,

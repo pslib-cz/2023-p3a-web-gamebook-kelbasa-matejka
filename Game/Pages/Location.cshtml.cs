@@ -10,7 +10,7 @@ public class Location(LocationService ls, ISessionService ss, EffectService es, 
     : PageModel
 {
     private static readonly string PLAYER = "PlayerSessionKey";
-    private static readonly int WINNING_LOCATION_ID = 3;
+    private static readonly int WINNING_LOCATION_ID = 1000;
 
     public LocationModel lModel { get; private set; }
     public PlayerModel pModel { get; set; }
@@ -36,7 +36,7 @@ public class Location(LocationService ls, ISessionService ss, EffectService es, 
                 {
                     if (con.Effect != null )
                     {
-                        es.ApplyEffect(con.Effect, pModel);    
+                        EffectService.ApplyEffect(con.Effect, pModel);    
                     }
                     
                     ps.SaveUsedConnection(pModel, con.FromLocationID, con.ToLocationID);
@@ -79,7 +79,7 @@ public class Location(LocationService ls, ISessionService ss, EffectService es, 
         }
         else
         {
-            es.ApplyEffect(new EffectModel { EffectScale = -10, Type = EffectTypeModel.Health }, pModel);
+            EffectService.ApplyEffect(new EffectModel { EffectScale = -10, Type = EffectTypeModel.Health }, pModel);
         }
         SavePlayer();
         return Page();
@@ -116,8 +116,12 @@ public class Location(LocationService ls, ISessionService ss, EffectService es, 
         {
             ps.PlayerAttack(pModel, AttackTypeModel.strong);
         }
-        LocationService.EnemyAttack(lModel.Enemy, pModel);
+        EffectService.EnemyAttack(lModel.Enemy, pModel);
         SavePlayer();
+        if (pModel.Hp <= 0)
+        {
+            return RedirectToPage("Endgame");
+        }
         return Page();
     }
 
