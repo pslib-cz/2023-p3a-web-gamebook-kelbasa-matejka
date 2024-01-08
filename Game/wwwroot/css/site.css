@@ -1,5 +1,7 @@
+
+
 :root {
-    --bg: rgb(37, 37, 37, .8);
+    --bg: url("../Assets/bg.jpg");
 }
 
 body {
@@ -7,7 +9,8 @@ body {
     margin:0;
     color:white;
     height: 100svh;
-    overflow: hidden;
+    min-height: 100svh;
+    position: relative;
 }
 
 a {
@@ -16,46 +19,38 @@ a {
 }
 
 .location {
-    height: 100%;
+    height: calc(100% - 3rem);
     background-size: cover;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     flex-direction: column;
-    padding: 1rem;
     gap: 2rem;
     position: relative;
-    
-}
-
-.location > * {
-    flex: 1 1 auto;
+    padding: 1.5rem
 }
 
 .cont {
     padding: 1rem;
+    width: 100%;
+    max-width: 750px;
     border-radius: 1.875rem;
     background: var(--bg);
+    background-size: contain;
     backdrop-filter: blur(15px);
+    color: black;
+    border: 2px solid black;
 }
 
-.combat {
+.location__obj {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     padding: 1rem;
     gap: 1rem;
-}
-
-.combat__enemy { 
-    width: 100%;
-    object-fit: contain;
+    flex-grow: 1;
 }
 
 .location__signpost {
-    position: absolute;
-    top: 50%;
-    right: 50%;
-    transform: translate(50%, -50%);
 }

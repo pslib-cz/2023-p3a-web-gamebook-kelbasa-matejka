@@ -6,31 +6,29 @@
 }
 
 <main class="location" style="background-image: url(Assets/LocationsBg/@Model.lModel.Background);">
-    <div class="cont">
-        <h1>@Model.lModel.Name</h1>
-        <p>@Model.lModel.Description</p>    
-    </div>
-    
-
-    @if (Model.lModel.Enemy != null)
-    {
-        @await Html.PartialAsync("Combat", Model)
-    }
-    @if (Model.lModel.PuzzleKey != null)
-    {
-        @await Html.PartialAsync("PuzzleForm", Model)
-    }
-    @if (Model.lModel.Items != null && Model.lModel.Items.Count > 0)
-    {
-        @await Html.PartialAsync("Items", Model)
-    }
-
     <section class="cont">
-        <h2>Player: </h2>
+        <h1>@Model.lModel.Name #@Model.pModel.CurrentLocationId</h1>
+        <p>@Model.lModel.Description</p>    
+    </section>
+    <section class="location__obj">
+        @if (Model.lModel.Enemy != null)
+        {
+            @await Html.PartialAsync("Combat", Model)
+        }
+        @if (Model.lModel.PuzzleKey != null)
+        {
+            @await Html.PartialAsync("PuzzleForm", Model)
+        }
+        @if (Model.lModel.Items != null && Model.lModel.Items.Count > 0)
+        {
+            @await Html.PartialAsync("Items", Model)
+        }    
+    </section>
+    <section class="cont">
+        <h2>Stats: </h2>
         <p>Player has @Model.pModel.Hp HP</p>
         <p>Player deals @Model.pModel.Damage DMG</p>
         <p>Player energy: @Model.pModel.Energy</p>
-        <p>Player is in location #@Model.pModel.CurrentLocationId</p>
         <p>Players inventory: </p>
         @if (Model.pModel.Items != null)
         {
@@ -51,9 +49,10 @@
             </ul>
         }
     </section>
+    <section class="location__signpost">
     @foreach (var v in Model.lModel.Connections)
     {
-        <section class="location__signpost">
+        
             <p>@v.Description <a asp-page="Location" asp-route-id="@v.ToLocationID">-></a>
                 @if (v.Locked)
                 {
@@ -72,9 +71,9 @@
 
                 }
             </p>
-        </section>
+       
     }
-
+    </section>
     
 </main>
 <script src="/_framework/aspnetcore-browser-refresh.js"></script>
