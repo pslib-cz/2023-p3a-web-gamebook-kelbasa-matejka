@@ -156,7 +156,7 @@
   },
   {
     "LocationID": 7,
-    "Name": "Most",
+    "Name": "Krápníková jeskyně",
     "Description": "Nacházíš se v jeskyni plné krápníků, most je rozbitý, jelikož jsi byl moc těžký",
     "Background": "cave.png",
     "Stage": 1,
@@ -164,12 +164,12 @@
       {
         "Description": "Vydat se levou chodbou",
         "FromLocationID": 7,
-        "ToLocationID": 6
+        "ToLocationID": 8
       },
       {
         "Description": "Vydat se pravou chodbou",
         "FromLocationID": 6,
-        "ToLocationID": 3
+        "ToLocationID": 9
       }
     ],
     "Items": [
@@ -181,7 +181,7 @@
         "Usable": true,
         "TargetIsEnemy": false,
         "OnUseEffect": {
-          "Type": 2,
+          "Type": 0,
           "EffectScale": 10
         }
       },
@@ -193,7 +193,7 @@
         "Usable": true,
         "TargetIsEnemy": false,
         "OnUseEffect": {
-          "Type": 2,
+          "Type": 0,
           "EffectScale": -20
         }
       }

@@ -26,6 +26,18 @@
         "EffectScale": 5
       },
       "Icon": "leather_boots.png"
+    },
+    {
+      "ID": 103,
+      "Name": "Ohnivá bomba",
+      "Description": "Použitím ji hodíš po nepříteli, udělí 10 DMG",
+      "Usable": true,
+      "TargetIsEnemy": true,
+      "OnUseEffect": {
+        "Type": 0,
+        "EffectScale": -100
+      },
+      "Icon": "leather_boots.png"
     }
   ],
   "CurrentLocationId": 1,

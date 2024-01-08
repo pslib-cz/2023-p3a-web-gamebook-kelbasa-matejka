@@ -37,7 +37,16 @@
             <ul>
                 @foreach (var item in Model.pModel.Items)
                 {
-                    <li>@item.Name - @item.Description</li>
+                    <li>
+                        <span>@item.Name - @item.Description</span>
+                        @if (item.Usable)
+                        {
+                            <form method="post">
+                                <input hidden name="ItemID" value="@item.ID" />
+                                <button type="submit" asp-page-handler="UseItem">Use</button>
+                            </form>
+                        }
+                    </li>
                 }
             </ul>
         }

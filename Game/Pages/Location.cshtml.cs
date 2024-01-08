@@ -150,7 +150,6 @@ public class Location(LocationService ls, ISessionService ss, EffectService es, 
             return RedirectToPage("Endgame");
         }
         SavePlayer();
-        OnGet(0);
         return Page();
     }
 
@@ -158,16 +157,25 @@ public class Location(LocationService ls, ISessionService ss, EffectService es, 
     public IActionResult OnPostUseItem(int ItemId)
     {
         LoadPlayer();
+        lModel = ls.GetLocation(pModel.CurrentLocationId);
         if (pModel.Items.Count(a => a.ID == ItemId) == 0) return Page();
         var item = pModel.Items.Where(a => a.ID == ItemId).First();
         pModel.Items.Remove(item);
         if(item.TargetIsEnemy)
         {
-            lModel = ls.GetLocation(pModel.CurrentLocationId);
+            if(pModel.CombatState.IsCombatActive)
+            {
+                EffectService.ApplyEffect(item.OnUseEffect, pModel.CombatState.CurrentEnemy);
+                if (pModel.CombatState.CurrentEnemy.Hp <= 0)
+                {
+                    pModel.CombatState.CleanedLocations.Add(pModel.CurrentLocationId);
+                }
+            }
         }
         else
         {
             EffectService.ApplyEffect(item.OnUseEffect, pModel);
+            if (pModel.Hp <= 0) return RedirectToPage("Endgame");
         }
 
         SavePlayer();
