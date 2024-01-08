@@ -17,6 +17,8 @@ public class Location(LocationService ls, ISessionService ss, EffectService es, 
 
     public void OnGet(int id)
     {
+
+        //první blok
         LoadPlayer();
 
         int last = pModel.CurrentLocationId;
@@ -28,7 +30,7 @@ public class Location(LocationService ls, ISessionService ss, EffectService es, 
 
         if (id > 0 && last > 0 && ls.ExistsLocation(id))
         {
-            if (ls.IsNavigationLegitimate(last, id, pModel) && pModel.CombatState.CurrentEnemyHp == 0)
+            if (ls.IsNavigationLegitimate(last, id, pModel) && !pModel.CombatState.IsCombatActive)
             {
                 var con = ls.GetConnection(last, id);
                 
@@ -51,17 +53,18 @@ public class Location(LocationService ls, ISessionService ss, EffectService es, 
             Response.Redirect("Endgame");
         }
         SavePlayer();
+
+
+        // druhý blok
+
         var temp = ls.GetLocation(pModel.CurrentLocationId);
         if (temp == null) lModel = ls.GetLocation(1);
         else lModel = temp;
-        if(lModel.Enemy != null && pModel.CombatState.CurrentEnemyHp == 0 && !pModel.CombatState.CleanedLocations.Contains(lModel.LocationID))
+        
+        
+        if(lModel.Enemy != null && !pModel.CombatState.CleanedLocations.Contains(lModel.LocationID) && ! pModel.CombatState.IsCombatActive)
         {
-            pModel.CombatState.CurrentEnemyHp = lModel.Enemy.Hp;
-            SavePlayer();
-        }
-        if (lModel.Enemy != null && lModel.Enemy.Hp <= 0)
-        {
-            pModel.CombatState.CleanedLocations.Add(lModel.LocationID);
+            pModel.CombatState.CurrentEnemy = lModel.Enemy;
             SavePlayer();
         }
     }
@@ -96,7 +99,22 @@ public class Location(LocationService ls, ISessionService ss, EffectService es, 
             return Page();
         }
 
-        pModel.Items.Add(lModel.Items.Where(a => a.ID == ItemID).First());
+        var item = lModel.Items.Where(a => a.ID == ItemID).First();
+
+        if (item.IsWearable)
+        {
+            foreach(var w in pModel.Items.Where(a => a.IsWearable && a.WearableType == item.WearableType))
+            {
+                var effect = w.OnWearEffect;
+                effect.EffectScale *= -1;
+                EffectService.ApplyEffect(effect, pModel);
+            }
+            pModel.Items.RemoveAll(a => a.IsWearable && a.WearableType == item.WearableType);
+
+            EffectService.ApplyEffect(item.OnWearEffect, pModel);
+        }
+
+        pModel.Items.Add(item);
         pModel.PickedUpItems.Add(ItemID);
         SavePlayer();
         return Page();
@@ -108,27 +126,51 @@ public class Location(LocationService ls, ISessionService ss, EffectService es, 
     {
         LoadPlayer();
         lModel = ls.GetLocation(pModel.CurrentLocationId);
-        if (attackType == "WeakAttack" && pModel.Energy >= 15)
+
+        if (attackType == "WeakAttack")
         {
             ps.PlayerAttack(pModel, AttackTypeModel.classic);
         }
-        else if (attackType == "StrongAttack" && pModel.Energy >= 15)
+        else if (attackType == "StrongAttack")
         {
             ps.PlayerAttack(pModel, AttackTypeModel.strong);
         }
-        EffectService.EnemyAttack(lModel.Enemy, pModel);
-        SavePlayer();
+
+        if(pModel.CombatState.CurrentEnemy.Hp > 0)
+        {
+            EffectService.EnemyAttack(pModel.CombatState.CurrentEnemy, pModel);
+        }
+        else
+        {
+            pModel.CombatState.CleanedLocations.Add(pModel.CurrentLocationId);
+        }
+
         if (pModel.Hp <= 0)
         {
             return RedirectToPage("Endgame");
         }
+        SavePlayer();
+        OnGet(0);
         return Page();
     }
 
     // Metoda pro pou�it� p�edm�tu
-    public IActionResult OnPostUseItem()
+    public IActionResult OnPostUseItem(int ItemId)
     {
-        OnGet(0);
+        LoadPlayer();
+        if (pModel.Items.Count(a => a.ID == ItemId) == 0) return Page();
+        var item = pModel.Items.Where(a => a.ID == ItemId).First();
+        pModel.Items.Remove(item);
+        if(item.TargetIsEnemy)
+        {
+            lModel = ls.GetLocation(pModel.CurrentLocationId);
+        }
+        else
+        {
+            EffectService.ApplyEffect(item.OnUseEffect, pModel);
+        }
+
+        SavePlayer();
         return Page();
     }
     

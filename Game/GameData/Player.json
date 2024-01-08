@@ -6,17 +6,22 @@
       "ID": 100,
       "Name": "Obyčejný meč",
       "Description": "Mírně zarezlý meč (10 DMG)",
-      "Effect": {
+      "IsWearable": true,
+      "WearableType": "Weapon",
+      "OnWearEffect": {
         "Type": 1,
         "EffectScale": 10
       },
+
       "Icon": "basic_sword.png"
     },
     {
       "ID": 101,
       "Name": "Kožené boty",
       "Description": "Mírně obnošené boty, moc tě neochrání (5 RES)",
-      "Effect": {
+      "IsWearable": true,
+      "WearableType": "Boots",
+      "OnWearEffect": {
         "Type": 2,
         "EffectScale": 5
       },
@@ -25,7 +30,7 @@
   ],
   "CurrentLocationId": 1,
   "Energy": 1000,
-  "Damage": 5,
+  "Damage": 1,
   "Resistance": 10,
   "CombatState": {
     "CurrentEnemyHp": 0,

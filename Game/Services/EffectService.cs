@@ -26,12 +26,26 @@ public class EffectService
 
     }
 
+    public static void ApplyEffect(EffectModel e, EnemyModel p)
+    {
+        switch (e.Type)
+        {
+            case EffectTypeModel.Health:
+                p.Hp += e.EffectScale;
+                break;
+            case EffectTypeModel.Damage:
+                p.Damage += e.EffectScale;
+                break;
+        }
+
+    }
+
     public static void EnemyAttack(EnemyModel e, PlayerModel p)
     {
-        if (p.CombatState.CurrentEnemyHp > 0)
+        if (p.CombatState.CurrentEnemy.Hp > 0)
         {
             int damage = CalculateDamage(e.Damage);
-            ApplyEffect(new EffectModel { EffectScale = -1*damage, Type=EffectTypeModel.Health }, p);
+            ApplyEffect(new EffectModel { EffectScale = -1*damage, Type = EffectTypeModel.Health }, p);
         }
     }
 

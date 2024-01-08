@@ -12,6 +12,13 @@ namespace Game.Services
         {
             var p = JsonSerializer.Deserialize<PlayerModel>(DEFAULT_PLAYER_JSON);
             p.VisitedConnections = new List<ShortConnection>();
+            foreach(var item in p.Items)
+            {
+                if(item.IsWearable)
+                {
+                    EffectService.ApplyEffect(item.OnWearEffect, p);
+                }
+            }
             return p;
         }
         
@@ -34,12 +41,17 @@ namespace Game.Services
         
         public void PlayerAttack(PlayerModel p, AttackTypeModel a)
         {
-            if (p.Energy >= 15 * (int)a)
+            if (a == AttackTypeModel.classic && p.Energy >= 5)
             {
-                p.CombatState.CurrentEnemyHp = (p.Damage*(int)a >= p.CombatState.CurrentEnemyHp) ? 0 : p.CombatState.CurrentEnemyHp - p.Damage*(int)a;
-                p.Energy -= 15 * (int)a;
+                EffectService.ApplyEffect(new EffectModel { EffectScale = -1*p.Damage, Type = EffectTypeModel.Health }, p.CombatState.CurrentEnemy);
+                EffectService.ApplyEffect(new EffectModel { EffectScale = -5, Type = EffectTypeModel.Energy }, p);
             }
-            if (p.CombatState.CurrentEnemyHp <= 0)
+            else if(a == AttackTypeModel.strong && p.Energy >= 15)
+            {
+                EffectService.ApplyEffect(new EffectModel { EffectScale = -2 * p.Damage, Type = EffectTypeModel.Health }, p.CombatState.CurrentEnemy);
+                EffectService.ApplyEffect(new EffectModel { EffectScale = -15, Type = EffectTypeModel.Energy }, p);
+            }
+            if (p.CombatState.CurrentEnemy.Hp <= 0)
             {
                 p.CombatState.CleanedLocations.Add(p.CurrentLocationId);
             }

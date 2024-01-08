@@ -126,9 +126,11 @@
         "Name": "Ocelový meč",
         "Description": "Blyštící se ocelový meč, vzácný (15 DMG)",
         "Icon": "iron_sword.png",
-        "Effect": {
-          "Type": 1,
-          "EffectScale": 15
+        "IsWearable": true,
+        "WearableType": "Weapon",
+        "OnWearEffect": {
+            "Type": 1,
+            "EffectScale": 15
         }
       }
     ]
@@ -149,6 +151,51 @@
         "Description": "Projít úzkou chodbou zpět do pavoučího hnízda",
         "FromLocationID": 6,
         "ToLocationID": 3
+      }
+    ]
+  },
+  {
+    "LocationID": 7,
+    "Name": "Most",
+    "Description": "Nacházíš se v jeskyni plné krápníků, most je rozbitý, jelikož jsi byl moc těžký",
+    "Background": "cave.png",
+    "Stage": 1,
+    "Connections": [
+      {
+        "Description": "Vydat se levou chodbou",
+        "FromLocationID": 7,
+        "ToLocationID": 6
+      },
+      {
+        "Description": "Vydat se pravou chodbou",
+        "FromLocationID": 6,
+        "ToLocationID": 3
+      }
+    ],
+    "Items": [
+      {
+        "ID": 3,
+        "Name": "Houba",
+        "Description": "Jedlá houba. Asi.",
+        "Icon": "mushroom.png",
+        "Usable": true,
+        "TargetIsEnemy": false,
+        "OnUseEffect": {
+          "Type": 2,
+          "EffectScale": 10
+        }
+      },
+      {
+        "ID": 4,
+        "Name": "Červená Houba",
+        "Description": "Jedlá houba. Asi.",
+        "Icon": "red_mushroom.png",
+        "Usable": true,
+        "TargetIsEnemy": false,
+        "OnUseEffect": {
+          "Type": 2,
+          "EffectScale": -20
+        }
       }
     ]
   }
