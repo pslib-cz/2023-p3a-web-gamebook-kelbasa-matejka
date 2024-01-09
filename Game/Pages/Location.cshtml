@@ -19,13 +19,13 @@
         {
             @await Html.PartialAsync("PuzzleForm", Model)
         }
-        @if (Model.lModel.Items != null && Model.lModel.Items.Count > 0)
+        @if (Model.lModel.Items.Count > 0 && !Model.pModel.PickedUpItems.Any(pickedItem => Model.lModel.Items.Any(item => item.ID == pickedItem)))
         {
             @await Html.PartialAsync("Items", Model)
         }    
     </section>
     <section class="cont cont--panel">
-        @if (Model.lModel.Items != null && Model.lModel.Items.Count > 0)
+        @if (Model.lModel.Items.Count > 0 && !Model.pModel.PickedUpItems.Any(pickedItem => Model.lModel.Items.Any(item => item.ID == pickedItem)))
         {
             @await Html.PartialAsync("ItemsBtns", Model)
         }

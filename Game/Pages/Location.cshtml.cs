@@ -61,7 +61,6 @@ public class Location(LocationService ls, ISessionService ss, EffectService es, 
         if (temp == null) lModel = ls.GetLocation(1);
         else lModel = temp;
         
-        
         if(lModel.Enemy != null && !pModel.CombatState.CleanedLocations.Contains(lModel.LocationID) && ! pModel.CombatState.IsCombatActive)
         {
             pModel.CombatState.CurrentEnemy = lModel.Enemy;

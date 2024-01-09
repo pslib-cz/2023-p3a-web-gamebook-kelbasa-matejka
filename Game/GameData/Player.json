@@ -35,7 +35,7 @@
       "TargetIsEnemy": true,
       "OnUseEffect": {
         "Type": 0,
-        "EffectScale": -100
+        "EffectScale": -10
       },
       "Icon": "leather_boots.png"
     }
