@@ -41,7 +41,7 @@
     }
   ],
   "CurrentLocationId": 1,
-  "Energy": 1000,
+  "Energy": 100,
   "Damage": 1,
   "Resistance": 10,
   "CombatState": {

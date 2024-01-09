@@ -2,12 +2,12 @@
 @using Game.Services;
 @model Game.Pages.Location
 @{
-    ViewData["Title"] = Model.lModel.Name;
+    ViewData["Title"] =  $"{Model.lModel.Name} - Escape The Fortress";
 }
 
 <main class="location" style="background-image: url(Assets/LocationsBg/@Model.lModel.Background);">
     <section class="cont">
-        <h1>@Model.lModel.Name #@Model.pModel.CurrentLocationId</h1>
+        <h1 class="cont__h">@Model.lModel.Name #@Model.pModel.CurrentLocationId</h1>
         <p>@Model.lModel.Description</p>    
     </section>
     <section class="location__obj">
@@ -24,32 +24,44 @@
             @await Html.PartialAsync("Items", Model)
         }    
     </section>
-    <section class="cont">
-        <h2>Stats: </h2>
-        <p>Player has @Model.pModel.Hp HP</p>
-        <p>Player deals @Model.pModel.Damage DMG</p>
-        <p>Player energy: @Model.pModel.Energy</p>
-        <p>Players inventory: </p>
-        @if (Model.pModel.Items != null)
+    <section class="cont cont--panel">
+        @if (Model.lModel.Items != null && Model.lModel.Items.Count > 0)
         {
-            <ul>
-                @foreach (var item in Model.pModel.Items)
-                {
-                    <li>
-                        <span>@item.Name - @item.Description</span>
-                        @if (item.Usable)
-                        {
-                            <form method="post">
-                                <input hidden name="ItemID" value="@item.ID" />
-                                <button type="submit" asp-page-handler="UseItem">Use</button>
-                            </form>
-                        }
-                    </li>
-                }
-            </ul>
+            @await Html.PartialAsync("ItemsBtns", Model)
         }
+        @if (Model.lModel.Enemy != null && !Model.pModel.CombatState.CleanedLocations.Contains(Model.lModel.LocationID))
+        {
+            @await Html.PartialAsync("CombatBtns", Model)
+        }
+        <span>@Model.pModel.Hp</span>
+        <span>@Model.pModel.Energy</span>
+        <span>@Model.pModel.Resistance</span>
+        <span>@Model.pModel.Damage</span>
     </section>
-    <section class="location__signpost">
+</main>
+<script src="/_framework/aspnetcore-browser-refresh.js"></script>
+
+<p>Players inventory: </p>
+@if (Model.pModel.Items != null)
+{
+ <ul>
+     @foreach (var item in Model.pModel.Items)
+     {
+         <li>
+             <span>@item.Name - @item.Description</span>
+             @if (item.Usable)
+             {
+                 <form method="post">
+                     <input hidden name="ItemID" value="@item.ID" />
+                     <button type="submit" asp-page-handler="UseItem">Use</button>
+                 </form>
+             }
+         </li>
+     }
+ </ul>
+}
+
+ <section class="location__signpost">
     @foreach (var v in Model.lModel.Connections)
     {
         
@@ -74,6 +86,4 @@
        
     }
     </section>
-    
-</main>
-<script src="/_framework/aspnetcore-browser-refresh.js"></script>
+

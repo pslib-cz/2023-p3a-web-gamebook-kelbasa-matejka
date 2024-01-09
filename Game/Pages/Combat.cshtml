@@ -4,10 +4,6 @@
 {
     //HEALTHBAR
     <h2>@Model.pModel.CombatState.CurrentEnemy.Hp hp</h2>
-    <form method="post">
-        <button asp-page-handler="Attack" type="submit" name="attackType" value="WeakAttack">Slabý Útok</button>
-        <button asp-page-handler="Attack" type="submit" name="attackType" value="StrongAttack">Silný Útok</button>
-    </form>
 }
 else
 {

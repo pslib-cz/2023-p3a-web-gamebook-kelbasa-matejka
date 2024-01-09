@@ -26,8 +26,8 @@ namespace Game.Pages
 
         public void OnGet()
         {
-            sessionService.SaveSession<PlayerModel>(HttpContext, PLAYER_KEY, playerService.CreateDefaultModel());
-            locationService.ReloadAll();
+            sessionService.SaveSession<PlayerModel>(HttpContext, PLAYER_KEY, playerService.CreateDefaultModel()); 
+            locationService.ReloadAll();  
         }
 
         public IActionResult OnPostShowInfo()

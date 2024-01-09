@@ -1,7 +1,6 @@
-
-
 :root {
     --bg: url("../Assets/bg.jpg");
+    --cd: #F2E8D3;
 }
 
 body {
@@ -27,19 +26,88 @@ a {
     flex-direction: column;
     gap: 2rem;
     position: relative;
-    padding: 1.5rem
+    padding: 1.5rem;
+    animation: slide .4s ease-in-out;
 }
 
 .cont {
     padding: 1rem;
     width: 100%;
     max-width: 750px;
+    max-height: 150px;
     border-radius: 1.875rem;
     background: var(--bg);
     background-size: contain;
-    backdrop-filter: blur(15px);
     color: black;
     border: 2px solid black;
+    font-size: 20px;
+}
+
+.cont--panel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.cont--panel span  {
+    color: black;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: max(1.5vw, 1.5rem);
+    background: var(--cd);
+    aspect-ratio: 2/3;
+    height: 100%;
+    border-radius: 10%;
+    position: relative;
+    border: 1px solid black;
+    padding: .5rem;
+}
+
+.cont--panel span::before, .cont--panel span::after {
+    content: "";
+    width: 1.3rem;
+    height: 1.3rem;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.cont--panel span::before {
+    position: absolute;
+    top: .25rem;
+    left: .25rem;
+}
+
+
+.cont--panel span::after {
+    position: absolute;
+    bottom: .25rem;
+    right: .25rem;
+    transform: rotate(180deg);
+}
+
+.cont--panel span:nth-of-type(1)::before, .cont--panel span:nth-of-type(1)::after {
+    background-image: url("../Assets/heart.svg");
+}
+
+.cont--panel span:nth-of-type(2)::before, .cont--panel span:nth-of-type(2)::after {
+    background-image: url("../Assets/bolt.svg");
+}
+
+.cont--panel span:nth-of-type(3)::before, .cont--panel span:nth-of-type(3)::after {
+    background-image: url("../Assets/shield.svg");
+}
+
+.cont--panel span:nth-of-type(4)::before, .cont--panel span:nth-of-type(4)::after {
+    background-image: url("../Assets/sword.svg");
+}
+
+
+.cont__h {
+    text-align: center;
+    text-transform: uppercase;
 }
 
 .location__obj {
@@ -52,5 +120,43 @@ a {
     flex-grow: 1;
 }
 
+.cont__comb-btns {
+    display: flex;
+    gap: 1rem;
+    flex-grow: 1;
+}
+
+.cont__comb-btns button {
+    height: 100%;
+    aspect-ratio: 2/3;
+    display: flex;
+    padding-top: .75rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-family: 'EB Garamond', serif;
+    background-size: cover;
+    border: 1px solid black;
+    border-radius: 10%;
+}
+
+.cont__comb-btns button:nth-of-type(1) {
+    background-image: url("../Assets/weak.jpg");
+}
+
+.cont__comb-btns button:nth-of-type(2) {
+    background-image: url("../Assets/strong.jpg");
+}
+
 .location__signpost {
+}
+
+@keyframes slide {
+    0% {
+        filter: blur(20px);
+        opacity: 0;
+    }
+    100% {
+        filter: blur(0px);
+        opacity: 1;
+    }
 }
