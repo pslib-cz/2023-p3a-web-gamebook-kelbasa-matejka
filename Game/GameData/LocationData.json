@@ -198,7 +198,130 @@
         }
       }
     ]
+  },
+  {
+    "LocationID": 8,
+    "Name": "Krystalová chodba",
+    "Description": "Chodba plná krystalů",
+    "Background": "left_crystal_tunnel.png",
+    "Stage": 1,
+    "Connections": [
+      {
+        "Description": "Vydat se zpět do krápníkové jeskyně",
+        "FromLocationID": 8,
+        "ToLocationID": 7
+      },
+      {
+        "Description": "Pokračovat dál",
+        "FromLocationID": 8,
+        "ToLocationID": 9
+      }
+    ],
+    "Items": []
+  },
+  {
+    "LocationID": 9,
+    "Name": "Krystalová křižovatka",
+    "Description": "Krystalová místnost, cesta se rozštěpuje",
+    "Background": "crystal_crossroad.png",
+    "Stage": 1,
+    "Connections": [
+      {
+        "Description": "Vydat 1. cestou",
+        "FromLocationID": 9,
+        "ToLocationID": 10
+      },
+      {
+        "Description": "Vydat se 2. cestou",
+        "FromLocationID": 9,
+        "ToLocationID": 11
+      },
+      {
+        "Description": "Vydat se 3. cestou",
+        "FromLocationID": 9,
+        "ToLocationID": 12
+      },
+      {
+        "Description": "Jít zpět",
+        "FromLocationID": 9,
+        "ToLocationID": 8
+      }
+    ],
+    "Items": [],
+    "Enemy": {
+      "Name": "Bat",
+      "Damage": 5,
+      "Hp": 30,
+      "Img": "bat.png",
+      "NumberOfAttacks": 4
+    }
+  },
+  {
+    "LocationID": 10,
+    "Name": "Zavalená chodba",
+    "Description": "Pěkná chodba, akorát je naprosto neprostupná",
+    "Background": "crystal_crossroad.png",
+    "Stage": 1,
+    "Connections": [
+      {
+        "Description": "Jít zpět",
+        "FromLocationID": 10,
+        "ToLocationID": 9
+      }
+    ],
+    "Items": [
+      {
+        "ID": 5,
+        "Name": "Kámen",
+        "Description": "Použitím ho hodíš po nepříteli, udělí 5 DMG. Au",
+        "Usable": true,
+        "TargetIsEnemy": true,
+        "OnUseEffect": {
+          "Type": 0,
+          "EffectScale": -5
+        },
+        "Icon": "stone.png"
+      }
+    ]
+  },
+  {
+    "LocationID": 11,
+    "Name": "Dlouhá chodba",
+    "Description": "Velmi dlohá chodba",
+    "Background": "long_tunnel.png",
+    "Stage": 1,
+    "Connections": [
+      {
+        "Description": "Jít dál a dál",
+        "FromLocationID": 11,
+        "ToLocationID": 12
+      }
+    ]
+  },
+  {
+    "LocationID": 12,
+    "Name": "Lesní jeskyně",
+    "Description": "Jeskyně plná stromů a trávy. Překypuje životem",
+    "Background": "forest_cave.png",
+    "Stage": 1,
+    "Connections": [
+      {
+        "Description": "Skočit dírou do neznáma",
+        "FromLocationID": 12,
+        "ToLocationID": 9
+      }
+    ],
+    "Enemy": {
+      "Name": "Bat",
+      "Damage": 5,
+      "Hp": 30,
+      "Img": "bat.png",
+      "NumberOfAttacks": 4
+    }
   }
+
+
+
 
 
 ]

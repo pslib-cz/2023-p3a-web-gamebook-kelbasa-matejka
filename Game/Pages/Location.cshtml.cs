@@ -69,7 +69,6 @@ public class Location(LocationService ls, ISessionService ss, EffectService es, 
         }
     }
 
-    // prozat�m pouze kontrola h�danky
     public IActionResult OnPostGuessPuzzle(PuzzleFormModel ffm)
     {
         LoadPlayer();
@@ -153,7 +152,7 @@ public class Location(LocationService ls, ISessionService ss, EffectService es, 
         return Page();
     }
 
-    // Metoda pro pou�it� p�edm�tu
+    // probehne pouziti itemu
     public IActionResult OnPostUseItem(int ItemId)
     {
         LoadPlayer();
@@ -182,11 +181,18 @@ public class Location(LocationService ls, ISessionService ss, EffectService es, 
         return Page();
     }
     
+    /// <summary>
+    ///     Saves player model to session
+    /// </summary>
     public void SavePlayer()
     {
         ss.SaveSession<PlayerModel>(HttpContext, PLAYER, pModel);
     }
 
+
+    /// <summary>
+    ///     Loads player model from session
+    /// </summary>
     public void LoadPlayer()
     {
         pModel = ss.GetSession<PlayerModel>(HttpContext, PLAYER);
