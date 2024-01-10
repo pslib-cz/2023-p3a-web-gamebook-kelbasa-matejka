@@ -10,7 +10,7 @@ public class Location(LocationService ls, ISessionService ss, EffectService es, 
     : PageModel
 {
     private static readonly string PLAYER = "PlayerSessionKey";
-    private static readonly int WINNING_LOCATION_ID = 1000;
+    public readonly int WINNING_LOCATION_ID = 8;
 
     public LocationModel lModel { get; private set; }
     public PlayerModel pModel { get; set; }
@@ -23,32 +23,27 @@ public class Location(LocationService ls, ISessionService ss, EffectService es, 
 
         int last = pModel.CurrentLocationId;
 
-        if (id > 0 && last > 0 && ls.ExistsLocation(id))
+        if (ls.IsNavigationLegitimate(last, id, pModel) && !pModel.CombatState.IsCombatActive)
         {
-            if (ls.IsNavigationLegitimate(last, id, pModel) && !pModel.CombatState.IsCombatActive)
-            {
-                var con = ls.GetConnection(last, id);
+            var con = ls.GetConnection(last, id);
                 
-                if (!ps.ConnectionWasUsed(pModel, con.FromLocationID, con.ToLocationID))
+            if (!ps.ConnectionWasUsed(pModel, con.FromLocationID, con.ToLocationID))
+            {
+                if (con.Effect != null )
                 {
-                    if (con.Effect != null )
-                    {
-                        EffectService.ApplyEffect(con.Effect, pModel);    
-                    }
-                    
-                    ps.SaveUsedConnection(pModel, con.FromLocationID, con.ToLocationID);
-
+                    EffectService.ApplyEffect(con.Effect, pModel);    
                 }
-                pModel.CurrentLocationId = id;
-            }
+                    
+                ps.SaveUsedConnection(pModel, con.FromLocationID, con.ToLocationID);
 
+            }
+            pModel.CurrentLocationId = id;
         }
+
         if (pModel.Hp <= 0 || pModel.CurrentLocationId == -1)
         {
             Response.Redirect("Endgame");
         }
-        SavePlayer();
-
 
         // druhý blok
 
@@ -59,8 +54,9 @@ public class Location(LocationService ls, ISessionService ss, EffectService es, 
         if(lModel.Enemy != null && !pModel.CombatState.CleanedLocations.Contains(lModel.LocationID) && ! pModel.CombatState.IsCombatActive)
         {
             pModel.CombatState.CurrentEnemy = lModel.Enemy;
-            SavePlayer();
         }
+
+        SavePlayer();
     }
 
     public IActionResult OnPostGuessPuzzle(PuzzleFormModel ffm)
@@ -71,7 +67,6 @@ public class Location(LocationService ls, ISessionService ss, EffectService es, 
         if (ffm.Answer == lModel.PuzzleKey)
         {
             pModel.SolvedPuzzleLocations.Add(lModel.LocationID);
-            ls.SolvedPuzzle(lModel.LocationID);
         }
         else
         {
@@ -86,8 +81,6 @@ public class Location(LocationService ls, ISessionService ss, EffectService es, 
     {
         LoadPlayer();
         lModel = ls.GetLocation(pModel.CurrentLocationId);
-
-        Console.WriteLine("Jsem v lokaci: ", pModel.CurrentLocationId);
 
         if (pModel.PickedUpItems.Contains(ItemID) || !lModel.Items.Select(a => a.ID).Contains(ItemID))
         {
@@ -188,7 +181,7 @@ public class Location(LocationService ls, ISessionService ss, EffectService es, 
 
 
     /// <summary>
-    ///     Loads player model from session
+    ///     Loads player model from session to <see cref="pModel"/>
     /// </summary>
     public void LoadPlayer()
     {

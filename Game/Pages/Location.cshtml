@@ -93,3 +93,8 @@ else
 }
 </section>
 
+
+@if(Model.pModel.CurrentLocationId == Model.WINNING_LOCATION_ID)
+{
+    <a asp-page="Endgame">Finish game</a>
+}

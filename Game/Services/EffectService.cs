@@ -65,10 +65,10 @@ public class EffectService
 
 
     /// <summary>
-    /// 
+    ///     
     /// </summary>
     /// <param name="d">Damage to calculate</param>
-    /// <returns>Randomized damage</returns>
+    /// <returns>Randomized damage as positive integer in boundry 0.8*d to 1.2*d</returns>
     public static int CalculateDamage(int d)
     {
         double randomizer = 0.8 + (Random.Shared.NextDouble() * 0.4);

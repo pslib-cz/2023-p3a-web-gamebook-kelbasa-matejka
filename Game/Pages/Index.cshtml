@@ -12,16 +12,10 @@
             <button type="submit" asp-page-handler="ShowInfo">O hře</button>
         </form>
     </menu>
-    @if (Model.ShowInfo)
-    {
-        <div id="about" class="home-about">
-            <p>Hokus pokus, já ztratil fokus</p>
-            <form method="post">
-                <button type="submit" asp-page-handler="HideInfo">Schovat</button>
-            </form>
-        </div>
+    <div id="about" class="home-about">
+        <p>Hokus pokus, já ztratil fokus</p>
+    </div>
 
-    }
 
 </div>
 

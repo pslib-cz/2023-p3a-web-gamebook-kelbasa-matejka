@@ -56,19 +56,11 @@ public class LocationService
                     if(!p.SolvedPuzzleLocations.Contains(fromID)) return false;
                 }
                 if (connection.RequiredItem == null) return true;
-                if (p.Items.Count(a => a.ID == connection.RequiredItem?.ID) > 0) return true;
+                if (p.Items.Count(a => a.ID == connection.RequiredItem.ID) > 0) return true;
             }
 
         }
         return false;
-    }
-    
-    public void SolvedPuzzle(int fromID)
-    {
-        for(int i = 0; i < Connections.Count; i++)
-        {
-            if (Connections[i].FromLocationID == fromID) Connections[i].Locked = false;
-        }
     }   
     
 }

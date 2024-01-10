@@ -10,8 +10,6 @@ namespace Game.Pages
     {
         private static readonly string PLAYER_KEY = "PlayerSessionKey";
 
-        public bool ShowInfo { get; set; }
-
         public IActionResult OnGet()
         {
             return Page();
@@ -32,18 +30,6 @@ namespace Game.Pages
             }
 
             return RedirectToPage("Location", new{id = player.CurrentLocationId});
-        }
-
-        public IActionResult OnPostShowInfo()
-        {
-            ShowInfo = true;
-            return Page();
-        }
-
-        public IActionResult OnPostHideInfo()
-        {
-            ShowInfo = false;
-            return Page();
         }
     }
 }
