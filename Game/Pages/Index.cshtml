@@ -4,13 +4,12 @@
     ViewData["Title"] = "Escape The Fortress - Interaktivní gambook";
 }
 
-<div class="home">
+<div class="info">
     <h1>Escape The Fortress</h1>
     <menu>
-        <a asp-page="/Location" asp-route-id="1">Začít dobrodružství</a>
-        <form method="post">
-            <button type="submit" asp-page-handler="ShowInfo">O hře</button>
-        </form>
+        <li><a asp-page="/Location" asp-route-id="1">Začít dobrodružství</a></li>
+        <li><a>O hře</a></li>
+        <li><a>Žebříček nejlepších hráčů</a></li>
     </menu>
     @if (Model.ShowInfo)
     {

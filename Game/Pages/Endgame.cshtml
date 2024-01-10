@@ -1,27 +1,8 @@
-@page
-@model Game.Pages.Endgame
-
-@{
-   
+@if(Model.Win)
+{
+    <h1>Win</h1>
 }
-
-<!DOCTYPE html>
-
-<html>
-<head>
-    <title></title>
-</head>
-<body>
-<div>
-        @if(Model.Win)
-        {
-            <h1>Win</h1>
-        }
-        else
-        {
-            <h1>Lost</h1>
-        }
-
-</div>
-</body>
-</html>
+else
+{
+    <h1>Lost</h1>
+}

@@ -18,6 +18,10 @@ public class Endgame(ISessionService sessionSer, EffectService effSer, PlayerSer
     public void OnGet()
     {
         pModel = sessionSer.GetSession<PlayerModel>(HttpContext, PLAYER);
+        if (pModel.CurrentLocationId == 0)
+        {
+            Response.Redirect("/");
+        }
         if(pModel.CurrentLocationId == WINNING_LOCATION_ID && pModel.Hp > 0)
         {
             Win = true;
@@ -26,7 +30,7 @@ public class Endgame(ISessionService sessionSer, EffectService effSer, PlayerSer
         {
             Win = false;
         }
-        pModel.CurrentLocationId = -1;
+        pModel.CurrentLocationId = 0;
         sessionSer.SaveSession(HttpContext, PLAYER, pModel);
     }
 }
