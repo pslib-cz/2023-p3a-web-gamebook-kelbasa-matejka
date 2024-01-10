@@ -41,10 +41,10 @@ public class EffectService
     }
 
     /// <summary>
-    ///     Enemy deals his attacks to player. Uses EnemyModel.NumberOfAttacks
+    ///     Enemy deals his attacks to player. Uses EnemyModel.NumberOfAttacks, EnemyModel.Damage and PlayerModel.Resistence;
     /// </summary>
-    /// <param name="e"></param>
-    /// <param name="p"></param>
+    /// <param name="e">Enemy model</param>
+    /// <param name="p">Player model</param>
     public static void EnemyAttack(EnemyModel e, PlayerModel p)
     {
         if (p.CombatState.CurrentEnemy.Hp > 0)
@@ -52,6 +52,11 @@ public class EffectService
             for(int i = 0; i < e.NumberOfAttacks; i++)
             {
                 int damage = -1 * CalculateDamage(e.Damage);
+                Console.WriteLine("Calculated dmg: " + damage);
+                damage = (int) (damage * (1.0 -  (double) p.Resistance / 200.0));
+                Console.WriteLine("After resistence: " + damage);
+                if (damage > 0) damage = 0;
+
                 ApplyEffect(new EffectModel { EffectScale = damage, Type = EffectTypeModel.Health }, p);
             }
 

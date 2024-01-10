@@ -23,11 +23,6 @@ public class Location(LocationService ls, ISessionService ss, EffectService es, 
 
         int last = pModel.CurrentLocationId;
 
-        if (pModel.CurrentLocationId == WINNING_LOCATION_ID && id == -1)
-        {
-            Response.Redirect("Endgame");
-        }
-
         if (id > 0 && last > 0 && ls.ExistsLocation(id))
         {
             if (ls.IsNavigationLegitimate(last, id, pModel) && !pModel.CombatState.IsCombatActive)
@@ -175,10 +170,11 @@ public class Location(LocationService ls, ISessionService ss, EffectService es, 
         else
         {
             EffectService.ApplyEffect(item.OnUseEffect, pModel);
-            if (pModel.Hp <= 0) return RedirectToPage("Endgame");
         }
 
         SavePlayer();
+        if (pModel.Hp <= 0) return RedirectToPage("Endgame");
+
         return Page();
     }
     

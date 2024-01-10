@@ -10,27 +10,26 @@ public class Endgame(ISessionService sessionSer, EffectService effSer, PlayerSer
     private readonly PlayerService PlayerSer = playerSer;
 
     private static readonly string PLAYER = "PlayerSessionKey";
-    private static readonly int WINNING_LOCATION_ID = 3;
+    private static readonly int WINNING_LOCATION_ID = 1000;
 
     public PlayerModel pModel;
-    public bool Win {  get; set; }
+    public bool Win { get; set; }
 
     public void OnGet()
     {
         pModel = sessionSer.GetSession<PlayerModel>(HttpContext, PLAYER);
-        if (pModel.CurrentLocationId == 0)
-        {
-            Response.Redirect("/");
-        }
-        if(pModel.CurrentLocationId == WINNING_LOCATION_ID && pModel.Hp > 0)
-        {
-            Win = true;
-        }
+        if(pModel == null || pModel.CurrentLocationId == 0) Response.Redirect("/");
         else
         {
-            Win = false;
+            if (pModel.CurrentLocationId == WINNING_LOCATION_ID && pModel.Hp > 0)
+            {
+                pModel.Won = true;
+            }
+            pModel.CurrentLocationId = -1;
+            sessionSer.SaveSession(HttpContext, PLAYER, pModel);
+
+            Win = pModel.Won;
         }
-        pModel.CurrentLocationId = 0;
-        sessionSer.SaveSession(HttpContext, PLAYER, pModel);
+
     }
 }

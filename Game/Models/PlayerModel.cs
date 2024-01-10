@@ -13,5 +13,6 @@ namespace Game {
         public HashSet<int> SolvedPuzzleLocations { get; set; } = new HashSet<int>();
         public HashSet<int> PickedUpItems { get; set; } = new HashSet<int>();
         public CombatStateModel CombatState { get; set; }
+        public bool Won { get; set; } = false;
     }
 }
