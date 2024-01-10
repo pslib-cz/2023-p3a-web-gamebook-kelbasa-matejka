@@ -1,5 +1,4 @@
 ﻿<div class="cont__ctrls cont__ctrls--items">
-    <form method="post">
     @foreach(var i in Model.lModel.Items)
     {
         @if (!Model.pModel.PickedUpItems.Contains(i.ID))
@@ -7,5 +6,4 @@
             <button name="ItemID" value="@i.ID" type="submit" asp-page-handler="PickUpItem">Sebrat @i.Name</button>
         }
     }
-    </form>
 </div>

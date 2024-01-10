@@ -92,7 +92,9 @@ public class Location(LocationService ls, ISessionService ss, EffectService es, 
         LoadPlayer();
         lModel = ls.GetLocation(pModel.CurrentLocationId);
 
-        if(pModel.PickedUpItems.Contains(ItemID) || !lModel.Items.Select(a => a.ID).Contains(ItemID))
+        Console.WriteLine("Jsem v lokaci: ", pModel.CurrentLocationId);
+
+        if (pModel.PickedUpItems.Contains(ItemID) || !lModel.Items.Select(a => a.ID).Contains(ItemID))
         {
             return Page();
         }

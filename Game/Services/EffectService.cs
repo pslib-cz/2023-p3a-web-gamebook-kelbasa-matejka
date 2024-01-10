@@ -51,26 +51,23 @@ public class EffectService
         {
             for(int i = 0; i < e.NumberOfAttacks; i++)
             {
-                int damage = CalculateDamage(e.Damage);
-                ApplyEffect(new EffectModel { EffectScale = -1 * damage, Type = EffectTypeModel.Health }, p);
+                int damage = -1 * CalculateDamage(e.Damage);
+                ApplyEffect(new EffectModel { EffectScale = damage, Type = EffectTypeModel.Health }, p);
             }
 
         }
     }
 
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="d">Damage to calculate</param>
+    /// <returns>Randomized damage</returns>
     public static int CalculateDamage(int d)
     {
-        switch (Random.Shared.Next(0, 10))
-        {
-            // weak attack
-            case 0:
-                return d * 2;
-            // strong attack
-            case 1:
-                return d / 2;
-            default:
-                return d;
-        }
+        double randomizer = 0.8 + (Random.Shared.NextDouble() * 0.4);
+        return (int)(randomizer * (double)d);
     }
 
 }

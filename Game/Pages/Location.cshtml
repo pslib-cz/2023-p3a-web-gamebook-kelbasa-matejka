@@ -27,7 +27,10 @@
     <section class="cont cont--panel">
         @if (Model.lModel.Items.Count > 0 && !Model.lModel.Items.All(item => Model.pModel.PickedUpItems.Any(pickedItem => pickedItem == item.ID)))
         {
-            @await Html.PartialAsync("ItemsBtns", Model)
+            <form method="post">
+                @await Html.PartialAsync("ItemsBtns", Model)
+            </form>
+
         }
 
         @if (Model.lModel.Enemy != null && !Model.pModel.CombatState.CleanedLocations.Contains(Model.lModel.LocationID))

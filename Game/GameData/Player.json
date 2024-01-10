@@ -40,7 +40,7 @@
       "Icon": "leather_boots.png"
     }
   ],
-  "CurrentLocationId": 1,
+  "CurrentLocationId": 0,
   "Energy": 100,
   "Damage": 1,
   "Resistance": 10,

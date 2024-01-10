@@ -1,3 +1,4 @@
+using System.Numerics;
 using System.Reflection.Metadata;
 using Game.Services;
 using Microsoft.AspNetCore.Mvc;
@@ -13,25 +14,29 @@ namespace Game.Pages
 
         public IActionResult OnGet()
         {
+            return Page();
+        }
+
+        public IActionResult OnPostStartGame()
+        {
             PlayerModel player = ss.GetSession<PlayerModel>(HttpContext, PLAYER_KEY);
 
-            if (player.Hp > 0 && player.CurrentLocationId != -1)
+            // inicializuje novou hru a vše vyresetuje
+            if (player == null || player.Hp <= 0 || player.CurrentLocationId == -1)
             {
-                return RedirectToPage("/Location", new { id = player.CurrentLocationId });
+                player = ps.CreateDefaultModel();
+                player.CurrentLocationId = 1;
+                ss.SaveSession<PlayerModel>(HttpContext, PLAYER_KEY, player);
+                ls.ReloadAll();
+
             }
 
-            // Create a new player session and save it
-            var newPlayer = ps.CreateDefaultModel();
-            ss.SaveSession(HttpContext, PLAYER_KEY, newPlayer);
-            ls.ReloadAll();
-
-            return Page();
+            return RedirectToPage("Location", new{id = player.CurrentLocationId});
         }
 
         public IActionResult OnPostShowInfo()
         {
             ShowInfo = true;
-            Console.WriteLine("show info is" + ShowInfo);
             return Page();
         }
 
