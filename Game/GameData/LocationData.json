@@ -1,7 +1,7 @@
 [
   {
     "LocationID": 1,
-    "Name": "Hluboká jáma",
+    "Name": "Hluboká anální jáma",
     "Description": "Nacházíš se úplně na dně hluboké kamenné jámy, stěny jsou mírně vlhké a v dálce slyšíš nějaké cvakání",
     "Background": "deep_pit.png",
     "Stage": 1,
@@ -260,7 +260,7 @@
     "LocationID": 10,
     "Name": "Zavalená chodba",
     "Description": "Pěkná chodba, akorát je naprosto neprostupná",
-    "Background": "crystal_crossroad.png",
+    "Background": "blocked_tunnel.png",
     "Stage": 1,
     "Connections": [
       {
@@ -312,12 +312,26 @@
       }
     ],
     "Enemy": {
-      "Name": "Bat",
-      "Damage": 5,
-      "Hp": 30,
-      "Img": "bat.png",
-      "NumberOfAttacks": 4
-    }
+      "Name": "Medvěd",
+      "Damage": 20,
+      "Hp": 50,
+      "Img": "bear.png",
+      "NumberOfAttacks": 2
+    },
+    "Items": [
+      {
+        "ID": 6,
+        "Name": "Rezavý hrudní plát",
+        "Description": "Starý více než 50 let, tehdy ještě dělali kvalitní zbroj (10 RES)",
+        "Icon": "rusty_chestplate.png",
+        "IsWearable": true,
+        "WearableType": "Chestplate",
+        "OnWearEffect": {
+          "Type": 2,
+          "EffectScale": 10
+        }
+      }
+    ]
   }
 
 
