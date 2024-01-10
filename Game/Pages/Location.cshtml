@@ -42,7 +42,8 @@
 </main>
 <script src="/_framework/aspnetcore-browser-refresh.js"></script>
 
-<p>Players inventory: </p>
+<section class="side-cont side-cont--inv">
+<h2>Tlumok</h2>
 @if (Model.pModel.Items != null)
 {
  <ul>
@@ -61,30 +62,34 @@
      }
  </ul>
 }
-
- <section class="location__signpost">
-    @foreach (var v in Model.lModel.Connections)
-    {
-        
-            <p>@v.Description <a asp-page="Location" asp-route-id="@v.ToLocationID">-></a>
-                @if (v.Locked)
+else
+{
+    <p>Zøejmì je tlumok dìravý, páè tu nic není</p>
+}
+</section>
+<section class="side-cont side-cont--map">
+@foreach (var v in Model.lModel.Connections)
+{
+    
+        <p>@v.Description <a asp-page="Location" asp-route-id="@v.ToLocationID">-></a>
+            @if (v.Locked)
+            {
+                <span style="color: red;">LOCKED</span>
+            }
+            @if (v.RequiredItem != null)
+            {
+                if (Model.pModel.Items != null && Model.pModel.Items.Count(a => a.ID == v.RequiredItem.ID) > 0)
                 {
-                    <span style="color: red;">LOCKED</span>
+                    <span>@v.RequiredItem.Name is required (you have it)</span>
                 }
-                @if (v.RequiredItem != null)
+                else
                 {
-                    if (Model.pModel.Items != null && Model.pModel.Items.Count(a => a.ID == v.RequiredItem.ID) > 0)
-                    {
-                        <span>@v.RequiredItem.Name is required (you have it)</span>
-                    }
-                    else
-                    {
-                        <span style="color: red;">@v.RequiredItem.Name is required</span>
-                    }
-
+                    <span style="color: red;">@v.RequiredItem.Name is required</span>
                 }
-            </p>
-       
-    }
-    </section>
+
+            }
+        </p>
+   
+}
+</section>
 

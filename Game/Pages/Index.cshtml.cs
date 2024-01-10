@@ -11,10 +11,21 @@ namespace Game.Pages
 
         public bool ShowInfo { get; set; }
 
-        public void OnGet()
+        public IActionResult OnGet()
         {
-            ss.SaveSession<PlayerModel>(HttpContext, PLAYER_KEY, ps.CreateDefaultModel()); 
-            ls.ReloadAll();  
+            PlayerModel player = ss.GetSession<PlayerModel>(HttpContext, PLAYER_KEY);
+
+            if (player.Hp > 0 && player.CurrentLocationId != -1)
+            {
+                return RedirectToPage("/Location", new { id = player.CurrentLocationId });
+            }
+
+            // Create a new player session and save it
+            var newPlayer = ps.CreateDefaultModel();
+            ss.SaveSession(HttpContext, PLAYER_KEY, newPlayer);
+            ls.ReloadAll();
+
+            return Page();
         }
 
         public IActionResult OnPostShowInfo()

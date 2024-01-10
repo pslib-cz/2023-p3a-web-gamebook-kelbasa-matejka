@@ -50,7 +50,7 @@ a {
 
 }
 
-.cont--panel form {
+.cont--panel .cont__ctrls {
     grid-column: span 4;
 }
 
@@ -137,7 +137,7 @@ a {
 
 .cont__ctrls button {
     aspect-ratio: 2/3;
-    padding: .25rem 0 0;
+    padding: 2rem 0 0;
     display: flex;
     justify-content: center;
     font-weight: bold;
@@ -164,17 +164,31 @@ a {
     background-image: url("../Assets/strong.jpg");
 }
 
-.location__signpost {
+.side-cont {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+    position: absolute;
 }
 
+.side-cont p {
+    flex-grow: 1;
+}
 
 @media screen and (min-width: 580px) {
     .cont--panel {
         grid-template-columns: repeat(6, 1fr);
     }
     
-    .cont--panel form {
+    .cont--panel .cont__ctrls {
         grid-column: span 2;
+    }
+
+    .cont__ctrls button {
+        padding: .25rem 0 0;
     }
 }
 
