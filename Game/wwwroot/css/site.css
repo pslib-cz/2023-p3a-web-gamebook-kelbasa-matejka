@@ -1,7 +1,7 @@
 :root {
     --bg: url("../Assets/bg.jpg");
     --cd: #F2E8D3;
-    
+    --prim: #5e2400;
 }
 
 body {
@@ -11,6 +11,11 @@ body {
     height: 100svh;
     min-height: 100svh;
     position: relative;
+}
+
+.br {
+    display: block;
+    width: 100%;
 }
 
 a {
@@ -35,7 +40,10 @@ a {
 
 .info h1 {
     font-size: min(15vw,10em);
-    
+    -webkit-text-stroke: 3px black;    
+    color: var(--prim);
+    text-align: center;
+    text-transform: uppercase;
 }
 
 .location {
