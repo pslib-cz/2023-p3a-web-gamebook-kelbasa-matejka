@@ -46,21 +46,18 @@
 <h2>Tlumok</h2>
 @if (Model.pModel.Items != null)
 {
- <ul>
+<form method="post">
      @foreach (var item in Model.pModel.Items)
      {
-         <li>
+         <p>
              <span>@item.Name - @item.Description</span>
              @if (item.Usable)
              {
-                 <form method="post">
-                     <input hidden name="ItemID" value="@item.ID" />
-                     <button type="submit" asp-page-handler="UseItem">Use</button>
-                 </form>
+                  <button type="submit" value="@item.ID" name="ItemId" asp-page-handler="UseItem">Use</button>
              }
-         </li>
+         </p>
      }
- </ul>
+</form>
 }
 else
 {
