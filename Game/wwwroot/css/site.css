@@ -18,40 +18,34 @@ a {
 }
 
 .location {
-    height: calc(100% - 3rem);
+    height: calc(100% - 1rem);
     background-size: cover;
     background-position: center;
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-direction: column;
-    gap: 2rem;
+    gap: .5rem;
     position: relative;
-    padding: 1.5rem;
+    padding: .5rem;
     animation: slide .4s ease-in-out;
 }
 
 .cont {
     padding: 1rem;
     width: calc(100% - 2rem);
-    max-width: 768px;
-    border-radius: 1.875rem;
+    max-width: 992px;
     background: var(--bg);
     background-size: contain;
     color: black;
     border: 2px solid black;
-    font-size: 20px;
 }
 
 .cont--panel {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-gap: 1rem;
+    grid-gap: .5rem;
 
-}
-
-.cont--panel .cont__ctrls {
-    grid-column: span 4;
 }
 
 .cont--panel span {
@@ -113,7 +107,6 @@ a {
     background-image: url("../Assets/sword.svg");
 }
 
-
 .cont__h {
     text-align: center;
     text-transform: uppercase;
@@ -124,16 +117,22 @@ a {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    padding: 1rem;
-    gap: 1rem;
+    gap: .5rem;
+    padding: .5rem;
     flex-grow: 1;
 }
 
 .cont__ctrls {
     display: grid;
     grid-gap: 1rem;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column: span 4;
 }
+
+.cont__ctrls form:nth-of-type(1) {
+    grid-column: 2;
+}
+
 
 .cont__ctrls button {
     aspect-ratio: 2/3;
@@ -180,15 +179,15 @@ a {
 
 @media screen and (min-width: 580px) {
     .cont--panel {
-        grid-template-columns: repeat(6, 1fr);
+        grid-template-columns: repeat(7, 1fr);
     }
     
     .cont--panel .cont__ctrls {
-        grid-column: span 2;
+        grid-column: span 3;
     }
 
     .cont__ctrls button {
-        padding: .25rem 0 0;
+        padding: .5rem 0 0;
     }
 }
 
