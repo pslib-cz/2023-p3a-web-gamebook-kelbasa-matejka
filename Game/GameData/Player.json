@@ -38,6 +38,18 @@
         "EffectScale": -10
       },
       "Icon": "leather_boots.png"
+    },
+    {
+      "ID": 151508,
+      "Name": "Lahvička s kyanidem",
+      "Description": "Tímto pravděpodobně vyřešíš všechny své problémy, ale pravděpodobněji jen sám sebe.",
+      "Usable": true,
+      "TargetIsEnemy": false,
+      "OnUseEffect": {
+        "Type": 0,
+        "EffectScale": -1000
+      },
+      "Icon": "kyanid_bottle.png"
     }
   ],
   "CurrentLocationId": 0,
