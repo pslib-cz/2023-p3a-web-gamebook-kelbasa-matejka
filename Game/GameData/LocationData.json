@@ -239,7 +239,7 @@
       {
         "Description": "Vydat se 3. cestou",
         "FromLocationID": 9,
-        "ToLocationID": 12
+        "ToLocationID": 13
       },
       {
         "Description": "Jít zpět",
@@ -332,6 +332,28 @@
         }
       }
     ]
+  },
+  {
+    "LocationID": 13,
+    "Name": "Zeď",
+    "PuzzleKey": "45527891",
+    "Description": "Uprostřed jeskyně je postavená mohutná zeď, na zdi je 8 kotoučů. Možná odemknou ty železné dveře.",
+    "Background": "wall.png",
+    "Stage": 1,
+    "Connections": [
+      {
+        "Description": "Jít zpět na krystalovou křižovatku",
+        "FromLocationID": 13,
+        "ToLocationID": 9
+      },
+      {
+        "Description": "Projít železnými dveřmi",
+        "FromLocationID": 13,
+        "ToLocationID": 25,
+        "Locked": true
+      }
+    ],
+    "Items": []
   }
 
 
