@@ -71,9 +71,13 @@ else
 {
     
         <p>@v.Description <a asp-page="Location" asp-route-id="@v.ToLocationID">-></a>
-            @if (v.Locked)
+            @if (v.Locked && !Model.pModel.SolvedPuzzleLocations.Contains(Model.pModel.CurrentLocationId))
             {
                 <span style="color: red;">LOCKED</span>
+            }
+            @if (v.Locked && Model.pModel.SolvedPuzzleLocations.Contains(Model.pModel.CurrentLocationId))
+            {
+                <span style="color: green;">UNLOCKED</span>
             }
             @if (v.RequiredItem != null)
             {

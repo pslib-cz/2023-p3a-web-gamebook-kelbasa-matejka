@@ -15,12 +15,15 @@ public class EffectService
                 break;
             case EffectTypeModel.Damage:
                 p.Damage += e.EffectScale;
+                if(p.Damage < 0) p.Damage = 0;
                 break;
             case EffectTypeModel.Resistance:
                 p.Resistance += e.EffectScale;
+                if(p.Resistance < 0) p.Resistance = 0;
                 break;
             case EffectTypeModel.Energy:
                 p.Energy += e.EffectScale;
+                if (p.Energy < 0) p.Energy = 0;
                 break;
         }
 

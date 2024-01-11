@@ -129,8 +129,8 @@
         "IsWearable": true,
         "WearableType": "Weapon",
         "OnWearEffect": {
-            "Type": 1,
-            "EffectScale": 15
+          "Type": 1,
+          "EffectScale": 15
         }
       }
     ]
@@ -168,8 +168,8 @@
       },
       {
         "Description": "Vydat se pravou chodbou",
-        "FromLocationID": 6,
-        "ToLocationID": 9
+        "FromLocationID": 7,
+        "ToLocationID": 14
       }
     ],
     "Items": [
@@ -354,8 +354,191 @@
       }
     ],
     "Items": []
+  },
+  {
+    "LocationID": 14,
+    "Name": "Lávová chodba",
+    "Description": "Obyčejná chodba, akorát zde teče láva a je tu velmi horko",
+    "Background": "lava_tunnel.png",
+    "Stage": 1,
+    "Connections": [
+      {
+        "Description": "Pokračovat dále",
+        "FromLocationID": 14,
+        "ToLocationID": 16
+      },
+      {
+        "Description": "Projít lávou (bude to bolet)",
+        "FromLocationID": 14,
+        "ToLocationID": 15,
+        "Effect": {
+          "Type": 0,
+          "EffectScale": -15
+        }
+      },
+      {
+        "Description": "Jít zpět do krápníkové jeskyně",
+        "FromLocationID": 14,
+        "ToLocationID": 7
+      }
+    ],
+    "Items": [
+      {
+        "ID": 7,
+        "Name": "Ohnivá houba",
+        "Description": "Houba co ti dodá sílu (2 DMG)",
+        "Icon": "fire_mushroom.png",
+        "IsWearable": false,
+        "Usable": true,
+        "OnUseEffect": {
+          "Type": 1,
+          "EffectScale": 2
+        }
+      }
+    ]
+  },
+  {
+    "LocationID": 15,
+    "Name": "Slepá lávová ulička",
+    "Description": "Je tu hodně horko, na stěně stojí nápis -7891",
+    "Background": "lava_dead_end.png",
+    "Stage": 1,
+    "Connections": [
+      {
+        "Description": "Projít lávou zpět (bude to bolet)",
+        "FromLocationID": 15,
+        "ToLocationID": 14,
+        "Effect": {
+          "Type": 0,
+          "EffectScale": -15
+        }
+      }
+    ],
+    "Items": [
+      {
+        "ID": 8,
+        "Name": "Ohnivé kalhoty",
+        "Description": "Nejen slušivé kalhoty (7 RES)",
+        "Icon": "fire_leggins.png",
+        "IsWearable": true,
+        "OnWearEffect": {
+          "Type": 2,
+          "EffectScale": 7
+        }
+      },
+      {
+        "ID": 9,
+        "Name": "Pivo",
+        "Description": "Trochu zteplalé pivo (10 HP)",
+        "Icon": "beer.png",
+        "Usable": true,
+        "OnUseEffect": {
+          "Type": 0,
+          "EffectScale": 10
+        }
+      }
+    ]
+  },
+  {
+    "LocationID": 16,
+    "Name": "Ohnivá jeskyně",
+    "Description": "Místnost naplněná ohněm hořícím už stovky let. Vyskytují se zde ohnivý krabi - velmi nebezpeční nepřátelé",
+    "Background": "fire_cave.png",
+    "Stage": 1,
+    "Connections": [
+      {
+        "Description": "Vrátit se do lávové chodby",
+        "FromLocationID": 16,
+        "ToLocationID": 14
+      },
+      {
+        "Description": "Jít levou chodbou",
+        "FromLocationID": 16,
+        "ToLocationID": 17
+      },
+      {
+        "Description": "Jít pravou chodbou",
+        "FromLocationID": 16,
+        "ToLocationID": 19
+      }
+    ],
+    "Items": [],
+    "Enemy": {
+      "Name": "Ohnivý krab",
+      "Damage": 40,
+      "Hp": 15,
+      "Img": "fire_crab.png",
+      "NumberOfAttacks": 1
+    }
+  },
+  {
+    "LocationID": 17,
+    "Name": "Díra",
+    "Description": "Jsi hned před černočernou dírou, bůhvíjak hlubokou",
+    "Background": "black_hole.png",
+    "Stage": 1,
+    "Connections": [
+      {
+        "Description": "Vrátit se zpět",
+        "FromLocationID": 17,
+        "ToLocationID": 16
+      },
+      {
+        "Description": "Slanit se dolů",
+        "FromLocationID": 17,
+        "ToLocationID": 18,
+        "RequiredItem": {
+          "ID": 1,
+          "Name": "Dlouhé lano",
+          "Description": "Staré ale pevné lano"
+        }
+      }
+    ],
+    "Items": [],
+    "Enemy": {
+      "Name": "Ohnivý krab",
+      "Damage": 40,
+      "Hp": 15,
+      "Img": "fire_crab.png",
+      "NumberOfAttacks": 1
+    }
+  },
+  {
+    "LocationID": 18,
+    "Name": "Dno",
+    "Description": "Jsi úplně na dně, hlouběji už jít nejde. Je tu úplná tma. Jediné co jde vidět je nápis na zdi: 4552-",
+    "Background": "bottom.png",
+    "Stage": 1,
+    "Connections": [
+      {
+        "Description": "Vylézt zpět nahoruů",
+        "FromLocationID": 18,
+        "ToLocationID": 17,
+        "RequiredItem": {
+          "ID": 1,
+          "Name": "Dlouhé lano",
+          "Description": "Staré ale pevné lano"
+        },
+        "Effect": {
+          "Type": 3,
+          "EffectScale": -10
+        }
+      }
+    ],
+    "Items": [
+      {
+        "ID": 10,
+        "Name": "Lektvar energie",
+        "Description": "Nakopne i mrtvého (25 ENG)",
+        "Icon": "energy_potion.png",
+        "Usable": true,
+        "OnUseEffect": {
+          "Type": 3,
+          "EffectScale": 25
+        }
+      }
+    ]
   }
-
 
 
 
