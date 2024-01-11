@@ -7,9 +7,54 @@
 <main class="location" style="background-image: url(Assets/LocationsBg/@Model.lModel.Background);">
     <section class="cont">
         <h1 class="cont__h">@Model.lModel.Name #@Model.pModel.CurrentLocationId</h1>
-        <p>@Model.lModel.Description</p>    
+        <p class="cont__p">@Model.lModel.Description</p>    
     </section>
-    <section class="location__obj">
+    <section class="obj">
+        <div class="backpack">
+        <h2>Tlumok</h2>
+        @if (Model.pModel.Items != null)
+        {
+        <form method="post">
+             @foreach (var item in Model.pModel.Items)
+             {
+                 <p>
+                     <span>@item.Name - @item.Description</span>
+                     @if (item.Usable)
+                     {
+                          <button type="submit" value="@item.ID" name="ItemId" asp-page-handler="UseItem">Use</button>
+                     }
+                 </p>
+             }
+        </form>
+        }
+        else
+        {
+            <p>Zøejmì je tlumok dìravý, páè tu nic není</p>
+        }
+        @foreach (var v in Model.lModel.Connections)
+        {
+            
+                <p>@v.Description <a asp-page="Location" asp-route-id="@v.ToLocationID">-></a>
+                    @if (v.Locked)
+                    {
+                        <span style="color: red;">LOCKED</span>
+                    }
+                    @if (v.RequiredItem != null)
+                    {
+                        if (Model.pModel.Items != null && Model.pModel.Items.Count(a => a.ID == v.RequiredItem.ID) > 0)
+                        {
+                            <span>@v.RequiredItem.Name is required (you have it)</span>
+                        }
+                        else
+                        {
+                            <span style="color: red;">@v.RequiredItem.Name is required</span>
+                        }
+        
+                    }
+                </p>
+           
+        }    
+        </div>
         @if (Model.lModel.Enemy != null)
         {
             @await Html.PartialAsync("Combat", Model)
@@ -21,12 +66,16 @@
         @if (Model.lModel.Items.Count > 0 && !Model.lModel.Items.All(item => Model.pModel.PickedUpItems.Any(pickedItem => pickedItem == item.ID)))
         {
             @await Html.PartialAsync("Items", Model)
-        }    
+        }
+        @if(Model.pModel.CurrentLocationId == Model.WINNING_LOCATION_ID)
+         {
+             <a asp-page="Endgame">Finish game</a>
+         }
     </section>
-    <section class="cont cont--panel">
+    <section class="cont cont--player">
         @if (Model.lModel.Items.Count > 0 && !Model.lModel.Items.All(item => Model.pModel.PickedUpItems.Any(pickedItem => pickedItem == item.ID)))
         {
-            <form method="post">
+            <form class="cont__ctrls cont__ctrls--items" method="post">
                 @await Html.PartialAsync("ItemsBtns", Model)
             </form>
 
@@ -34,7 +83,9 @@
 
         @if (Model.lModel.Enemy != null && !Model.pModel.CombatState.CleanedLocations.Contains(Model.lModel.LocationID))
         {
-            @await Html.PartialAsync("CombatBtns", Model)
+            <form class="cont__ctrls cont__ctrls--items" method="post">
+                @await Html.PartialAsync("CombatBtns", Model)
+            </form>
         }
         <span>@Model.pModel.Hp</span>
         <span>@Model.pModel.Energy</span>
@@ -43,57 +94,3 @@
     </section>
 </main>
 <script src="/_framework/aspnetcore-browser-refresh.js"></script>
-
-<section class="side-cont side-cont--inv">
-<h2>Tlumok</h2>
-@if (Model.pModel.Items != null)
-{
-<form method="post">
-     @foreach (var item in Model.pModel.Items)
-     {
-         <p>
-             <span>@item.Name - @item.Description</span>
-             @if (item.Usable)
-             {
-                  <button type="submit" value="@item.ID" name="ItemId" asp-page-handler="UseItem">Use</button>
-             }
-         </p>
-     }
-</form>
-}
-else
-{
-    <p>Zøejmì je tlumok dìravý, páè tu nic není</p>
-}
-</section>
-<section class="side-cont side-cont--map">
-@foreach (var v in Model.lModel.Connections)
-{
-    
-        <p>@v.Description <a asp-page="Location" asp-route-id="@v.ToLocationID">-></a>
-            @if (v.Locked)
-            {
-                <span style="color: red;">LOCKED</span>
-            }
-            @if (v.RequiredItem != null)
-            {
-                if (Model.pModel.Items != null && Model.pModel.Items.Count(a => a.ID == v.RequiredItem.ID) > 0)
-                {
-                    <span>@v.RequiredItem.Name is required (you have it)</span>
-                }
-                else
-                {
-                    <span style="color: red;">@v.RequiredItem.Name is required</span>
-                }
-
-            }
-        </p>
-   
-}
-</section>
-
-
-@if(Model.pModel.CurrentLocationId == Model.WINNING_LOCATION_ID)
-{
-    <a asp-page="Endgame">Finish game</a>
-}
