@@ -4,36 +4,36 @@
     ViewData["Title"] =  $"{Model.lModel.Name} - Escape The Fortress";
 }
 
-<main class="location" style="background-image: url(Assets/LocationsBg/@Model.lModel.Background);">
+<main style="background-image: url(Assets/LocationsBg/@Model.lModel.Background);">
     <section class="cont">
         <h1 class="cont__h">@Model.lModel.Name #@Model.pModel.CurrentLocationId</h1>
         <p class="cont__p">@Model.lModel.Description</p>    
     </section>
     <section class="obj">
-        <div class="backpack">
-        <h2>Tlumok</h2>
-        @if (Model.pModel.Items != null)
-        {
-        <form method="post">
-             @foreach (var item in Model.pModel.Items)
-             {
-                 <p>
-                     <span>@item.Name - @item.Description</span>
-                     @if (item.Usable)
-                     {
-                          <button type="submit" value="@item.ID" name="ItemId" asp-page-handler="UseItem">Use</button>
-                     }
-                 </p>
-             }
-        </form>
-        }
-        else
-        {
-            <p>Zøejmì je tlumok dìravý, páè tu nic není</p>
-        }
-        @foreach (var v in Model.lModel.Connections)
-        {
-            
+        <div class="pack" id="pack">
+            <h2>Tlumok</h2>
+            @if (Model.pModel.Items != null)
+            {
+                <form method="post">
+                    @foreach (var item in Model.pModel.Items)
+                    {
+                        <p>
+                            <span>@item.Name - @item.Description</span>
+                            @if (item.Usable)
+                            {
+                                <button type="submit" value="@item.ID" name="ItemId" asp-page-handler="UseItem">Use</button>
+                            }
+                        </p>
+                    }
+                </form>
+            }
+            else
+            {
+                <p>Zøejmì je tlumok dìravý, páè tu nic není</p>
+            }
+            @foreach (var v in Model.lModel.Connections)
+            {
+                
                 <p>@v.Description <a asp-page="Location" asp-route-id="@v.ToLocationID">-></a>
                     @if (v.Locked)
                     {
@@ -49,11 +49,14 @@
                         {
                             <span style="color: red;">@v.RequiredItem.Name is required</span>
                         }
-        
+            
                     }
                 </p>
-           
-        }    
+               
+            }
+            <button class="pack__btn" rel="nofollow" title="Otevírání inventáøe" id="packBtn">
+                <img src="assets/bag.svg" alt="#"/>
+            </button>
         </div>
         @if (Model.lModel.Enemy != null)
         {
@@ -68,9 +71,9 @@
             @await Html.PartialAsync("Items", Model)
         }
         @if(Model.pModel.CurrentLocationId == Model.WINNING_LOCATION_ID)
-         {
-             <a asp-page="Endgame">Finish game</a>
-         }
+        {
+            <a asp-page="Endgame">Finish game</a>
+        }
     </section>
     <section class="cont cont--player">
         @if (Model.lModel.Items.Count > 0 && !Model.lModel.Items.All(item => Model.pModel.PickedUpItems.Any(pickedItem => pickedItem == item.ID)))
@@ -93,4 +96,4 @@
         <span>@Model.pModel.Damage</span>
     </section>
 </main>
-<script src="/_framework/aspnetcore-browser-refresh.js"></script>
+<script type="text/javascript" src="js/location.js"></script>
