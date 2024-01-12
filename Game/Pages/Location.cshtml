@@ -35,7 +35,7 @@
             {
                 
                 <p>@v.Description <a asp-page="Location" asp-route-id="@v.ToLocationID">-></a>
-                    @if (v.Locked)
+                    @if (v.Locked && !Model.pModel.SolvedPuzzleLocations.Contains(Model.pModel.CurrentLocationId))
                     {
                         <span style="color: red;">LOCKED</span>
                     }
@@ -64,7 +64,14 @@
         }
         @if (Model.lModel.PuzzleKey != null)
         {
-            @await Html.PartialAsync("PuzzleForm", Model)
+            if (Model.pModel.SolvedPuzzleLocations.Contains(Model.lModel.LocationID))
+            {
+                <p>Vyøešeno! Odpovìï byla: @Model.lModel.PuzzleKey</p>
+            }
+            else
+            {
+                @await Html.PartialAsync("PuzzleForm", Model)
+            }
         }
         @if (Model.lModel.Items.Count > 0 && !Model.lModel.Items.All(item => Model.pModel.PickedUpItems.Any(pickedItem => pickedItem == item.ID)))
         {

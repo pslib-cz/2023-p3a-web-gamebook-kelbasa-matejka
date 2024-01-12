@@ -57,7 +57,6 @@
   "Damage": 1,
   "Resistance": 10,
   "CombatState": {
-    "CurrentEnemyHp": 0,
     "CleanedLocations": []
   }
 }

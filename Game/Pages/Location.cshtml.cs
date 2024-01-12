@@ -64,6 +64,9 @@ public class Location(LocationService ls, ISessionService ss, EffectService es, 
         LoadPlayer();
         lModel = ls.GetLocation(pModel.CurrentLocationId);
         if (ffm == null || lModel.PuzzleKey == null || pModel.SolvedPuzzleLocations.Contains(lModel.LocationID)) return Page();
+
+        ffm.Answer = ffm.Answer.Trim();
+
         if (ffm.Answer == lModel.PuzzleKey)
         {
             pModel.SolvedPuzzleLocations.Add(lModel.LocationID);
@@ -94,12 +97,17 @@ public class Location(LocationService ls, ISessionService ss, EffectService es, 
             foreach(var w in pModel.Items.Where(a => a.IsWearable && a.WearableType == item.WearableType))
             {
                 var effect = w.OnWearEffect;
-                effect.EffectScale *= -1;
-                EffectService.ApplyEffect(effect, pModel);
+                if (effect != null)
+                {
+                    effect.EffectScale *= -1;
+                    EffectService.ApplyEffect(effect, pModel);
+                }
+
             }
             pModel.Items.RemoveAll(a => a.IsWearable && a.WearableType == item.WearableType);
 
-            EffectService.ApplyEffect(item.OnWearEffect, pModel);
+            
+            if(item.OnWearEffect != null) EffectService.ApplyEffect(item.OnWearEffect, pModel);
         }
 
         pModel.Items.Add(item);

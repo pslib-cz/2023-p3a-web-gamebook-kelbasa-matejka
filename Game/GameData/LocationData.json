@@ -74,10 +74,10 @@
       }
     ],
     "Enemy": {
-      "Name": "Big spider",
+      "Name": "Cave spider",
       "Damage": 5,
       "Hp": 20,
-      "Img": "big_spider.png",
+      "Img": "cave_spider.png",
       "NumberOfAttacks": 2
     }
   },
@@ -349,7 +349,7 @@
       {
         "Description": "Projít železnými dveřmi",
         "FromLocationID": 13,
-        "ToLocationID": 25,
+        "ToLocationID": 30,
         "Locked": true
       }
     ],
@@ -421,6 +421,7 @@
         "Description": "Nejen slušivé kalhoty (7 RES)",
         "Icon": "fire_leggins.png",
         "IsWearable": true,
+        "WearableType": "Leggings",
         "OnWearEffect": {
           "Type": 2,
           "EffectScale": 7
@@ -538,9 +539,350 @@
         }
       }
     ]
+  },
+  {
+    "LocationID": 19,
+    "Name": "Sírová jeskyně",
+    "Description": "Místnost naplněná pachem síry a špatnou atmosférou. Je tu jeden otvor do, kterého lze vlézt",
+    "Background": "sulfur_cave.png",
+    "Stage": 1,
+    "Connections": [
+      {
+        "Description": "Vrátit se ",
+        "FromLocationID": 19,
+        "ToLocationID": 16
+      },
+      {
+        "Description": "Vlézt do čertova doupěte",
+        "FromLocationID": 19,
+        "ToLocationID": 20
+      }
+    ],
+    "Items": [
+      {
+        "ID": 11,
+        "Name": "Kolo sýra",
+        "Description": "Kolo chutného uzrálého sýra (30 HP)",
+        "Icon": "cheese_wheel.png",
+        "Usable": true,
+        "OnUseEffect": {
+          "Type": 0,
+          "EffectScale": 30
+        }
+      }
+    ]
+  },
+  {
+    "LocationID": 20,
+    "Name": "Čertovo doupě",
+    "Description": "Špinavé doupě kde bydlí zlomyslní čerti. Je tu dokonce i pec",
+    "Background": "devils_den.png",
+    "Stage": 1,
+    "Connections": [
+      {
+        "Description": "Vylézt z čertova doupěte",
+        "FromLocationID": 20,
+        "ToLocationID": 19
+      }
+    ],
+    "Items": [
+      {
+        "ID": 12,
+        "Name": "Čertův prsten",
+        "Description": "Pomocí černé magie ti zvýší tvoji sílu, snad ti nenaroste ocas",
+        "Icon": "devils_ring.png",
+        "IsWearable": true,
+        "OnWearEffect": {
+          "Type": 1,
+          "EffectScale": 5
+        }
+      }
+    ],
+    "Enemy": {
+      "Name": "Čert",
+      "Damage": 8,
+      "Hp": 40,
+      "Img": "devil.png",
+      "NumberOfAttacks": 4
+    }
+  },
+
+
+
+
+
+
+  {
+    "LocationID": 30,
+    "Name": "Počátek katakomb",
+    "Description": "Nacházíš se v katakombách, určitě byly vybudovány člověkem. Už jsi o krok blíže dostat se do pevnosti.",
+    "Background": "dungeon_start.png",
+    "Stage": 2,
+    "Connections": [
+      {
+        "Description": "Pokračovat dále chodbou",
+        "FromLocationID": 30,
+        "ToLocationID": 31
+      }
+    ],
+    "Items": [
+      {
+        "ID": 25,
+        "Name": "Mošna vína",
+        "Description": "Řádně tě posílí (15 ENG)",
+        "Icon": "wine_flask.png",
+        "Usable": true,
+        "OnUseEffect": {
+          "Type": 3,
+          "EffectScale": 15
+        }
+      }
+    ]
+  },
+  {
+    "LocationID": 31,
+    "Name": "Katakombová křižovatka",
+    "Description": "Došel jsi na křižovatku. Chodby se rozdělují. Všude je vlhko a smrad",
+    "Background": "dungeon_crossroad.png",
+    "Stage": 2,
+    "Connections": [
+      {
+        "Description": "Jít zpět na počátek katakomb",
+        "FromLocationID": 31,
+        "ToLocationID": 30
+      },
+      {
+        "Description": "Vydat se vlevo",
+        "FromLocationID": 31,
+        "ToLocationID": 32
+      },
+      {
+        "Description": "Vydat se rovně",
+        "FromLocationID": 31,
+        "ToLocationID": 33
+      },
+      {
+        "Description": "Vydat se vpravo",
+        "FromLocationID": 31,
+        "ToLocationID": 34
+      }
+    ],
+    "Items": [
+      {
+        "ID": 30,
+        "Name": "Vrhací dýka",
+        "Description": "Může být vržena velikou rychlostí na nepřítele (- 5 DMG)",
+        "Icon": "throwing_knife.png",
+        "Usable": true,
+        "TargetIsEnemy": true,
+        "OnUseEffect": {
+          "Type": 1,
+          "EffectScale": -5
+        }
+      }
+    ]
+  },
+  {
+    "LocationID": 32,
+    "Name": "Krypta",
+    "Description": "Nacházíš se před vchodem do krypty. Kolem tebe jsou kosti",
+    "Background": "crypt_entrance.png",
+    "Stage": 2,
+    "Connections": [
+      {
+        "Description": "Jít zpět",
+        "FromLocationID": 32,
+        "ToLocationID": 31
+      },
+      {
+        "Description": "Vejít do krypty",
+        "FromLocationID": 32,
+        "ToLocationID": 35,
+        "RequiredItem": {
+          "ID": 31,
+          "Name": "Klíč s lebkou",
+          "Description": "Klíč s ornamentem lebky"
+        }
+      }
+    ],
+    "Items": [
+      {
+        "ID": 32,
+        "Name": "Neznámé maso",
+        "Description": "Něčí maso, trochu propečené",
+        "Icon": "meat.png",
+        "Usable": true,
+        "OnUseEffect": {
+          "Type": 0,
+          "EffectScale": 15
+        }
+      }
+    ]
+  },
+  {
+    "LocationID": 35,
+    "Name": "Krypta",
+    "Description": "Všude kolem jsou hromady kostí. Pravděpodobně zde i straší",
+    "Background": "crypt.png",
+    "Stage": 2,
+    "Connections": [
+      {
+        "Description": "Odejít ven z krypty",
+        "FromLocationID": 35,
+        "ToLocationID": 32
+      },
+      {
+        "Description": "Jít po schodech dolů",
+        "FromLocationID": 35,
+        "ToLocationID": 36
+      },
+      {
+        "Description": "Pokračovat dál chodbou",
+        "FromLocationID": 35,
+        "ToLocationID": 37
+      }
+    ],
+    "Items": [],
+    "Enemy": {
+      "Name": "Kostlivec",
+      "Damage": 10,
+      "Hp": 50,
+      "Img": "skeleton.png",
+      "NumberOfAttacks": 1
+    }
+
+  },
+  {
+    "LocationID": 36,
+    "Name": "Spodní krypta",
+    "Description": "Jsi v místnosti s hrobkou krále Castiela. Vchod je ale zamčený",
+    "Background": "crypt.png",
+    "Stage": 2,
+    "Connections": [
+      {
+        "Description": "Odejít po schodech zpět nahoru",
+        "FromLocationID": 36,
+        "ToLocationID": 35
+      },
+      {
+        "Description": "Odemknout hrobku a jít dovnitř",
+        "FromLocationID": 36,
+        "ToLocationID": 39,
+        "RequiredItem": {
+          "ID": 33,
+          "Name": "Měděný disk",
+          "Description": "Stojí na něm napsáno - odemyká Castielovu hrobku"
+        }
+      }
+    ],
+    "Items": [],
+    "Enemy": {
+      "Name": "Pytel kostí",
+      "Damage": 5,
+      "Hp": 50,
+      "Img": "sack_of_bones.png",
+      "NumberOfAttacks": 1
+    }
+  },
+  {
+    "LocationID": 37,
+    "Name": "Kaple krypty",
+    "Description": "Jsi v kapli v kryptě. Stojí zde oltář. Pravděpodobně je propojený s kamennými dveřmi naproti tobě. Na oltář se dá psát.",
+    "Background": "crypt_altar.png",
+    "Stage": 2,
+    "Connections": [
+      {
+        "Description": "Vrátit se",
+        "FromLocationID": 37,
+        "ToLocationID": 35
+      },
+      {
+        "Description": "Projít kamennými dveřmi",
+        "FromLocationID": 37,
+        "ToLocationID": 38,
+        "Locked": true
+      }
+    ],
+    "Items": []
+  },
+  {
+    "LocationID": 38,
+    "Name": "Archiv v kryptě",
+    "Description": "Jsi v archivu plném zaprášených svitků. Má to zde zvláštní atmosféru",
+    "Background": "crypt.png",
+    "Stage": 2,
+    "Connections": [
+      {
+        "Description": "Vrátit se do kaple",
+        "FromLocationID": 38,
+        "ToLocationID": 37
+      }
+    ],
+    "Items": [
+      {
+        "ID": 34,
+        "Name": "Zachovalý svitek",
+        "Description": "Skoro jediný zachovalý svitek z archivu. Je na něm napsána pouze fráze 'motus ad ianuam'",
+        "Icon": "scroll.png"
+      },
+      {
+        "ID": 35,
+        "Name": "Kávová zrna",
+        "Description": "Když je rozžvýkáš, bude to jako kdyby jsi vypil dva litry kávy",
+        "Icon": "coffee_beans.png",
+        "Usable": true,
+        "OnUseEffect": {
+          "Type": 3,
+          "EffectScale": 30
+        }
+      }
+    ],
+    "Enemy": {
+      "Name": "Kostlivec válečník",
+      "Damage": 12,
+      "Hp": 30,
+      "Img": "skeleton_warrior.png",
+      "NumberOfAttacks": 2
+    }
+  },
+  {
+    "LocationID": 39,
+    "Name": "Castielova hrobka",
+    "Description": "Jsi uvnitř Castielovy hrobky. Jeho ostatky ale chybí.",
+    "Background": "castiels_tomb.png",
+    "Stage": 2,
+    "Connections": [
+      {
+        "Description": "Vrátit se",
+        "FromLocationID": 39,
+        "ToLocationID": 36
+      }
+    ],
+    "Items": [
+      {
+        "ID": 36,
+        "Name": "Castielovo brnění",
+        "Description": "Brnění z ryzího zlata, kdysi nošené samotným králem Castielem (25 RES)",
+        "IsWearable": true,
+        "WearableType": "Chestplate",
+        "OnWearEffect": {
+          "Type": 2,
+          "EffectScale": 25
+        },
+        "Icon": "castiels_chestplate.png"
+      },
+      {
+        "ID": 37,
+        "Name": "Mana",
+        "Description": "Kouzelná mana, vyléčí mnoho ran (40 HP)",
+        "Icon": "mana.png",
+        "Usable": true,
+        "OnUseEffect": {
+          "Type": 0,
+          "EffectScale": 40
+        }
+      }
+    ]
   }
-
-
-
 
 ]
