@@ -11,53 +11,56 @@
     </section>
     <section class="obj">
         <div class="pack" id="pack">
-            <h2>Tlumok</h2>
-            @if (Model.pModel.Items != null)
-            {
-                <form method="post">
-                    @foreach (var item in Model.pModel.Items)
-                    {
-                        <p>
-                            <span>@item.Name - @item.Description</span>
-                            @if (item.Usable)
+                <h2>Tlumok</h2>
+                @if (Model.pModel.Items != null)
+                {
+                    <form method="post" class="pack__inv">
+                        @foreach (var item in Model.pModel.Items)
+                        {
+                            <p>
+                                <span>@item.Name - @item.Description</span>
+                                @if (item.Usable)
+                                {
+                                    <button type="submit" value="@item.ID" name="ItemId" asp-page-handler="UseItem">Use</button>
+                                }
+                            </p>
+                        }
+                    </form>
+                }
+                else
+                {
+                    <p>Zøejmì je tlumok dìravý, páè tu nic není</p>
+                }
+    
+                @foreach (var v in Model.lModel.Connections)
+                {
+    
+                    <p>@v.Description
+                        <a asp-page="Location" asp-route-id="@v.ToLocationID">
+                            @if (v.Locked)
                             {
-                                <button type="submit" value="@item.ID" name="ItemId" asp-page-handler="UseItem">Use</button>
+                                <span style="color: red;">LOCKED</span>
                             }
-                        </p>
-                    }
-                </form>
-            }
-            else
-            {
-                <p>Zøejmì je tlumok dìravý, páè tu nic není</p>
-            }
-            @foreach (var v in Model.lModel.Connections)
-            {
-                
-                <p>@v.Description <a asp-page="Location" asp-route-id="@v.ToLocationID">-></a>
-                    @if (v.Locked)
-                    {
-                        <span style="color: red;">LOCKED</span>
-                    }
-                    @if (v.RequiredItem != null)
-                    {
-                        if (Model.pModel.Items != null && Model.pModel.Items.Count(a => a.ID == v.RequiredItem.ID) > 0)
-                        {
-                            <span>@v.RequiredItem.Name is required (you have it)</span>
-                        }
-                        else
-                        {
-                            <span style="color: red;">@v.RequiredItem.Name is required</span>
-                        }
-            
-                    }
-                </p>
-               
-            }
+                            @if (v.RequiredItem != null)
+                            {
+                                if (Model.pModel.Items != null && Model.pModel.Items.Count(a => a.ID == v.RequiredItem.ID) > 0)
+                                {
+                                    <span>@v.RequiredItem.Name is required (you have it)</span>
+                                }
+                                else
+                                {
+                                    <span style="color: red;">@v.RequiredItem.Name is required</span>
+                                }
+    
+                            }
+                        </a>
+                    </p>
+    
+                }    
             <button class="pack__btn" rel="nofollow" title="Otevírání inventáøe" id="packBtn">
-                <img src="assets/bag.svg" alt="#"/>
             </button>
         </div>
+        
         @if (Model.lModel.Enemy != null)
         {
             @await Html.PartialAsync("Combat", Model)
