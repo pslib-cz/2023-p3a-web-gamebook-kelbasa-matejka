@@ -1,0 +1,16 @@
+﻿@model Game.Pages.Location
+<form method="post" class="ctrls">
+    @if (Model.lModel.Enemy != null && !Model.pModel.CombatState.CleanedLocations.Contains(Model.lModel.LocationID))
+    {
+        <button asp-page-handler="Attack" class="ctrls__attack" type="submit" name="attackType" value="WeakAttack">Slabý Útok</button>
+        <button asp-page-handler="Attack" class="ctrls__attack" type="submit" name="attackType" value="StrongAttack">Silný Útok</button>    
+    }
+
+    @if (Model.lModel.Items.Any() && !Model.lModel.Items.All(item => Model.pModel.PickedUpItems.Contains(item.ID)) && Model.pModel.CombatState.CurrentEnemy.Hp == 0)
+    {
+        @foreach (var item in Model.lModel.Items.Where(i => !Model.pModel.PickedUpItems.Contains(i.ID)))
+        {
+            <button class="ctrls__item" name="ItemID" value="@item.ID" type="submit" asp-page-handler="PickUpItem">Sebrat @item.Name</button>
+        }
+    }
+</form>

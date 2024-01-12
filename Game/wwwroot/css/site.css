@@ -1,6 +1,6 @@
 :root {
     --bg: url("../Assets/bg.jpg");
-    --cd: #F2E8D3;
+    --cd: linear-gradient(135deg, rgba(255,237,200,1) 0%, rgba(255,255,255,1) 65%);
     --prim: #5e2400;
 }
 
@@ -35,16 +35,17 @@ main.main--info {
     justify-content: space-evenly;
 }
 
-.main--info h1 {
+.main--info {
     font-size: min(15vw,10em);
     -webkit-text-stroke: 3px black;    
     color: var(--prim);
     text-align: center;
     text-transform: uppercase;
+    margin: 0;
 }
 
 .cont {
-    width: calc(100% - 1rem);
+    width: calc(100% - 20px);
     padding: .5rem;
     max-width: 976px;
     background: var(--bg);
@@ -62,13 +63,11 @@ main.main--info {
     overflow: auto;
 }
 
-.cont--player span, .cont__ctrls button {
+.cont--player span, .ctrls button {
     color: black;
     font-weight: bold;
     display: flex;
     justify-content: center;
-    align-items: center;
-    background: var(--cd);
     aspect-ratio: 2/3;
     border-radius: 10%;
     position: relative;
@@ -80,23 +79,24 @@ main.main--info {
 
 .cont--player span {
     font-size: 20px;
-}
-
-.cont__ctrls button {
-    padding-top: 2rem;
-    font-family: 'EB Garamond', serif;
-}
-
-.cont__ctrls:not(.cont__ctrls--combat) button {
     background: var(--cd);
-    padding-top: 7.5%;
+    align-items: center;
 }
 
-.cont__ctrls--items button {
-    position: relative;
+.ctrls__attack {
+    font-family: 'EB Garamond', serif;
+    background-size: cover;
+    align-items: start;
 }
 
-.cont--player span::before, .cont--player span::after, .cont__ctrls--items button::before, .cont__ctrls--items button::after {
+.ctrls__item{
+    background: var(--cd);
+    padding: 5%;
+    font-family: 'EB Garamond', serif;
+    align-items: center;
+}
+
+.cont--player span::before, .cont--player span::after, .ctrls button::before, .ctrls button::after {
     content: "";
     width: max(25%, 25px);
     background-size: contain;
@@ -104,20 +104,20 @@ main.main--info {
     aspect-ratio: 1;
 }
 
-.cont--player span::before, .cont__ctrls--items button::before {
+.cont--player span::before, .ctrls button::before {
     position: absolute;
     top: 5%;
     left: 5%;
 }
 
-.cont--player span::after, .cont__ctrls--items button::after {
+.cont--player span::after, .ctrls button::after {
     position: absolute;
     bottom: 5%;
     right: 5%;
     transform: rotate(180deg);
 }
 
-.cont__ctrls--items button::after, .cont__ctrls--items button::before {
+.ctrls__item::after, .ctrls__item::before {
     background-image: url("../Assets/bag.svg");
 }
 
@@ -140,11 +140,11 @@ main.main--info {
 .cont__h {
     text-align: center;
     text-transform: uppercase;
-    margin-top: 0;
+    margin: 0;
 }
 
 .cont__p {
-    margin-bottom: 0;
+    margin: 0;
 }
 
 .obj {
@@ -161,16 +161,17 @@ main.main--info {
 }
 
 .pack {
-    height: 100%;
+    height: calc(100% - 20px);
     position: absolute;
     top: 0;
     left: -1rem;
     background: var(--bg);
     border: 2px solid black;
+    border-left: none;
     border-radius: 0 .5rem .5rem 0;
     transform: translateX(-100%);
     transition: .4s ease all;
-    overflow: auto;
+    padding: .5rem;
 }
 .pack--open {
     transform: translateX(0);
@@ -181,53 +182,43 @@ main.main--info {
     aspect-ratio: 1;
     border-radius: 0 25% 25% 0;
     position: absolute;
+    bottom: 0;
     background: radial-gradient(50% 50% at 50% 50%, #BA0000 54%, #5F0000 100%);
     border: 1px solid black;
+    right: 0;
+    transform: translateX(100%);
     padding: 1rem;
     transition: .4s ease all;
 }
 
 .pack--open .pack__btn {
     transform: translateX(0);
-    border-radius: 10%;
+    border-radius: 10% 0 10% 0;
     border-bottom: none;
     border-right: none;
 }
 
-.cont__ctrls {
+.ctrls {
     display: grid;
     grid-gap: .5rem;
     grid-template-columns: repeat(4, 1fr);
     grid-column: span 4;
 }
 
-.cont__ctrls form:nth-of-type(1) {
+.ctrls form:nth-of-type(1) {
     grid-column: 2;
 }
-.cont__ctrls--combat button:nth-of-type(1) {
+.ctrls .ctrls__attack:nth-of-type(1) {
     background-image: url("../Assets/weak.jpg");
 }
 
-.cont__ctrls--combat button:nth-of-type(2) {
+.ctrls .ctrls__attack:nth-of-type(2) {
     background-image: url("../Assets/strong.jpg");
 }
 
-.side-cont {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    gap: 1rem;
-    padding: 1rem;
-    position: absolute;
-}
-
-.side-cont p {
-    flex-grow: 1;
-}
 
 @media screen and (min-width: 768px) {
-    .cont--player span, .cont__ctrls button {
+    .cont--player span, .ctrls button {
         font-size: min(2vw, 1.5rem);
     }
 }
@@ -237,11 +228,11 @@ main.main--info {
         grid-template-columns: repeat(8, 1fr);
     }
     
-    .cont--player .cont__ctrls {
+    .cont--player .ctrls {
         grid-column: span 4;
     }
 
-    .cont__ctrls button {
+    .ctrls button {
         padding: .5rem 0 0;
     }
 }

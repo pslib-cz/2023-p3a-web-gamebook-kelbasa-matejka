@@ -1,6 +1,7 @@
 {
   "PlayerID": 1,
   "Hp": 100,
+  "Energy": 100,
   "Items": [
     {
       "ID": 100,
@@ -52,12 +53,14 @@
       "Icon": "kyanid_bottle.png"
     }
   ],
-  "CurrentLocationId": 0,
-  "Energy": 100,
-  "Damage": 1,
-  "Resistance": 10,
   "CombatState": {
-    "CurrentEnemyHp": 0,
+    "CurrentEnemy": {
+      "Name": "",
+      "Damage": 0,
+      "Hp": 0,
+      "Img": "",
+      "NumberOfAttacks": 0
+    },
     "CleanedLocations": []
   }
 }

@@ -2,6 +2,12 @@
 @model Game.Pages.Location
 @{
     ViewData["Title"] =  $"{Model.lModel.Name} - Escape The Fortress";
+    bool itemsPresent = Model.lModel.Items.Count > 0 && !Model.lModel.Items.All(item => Model.pModel.PickedUpItems.Any(pickedItem => pickedItem == item.ID));
+    bool enemyPresent = Model.lModel.Enemy != null && !Model.pModel.CombatState.CleanedLocations.Contains(Model.lModel.LocationID);
+    bool objectPresent = Model.lModel.Enemy != null || itemsPresent || Model.lModel.PuzzleKey != null || Model.pModel.CurrentLocationId == Model.WINNING_LOCATION_ID;
+    bool ctrlsPresent = itemsPresent || enemyPresent;
+
+
 }
 
 <main style="background-image: url(Assets/LocationsBg/@Model.lModel.Background);">
@@ -11,87 +17,61 @@
     </section>
     <section class="obj">
         <div class="pack" id="pack">
-                <h2>Tlumok</h2>
-                @if (Model.pModel.Items != null)
-                {
-                    <form method="post" class="pack__inv">
-                        @foreach (var item in Model.pModel.Items)
+            <h2>Tlumok</h2>
+            @if (Model.pModel.Items != null)
+            {
+                <form method="post" class="pack__inv">
+                    @foreach (var item in Model.pModel.Items)
+                    {
+                        <p>
+                            <span>@item.Name - @item.Description</span>
+                            @if (item.Usable)
+                            {
+                                <button type="submit" value="@item.ID" name="ItemId" asp-page-handler="UseItem">Use</button>
+                            }
+                        </p>
+                    }
+                </form>
+            }
+            else
+            {
+                <p>Zøejmì je tlumok dìravý, páè tu nic není</p>
+            }
+    
+            @foreach (var v in Model.lModel.Connections)
+            {
+                <a asp-page="Location" asp-route-id="@v.ToLocationID">
+                    @v.Description
+                    @if (v.Locked)
+                    {
+                        <span style="color: red;">LOCKED</span>
+                    }
+                    @if (v.RequiredItem != null)
+                    {
+                        if (Model.pModel.Items != null && Model.pModel.Items.Count(a => a.ID == v.RequiredItem.ID) > 0)
                         {
-                            <p>
-                                <span>@item.Name - @item.Description</span>
-                                @if (item.Usable)
-                                {
-                                    <button type="submit" value="@item.ID" name="ItemId" asp-page-handler="UseItem">Use</button>
-                                }
-                            </p>
+                            <span>díky @v.RequiredItem.Name mùžeš</span>
                         }
-                    </form>
-                }
-                else
-                {
-                    <p>Zøejmì je tlumok dìravý, páè tu nic není</p>
-                }
-    
-                @foreach (var v in Model.lModel.Connections)
-                {
-    
-                    <p>@v.Description
-                        <a asp-page="Location" asp-route-id="@v.ToLocationID">
-                            @if (v.Locked)
-                            {
-                                <span style="color: red;">LOCKED</span>
-                            }
-                            @if (v.RequiredItem != null)
-                            {
-                                if (Model.pModel.Items != null && Model.pModel.Items.Count(a => a.ID == v.RequiredItem.ID) > 0)
-                                {
-                                    <span>@v.RequiredItem.Name is required (you have it)</span>
-                                }
-                                else
-                                {
-                                    <span style="color: red;">@v.RequiredItem.Name is required</span>
-                                }
-    
-                            }
-                        </a>
-                    </p>
-    
-                }    
+                        else
+                        {
+                            <span style="color: red;">@v.RequiredItem.Name je potøeba pro prùchod</span>
+                        }
+
+                    }
+                </a>
+            }    
             <button class="pack__btn" rel="nofollow" title="Otevírání inventáøe" id="packBtn">
             </button>
         </div>
-        
-        @if (Model.lModel.Enemy != null)
+        @if (objectPresent)
         {
-            @await Html.PartialAsync("Combat", Model)
-        }
-        @if (Model.lModel.PuzzleKey != null)
-        {
-            @await Html.PartialAsync("PuzzleForm", Model)
-        }
-        @if (Model.lModel.Items.Count > 0 && !Model.lModel.Items.All(item => Model.pModel.PickedUpItems.Any(pickedItem => pickedItem == item.ID)))
-        {
-            @await Html.PartialAsync("Items", Model)
-        }
-        @if(Model.pModel.CurrentLocationId == Model.WINNING_LOCATION_ID)
-        {
-            <a asp-page="Endgame">Finish game</a>
+            @await Html.PartialAsync("Objs", Model)
         }
     </section>
     <section class="cont cont--player">
-        @if (Model.lModel.Items.Count > 0 && !Model.lModel.Items.All(item => Model.pModel.PickedUpItems.Any(pickedItem => pickedItem == item.ID)))
+        @if (ctrlsPresent)
         {
-            <form class="cont__ctrls cont__ctrls--items" method="post">
-                @await Html.PartialAsync("ItemsBtns", Model)
-            </form>
-
-        }
-
-        @if (Model.lModel.Enemy != null && !Model.pModel.CombatState.CleanedLocations.Contains(Model.lModel.LocationID))
-        {
-            <form class="cont__ctrls cont__ctrls--items" method="post">
-                @await Html.PartialAsync("CombatBtns", Model)
-            </form>
+            @await Html.PartialAsync("controls", Model)
         }
         <span>@Model.pModel.Hp</span>
         <span>@Model.pModel.Energy</span>

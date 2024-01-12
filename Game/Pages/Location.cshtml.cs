@@ -135,7 +135,7 @@ public class Location(LocationService ls, ISessionService ss, EffectService es, 
 
         if (pModel.Hp <= 0)
         {
-            return RedirectToPage("Endgame");
+            return RedirectToPage("endgame");
         }
         SavePlayer();
         return Page();

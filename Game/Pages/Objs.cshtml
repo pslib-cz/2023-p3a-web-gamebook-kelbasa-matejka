@@ -1,0 +1,48 @@
+﻿@model Game.Pages.Location
+
+
+@if (Model.lModel.Enemy != null)
+{
+    <h2 class="combat__enemy-name">@Model.lModel.Enemy.Name</h2>
+    <img class="combat__enemy" src="Assets/Enemy/@Model.lModel.Enemy.Img" alt="@Model.lModel.Enemy.Name">
+    @if (!Model.pModel.CombatState.CleanedLocations.Contains(Model.lModel.LocationID))
+    {
+        //HEALTHBAR
+        <h2>@Model.pModel.CombatState.CurrentEnemy.Hp hp</h2>
+    }
+    else
+    {
+        <h2>Nepřítel byl poražen</h2>
+    }    
+}
+@if (Model.pModel.CombatState.CurrentEnemy.Hp == 0)
+{
+    @if (Model.lModel.Items.Any() && !Model.lModel.Items.All(item => Model.pModel.PickedUpItems.Contains(item.ID)) && (Model.lModel.PuzzleKey == null || Model.pModel.SolvedPuzzleLocations.Contains(Model.lModel.LocationID)))
+    {
+        @foreach (var i in Model.lModel.Items)
+        {
+            @if (!Model.pModel.PickedUpItems.Contains(i.ID))
+            {
+                <div class="item">
+                    <img href="Assets/LocationsBg/@i.Icon" alt="@i.Name">
+                    <p>@i.Description</p>
+                </div>
+            }
+        }
+    }
+    @if (Model.lModel.PuzzleKey != null)
+    {
+        <form class="puzzle" method="post">
+            <label for="answer">Type in the answer:</label>
+            <input type="text" id="answer" name="Answer" required />
+            <button asp-page-handler="GuessPuzzle" type="submit">OK</button>
+        </form>
+    }
+    if (Model.pModel.CurrentLocationId == Model.WINNING_LOCATION_ID)
+    {
+        <a asp-page="Endgame">Nic horšího mě už snad nečeká, chce to voraz...</a>
+    }
+}
+
+
+
