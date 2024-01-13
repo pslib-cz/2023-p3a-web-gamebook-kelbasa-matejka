@@ -131,6 +131,8 @@ public class Location(LocationService ls, ISessionService ss, EffectService es, 
         LoadPlayer();
         lModel = ls.GetLocation(pModel.CurrentLocationId);
 
+        if(!pModel.CombatState.IsCombatActive) return Page();
+
         if (attackType == "WeakAttack")
         {
             ps.PlayerAttack(pModel, AttackTypeModel.classic);

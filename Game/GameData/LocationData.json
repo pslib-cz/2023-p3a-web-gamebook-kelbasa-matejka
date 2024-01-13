@@ -22,7 +22,7 @@
         "ID": 1,
         "Name": "Dlouhé lano",
         "Description": "Staré ale pevné lano",
-        "Icon": "icon_rope.png"
+        "Icon": "rope.png"
       }
     ]
   },
@@ -249,7 +249,7 @@
     ],
     "Items": [],
     "Enemy": {
-      "Name": "Bat",
+      "Name": "Netopýr",
       "Damage": 5,
       "Hp": 30,
       "Img": "bat.png",
