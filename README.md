@@ -2,7 +2,8 @@
 <p>Odehrávající se ve fantasy světě, konkrétně v "opuštěné" pevnosti, ze které se pokusí hráč dostat strastiplnou cestou skrz jeskyni, katakomby a nakonec i samotnou pevnost ven na svobodu.</p>
 <p>Hráč bude moct poznat v jaké úrovni je podle poškození interiéru či enemáků nebude muset koukat jen tupě na hodnoty...</p>
 <p>Hráč hraje za neobyčejného zloděje, který se pokoušel ukrást Svatý Grál plukovníku Azazelovi, který ho ukořistil na jedné ze svých válečných výprav.</p>
-<p>Hráč byl ale velmi brzy odhalen jednou jeho hlídek a za trest byl svržen do nedaleké propasti</p>
+<p>Hráč byl ale velmi brzy odhalen jednou z jeho hlídek a za trest byl svržen do nedaleké propasti</p>
+<p>Vaším úkolem je dostat se z propasti zpět do pevnosti, ukrást Svatý Grál a následně uprchnout</p>
 
 <img style="display: block;" width=800 src="https://github.com/pslib-cz/2023-p3a-web-gamebook-kelbasa-matejka/assets/91247802/5d8d95cb-33d7-4c81-99cc-c133dfbeeacc">
 
