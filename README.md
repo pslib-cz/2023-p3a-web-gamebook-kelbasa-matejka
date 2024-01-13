@@ -1,46 +1,43 @@
 <h1>Gamebook: Escape The Fortress</h1>
-<p>Odehrávající se ve fantasy světě, konkrétně v "opuštěné" pevnosti, ze které se pokusí hráč dostat strastiplnou cestou skrz katakomby ven na svobodu.</p>
-<p>Hráč bude moct poznat v jakém podlaží je podle poškození interiéru či enemáků nebude muset koukat jen tupě na hodnoty...</p>
-<p>Dokud mě nic lepšího nenapadne, tak hlavní postava bude obyčejný lapka nebo prostě jen chudák co tam skončil.</p>
-<p>Hráč by mohl začínat v pekle a končit někde v krásné krajině okolo pevnosti, například hory při západu slunce nebo klidný les => kontrast</p>
-<p>Do popisu místností bychom mohli zakomponovat monology hráče na reakci toho kde je. Mohlo by mu vyvolat nějaké vzpomínky (Konflikty, které má sám se sebou, ...)</p>
-<p>Postava by měla mít i jinou motivaci proč z pevnosti odejít než jen pud sebezáchovy</p>
+<p>Odehrávající se ve fantasy světě, konkrétně v "opuštěné" pevnosti, ze které se pokusí hráč dostat strastiplnou cestou skrz jeskyni, katakomby a nakonec i samotnou pevnost ven na svobodu.</p>
+<p>Hráč bude moct poznat v jaké úrovni je podle poškození interiéru či enemáků nebude muset koukat jen tupě na hodnoty...</p>
+<p>Hráč hraje za neobyčejného zloděje, který se pokoušel ukrást Svatý Grál plukovníku Azazelovi, který ho ukořistil na jedné ze svých válečných výprav.</p>
+<p>Hráč byl ale velmi brzy odhalen jednou jeho hlídek a za trest byl svržen do nedaleké propasti</p>
 
 <img style="display: block;" width=800 src="https://github.com/pslib-cz/2023-p3a-web-gamebook-kelbasa-matejka/assets/91247802/5d8d95cb-33d7-4c81-99cc-c133dfbeeacc">
 
 ## Mechaniky
 ### Hráč
 <ul>
-    <li>Hráči se při každém zabití protivníka zvyšuje damage, protože má logicky více zkušeností s bojem</li>
     <li>Hráč může získat brnění, to bude přičítat odpor poškození</li>
-    <li>Pokud bude nalezeno lepší brnění, tak se to horší automaticky odebere s inventáře, stejně budou fungovat zbraně</li>
+    <li>Pokud bude nalezeno nové brnění, tak se to staré automaticky odebere s inventáře, stejně budou fungovat zbraně</li>
     <li>Zbraně násobí damage, brnění přičíta resistance</li>
-    <li>Každá akce stojí nějakou energii, hraji jsi s myšlenkou, že se energie budue obnovat po každé úrovni, aby hráče lépe nakládal s energii, pokud dojde, tak se bude energie odečítat z hp</li>
+    <li>Resistence redukujue poškození, které hráč utrpí</li>
     <li>Pokud hráč zemře, tak hraje úplně od začátku</li>
 </ul>
 
 ### Souboje
 <ul>
-    <li>Hráč i protivník mají šanci na blok</li>
-    <li>Hráč i protivník mají šanci na kritický zásah</li>
-    <li>Na protivníka lze použít item, který ho instakillne</li>
-    <li>Lze použít consumables</li>
-    <li>Na výběr bude z klasického útoku a silného, silný bude ubírat více než půlku energie hráče</li>
+    <li>Hráč může provést slabý útok anebo silný útok</li>
+    <li>Slabý útok dává zhruba 1x tolik jaký má hráč Damage, ale je to trochu znáhodněné</li>
+    <li>Silný útok dává 1.8x tolik co slabý útok</li>
+    <li>Silný útok ale stojí 15 energie, kterou si musí doplňovat jídlem či lektvaremt atd.</li>
+    <li>Resistence redukuje poškození, které by měl hráč obdržet od nepřítele</li>
+    <li>Na protivníka lze použít item, který ho nějak ovlivní</li>
+    <li>Během souboje může hráč použít některý ze svých itemů k vyléčení se</li>
 </ul>
 
 ### Hádanky
 <ul>
     <li>Některé místnosti budou v podstatě hádanky, které následně odemnkou cestu do dalších místností</li>
+    <li>Některé hádanky vyžadují indicie rozmístěné v jiných místnostech</li>
     <li>Hráč má pokusů kolik jenom chce</li>
 </ul>
 
 ### Mapa 
 <ul>
     <li>
-        Mapa je rozdělena na cca 3 stages (podlaží), každé podlaží obsahuje cca 5-10 místností.
-    </li>
-    <li>
-       Pohráváme si s myšlenkou, že by každá místnost mohla být sama o sobě náhodná a to tak, že bychom náhodně vybírali assety => musel by být min. pár assetů, protože ne každý enemy se bude hodit do každé místnosti
+        Mapa je rozdělena na 3 stage , každé podlaží obsahuje cca 10-20 místností.
     </li>
     <li>Klíče budou sloužit k odemčení spojení mezi místnostmi. Pokud hráč nebude mít požadovaný item, tak danný connection nemůže použít.</li>
     <li>Každá lokace má pole connection, při přesunu budeme porovnávat zda id místnosti kam chceme jít je validní vzhlek k CurrentLocationID, které je zapsané v modelu hráče.</li>
@@ -55,7 +52,8 @@
 ### Data
 <ul>
     <li>Herní data v jednotlivých JSON souborech</li>
-    <li>Data hráče, lokací a connections v session</li>
+    <li>Jediné co se v průbehu hry mění je model hráče, do kterého je zahrnut i CombatState, všechny ostatní dat zůstávají po celou dobu stejná (lokace, itemy, connectiony...)
+    <li>Data hráče se ukládají do session</li>
 </ul>
 
 ## Figma návrh
