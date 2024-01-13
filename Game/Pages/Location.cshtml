@@ -28,7 +28,7 @@
                                                     <span>@item.Name - @item.Description</span>
                                                     @if (item.Usable)
                                                     {
-                                                        <button type="submit" value="@item.ID" name="ItemId" asp-page-handler="UseItem">Use</button>
+                                                        <button type="submit" value="@item.ID" name="ItemId" asp-page-handler="UseItem">Použít</button>
                                                     }
                                                 </p>
                                             }
@@ -38,29 +38,32 @@
                                     {
                                         <p>Zøejmì je tlumok dìravý, páè tu nic není</p>
                                     }
-                    
-                                    @foreach (var v in Model.lModel.Connections)
-                                    {
-                                        <a asp-page="Location" asp-route-id="@v.ToLocationID">
-                                            @v.Description
-                                            @if (v.Locked)
-                                            {
-                                                <span style="color: red;">LOCKED</span>
-                                            }
-                                            @if (v.RequiredItem != null)
-                                            {
-                                                if (Model.pModel.Items.Count > 0 && Model.pModel.Items.Count(a => a.ID == v.RequiredItem.ID) > 0)
-                                                {
-                                                    <span>díky @v.RequiredItem.Name mùžeš</span>
-                                                }
-                                                else
-                                                {
-                                                    <span style="color: red;">@v.RequiredItem.Name je potøeba pro prùchod</span>
-                                                }
-                    
-                                            }
-                                        </a>
-                                    }    
+                                    <menu>
+                                        @foreach (var v in Model.lModel.Connections)
+                                        {
+                                            <li>
+                                                <a asp-page="Location" asp-route-id="@v.ToLocationID">
+                                                    @v.Description
+                                                    @if (v.Locked)
+                                                    {
+                                                        <span style="color: red;">LOCKED</span>
+                                                    }
+                                                    @if (v.RequiredItem != null)
+                                                    {
+                                                        if (Model.pModel.Items.Count > 0 && Model.pModel.Items.Count(a => a.ID == v.RequiredItem.ID) > 0)
+                                                        {
+                                                            <span>díky @v.RequiredItem.Name mùžeš</span>
+                                                        }
+                                                        else
+                                                        {
+                                                            <span style="color: red;">@v.RequiredItem.Name je potøeba pro prùchod</span>
+                                                        }
+                            
+                                                    }
+                                                </a>    
+                                            </li>
+                                        }
+                                    </menu>    
                 </div>
                 
                 <button class="pack__btn" rel="nofollow" title="Otevírání inventáøe" id="packBtn">

@@ -28,6 +28,11 @@ public class Location(LocationService ls, ISessionService ss, EffectService es, 
             return RedirectToPage("Index");
         }
 
+        if (pModel.Items == null || pModel.Hp <= 0)
+        {
+            Response.Redirect("index");
+        }
+
         int last = pModel.CurrentLocationId;
 
         if (ls.IsNavigationLegitimate(last, id, pModel) && !pModel.CombatState.IsCombatActive)
