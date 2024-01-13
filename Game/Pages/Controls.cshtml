@@ -6,7 +6,7 @@
         <button asp-page-handler="Attack" class="ctrls__attack" title="Silný útok" type="submit" name="attackType" value="StrongAttack"></button>    
     }
 
-    @if (Model.lModel.Items.Any() && !Model.lModel.Items.All(item => Model.pModel.PickedUpItems.Contains(item.ID)) && Model.pModel.CombatState.CurrentEnemy.Hp == 0)
+    @if (Model.lModel.Items.Any() && !Model.lModel.Items.All(item => Model.pModel.PickedUpItems.Contains(item.ID)) && !Model.pModel.CombatState.IsCombatActive)
     {
         @foreach (var item in Model.lModel.Items.Where(i => !Model.pModel.PickedUpItems.Contains(i.ID)))
         {

@@ -15,11 +15,18 @@ public class Location(LocationService ls, ISessionService ss, EffectService es, 
     public LocationModel lModel { get; private set; }
     public PlayerModel pModel { get; set; }
 
-    public void OnGet(int id)
+    public IActionResult OnGet(int id)
     {
 
         //první blok
         LoadPlayer();
+
+        if (pModel == null || pModel.CurrentLocationId == 0)
+        {
+            Console.WriteLine("Detekováno");
+            Console.WriteLine(pModel?.CurrentLocationId.ToString() + pModel?.PickedUpItems.Select(a => a.ToString()));
+            return RedirectToPage("Index");
+        }
 
         int last = pModel.CurrentLocationId;
 
@@ -57,6 +64,7 @@ public class Location(LocationService ls, ISessionService ss, EffectService es, 
         }
 
         SavePlayer();
+        return Page();
     }
 
     public IActionResult OnPostGuessPuzzle(PuzzleFormModel ffm)

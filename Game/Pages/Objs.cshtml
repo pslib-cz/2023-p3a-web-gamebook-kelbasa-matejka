@@ -18,7 +18,7 @@
         <h2 class="obj__enemy-txt">@Model.lModel.Enemy.Name</h2>
     }  
 }
-@if (Model.pModel.CombatState.CurrentEnemy.Hp == 0)
+@if (!Model.pModel.CombatState.IsCombatActive)
 {
     @if (Model.lModel.Items.Any() && !Model.lModel.Items.All(item => Model.pModel.PickedUpItems.Contains(item.ID)) && (Model.lModel.PuzzleKey == null || Model.pModel.SolvedPuzzleLocations.Contains(Model.lModel.LocationID)))
     {
