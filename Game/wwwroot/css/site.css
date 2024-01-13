@@ -193,7 +193,7 @@ main.main--info {
 }
 
 .obj__enemy {
-    mix-blend-mode: multiply;
+    /*mix-blend-mode: multiply;*/
     width: 70%;
     max-width: 600px;
     object-fit: contain;
@@ -211,7 +211,7 @@ main.main--info {
     width: 50%;
     max-width: 300px;
     object-fit: contain;
-    mix-blend-mode: multiply;
+    /*mix-blend-mode: multiply;*/
 }
 
 .obj__enemy-txt {

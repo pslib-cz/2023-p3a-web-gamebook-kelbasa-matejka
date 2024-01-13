@@ -63,4 +63,12 @@
     <Folder Include="wwwroot\fonts\" />
   </ItemGroup>
 
+
+
+  <ItemGroup>
+    <Content Update="wwwroot\Assets\Enemy\bat.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
 </Project>

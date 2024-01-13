@@ -77,7 +77,7 @@
       "Name": "Jeskynní pavouk",
       "Damage": 5,
       "Hp": 20,
-      "Img": "cave_spider.png",
+      "Img": "spider.png",
       "NumberOfAttacks": 2
     }
   },
@@ -468,7 +468,7 @@
       "Name": "Ohnivý krab",
       "Damage": 40,
       "Hp": 15,
-      "Img": "fire_crab.png",
+      "Img": "crab.png",
       "NumberOfAttacks": 1
     }
   },

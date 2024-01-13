@@ -15,6 +15,7 @@ public class LocationService
 
     public void ReloadAll()
     {
+        if(!File.Exists(@"GameData/LocationData.json")) throw new FileNotFoundException();
         Locations = JsonSerializer.Deserialize<List<LocationModel>>(File.ReadAllText(@"GameData/LocationData.json"));
         Connections = Locations.Select(a => a.Connections).SelectMany(a => a).ToList();
     }

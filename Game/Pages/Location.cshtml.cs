@@ -151,6 +151,7 @@ public class Location(LocationService ls, ISessionService ss, EffectService es, 
         }
         else if (attackType == "StrongAttack")
         {
+            if(pModel.Energy < 15) return Page();
             ps.PlayerAttack(pModel, AttackTypeModel.strong);
         }
 
