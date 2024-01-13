@@ -27,8 +27,8 @@
             @if (!Model.pModel.PickedUpItems.Contains(i.ID))
             {
                 <div class="item">
-                    <img class="item__img" src="Assets/ItemIcons/@i.Icon" alt="@i.Name">
-                    <h2 class="item__name">@i.Description</h2>
+                    <h2 class="item__name">@i.Name</h2>
+                    <img class="item__img" src="Assets/ItemIcons/@i.Icon" alt="@i.Description">
                 </div>
             }
         }
