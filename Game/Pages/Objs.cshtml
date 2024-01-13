@@ -33,15 +33,23 @@
             }
         }
     }
-    @if (Model.lModel.PuzzleKey != null)
+    @if (Model.lModel.PuzzleKey != null && !Model.pModel.SolvedPuzzleLocations.Contains(Model.lModel.LocationID))
     {
         <form class="puzzle" method="post">
-            <label for="answer">Type in the answer:</label>
+            <label for="answer">Zadat heslo:</label>
             <input type="text" id="answer" name="Answer" required />
             <button asp-page-handler="GuessPuzzle" type="submit">OK</button>
         </form>
     }
-    if (Model.pModel.CurrentLocationId == Model.WINNING_LOCATION_ID)
+    else
+    {
+        @if (Model.lModel.PuzzleKey != null)
+        {
+            <p>Správné heslo. Heslo bylo: @Model.lModel.PuzzleKey</p>
+        }
+    }
+
+    @if (Model.pModel.CurrentLocationId == Model.WINNING_LOCATION_ID)
     {
         <a asp-page="Endgame">Nic horšího mě už snad nečeká, chce to voraz...</a>
     }

@@ -74,7 +74,7 @@
       }
     ],
     "Enemy": {
-      "Name": "Cave spider",
+      "Name": "Jeskynní pavouk",
       "Damage": 5,
       "Hp": 20,
       "Img": "cave_spider.png",
@@ -100,7 +100,7 @@
       }
     ],
     "Enemy": {
-      "Name": "Spider queen",
+      "Name": "Pavoučí královna",
       "Damage": 10,
       "Hp": 40,
       "Img": "spider_queen.png",

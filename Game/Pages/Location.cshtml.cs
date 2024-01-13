@@ -92,11 +92,18 @@ public class Location(LocationService ls, ISessionService ss, EffectService es, 
         return Page();
     }
 
-
+    /// <summary>
+    ///     Item can be picked up only if combat isnt active
+    /// </summary>
+    /// <param name="ItemID"></param>
+    /// <returns></returns>
     public IActionResult OnPostPickUpItem(int ItemID)
     {
         LoadPlayer();
         lModel = ls.GetLocation(pModel.CurrentLocationId);
+
+        if(pModel.CombatState.IsCombatActive) return Page();
+
 
         if (pModel.PickedUpItems.Contains(ItemID) || !lModel.Items.Select(a => a.ID).Contains(ItemID))
         {
