@@ -143,15 +143,16 @@
     "Stage": 1,
     "Connections": [
       {
+        "Description": "Vrátit se zpět do pavoučího hnízda",
+        "FromLocationID": 6,
+        "ToLocationID": 3
+      },
+      {
         "Description": "Přeběhnout most",
         "FromLocationID": 6,
         "ToLocationID": 7
-      },
-      {
-        "Description": "Projít úzkou chodbou zpět do pavoučího hnízda",
-        "FromLocationID": 6,
-        "ToLocationID": 3
       }
+
     ]
   },
   {
@@ -227,6 +228,11 @@
     "Stage": 1,
     "Connections": [
       {
+        "Description": "Jít zpět",
+        "FromLocationID": 9,
+        "ToLocationID": 8
+      },
+      {
         "Description": "Vydat 1. cestou",
         "FromLocationID": 9,
         "ToLocationID": 10
@@ -240,11 +246,6 @@
         "Description": "Vydat se 3. cestou",
         "FromLocationID": 9,
         "ToLocationID": 13
-      },
-      {
-        "Description": "Jít zpět",
-        "FromLocationID": 9,
-        "ToLocationID": 8
       }
     ],
     "Items": [],
@@ -670,9 +671,9 @@
     "Items": [
       {
         "ID": 30,
-        "Name": "Vrhací dýka",
+        "Name": "Vrhací šipka",
         "Description": "Může být vržena velikou rychlostí na nepřítele (- 5 DMG)",
-        "Icon": "throwing_knife.png",
+        "Icon": "throwing_dart.png",
         "Usable": true,
         "TargetIsEnemy": true,
         "OnUseEffect": {
@@ -771,11 +772,18 @@
         "RequiredItem": {
           "ID": 33,
           "Name": "Měděný disk",
-          "Description": "Stojí na něm napsáno - odemyká Castielovu hrobku"
+          "Description": "Část nějakého důmyslného mechanismu"
         }
       }
     ],
-    "Items": [],
+    "Items": [
+      {
+        "ID": 39,
+        "Name": "Mosazný klíč",
+        "Description": "Klíč od skladu potravin co někdo ztratil",
+        "Icon": "brass_key.png"
+      }
+    ],
     "Enemy": {
       "Name": "Pytel kostí",
       "Damage": 5,
@@ -789,6 +797,7 @@
     "Name": "Kaple krypty",
     "Description": "Jsi v kapli v kryptě. Stojí zde oltář. Pravděpodobně je propojený s kamennými dveřmi naproti tobě. Na oltář se dá psát.",
     "Background": "crypt_altar.png",
+    "PuzzleKey": "PRAY",
     "Stage": 2,
     "Connections": [
       {
@@ -874,15 +883,156 @@
       {
         "ID": 37,
         "Name": "Mana",
-        "Description": "Kouzelná mana, vyléčí mnoho ran (40 HP)",
+        "Description": "Kouzelná mana, vyléčí mnoho ran (45 HP)",
         "Icon": "mana.png",
         "Usable": true,
         "OnUseEffect": {
           "Type": 0,
-          "EffectScale": 40
+          "EffectScale": 45
         }
       }
     ]
+  },
+  {
+    "LocationID": 33,
+    "Name": "Mučírna",
+    "Description": "Nacházíš se uvnitř mučírny. Před tebou jsou ",
+    "Background": "torture_chamber.png",
+    "Stage": 2,
+    "Connections": [
+      {
+        "Description": "Vrátit se na křižovatku",
+        "FromLocationID": 33,
+        "ToLocationID": 31
+      },
+      {
+        "Description": "Projít dveřmi",
+        "FromLocationID": 33,
+        "ToLocationID": 40
+      }
+    ],
+    "Items": [],
+    "Enemy": {
+      "Name": "Temný duch",
+      "Damage": 20,
+      "Hp": 50,
+      "Img": "dark_spirit.png",
+      "NumberOfAttacks": 2
+    }
+  },
+  {
+    "LocationID": 40,
+    "Name": "Sklad lebek",
+    "Description": "Nacházíš se v místnosti plné lebek. Jde ti mráz po zádech.",
+    "Background": "skull_room.png",
+    "Stage": 2,
+    "Connections": [
+      {
+        "Description": "Vrátit se",
+        "FromLocationID": 40,
+        "ToLocationID": 33
+      }
+    ],
+    "Items": [
+      {
+        "ID": 31,
+        "Name": "Klíč s lebkou",
+        "Description": "Klíč s ornamentem lebky",
+        "Icon": "skull_key.png"
+      },
+      {
+        "ID": 38,
+        "Name": "Obvaz",
+        "Description": "Můžeš si s ním obvázat své rány (35 HP)",
+        "Icon": "bandage.png",
+        "Usable": true,
+        "TargetIsEnemy": false,
+        "OnUseEffect": {
+          "Type": 0,
+          "EffectScale": 35
+        }
+      }
+    ]
+  },
+  {
+    "LocationID": 34,
+    "Name": "Sklad potravin",
+    "Description": "Jsi ve skladu. Odsud se určitě dá dostat do pevnosti. ",
+    "Background": "food_cellar.png",
+    "Stage": 2,
+    "Connections": [
+      {
+        "Description": "Vrátit se na křižovatku",
+        "FromLocationID": 34,
+        "ToLocationID": 31
+      },
+      {
+        "Description": "Projít ozdobnými dveřmi do pevnosti",
+        "FromLocationID": 34,
+        "ToLocationID": 50,
+        "RequiredItem": {
+          "ID": 39,
+          "Name": "Mosazný klíč",
+          "Description": "Klíč od skladu potravin co někdo ztratil"
+        }
+      },
+      {
+        "Description": "Jít dolů po schodech",
+        "FromLocationID": 34,
+        "ToLocationID": 41
+      }
+    ],
+    "Items": [
+      {
+        "ID": 40,
+        "Name": "Mrkev",
+        "Description": "Čerstvá, pěkně oranžová mrkev (15 HP)",
+        "Icon": "carrot.png",
+        "Usable": true,
+        "TargetIsEnemy": false,
+        "OnUseEffect": {
+          "Type": 0,
+          "EffectScale": 15
+        }
+      }
+    ]
+  },
+  {
+    "LocationID": 41,
+    "Name": "Vězení",
+    "Description": "Nacházíš se vězení. Nikdo zde ale není",
+    "Background": "prison_cell.png",
+    "Stage": 2,
+    "Connections": [
+      {
+        "Description": "Vrátit se do skladu",
+        "FromLocationID": 41,
+        "ToLocationID": 34
+      }
+    ],
+    "Items": [
+      {
+        "ID": 33,
+        "Name": "Měděný disk",
+        "Description": "Část nějakého důmyslného mechanismu",
+        "Icon": "copper_disk.png"
+      }
+    ],
+    "Enemy": {
+      "Name": "Pytel kostí",
+      "Damage": 5,
+      "Hp": 50,
+      "Img": "sack_of_bones.png",
+      "NumberOfAttacks": 1
+    }
   }
+
+
+
+
+
+
+
+
 
 ]
