@@ -419,7 +419,7 @@
         "ID": 8,
         "Name": "Ohnivé kalhoty",
         "Description": "Nejen slušivé kalhoty (7 RES)",
-        "Icon": "fire_leggins.png",
+        "Icon": "fire_trousers.png",
         "IsWearable": true,
         "WearableType": "Leggings",
         "OnWearEffect": {
