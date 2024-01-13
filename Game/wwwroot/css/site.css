@@ -15,6 +15,27 @@ body {
     width: 100%;
 }
 
+/* Scrollbar CSS */
+/* Firefox */
+* {
+    scrollbar-width: auto;
+    scrollbar-color: #00CCFF #394046 ;
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+    width: 7px;
+}
+
+*::-webkit-scrollbar-track {
+    background: black;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: #5e2400;
+    border-radius: .2rem;
+}
+
 main {
     height: calc(100% - 2rem);
     display: flex;
@@ -74,7 +95,6 @@ main.main--info {
     border: 1px solid black;
     font-size: 10px;
     text-transform: uppercase;
-    padding: 5%;
 }
 
 .cont--player span {
@@ -115,6 +135,10 @@ main.main--info {
     bottom: 5%;
     right: 5%;
     transform: rotate(180deg);
+}   
+
+.ctrls:has(input[type="hidden"]):not(:has(button))  {
+    display: none;
 }
 
 .ctrls__item::after, .ctrls__item::before {
@@ -145,6 +169,7 @@ main.main--info {
 
 .cont__p {
     margin: 0;
+    font-size: 20px;
 }
 
 .obj {
@@ -158,6 +183,20 @@ main.main--info {
     width: 100%;
     max-width: 992px;
     position: relative;
+    color: white;
+    text-transform: uppercase;
+    font-size: 24px;
+}
+
+.obj__enemy {
+    object-fit: unset;
+    mix-blend-mode: multiply;
+    width: 60%;
+    height: auto;
+}
+
+.obj__enemy-txt {
+    margin: 0;
 }
 
 .pack {
@@ -168,21 +207,42 @@ main.main--info {
     background: var(--bg);
     border: 2px solid black;
     border-left: none;
-    border-radius: 0 .5rem .5rem 0;
+    border-radius: 0 .5rem 0 0;
     transform: translateX(-100%);
     transition: .4s ease all;
-    padding: .5rem;
+    padding: .5rem 0 .5rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    color: black;
+    text-transform: none;
+    font-size: 16px;
+    z-index: 2;
 }
+
+.pack h2 {
+    margin: 0;
+    text-transform: uppercase;
+}
+
+.pack div {
+    flex: 1;
+    overflow: auto;
+    padding-right: .5rem;
+}
+
 .pack--open {
     transform: translateX(0);
+    border-radius: 0 .5rem .5rem 0;
 }
 
 .pack__btn {
-    height: 7.5%;
+    height: 10%;
+    max-height: 70px;
     aspect-ratio: 1;
-    border-radius: 0 25% 25% 0;
+    border-radius: 0 .5rem .5rem 0;
     position: absolute;
-    bottom: 0;
+    bottom: -2px;
     background: radial-gradient(50% 50% at 50% 50%, #BA0000 54%, #5F0000 100%);
     border: 1px solid black;
     right: 0;
@@ -193,9 +253,30 @@ main.main--info {
 
 .pack--open .pack__btn {
     transform: translateX(0);
-    border-radius: 10% 0 10% 0;
+    border-radius: .5rem 0 .5rem 0;
     border-bottom: none;
     border-right: none;
+}
+
+.pack__btn::before {
+    content: "";
+    width: 65%;
+    aspect-ratio: 1;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 17.5%;
+    left: 17.5%;
+}
+
+.pack:not(.pack--open) .pack__btn::before {
+    background-image: url("../Assets/bag.svg");
+    filter: invert(1);
+}
+
+.pack--open .pack__btn::before {
+    background-image: url("../Assets/close.svg");
 }
 
 .ctrls {
@@ -230,10 +311,11 @@ main.main--info {
     
     .cont--player .ctrls {
         grid-column: span 4;
+        grid-column-end: 9;
     }
-
-    .ctrls button {
-        padding: .5rem 0 0;
+    
+    .cont--player span {
+        grid-row: 1;
     }
 }
 

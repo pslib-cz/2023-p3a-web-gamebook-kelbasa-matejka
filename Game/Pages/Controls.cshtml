@@ -2,8 +2,8 @@
 <form method="post" class="ctrls">
     @if (Model.lModel.Enemy != null && !Model.pModel.CombatState.CleanedLocations.Contains(Model.lModel.LocationID))
     {
-        <button asp-page-handler="Attack" class="ctrls__attack" type="submit" name="attackType" value="WeakAttack">Slabý Útok</button>
-        <button asp-page-handler="Attack" class="ctrls__attack" type="submit" name="attackType" value="StrongAttack">Silný Útok</button>    
+        <button asp-page-handler="Attack" title="Slabý útok" class="ctrls__attack" type="submit" name="attackType" value="WeakAttack"></button>
+        <button asp-page-handler="Attack" class="ctrls__attack" title="Silný útok" type="submit" name="attackType" value="StrongAttack"></button>    
     }
 
     @if (Model.lModel.Items.Any() && !Model.lModel.Items.All(item => Model.pModel.PickedUpItems.Contains(item.ID)) && Model.pModel.CombatState.CurrentEnemy.Hp == 0)

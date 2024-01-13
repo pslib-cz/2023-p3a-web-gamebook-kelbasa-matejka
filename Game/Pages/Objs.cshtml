@@ -3,17 +3,20 @@
 
 @if (Model.lModel.Enemy != null)
 {
-    <h2 class="combat__enemy-name">@Model.lModel.Enemy.Name</h2>
-    <img class="combat__enemy" src="Assets/Enemy/@Model.lModel.Enemy.Img" alt="@Model.lModel.Enemy.Name">
     @if (!Model.pModel.CombatState.CleanedLocations.Contains(Model.lModel.LocationID))
     {
         //HEALTHBAR
-        <h2>@Model.pModel.CombatState.CurrentEnemy.Hp hp</h2>
+        <h2 class="obj__enemy-txt">@Model.pModel.CombatState.CurrentEnemy.Hp hp</h2>
     }
     else
     {
-        <h2>Nepřítel byl poražen</h2>
-    }    
+        <h2 class="obj__enemy-txt">@Model.lModel.Enemy.Name byl poražen</h2>
+    } 
+    <img class="obj__enemy" src="Assets/Enemy/@Model.lModel.Enemy.Img" alt="@Model.lModel.Enemy.Name">
+    @if (!Model.pModel.CombatState.CleanedLocations.Contains(Model.lModel.LocationID))
+    {
+        <h2 class="obj__enemy-txt">@Model.lModel.Enemy.Name</h2>
+    }  
 }
 @if (Model.pModel.CombatState.CurrentEnemy.Hp == 0)
 {
