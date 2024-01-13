@@ -3,9 +3,15 @@
 
 @if(Model.Win)
 {
-    <h1>Win</h1>
+    <h1>Vyhrál si</h1>
+    <a asp-page="Index">Domù</a>
 }
 else
 {
-    <h1>Lost</h1>
+    <h1>Prohrál si</h1>
+    @if (Model.pModel.CombatState.IsCombatActive)
+    {
+        <p>Zemøel jsi pøi souboji s entitou @Model.pModel.CombatState.CurrentEnemy.Name</p>
+    }
+    <a asp-page="Index">Domù</a>
 }

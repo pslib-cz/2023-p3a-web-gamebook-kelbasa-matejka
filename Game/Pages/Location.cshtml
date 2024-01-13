@@ -38,6 +38,9 @@
                     {
                         <p>Zøejmì je tlumok dìravý, páè tu nic není</p>
                     }
+                @if (!Model.pModel.CombatState.IsCombatActive)
+                {
+
                     <menu>
                         @foreach (var v in Model.lModel.Connections)
                         {
@@ -48,28 +51,29 @@
                                     {
                                         <span style="color: red;">ZAMÈENO</span>
                                     }
-                                    else if(v.Locked)
+                                    else if (v.Locked)
                                     {
                                         <span style="color: green;">ODEMÈENO</span>
                                     }
 
                                     @if (v.RequiredItem != null)
+                                    {
+                                        if (Model.pModel.Items.Count > 0 && Model.pModel.Items.Count(a => a.ID == v.RequiredItem.ID) > 0)
                                         {
-                                            if (Model.pModel.Items.Count > 0 && Model.pModel.Items.Count(a => a.ID == v.RequiredItem.ID) > 0)
-                                            {
-                                                <span>díky @v.RequiredItem.Name mùžeš</span>
-                                            }
-                                            else
-                                            {
-                                                <span style="color: red;">@v.RequiredItem.Name je potøeba pro prùchod</span>
-                                            }
-                            
+                                            <span>díky @v.RequiredItem.Name mùžeš</span>
                                         }
+                                        else
+                                        {
+                                            <span style="color: red;">@v.RequiredItem.Name je potøeba pro prùchod</span>
+                                        }
+
+                                    }
                                 </a>    
                             </li>
                         }
-                    </menu>    
-                </div>
+                    </menu>
+                }
+            </div>
                 
                 <button class="pack__btn" rel="nofollow" title="Otevírání inventáøe" id="packBtn">
                 </button>    
