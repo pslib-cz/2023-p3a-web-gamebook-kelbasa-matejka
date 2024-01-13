@@ -757,7 +757,7 @@
     "LocationID": 36,
     "Name": "Spodní krypta",
     "Description": "Jsi v místnosti s hrobkou krále Castiela. Vchod je ale zamčený",
-    "Background": "crypt.png",
+    "Background": "crypt_bottom_floor.png",
     "Stage": 2,
     "Connections": [
       {
@@ -795,8 +795,8 @@
   {
     "LocationID": 37,
     "Name": "Kaple krypty",
-    "Description": "Jsi v kapli v kryptě. Stojí zde oltář. Pravděpodobně je propojený s kamennými dveřmi naproti tobě. Na oltář se dá psát.",
-    "Background": "crypt_altar.png",
+    "Description": "Jsi v kapli v kryptě. Stojí zde oltář, pravděpodobně propojený s dveřmi vedle tebe. Ty druhé jsou falešné. Na oltář se dá psát. Hmmm",
+    "Background": "crypt_chaple.png",
     "PuzzleKey": "PRAY",
     "Stage": 2,
     "Connections": [
@@ -818,7 +818,7 @@
     "LocationID": 38,
     "Name": "Archiv v kryptě",
     "Description": "Jsi v archivu plném zaprášených svitků. Má to zde zvláštní atmosféru",
-    "Background": "crypt.png",
+    "Background": "crypt_archive.png",
     "Stage": 2,
     "Connections": [
       {
@@ -849,7 +849,7 @@
     "Enemy": {
       "Name": "Kostlivec válečník",
       "Damage": 12,
-      "Hp": 30,
+      "Hp": 50,
       "Img": "skeleton_warrior.png",
       "NumberOfAttacks": 2
     }
@@ -896,7 +896,7 @@
   {
     "LocationID": 33,
     "Name": "Mučírna",
-    "Description": "Nacházíš se uvnitř mučírny. Před tebou jsou ",
+    "Description": "Nacházíš se uvnitř mučírny. Před tebou jsou mohutné dveře, překvapivě otevřené",
     "Background": "torture_chamber.png",
     "Stage": 2,
     "Connections": [
@@ -999,8 +999,8 @@
   },
   {
     "LocationID": 41,
-    "Name": "Vězení",
-    "Description": "Nacházíš se vězení. Nikdo zde ale není",
+    "Name": "Samotka",
+    "Description": "Nacházíš se v místnosti, která kdysi sloužila jako samotka, pro neposlušné vězně. Nyní zde pouze straší.",
     "Background": "prison_cell.png",
     "Stage": 2,
     "Connections": [
