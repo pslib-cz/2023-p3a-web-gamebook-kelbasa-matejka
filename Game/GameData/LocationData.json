@@ -314,7 +314,7 @@
     ],
     "Enemy": {
       "Name": "Medvěd",
-      "Damage": 20,
+      "Damage": 15,
       "Hp": 50,
       "Img": "bear.png",
       "NumberOfAttacks": 2
@@ -501,7 +501,7 @@
       "Name": "Ohnivý krab",
       "Damage": 40,
       "Hp": 15,
-      "Img": "fire_crab.png",
+      "Img": "crab.png",
       "NumberOfAttacks": 1
     }
   },
@@ -536,7 +536,7 @@
         "Usable": true,
         "OnUseEffect": {
           "Type": 3,
-          "EffectScale": 25
+          "EffectScale": 35
         }
       }
     ]
@@ -715,7 +715,7 @@
         "Usable": true,
         "OnUseEffect": {
           "Type": 0,
-          "EffectScale": 15
+          "EffectScale": 25
         }
       }
     ]
@@ -914,8 +914,8 @@
     "Items": [],
     "Enemy": {
       "Name": "Temný duch",
-      "Damage": 20,
-      "Hp": 50,
+      "Damage": 17,
+      "Hp": 45,
       "Img": "dark_spirit.png",
       "NumberOfAttacks": 2
     }
@@ -986,13 +986,13 @@
       {
         "ID": 40,
         "Name": "Mrkev",
-        "Description": "Čerstvá, pěkně oranžová mrkev (15 HP)",
+        "Description": "Čerstvá, pěkně oranžová mrkev (20 HP)",
         "Icon": "carrot.png",
         "Usable": true,
         "TargetIsEnemy": false,
         "OnUseEffect": {
           "Type": 0,
-          "EffectScale": 15
+          "EffectScale": 20
         }
       }
     ]
@@ -1025,11 +1025,420 @@
       "Img": "sack_of_bones.png",
       "NumberOfAttacks": 1
     }
+  },
+
+
+
+
+
+  {
+    "LocationID": 50,
+    "Name": "Kuchyň",
+    "Description": "Nacházíš v nepoužívané kuchyni, jsou tu hrnce a zkažené potraviny. Nikdo z obyvatel pevnosti zřejmě nevaří.",
+    "Background": "kitchen.png",
+    "Stage": 3,
+    "Connections": [
+      {
+        "Description": "Dveře do hodovní síně jsou zamčené a nerozbitné. Ach jo",
+        "FromLocationID": 50,
+        "ToLocationID": 58,
+        "RequiredItem": {
+          "ID": 54,
+          "Name": "Stříbrný klíč",
+          "Description": "Klíč od hodovního sálu"
+        }
+      },
+      {
+        "Description": "Vydat se druhými dveřmi",
+        "FromLocationID": 50,
+        "ToLocationID": 51
+      }
+    ],
+    "Items": [
+      {
+        "ID": 50,
+        "Name": "Šéfkuchařova čepice",
+        "Description": "Moc neochrání, ale vypadá velmi elegantně (5 RES)",
+        "Icon": "chefs_hat.png",
+        "IsWearable": true,
+        "WearableType": "Hat",
+        "OnWearEffect": {
+          "Type": 2,
+          "EffectScale": 5
+        }
+      }
+    ]
+  },
+  {
+    "LocationID": 51,
+    "Name": "Komnaty",
+    "Description": "Zde bydlí většina posádky pevnosti. Naštěstí jsou asi někde na hlídce, nebo totálně opilý",
+    "Background": "chambers.png",
+    "Stage": 3,
+    "Connections": [
+      {
+        "Description": "Vrátit se do kuchyně",
+        "FromLocationID": 51,
+        "ToLocationID": 50
+      },
+      {
+        "Description": "Jít na chodbu",
+        "FromLocationID": 51,
+        "ToLocationID": 52
+      }
+    ],
+    "Items": [
+      {
+        "ID": 51,
+        "Name": "Léčivý lektvar",
+        "Description": "Pravděpodobně se jedná o napůl rum a napůl bylinky (40 HP)",
+        "Icon": "healing_potion.png",
+        "Usable": true,
+        "OnUseEffect": {
+          "Type": 0,
+          "EffectScale": 40
+        }
+      }
+    ],
+    "Enemy": {
+      "Name": "Rytíř",
+      "Damage": 20,
+      "Hp": 60,
+      "Img": "knight.png",
+      "NumberOfAttacks": 2
+    }
+  },
+  {
+    "LocationID": 52,
+    "Name": "Chodba",
+    "Description": "Všude se zdá být ticho. Možná až moc ticho",
+    "Background": "hallway.png",
+    "Stage": 3,
+    "Connections": [
+      {
+        "Description": "Vrátit se do komnat",
+        "FromLocationID": 52,
+        "ToLocationID": 51
+      },
+      {
+        "Description": "Jít pokračovat dále chodbou",
+        "FromLocationID": 52,
+        "ToLocationID": 53
+      },
+      {
+        "Description": "Projít dveřmi",
+        "FromLocationID": 52,
+        "ToLocationID": 56
+      }
+    ],
+    "Items": []
+  },
+  {
+    "LocationID": 56,
+    "Name": "Zbrojnice",
+    "Description": "Většina vybavení zde je nefunkční a zastaralá. Všechno užitečné plukovník asi rozprodal",
+    "Background": "armory.png",
+    "Stage": 3,
+    "Connections": [
+      {
+        "Description": "Vrátit se na chodbu",
+        "FromLocationID": 56,
+        "ToLocationID": 52
+      },
+      {
+        "Description": "Projít ocelovými dveřmi",
+        "FromLocationID": 56,
+        "ToLocationID": 57
+      }
+    ],
+    "Items": [
+      {
+        "ID": 52,
+        "Name": "Černá bomba",
+        "Description": "Účinná zbraň proti komukoliv kdo se ti postaví do cesty (20 DMG)",
+        "Icon": "black_bomb.png",
+        "Usable": true,
+        "TargetIsEnemy": true,
+        "OnUseEffect": {
+          "Type": 0,
+          "EffectScale": -20
+        }
+      },
+      {
+        "ID": 53,
+        "Name": "Rytířské boty",
+        "Description": "Používány hrdinými rytíři, otázka je co dělají zde (12 RES)",
+        "Icon": "knight_boots.png",
+        "IsWearable": true,
+        "WearableType": "Boots",
+        "OnWearEffect": {
+          "Type": 2,
+          "EffectScale": 12
+        }
+      }
+    ],
+    "Enemy": {
+      "Name": "Kat",
+      "Damage": 45,
+      "Hp": 50,
+      "Img": "executioner.png",
+      "NumberOfAttacks": 1
+    }
+
+  },
+  {
+    "LocationID": 57,
+    "Name": "Kovárna",
+    "Description": "Dávno vyhaslá pec naznačuje, že zde už dlouho žádná výzbroj nevznikla",
+    "Background": "forge.png",
+    "Stage": 3,
+    "Connections": [
+      {
+        "Description": "Vrátit se do zbrojnice",
+        "FromLocationID": 57,
+        "ToLocationID": 56
+      }
+    ],
+    "Items": [
+      {
+        "ID": 54,
+        "Name": "Stříbrný klíč",
+        "Description": "Klíč od hodovního sálu",
+        "Icon": "silver_key.png"
+      },
+      {
+        "ID": 55,
+        "Name": "Jedová kapsle",
+        "Description": "Otráví nepřítele a tím ho oslabí (-8 DMG)",
+        "Icon": "poison_capsule.png",
+        "Usable": true,
+        "TargetIsEnemy": true,
+        "OnUseEffect": {
+          "Type": 1,
+          "EffectScale": -8
+        }
+      }
+    ]
+  },
+  {
+    "LocationID": 53,
+    "Name": "Chodba",
+    "Description": "Už cítíš jak se blížíš k cíli. Vítězství je na dosah",
+    "Background": "second_hallway.png",
+    "Stage": 3,
+    "Connections": [
+      {
+        "Description": "Vrátit se",
+        "FromLocationID": 53,
+        "ToLocationID": 52
+      },
+      {
+        "Description": "Jít vlevo",
+        "FromLocationID": 53,
+        "ToLocationID": 58,
+        "RequiredItem": {
+          "ID": 54,
+          "Name": "Stříbrný klíč",
+          "Description": "Klíč od hodovního sálu"
+        }
+      },
+      {
+        "Description": "Jít vpravo",
+        "FromLocationID": 53,
+        "ToLocationID": 54
+      }
+    ],
+    "Items": [],
+    "Enemy": {
+      "Name": "Šermíř",
+      "Damage": 9,
+      "Hp": 50,
+      "Img": "sword_master.png",
+      "NumberOfAttacks": 4
+    }
+  },
+  {
+    "LocationID": 54,
+    "Name": "Knihovna",
+    "Description": "Jsou tu pravděpodobně tisíce knih, každá s jiným názvem. Jedna z knihoven je ale očividně falešná a jsou to dveře. Bohužel se odemkne pouze vyřčením určité fráze.",
+    "Background": "library.png",
+    "Stage": 3,
+    "Connections": [
+      {
+        "Description": "Vrátit se na chodbu",
+        "FromLocationID": 54,
+        "ToLocationID": 53
+      },
+      {
+        "Description": "Projít tajnými dveřmi",
+        "FromLocationID": 54,
+        "ToLocationID": 55,
+        "Locked": true
+      }
+    ],
+    "Items": [],
+    "PuzzleKey": "motus ad ianuam"
+  },
+  {
+    "LocationID": 55,
+    "Name": "Tajná místnost",
+    "Description": "Někdo si sem schovával velmi cenné věci. Svatý Grál tu ale není...",
+    "Background": "secret_room.png",
+    "Stage": 3,
+    "Connections": [
+      {
+        "Description": "Vrátit se",
+        "FromLocationID": 55,
+        "ToLocationID": 54
+      }
+    ],
+    "Items": [
+      {
+        "ID": 56,
+        "Name": "Meč archanděla Michaela",
+        "Description": "Jeden z nejmocnějších mečů na světě (20 DMG)",
+        "Icon": "michaels_sword.png",
+        "IsWearable": true,
+        "WearableType": "Weapon",
+        "OnWearEffect": {
+          "Type": 1,
+          "EffectScale": 20
+        }
+      }
+    ]
+  },
+  {
+    "LocationID": 58,
+    "Name": "Hodovní síň",
+    "Description": "Někdo zde ještě velmi nedávno seděl a obědval",
+    "Background": "dinning_room.png",
+    "Stage": 3,
+    "Connections": [
+      {
+        "Description": "Jít do kuchyně",
+        "FromLocationID": 58,
+        "ToLocationID": 50,
+        "RequiredItem": {
+          "ID": 54,
+          "Name": "Stříbrný klíč",
+          "Description": "Klíč od hodovního sálu"
+        }
+      },
+      {
+        "Description": "Jít na chodbu",
+        "FromLocationID": 58,
+        "ToLocationID": 53,
+        "RequiredItem": {
+          "ID": 54,
+          "Name": "Stříbrný klíč",
+          "Description": "Klíč od hodovního sálu"
+        }
+      },
+      {
+        "Description": "Projít dveřmi do pracovny",
+        "FromLocationID": 58,
+        "ToLocationID": 59
+      }
+    ],
+    "Items": [
+      {
+        "ID": 57,
+        "Name": "Pečená husa",
+        "Description": "Velmi chutný pokrm (20 HP)",
+        "Icon": "roast_goose.png",
+        "Usable": true,
+        "OnUseEffect": {
+          "Type": 0,
+          "EffectScale": 20
+        }
+      },
+      {
+        "ID": 58,
+        "Name": "Šálek kávy",
+        "Description": "Šálek kvalitní kávy, pořádně tě nabudí (20 ENG)",
+        "Icon": "cup_of_coffee.png",
+        "Usable": true,
+        "OnUseEffect": {
+          "Type": 3,
+          "EffectScale": 20
+        }
+      }
+    ]
+  },
+  {
+    "LocationID": 59,
+    "Name": "Pracovna plukovníka Azazela",
+    "Description": "Vkusně zařízená pracovna plukovníka. Zde jsi byl naposledy přistižen. Dnes snad stejnou chybu nezopakuješ",
+    "Background": "bureau.png",
+    "Stage": 3,
+    "Connections": [
+      {
+        "Description": "Vrátit se do hodovacího sálu",
+        "FromLocationID": 59,
+        "ToLocationID": 58
+      },
+      {
+        "Description": "Uprchnout tajným východem",
+        "FromLocationID": 59,
+        "ToLocationID": 61,
+        "RequiredItem": {
+          "ID": 59,
+          "Name": "Svatý Grál",
+          "Description": "Autentická relikvie nevyčíslitelné ceny"
+        }
+      },
+      {
+        "Description": "Jít do pokladnice",
+        "FromLocationID": 59,
+        "ToLocationID": 60
+      }
+    ],
+    "Items": [],
+    "Enemy": {
+      "Name": "Plukovník Azazel",
+      "Damage": 15,
+      "Hp": 100,
+      "Img": "colonel_azazel.png",
+      "NumberOfAttacks": 3
+    }
+  },
+  {
+    "LocationID": 60,
+    "Name": "Pokladnice",
+    "Description": "Tak zde plukovník uchovává svou kořist. Pro mě je důležitá ale pouze jenom jedna věc...",
+    "Background": "treasure_room.png",
+    "Stage": 3,
+    "Connections": [
+      {
+        "Description": "Vrátit se do pracovny",
+        "FromLocationID": 60,
+        "ToLocationID": 59
+      }
+    ],
+    "Items": [
+      {
+        "ID": 59,
+        "Name": "Svatý Grál",
+        "Description": "Autentická relikvie nevyčíslitelné ceny",
+        "Icon": "holy_grail.png"
+      }
+    ]
+  },
+  {
+    "LocationID": 61,
+    "Name": "Svoboda",
+    "Description": "Konečně na čerstvém vzduchu. Čas opustit tuhle odpornou pevnost navždy",
+    "Background": "freedom.png",
+    "Stage": 3,
+    "Connections": [
+      {
+        "Description": "Vrátit se do pracovny",
+        "FromLocationID": 61,
+        "ToLocationID": 59
+      }
+    ],
+    "Items": []
   }
-
-
-
-
 
 
 
