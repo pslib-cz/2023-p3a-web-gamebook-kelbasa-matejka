@@ -19,6 +19,45 @@
             <div class="pack" id="pack">
                 <h2 class="pack__h">Tlumok</h2>
                 <div class="pack-cont">
+                    <p class="pack__h">Kam dál? - Podlaží #@Model.lModel.Stage</p>
+                    @if (!Model.pModel.CombatState.IsCombatActive)
+                    {
+                        <menu class="pack__map">
+                            @foreach (var v in Model.lModel.Connections)
+                            {
+                                <li>
+                                    <a asp-page="Location" asp-route-id="@v.ToLocationID">
+                                        @v.Description
+                                        @if (v.Locked && !Model.pModel.SolvedPuzzleLocations.Contains(v.FromLocationID))
+                                        {
+                                            <span class="closed">ZAMÈENO</span>
+                                        }
+                                        else if (v.Locked)
+                                        {
+                                            <span class="open">ODEMÈENO</span>
+                                        }
+
+                                        @if (v.RequiredItem != null)
+                                        {
+                                            if (Model.pModel.Items.Count > 0 && Model.pModel.Items.Count(a => a.ID == v.RequiredItem.ID) > 0)
+                                            {
+                                                <span>Díky <span class="lw">@v.RequiredItem.Name</span> mùžeš.</span>
+                                            }
+                                            else
+                                            {
+                                                <span style="color: red;">@v.RequiredItem.Name je potøeba pro prùchod.</span>
+                                            }
+
+                                        }
+                                    </a>
+                                </li>
+                            }
+                        </menu>
+                    }
+                    else
+                    {
+                        <p> Abys mohl pokraèovat ve svém dobrodružství, tak musíš porazit <span class="lw">@Model.lModel.Enemy.Name</span>.</p>
+                    }
                     @if (Model.pModel.Items.Count > 0)
                     {
                         <form method="post" class="pack-inv">
@@ -32,7 +71,7 @@
                                         @if (item.Usable)
                                         {
                                             <button type="submit" value="@item.ID" name="ItemId" class="btn" asp-page-handler="UseItem">Použít</button>
-                                        } 
+                                        }
                                     </div>
                                 </div>
                             }
@@ -42,47 +81,9 @@
                     {
                         <p>Zøejmì je tlumok dìravý, páè tu nic není</p>
                     }
-                    
-                    <p class="pack__h">Kam dál? - Podlaží #@Model.lModel.Stage</p>   
-                @if (!Model.pModel.CombatState.IsCombatActive)
-                {
-                    <menu class="pack__map">
-                        @foreach (var v in Model.lModel.Connections)
-                        {
-                            <li>
-                                <a asp-page="Location" asp-route-id="@v.ToLocationID">
-                                    @v.Description
-                                    @if (v.Locked && !Model.pModel.SolvedPuzzleLocations.Contains(v.FromLocationID))
-                                    {
-                                        <span class="closed">ZAMÈENO</span>
-                                    }
-                                    else if(v.Locked)
-                                    {
-                                        <span class="open">ODEMÈENO</span>
-                                    }
 
-                                    @if (v.RequiredItem != null)
-                                        {
-                                            if (Model.pModel.Items.Count > 0 && Model.pModel.Items.Count(a => a.ID == v.RequiredItem.ID) > 0)
-                                            {
-                                                <span>Díky <span class="lw">@v.RequiredItem.Name</span> mùžeš.</span>
-                                            }
-                                            else
-                                            {
-                                                <span style="color: red;">@v.RequiredItem.Name je potøeba pro prùchod.</span>
-                                            }
-                            
-                                        }
-                                </a>    
-                            </li>
-                        }
-                    </menu>
-                }
-                else
-                {
-                    <p> Abys mohl pokraèovat ve svém dobrodružství, tak musíš porazit <span class="lw">@Model.lModel.Enemy.Name</span>.</p>
-                }
-            </div>
+
+                </div>
                 
                 <button class="pack__btn" rel="nofollow" title="Otevírání inventáøe" id="packBtn">
                 </button>    
