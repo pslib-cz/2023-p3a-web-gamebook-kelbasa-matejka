@@ -1072,8 +1072,8 @@
   {
     "LocationID": 51,
     "Name": "Komnaty",
-    "Description": "Zde bydlí většina posádky pevnosti. Naštěstí jsou asi někde na hlídce, nebo totálně opilý",
-    "Background": "chambers.png",
+    "Description": "Zde bydlí většina posádky pevnosti. Naštěstí jsou asi někde na hlídce, nebo úplně opilí",
+    "Background": "sleeping_room.png",
     "Stage": 3,
     "Connections": [
       {
@@ -1121,12 +1121,12 @@
         "ToLocationID": 51
       },
       {
-        "Description": "Jít pokračovat dále chodbou",
+        "Description": "Jít pokračovat rovně chodbou",
         "FromLocationID": 52,
         "ToLocationID": 53
       },
       {
-        "Description": "Projít dveřmi",
+        "Description": "Projít dveřmi vpravo",
         "FromLocationID": 52,
         "ToLocationID": 56
       }
@@ -1155,7 +1155,7 @@
       {
         "ID": 52,
         "Name": "Černá bomba",
-        "Description": "Účinná zbraň proti komukoliv kdo se ti postaví do cesty (20 DMG)",
+        "Description": "Účinná zbraň proti komukoliv kdo se ti postaví do cesty. Bum (20 DMG)",
         "Icon": "black_bomb.png",
         "Usable": true,
         "TargetIsEnemy": true,
