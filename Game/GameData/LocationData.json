@@ -3,7 +3,7 @@
     "LocationID": 1,
     "Name": "Hluboká jáma",
     "Description": "Nacházíš se úplně na dně hluboké kamenné jámy, stěny jsou mírně vlhké a v dálce slyšíš nějaké cvakání",
-    "Background": "deep_pit.png",
+    "Background": "pit.png",
     "Stage": 1,
     "Connections": [
       {
@@ -30,7 +30,7 @@
     "LocationID": 2,
     "Name": "Jeskynní chodba",
     "Description": "Jsi v relativně úzké jeskynní chodbě, která je strašně tmavá. Cvakání je nyní mnohem hlasitější",
-    "Background": "cave_tunnel.png",
+    "Background": "dark_tunnel.png",
     "Stage": 1,
     "Connections": [
       {
