@@ -2,7 +2,7 @@
     --bg: url("../Assets/bg.jpg");
     --cd: linear-gradient(135deg, rgba(255,237,200,1) 0%, rgba(255,255,255,1) 65%);
     --prim: #5e2400;
-    --font: 'EB Garamond', serif;
+    --font: 'Caudex', serif;;
     --trans: .4s ease all;
 }
 
@@ -363,15 +363,16 @@ h2.pack__h {
 }
 
 .pack__btn {
+    width: 13%;
+    max-width: 114px;
     height: 8%;
     max-height: 70px;
-    aspect-ratio: 1;
     border-radius: 0 .5rem .5rem 0;
     position: absolute;
     bottom: -2px;
     background: radial-gradient(50% 50% at 50% 50%, #BA0000 54%, #5F0000 100%);
     border: 1px solid black;
-    right: 0;
+    right: 5%;
     transform: translateX(100%);
     padding: 1rem;
     transition: var(--trans);
@@ -384,18 +385,21 @@ h2.pack__h {
     border-radius: .5rem 0 .5rem 0;
     border-bottom: none;
     border-right: none;
+    width: auto;
+    aspect-ratio: 1;
+    right: 0;
 }
 
 .pack__btn::before {
     content: "";
-    width: 65%;
+    height: 65%;
     aspect-ratio: 1;
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
     position: absolute;
     top: 17.5%;
-    left: 17.5%;
+    right: 8%;
     transition: var(--trans);
 }
 
@@ -406,6 +410,7 @@ h2.pack__h {
 
 .pack--open .pack__btn::before {
     background-image: url("../Assets/close.svg");
+    right: 17.5%;
 }
 
 .ctrls {
@@ -530,7 +535,7 @@ h2.pack__h {
     .pack:has(.pack__btn:hover):not(.pack--open), .pack:not(.pack--open):hover {
         transform: translateX(-95%);
     }
-    
+
     .btn:hover {
         background: var(--prim);
         color: white;
