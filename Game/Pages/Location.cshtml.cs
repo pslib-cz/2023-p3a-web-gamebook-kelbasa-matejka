@@ -15,6 +15,8 @@ public class Location(LocationService ls, ISessionService ss, EffectService es, 
     public LocationModel lModel { get; private set; }
     public PlayerModel pModel { get; set; }
 
+    public bool ShowWrongPuzzleGuessMsg { get; set; } = false;
+
     public IActionResult OnGet(int id)
     {
 
@@ -23,8 +25,6 @@ public class Location(LocationService ls, ISessionService ss, EffectService es, 
 
         if (pModel == null || pModel.CurrentLocationId == 0)
         {
-            Console.WriteLine("Detekováno");
-            Console.WriteLine(pModel?.CurrentLocationId.ToString() + pModel?.PickedUpItems.Select(a => a.ToString()));
             return RedirectToPage("Index");
         }
 
@@ -83,12 +83,18 @@ public class Location(LocationService ls, ISessionService ss, EffectService es, 
         if (ffm.Answer == lModel.PuzzleKey)
         {
             pModel.SolvedPuzzleLocations.Add(lModel.LocationID);
+            ShowWrongPuzzleGuessMsg = false;
         }
         else
         {
-            EffectService.ApplyEffect(new EffectModel { EffectScale = -10, Type = EffectTypeModel.Health }, pModel);
+            EffectService.ApplyEffect(new EffectModel { EffectScale = -5, Type = EffectTypeModel.Health }, pModel);
+            ShowWrongPuzzleGuessMsg = true;
         }
         SavePlayer();
+        if (pModel.Hp <= 0)
+        {
+            return RedirectToPage("Endgame");
+        }
         return Page();
     }
 
@@ -143,10 +149,13 @@ public class Location(LocationService ls, ISessionService ss, EffectService es, 
         LoadPlayer();
         lModel = ls.GetLocation(pModel.CurrentLocationId);
 
-        if(!pModel.CombatState.IsCombatActive) return Page();
-
+        Console.WriteLine("atack se zpracovává");
+        if (!pModel.CombatState.IsCombatActive) return Page();
+        Console.WriteLine("atack je validní");
         if (attackType == "WeakAttack")
         {
+            Console.WriteLine("classic");
+            Console.WriteLine("Enemy hp: " + pModel.CombatState.CurrentEnemy.Hp.ToString());
             ps.PlayerAttack(pModel, AttackTypeModel.classic);
         }
         else if (attackType == "StrongAttack")
@@ -155,7 +164,8 @@ public class Location(LocationService ls, ISessionService ss, EffectService es, 
             ps.PlayerAttack(pModel, AttackTypeModel.strong);
         }
 
-        if(pModel.CombatState.CurrentEnemy.Hp > 0)
+        Console.WriteLine("Enemy hp: " + pModel.CombatState.CurrentEnemy.Hp.ToString());
+        if (pModel.CombatState.CurrentEnemy.Hp > 0)
         {
             EffectService.EnemyAttack(pModel.CombatState.CurrentEnemy, pModel);
         }
@@ -164,11 +174,12 @@ public class Location(LocationService ls, ISessionService ss, EffectService es, 
             pModel.CombatState.CleanedLocations.Add(pModel.CurrentLocationId);
         }
 
+        SavePlayer();
         if (pModel.Hp <= 0)
         {
-            return RedirectToPage("endgame");
+            return RedirectToPage("Endgame");
         }
-        SavePlayer();
+
         return Page();
     }
 
