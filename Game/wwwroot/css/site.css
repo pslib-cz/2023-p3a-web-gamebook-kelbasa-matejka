@@ -468,28 +468,39 @@ main {
 
 .pack-inv-item {
     display: flex;
-    height: 20%;
-    max-height: 150px;
+    height: 100px;
     position: relative;
+    margin: .75rem 0;
+    gap: 1rem;
 }
 
 .pack-inv-item__img {
     aspect-ratio: 1;
-    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
 }
 
 .pack-inv-item__img img {
-    width: 100%;
-    object-fit: contain;
-    display: block;
-}
-
-.pack-inv-item__img h3 {
-    margin-top: .25rem;
+    max-width: 100%;
 }
 
 .pack-inv-item__des {
     flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: .5rem;
+    font-size: 18px;
+}
+
+.pack-inv-item__des p {
+    margin: 0;
+    width: 100%;
+}
+
+.pack-inv-item__des h3 {
+    margin: 0;
 }
 
 @media screen and (min-width: 768px) {

@@ -27,14 +27,14 @@
                                 <div class="pack-inv-item">
                                     <div class="pack-inv-item__img">
                                         <img src="Assets/ItemIcons/@item.Icon" alt="@item.Name"/>
-                                        <h3>@item.Name</h3>
-                                    </div>
-                                    <div class="pack-inv-item__des">
-                                        <p>@item.Description</p>
                                         @if (item.Usable)
                                         {
-                                            <button type="submit" value="@item.ID" name="ItemId" asp-page-handler="UseItem">Použít</button>
-                                        }    
+                                            <button type="submit" value="@item.ID" name="ItemId" class="btn" asp-page-handler="UseItem">Použít</button>
+                                        }  
+                                    </div>
+                                    <div class="pack-inv-item__des">
+                                        <h3>@item.Name</h3>
+                                        <p>@item.Description</p>
                                     </div>
                                     
                                 </div>
