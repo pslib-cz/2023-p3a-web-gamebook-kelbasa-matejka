@@ -1,17 +1,20 @@
 @page
 @model Game.Pages.Endgame
 
-@if(Model.Win)
-{
-    <h1>Vyhrál si</h1>
-    <a asp-page="Index">Domù</a>
-}
-else
-{
-    <h1>Prohrál si</h1>
-    @if (Model.pModel.CombatState.IsCombatActive)
+<main class="main--info main--endgame" style="background-image: url(Assets/@(Model.Win ? "winBg.jpg" : "loseBg.jpg"))">
+    @if(Model.Win)
     {
-        <p>Zemøel jsi pøi souboji s entitou @Model.pModel.CombatState.CurrentEnemy.Name</p>
+        <h1>Vyhrál si</h1>
+        <a class="btn" asp-page="Index">Domù</a>
     }
-    <a asp-page="Index">Domù</a>
-}
+    else
+    {
+        <h1>Prohrál si</h1>
+        @if (Model.pModel.CombatState.IsCombatActive)
+        {
+            <p>Zemøel jsi pøi souboji s entitou @Model.pModel.CombatState.CurrentEnemy.Name</p>
+        }
+        <a class="btn" asp-page="Index">Domù</a>
+    }    
+</main>
+

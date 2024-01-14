@@ -6,16 +6,8 @@
 
 <main class="main--info">
     <h1>Escape The<span class="br"></span> Fortress</h1>
-    <menu>
-        <form method="post">
-            <button type="submit" asp-page-handler="StartGame">Začít</button>
-            <button>O hře</button>
-        </form>
-    </menu>
-    <div id="about" class="home-about">
-        <p>Hokus pokus, já ztratil fokus</p>
-    </div>
-
-
+    <form method="post" class="main__menu">
+        <button class="btn" type="submit" asp-page-handler="StartGame">Hrát</button>
+        <button class="btn">O hře</button>
+    </form>
 </main>
-

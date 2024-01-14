@@ -3,20 +3,24 @@
 
 @if (Model.lModel.Enemy != null)
 {
-    @if (!Model.pModel.CombatState.CleanedLocations.Contains(Model.lModel.LocationID))
-    {
-        //HEALTHBAR
-        <h2 class="obj__enemy-txt">@Model.pModel.CombatState.CurrentEnemy.Hp hp</h2>
-    }
-    else
-    {
-        <h2 class="obj__enemy-txt">@Model.lModel.Enemy.Name byl poražen</h2>
-    } 
-    <img class="obj__enemy" src="Assets/Enemy/@Model.lModel.Enemy.Img" alt="@Model.lModel.Enemy.Name">
-    @if (!Model.pModel.CombatState.CleanedLocations.Contains(Model.lModel.LocationID))
-    {
-        <h2 class="obj__enemy-txt">@Model.lModel.Enemy.Name</h2>
-    }  
+    <div class="enemy">
+        @if (!Model.pModel.CombatState.CleanedLocations.Contains(Model.lModel.LocationID))
+        {
+            <div class="enemy__hp">
+                @{
+                    int widthPercentage = (int)Math.Floor(Model.pModel.CombatState.CurrentEnemy.Hp / (Model.lModel.Enemy.Hp / 100.0));
+                }
+                <span>@Model.pModel.CombatState.CurrentEnemy.Hp</span>
+                <div style="width: @widthPercentage%"></div>            
+            </div>
+            <img class="enemy__img" src="Assets/Enemy/@Model.lModel.Enemy.Img" alt="@Model.lModel.Enemy.Name">    
+            <h2 class="enemy__txt">@Model.lModel.Enemy.Name</h2>                                                                                                 
+        }
+        else if(!Model.lModel.Items.Any())
+        {
+            <h2 class="enemy__txt">@Model.lModel.Enemy.Name byl poražen</h2>
+        } 
+    </div>
 }
 @if (!Model.pModel.CombatState.IsCombatActive)
 {
@@ -36,22 +40,22 @@
     @if (Model.lModel.PuzzleKey != null && !Model.pModel.SolvedPuzzleLocations.Contains(Model.lModel.LocationID))
     {
         <form class="puzzle" method="post">
-            <label for="answer">Zadat heslo:</label>
+            <label for="answer">Ven s tím tajemstvím!</label>
             <input type="text" id="answer" name="Answer" required />
-            <button asp-page-handler="GuessPuzzle" type="submit">OK</button>
+            <button asp-page-handler="GuessPuzzle" type="submit">Potvrdit</button>
         </form>
     }
     else
     {
         @if (Model.lModel.PuzzleKey != null)
         {
-            <p>Správné heslo. Heslo bylo: @Model.lModel.PuzzleKey</p>
+            <p class="puzzle-ans">Povedlo se ti zjistit tajemství.</p>  
         }
     }
 
     @if (Model.pModel.CurrentLocationId == Model.WINNING_LOCATION_ID)
     {
-        <a asp-page="Endgame">Nic horšího mě už snad nečeká, chce to voraz...</a>
+        <a class="btn" asp-page="Endgame">Nic horšího už mě snad nečeká, chce to oraz...</a>
     }
 }
 

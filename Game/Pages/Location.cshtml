@@ -17,20 +17,27 @@
     </section>
     <section class="obj">
             <div class="pack" id="pack">
-                <h2>Tlumok</h2>
+                <h2 class="pack__h">Tlumok</h2>
                 <div>
                     @if (Model.pModel.Items.Count > 0)
                     {
-                        <form method="post" class="pack__inv">
+                        <form method="post" class="pack-inv">
                             @foreach (var item in Model.pModel.Items)
                             {
-                                <p>
-                                    <span>@item.Name - @item.Description</span>
-                                    @if (item.Usable)
-                                    {
-                                        <button type="submit" value="@item.ID" name="ItemId" asp-page-handler="UseItem">Použít</button>
-                                    }
-                                </p>
+                                <div class="pack-inv-item">
+                                    <div class="pack-inv-item__img">
+                                        <img src="Assets/ItemIcons/@item.Icon" alt="@item.Name"/>
+                                        <h3>@item.Name</h3>
+                                    </div>
+                                    <div class="pack-inv-item__des">
+                                        <p>@item.Description</p>
+                                        @if (item.Usable)
+                                        {
+                                            <button type="submit" value="@item.ID" name="ItemId" asp-page-handler="UseItem">Použít</button>
+                                        }    
+                                    </div>
+                                    
+                                </div>
                             }
                         </form>
                     }
@@ -38,10 +45,11 @@
                     {
                         <p>Zøejmì je tlumok dìravý, páè tu nic není</p>
                     }
+                    
+                    <p class="pack__h">Kam dál? - Podlaží #@Model.lModel.Stage</p>   
                 @if (!Model.pModel.CombatState.IsCombatActive)
                 {
-
-                    <menu>
+                    <menu class="pack__map">
                         @foreach (var v in Model.lModel.Connections)
                         {
                             <li>
@@ -49,29 +57,33 @@
                                     @v.Description
                                     @if (v.Locked && !Model.pModel.SolvedPuzzleLocations.Contains(v.FromLocationID))
                                     {
-                                        <span style="color: red;">ZAMÈENO</span>
+                                        <span class="closed">ZAMÈENO</span>
                                     }
-                                    else if (v.Locked)
+                                    else if(v.Locked)
                                     {
-                                        <span style="color: green;">ODEMÈENO</span>
+                                        <span class="open">ODEMÈENO</span>
                                     }
 
                                     @if (v.RequiredItem != null)
-                                    {
-                                        if (Model.pModel.Items.Count > 0 && Model.pModel.Items.Count(a => a.ID == v.RequiredItem.ID) > 0)
                                         {
-                                            <span>díky @v.RequiredItem.Name mùžeš</span>
+                                            if (Model.pModel.Items.Count > 0 && Model.pModel.Items.Count(a => a.ID == v.RequiredItem.ID) > 0)
+                                            {
+                                                <span>Díky <span class="lw">@v.RequiredItem.Name</span> mùžeš.</span>
+                                            }
+                                            else
+                                            {
+                                                <span style="color: red;">@v.RequiredItem.Name je potøeba pro prùchod.</span>
+                                            }
+                            
                                         }
-                                        else
-                                        {
-                                            <span style="color: red;">@v.RequiredItem.Name je potøeba pro prùchod</span>
-                                        }
-
-                                    }
                                 </a>    
                             </li>
                         }
                     </menu>
+                }
+                else
+                {
+                    <p> Abys mohl pokraèovat ve svém dobrodružství, tak musíš porazit <span class="lw">@Model.lModel.Enemy.Name</span>.</p>
                 }
             </div>
                 

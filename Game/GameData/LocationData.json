@@ -7,7 +7,7 @@
     "Stage": 1,
     "Connections": [
       {
-        "Description": "Cesta vedoucí nahoru z jámy, bez lana se nahoru nedostaneš",
+        "Description": "Cesta vedoucí nahoru z jámy.",
         "FromLocationID": 1,
         "ToLocationID": 2,
         "RequiredItem": {

@@ -2,6 +2,8 @@
     --bg: url("../Assets/bg.jpg");
     --cd: linear-gradient(135deg, rgba(255,237,200,1) 0%, rgba(255,255,255,1) 65%);
     --prim: #5e2400;
+    --font: 'EB Garamond', serif;
+    --trans: .4s ease all;
 }
 
 body {
@@ -10,9 +12,37 @@ body {
     max-height: 100svh;
 }
 
+.btn {
+    background: var(--cd) var(--prim);
+    border: 4px solid var(--prim);
+    border-radius: 22.5px;
+    padding: .5rem 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-family: var(--font);
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;    
+    text-decoration: none;
+    color: black;
+    transition: var(--trans);
+    box-shadow: 5px 5px 5px #222;
+}
+
 .br {
     display: block;
     width: 100%;
+}
+
+.lw {
+    text-transform: lowercase;
+}
+
+.open {
+    color: green;
+}
+
+.closed {
+    color: #ff004d;
 }
 
 /* Scrollbar CSS */
@@ -51,18 +81,31 @@ main {
     padding: 1rem;
 }
 
-main.main--info {
+.main--info {
     background-image: url("../assets/MenuBG.jpg");
     justify-content: space-evenly;
 }
 
-.main--info {
+
+.main__menu .btn, .main--endgame .btn {
+    font-size: 2rem;
+    display: block;
+}
+
+.main__menu .btn {
+    
+    margin: .5rem auto;
+    width: 100%;
+}
+
+.main--info h1 {
     font-size: min(15vw,10em);
     -webkit-text-stroke: 3px black;    
     color: var(--prim);
     text-align: center;
     text-transform: uppercase;
     margin: 0;
+    line-height: .8;
 }
 
 .cont {
@@ -77,7 +120,7 @@ main.main--info {
 
 .cont--player {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     grid-gap: .5rem;
     grid-auto-rows: 1fr;
     background: var(--bg);
@@ -92,13 +135,19 @@ main.main--info {
     font-weight: bold;
     display: flex;
     justify-content: center;
-    height: 100%;
     aspect-ratio: 2/3;
     border-radius: .5rem;
     position: relative;
     border: 1px solid black;
-    font-size: 10px;
+    font-size: 12px;
     text-transform: uppercase;
+    word-break: break-word;
+}
+
+.ctrls button {
+    padding: 0 5%;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .cont--player span {
@@ -108,15 +157,14 @@ main.main--info {
 }
 
 .ctrls__attack {
-    font-family: 'EB Garamond', serif;
+    font-family: var(--font);
     background-size: cover;
     align-items: start;
 }
 
 .ctrls__item{
     background: var(--cd);
-    padding: 5%;
-    font-family: 'EB Garamond', serif;
+    font-family: var(--font);    
     align-items: center;
 }
 
@@ -181,7 +229,6 @@ main.main--info {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
     gap: .5rem;
     flex-grow: 1;
     min-height: 50%;
@@ -192,11 +239,53 @@ main.main--info {
     font-size: 24px;
 }
 
-.obj__enemy {
-    /*mix-blend-mode: multiply;*/
-    width: 70%;
-    max-width: 600px;
+.enemy {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.enemy__img {
+    width: 80%;
+    max-width: 700px;
     object-fit: contain;
+    -webkit-filter: drop-shadow(5px 5px 5px #222);
+    filter: drop-shadow(5px 5px 5px #222);
+}
+
+.enemy__hp {
+    width: 80%;
+    height: 1.25rem;
+    padding: .25rem;
+    max-width: 700px;
+    background: white;
+    border-radius: 1rem;
+    position: relative;
+}
+
+.enemy__hp div {
+    height: 100%;
+    border-radius: .75rem;
+    background: #ff004d;
+}
+
+.enemy__hp span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1rem;
+    color: black;
+    font-weight: bold;
+}
+
+.enemy__txt, .item__name, .puzzle-ans {
+    font-size: min(2rem, 6vw);
+    text-align: center;
+    text-transform: uppercase;
 }
 
 .item {
@@ -211,39 +300,53 @@ main.main--info {
     width: 50%;
     max-width: 300px;
     object-fit: contain;
-    /*mix-blend-mode: multiply;*/
+    -webkit-filter: drop-shadow(5px 5px 5px #222);
+    filter: drop-shadow(5px 5px 5px #222);
 }
 
-.obj__enemy-txt {
+.enemy__txt {
     margin: 0;
 }
 
 .pack {
-    height: calc(100% - 20px);
+    height: calc(100% - 52px);
     position: absolute;
     top: 0;
     left: -1rem;
-    background: var(--cd);
+    background: url("../Assets/BagBg.jpg") no-repeat right top;
+    background-size: 100% 100%;
     border: 2px solid black;
     border-left: none;
     border-radius: 0 .5rem 0 0;
     transform: translateX(-100%);
-    transition: .4s ease all;
-    padding: .5rem 0 .5rem 1.5rem;
+    transition: var(--trans);
+    padding: 1.5rem;
     display: flex;
     flex-direction: column;
-    color: black;
+    color: white;
     text-transform: none;
     font-size: 16px;
     z-index: 2;
 }
 
-.pack h2 {
-    margin: 0;
+.pack__map {
+    padding-left: 1rem;
+}
+
+.pack__map a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.pack__h {
+    margin: 0 0 .5rem 0;
+    font-size: 1.5rem;
+    font-weight: bold;
     text-transform: uppercase;
 }
 
-.pack div {
+.pack > div {
     flex: 1;
     overflow: auto;
     padding-right: .5rem;
@@ -266,11 +369,13 @@ main.main--info {
     right: 0;
     transform: translateX(100%);
     padding: 1rem;
-    transition: .4s ease all;
+    transition: var(--trans);
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .pack--open .pack__btn {
-    transform: translateX(0);
+    transform: translateX(2px);
     border-radius: .5rem 0 .5rem 0;
     border-bottom: none;
     border-right: none;
@@ -286,6 +391,7 @@ main.main--info {
     position: absolute;
     top: 17.5%;
     left: 17.5%;
+    transition: var(--trans);
 }
 
 .pack:not(.pack--open) .pack__btn::before {
@@ -300,7 +406,7 @@ main.main--info {
 .ctrls {
     display: grid;
     grid-gap: .5rem;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     grid-column: span 4;
 }
 
@@ -315,13 +421,83 @@ main.main--info {
     background-image: url("../Assets/strong.jpg");
 }
 
+.puzzle {
+    width: 100%;
+    max-width: 496px;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.puzzle label {
+    display: block;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: .5rem;
+    font-family: var(--font);
+}
+
+.puzzle input {
+    background: var(--cd);
+    border: 1px solid black;
+    border-bottom: none;
+    border-radius: 1rem 1rem 0 0;
+    padding: .5rem;
+    font-size: 1rem;
+    font-family: var(--font);
+}
+
+.puzzle input:focus {
+    outline: 2px solid var(--prim);
+}
+
+.puzzle button {
+    background: var(--prim);
+    border: 1px solid black;
+    border-top: none;
+    border-radius: 0 0 1rem 1rem;
+    color: white;
+    padding: .5rem;
+    font-size: 1rem;
+    text-transform: uppercase;
+    font-family: var(--font);
+    cursor: pointer;
+}
+
+.pack-inv-item {
+    display: flex;
+    height: 20%;
+    max-height: 150px;
+    position: relative;
+}
+
+.pack-inv-item__img {
+    aspect-ratio: 1;
+    height: 100%;
+}
+
+.pack-inv-item__img img {
+    width: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+.pack-inv-item__img h3 {
+    margin-top: .25rem;
+}
+
+.pack-inv-item__des {
+    flex-grow: 1;
+}
 
 @media screen and (min-width: 768px) {
     .cont--player span, .ctrls button {
-        font-size: min(2vw, 1.5rem);
+        font-size: min(2vw, 1.2rem);
     }
     .cont--player {
-        grid-template-columns: repeat(8, 1fr);
+        grid-template-columns: repeat(8, minmax(0, 1fr));
     }
 
     .cont--player .ctrls {
@@ -335,6 +511,21 @@ main.main--info {
     
     .cont {
         overflow: unset;
+    }
+    
+    .pack:has(.pack__btn:hover):not(.pack--open), .pack:not(.pack--open):hover {
+        transform: translateX(-95%);
+    }
+    
+    .btn:hover {
+        background: var(--prim);
+        color: white;
+    }
+}
+
+@media screen and (min-width: 1920px) {
+    .pack {
+        width: calc((100% - 1064px)/2);
     }
 }
 
