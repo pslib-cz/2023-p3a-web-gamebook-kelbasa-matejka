@@ -18,25 +18,22 @@
     <section class="obj">
             <div class="pack" id="pack">
                 <h2 class="pack__h">Tlumok</h2>
-                <div>
+                <div class="pack-cont">
                     @if (Model.pModel.Items.Count > 0)
                     {
                         <form method="post" class="pack-inv">
                             @foreach (var item in Model.pModel.Items)
                             {
                                 <div class="pack-inv-item">
-                                    <div class="pack-inv-item__img">
-                                        <img src="Assets/ItemIcons/@item.Icon" alt="@item.Name"/>
-                                        @if (item.Usable)
-                                        {
-                                            <button type="submit" value="@item.ID" name="ItemId" class="btn" asp-page-handler="UseItem">Použít</button>
-                                        }  
-                                    </div>
+                                    <img class="pack-inv-item__img" src="Assets/ItemIcons/@item.Icon" alt="@item.Name"/>
                                     <div class="pack-inv-item__des">
                                         <h3>@item.Name</h3>
                                         <p>@item.Description</p>
+                                        @if (item.Usable)
+                                        {
+                                            <button type="submit" value="@item.ID" name="ItemId" class="btn" asp-page-handler="UseItem">Použít</button>
+                                        } 
                                     </div>
-                                    
                                 </div>
                             }
                         </form>

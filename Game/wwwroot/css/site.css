@@ -346,10 +346,11 @@ main {
     text-transform: uppercase;
 }
 
-.pack > div {
+.pack-cont {
     flex: 1;
     overflow: auto;
     padding-right: .5rem;
+    position: relative;
 }
 
 .pack--open {
@@ -358,7 +359,7 @@ main {
 }
 
 .pack__btn {
-    height: 10%;
+    height: 8%;
     max-height: 70px;
     aspect-ratio: 1;
     border-radius: 0 .5rem .5rem 0;
@@ -468,30 +469,24 @@ main {
 
 .pack-inv-item {
     display: flex;
-    height: 100px;
+    flex-direction: column;
     position: relative;
     margin: .75rem 0;
-    gap: 1rem;
+    gap: .5rem;
+    justify-content: center;
+    align-items: center;
 }
 
 .pack-inv-item__img {
     aspect-ratio: 1;
-    display: flex;
-    flex-direction: column;
-    gap: .5rem;
-}
-
-.pack-inv-item__img img {
-    max-width: 100%;
+    max-width: 100px;
+    height: auto;
 }
 
 .pack-inv-item__des {
     flex-grow: 1;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    gap: .5rem;
     font-size: 18px;
+    text-align: center;
 }
 
 .pack-inv-item__des p {
@@ -501,6 +496,10 @@ main {
 
 .pack-inv-item__des h3 {
     margin: 0;
+}
+
+.pack-inv-item__des .btn{
+    margin-top: .75rem;
 }
 
 @media screen and (min-width: 768px) {
@@ -531,6 +530,15 @@ main {
     .btn:hover {
         background: var(--prim);
         color: white;
+    }
+
+    .pack-inv-item {
+        flex-direction: row;
+        gap: 1rem;
+    }
+
+    .pack-inv-item__des {
+        text-align: left;
     }
 }
 
