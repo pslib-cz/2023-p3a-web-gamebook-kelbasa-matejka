@@ -24,7 +24,7 @@
 }
 @if (!Model.pModel.CombatState.IsCombatActive)
 {
-    @if (Model.lModel.Items.Any() && !Model.lModel.Items.All(item => Model.pModel.PickedUpItems.Contains(item.ID)) && (Model.lModel.PuzzleKey == null || Model.pModel.SolvedPuzzleLocations.Contains(Model.lModel.LocationID)))
+    @if (Model.lModel.PuzzleKey == null || Model.pModel.SolvedPuzzleLocations.Contains(Model.lModel.LocationID))
     {
         @foreach (var i in Model.lModel.Items)
         {
@@ -43,6 +43,10 @@
             <label for="answer">Ven s tím tajemstvím!</label>
             <input type="text" id="answer" name="Answer" required />
             <button asp-page-handler="GuessPuzzle" type="submit">Potvrdit</button>
+            @if (Model.ShowWrongPuzzleGuessMsg)
+            {
+                <label>Au! Tohle asi nebyla správná odpověď</label>
+            }
         </form>
     }
     else
