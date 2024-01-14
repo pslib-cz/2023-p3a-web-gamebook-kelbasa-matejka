@@ -3,11 +3,11 @@
     "LocationID": 1,
     "Name": "Hluboká jáma",
     "Description": "Nacházíš se úplně na dně hluboké kamenné jámy, stěny jsou mírně vlhké a v dálce slyšíš nějaké cvakání",
-    "Background": "deep_pit.png",
+    "Background": "pit.png",
     "Stage": 1,
     "Connections": [
       {
-        "Description": "Cesta vedoucí nahoru z jámy.",
+        "Description": "Vylézt tak vysoko jak se jen dá.",
         "FromLocationID": 1,
         "ToLocationID": 2,
         "RequiredItem": {
@@ -29,8 +29,8 @@
   {
     "LocationID": 2,
     "Name": "Jeskynní chodba",
-    "Description": "Jsi v relativně úzké jeskynní chodbě, která vznikla přírodně. Cvakání je nyní mnohem hlasitější",
-    "Background": "cave_tunnel.png",
+    "Description": "Jsi v relativně úzké jeskynní chodbě, která je strašně tmavá. Cvakání je nyní mnohem hlasitější",
+    "Background": "dark_tunnel.png",
     "Stage": 1,
     "Connections": [
       {
@@ -476,7 +476,7 @@
   {
     "LocationID": 17,
     "Name": "Díra",
-    "Description": "Jsi hned před černočernou dírou, bůhvíjak hlubokou",
+    "Description": "Jsi hned před černočernou dírou, bůhvíjak hlubokou. Kolem tebe nic není.",
     "Background": "black_hole.png",
     "Stage": 1,
     "Connections": [
@@ -549,7 +549,7 @@
     "Stage": 1,
     "Connections": [
       {
-        "Description": "Vrátit se ",
+        "Description": "Vrátit se",
         "FromLocationID": 19,
         "ToLocationID": 16
       },
@@ -685,8 +685,8 @@
   },
   {
     "LocationID": 32,
-    "Name": "Krypta",
-    "Description": "Nacházíš se před vchodem do krypty. Kolem tebe jsou kosti",
+    "Name": "Vchod do krypty",
+    "Description": "Nacházíš se před vchodem do krypty. Kolem tebe jsou podivné nápisy",
     "Background": "crypt_entrance.png",
     "Stage": 2,
     "Connections": [
@@ -723,7 +723,7 @@
   {
     "LocationID": 35,
     "Name": "Krypta",
-    "Description": "Všude kolem jsou hromady kostí. Pravděpodobně zde i straší",
+    "Description": "Všude kolem je prach a písek. Jsou zde i podivné nádoby.",
     "Background": "crypt.png",
     "Stage": 2,
     "Connections": [
@@ -733,12 +733,12 @@
         "ToLocationID": 32
       },
       {
-        "Description": "Jít po schodech dolů",
+        "Description": "Jít po schodech nahoru",
         "FromLocationID": 35,
         "ToLocationID": 36
       },
       {
-        "Description": "Pokračovat dál chodbou",
+        "Description": "Jít vlevo",
         "FromLocationID": 35,
         "ToLocationID": 37
       }
@@ -755,13 +755,13 @@
   },
   {
     "LocationID": 36,
-    "Name": "Spodní krypta",
+    "Name": "Horní krypta",
     "Description": "Jsi v místnosti s hrobkou krále Castiela. Vchod je ale zamčený",
     "Background": "crypt_bottom_floor.png",
     "Stage": 2,
     "Connections": [
       {
-        "Description": "Odejít po schodech zpět nahoru",
+        "Description": "Odejít po schodech zpět dolů",
         "FromLocationID": 36,
         "ToLocationID": 35
       },
@@ -806,7 +806,7 @@
         "ToLocationID": 35
       },
       {
-        "Description": "Projít kamennými dveřmi",
+        "Description": "Projít skutečnými dveřmi",
         "FromLocationID": 37,
         "ToLocationID": 38,
         "Locked": true
@@ -817,7 +817,7 @@
   {
     "LocationID": 38,
     "Name": "Archiv v kryptě",
-    "Description": "Jsi v archivu plném zaprášených svitků. Má to zde zvláštní atmosféru",
+    "Description": "Jsi v archivu plném zaprášených svitků. Má to zde zvláštní atmosféru. Je tu překvapivě dost světla.",
     "Background": "crypt_archive.png",
     "Stage": 2,
     "Connections": [
@@ -977,7 +977,7 @@
         }
       },
       {
-        "Description": "Jít dolů po schodech",
+        "Description": "Nadzvednout poklop a jít dolů",
         "FromLocationID": 34,
         "ToLocationID": 41
       }
@@ -1000,7 +1000,7 @@
   {
     "LocationID": 41,
     "Name": "Samotka",
-    "Description": "Nacházíš se v místnosti, která kdysi sloužila jako samotka, pro neposlušné vězně. Nyní zde pouze straší.",
+    "Description": "Nacházíš se v místnosti, která kdysi sloužila jako samotka pro neposlušné vězně. Nyní zde pouze straší.",
     "Background": "prison_cell.png",
     "Stage": 2,
     "Connections": [
