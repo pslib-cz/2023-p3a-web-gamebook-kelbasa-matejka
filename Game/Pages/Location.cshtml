@@ -6,8 +6,6 @@
     bool enemyPresent = Model.lModel.Enemy != null && !Model.pModel.CombatState.CleanedLocations.Contains(Model.lModel.LocationID);
     bool objectPresent = Model.lModel.Enemy != null || itemsPresent || Model.lModel.PuzzleKey != null || Model.pModel.CurrentLocationId == Model.WINNING_LOCATION_ID;
     bool ctrlsPresent = itemsPresent || enemyPresent;
-
-
 }
 
 <main style="background-image: url(Assets/LocationsBg/@Model.lModel.Background);">
@@ -41,11 +39,11 @@
                                         {
                                             if (Model.pModel.Items.Count > 0 && Model.pModel.Items.Count(a => a.ID == v.RequiredItem.ID) > 0)
                                             {
-                                                <span>Díky <span class="lw">@v.RequiredItem.Name</span> mùžeš.</span>
+                                                <span>Díky itemu<span class="lw">@v.RequiredItem.Name</span> mùžeš.</span>
                                             }
                                             else
                                             {
-                                                <span style="color: red;">@v.RequiredItem.Name je potøeba pro prùchod.</span>
+                                                <span style="color: red;">Item <span class="lw">@v.RequiredItem.Name</span> je potøeba pro prùchod.</span>
                                             }
 
                                         }
@@ -56,7 +54,7 @@
                     }
                     else
                     {
-                        <p> Abys mohl pokraèovat ve svém dobrodružství, tak musíš porazit <span class="lw">@Model.lModel.Enemy.Name</span>.</p>
+                        <p> Abys mohl pokraèovat ve svém dobrodružství, tak musíš porazit entitu <span class="lw">@Model.lModel.Enemy.Name</span>.</p>
                     }
                     <p class="pack__h">Co vlastním?</p>
                     @if (Model.pModel.Items.Count > 0)

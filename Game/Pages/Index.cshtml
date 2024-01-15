@@ -6,8 +6,16 @@
 
 <main class="main--info">
     <h1>Escape The<span class="br"></span> Fortress</h1>
-    <form method="post" class="main__menu">
-        <button class="btn" type="submit" asp-page-handler="StartGame">Hrát</button>
-        <button class="btn">O hře</button>
-    </form>
+    <div class="main__menu">
+        <form method="post">
+            <button class="btn" type="submit" asp-page-handler="StartGame">Hrát</button>
+        </form>
+        <button class="btn modal-open">O hře</button>    
+    </div>
+    <div class="modal" id="modal">
+        <button class="modal__btn modal-open"></button>
+        <h2 class="modal__h">O hře</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </div>
+    <script type="text/javascript" src="js/main.js"></script>
 </main>
