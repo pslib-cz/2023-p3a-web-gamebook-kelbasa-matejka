@@ -1189,7 +1189,7 @@
   {
     "LocationID": 57,
     "Name": "Kovárna",
-    "Description": "Dávno vyhaslá pec naznačuje, že zde už dlouho žádná výzbroj nevznikla",
+    "Description": "Ačkoliv výheň stále hoří, je jasné, že zde už dlouho žádná výzbroj nevznikla",
     "Background": "forge.png",
     "Stage": 3,
     "Connections": [
@@ -1260,7 +1260,7 @@
   {
     "LocationID": 54,
     "Name": "Knihovna",
-    "Description": "Jsou tu pravděpodobně tisíce knih, každá s jiným názvem. Jedna z knihoven je ale očividně falešná a jsou to dveře. Bohužel se odemkne pouze vyřčením určité fráze.",
+    "Description": "Jsou tu pravděpodobně tisíce knih, každá s jiným názvem. Jedna z knihoven je ale očividně falešná a něco se za ní schovává. Bohužel se odemkne pouze vyřčením určité fráze.",
     "Background": "library.png",
     "Stage": 3,
     "Connections": [
@@ -1282,7 +1282,7 @@
   {
     "LocationID": 55,
     "Name": "Tajná místnost",
-    "Description": "Někdo si sem schovával velmi cenné věci. Svatý Grál tu ale není...",
+    "Description": "Někdo si sem schovával peníze a i jiné věci. Svatý Grál tu ale není...",
     "Background": "secret_room.png",
     "Stage": 3,
     "Connections": [
@@ -1378,7 +1378,7 @@
         "ToLocationID": 58
       },
       {
-        "Description": "Uprchnout tajným východem",
+        "Description": "Uprchnout tajným východem pod stolem",
         "FromLocationID": 59,
         "ToLocationID": 61,
         "RequiredItem": {
