@@ -9,8 +9,15 @@ namespace Game.Pages;
 public class Location(LocationService ls, ISessionService ss, EffectService es, PlayerService ps)
     : PageModel
 {
-    private static readonly string PLAYER = "PlayerSessionKey";
-    public readonly int WINNING_LOCATION_ID = 61;
+    private static readonly string BASIC_PLAYER_SESSION_KEY = "PlayerSessionKey";
+
+    private string FullPlayerSessionKey
+    {
+        get
+        {
+            return BASIC_PLAYER_SESSION_KEY + ps.UniqueId;
+        }
+    }
 
     public LocationModel lModel { get; private set; }
     public PlayerModel pModel { get; set; }
@@ -218,7 +225,7 @@ public class Location(LocationService ls, ISessionService ss, EffectService es, 
     /// </summary>
     public void SavePlayer()
     {
-        ss.SaveSession<PlayerModel>(HttpContext, PLAYER, pModel);
+        ss.SaveSession<PlayerModel>(HttpContext, FullPlayerSessionKey, pModel);
     }
 
 
@@ -227,7 +234,7 @@ public class Location(LocationService ls, ISessionService ss, EffectService es, 
     /// </summary>
     public void LoadPlayer()
     {
-        pModel = ss.GetSession<PlayerModel>(HttpContext, PLAYER);
+        pModel = ss.GetSession<PlayerModel>(HttpContext, FullPlayerSessionKey);
     }
 
 }

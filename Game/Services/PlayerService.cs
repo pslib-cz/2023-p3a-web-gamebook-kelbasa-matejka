@@ -8,6 +8,15 @@ namespace Game.Services
         private static readonly string DEFAULT_PLAYER_JSON = File.ReadAllText(@"GameData/Player.json");
 
 
+        public string UniqueId { get; private set; }
+
+        public PlayerService() 
+        {
+            Console.WriteLine("Jsem tvořený");
+            UniqueId = Guid.NewGuid().ToString();
+        }
+
+
         public PlayerModel CreateDefaultModel()
         {
             var p = JsonSerializer.Deserialize<PlayerModel>(DEFAULT_PLAYER_JSON);

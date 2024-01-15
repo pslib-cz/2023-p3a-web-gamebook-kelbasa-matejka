@@ -4,7 +4,7 @@
     ViewData["Title"] =  $"{Model.lModel.Name} - Escape The Fortress";
     bool itemsPresent = Model.lModel.Items.Count > 0 && !Model.lModel.Items.All(item => Model.pModel.PickedUpItems.Any(pickedItem => pickedItem == item.ID));
     bool enemyPresent = Model.lModel.Enemy != null && !Model.pModel.CombatState.CleanedLocations.Contains(Model.lModel.LocationID);
-    bool objectPresent = Model.lModel.Enemy != null || itemsPresent || Model.lModel.PuzzleKey != null || Model.pModel.CurrentLocationId == Model.WINNING_LOCATION_ID;
+    bool objectPresent = Model.lModel.Enemy != null || itemsPresent || Model.lModel.PuzzleKey != null || Model.pModel.CurrentLocationId == Model.pModel.WinningLocationId;
     bool ctrlsPresent = itemsPresent || enemyPresent;
 }
 
