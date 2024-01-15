@@ -1091,7 +1091,7 @@
       {
         "ID": 51,
         "Name": "Léčivý lektvar",
-        "Description": "Pravděpodobně se jedná o napůl rum a napůl bylinky (40 HP)",
+        "Description": "Pravděpodobně se jedná o napůl vodku a napůl bylinky (40 HP)",
         "Icon": "healing_potion.png",
         "Usable": true,
         "OnUseEffect": {
@@ -1343,9 +1343,9 @@
     "Items": [
       {
         "ID": 57,
-        "Name": "Pečená husa",
+        "Name": "Pečená maso",
         "Description": "Velmi chutný pokrm (20 HP)",
-        "Icon": "roast_goose.png",
+        "Icon": "roast_meat.png",
         "Usable": true,
         "OnUseEffect": {
           "Type": 0,
