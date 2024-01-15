@@ -25,7 +25,7 @@ body {
     text-decoration: none;
     color: black;
     transition: var(--trans);
-    box-shadow: 5px 5px 5px #222;
+    box-shadow: 10px 10px 10px #222;
 }
 
 .br {
@@ -79,6 +79,11 @@ main {
     animation: slide .4s ease-in-out;
     overflow: hidden;
     padding: 1rem;
+    transition: var(--trans);
+}
+
+.main--darker {
+    filter: brightness(50%);
 }
 
 .main--info {
@@ -86,17 +91,68 @@ main {
     justify-content: space-evenly;
 }
 
-
 .main__menu .btn, .main--endgame .btn {
     font-size: 2rem;
     display: block;
+    box-shadow: none;
 }
 
 .main__menu .btn {
-    
     margin: .5rem auto;
     width: 100%;
 }
+
+.modal {
+    display: flex;
+    position: absolute;
+    background: url("../Assets/BagBg.jpg") no-repeat right top;
+    background-size: 100% 100%;
+    bottom: 0;
+    left: 50%;
+    max-width: 80%;
+    max-height: 80%;
+    color: white;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    padding: 1.5rem;
+    border: 2px solid black;
+    border-radius: .5rem;
+    overflow: auto;
+    transition: var(--trans);
+    opacity: 0;
+    transform: translate(-50%, 50%);
+}
+
+.modal--open {
+    bottom: 50%;
+    opacity: 1;
+}
+
+.modal__h {
+    font-size: 2rem;
+    text-align: center;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.modal__btn {
+    width: 13%;
+    max-width: 70px;
+    aspect-ratio: 1;
+    border-top-right-radius: .5rem;
+    position: absolute;
+    top: 0;
+    background: radial-gradient(50% 50% at 50% 50%, #BA0000 54%, #5F0000 100%);
+    border: 1px solid black;
+    right: 0;
+    padding: 1rem;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    z-index: 3;
+}
+
 
 .main--info h1 {
     font-size: min(15vw,10em);
@@ -106,6 +162,13 @@ main {
     text-transform: uppercase;
     margin: 0;
     line-height: .8;
+    text-shadow: 0 5px 10px black;
+}
+
+.main--endgame p {
+    font-size: min(7.5vw, 2.5em);
+    text-align: center;
+    color: white;
 }
 
 .cont {
@@ -252,8 +315,8 @@ main {
     width: 80%;
     max-width: 700px;
     object-fit: contain;
-    -webkit-filter: drop-shadow(5px 5px 5px #222);
-    filter: drop-shadow(5px 5px 5px #222);
+    -webkit-filter: drop-shadow(10px 10px 10px #222);
+    filter: drop-shadow(10px 10px 10px #222);
 }
 
 .enemy__hp {
@@ -286,6 +349,7 @@ main {
     font-size: min(2rem, 6vw);
     text-align: center;
     text-transform: uppercase;
+    text-shadow: 0 0 5px black;
 }
 
 .item {
@@ -300,8 +364,8 @@ main {
     width: 50%;
     max-width: 300px;
     object-fit: contain;
-    -webkit-filter: drop-shadow(5px 5px 5px #222);
-    filter: drop-shadow(5px 5px 5px #222);
+    -webkit-filter: drop-shadow(10px 10px 10px #222);
+    filter: drop-shadow(10px 10px 10px #222);
 }
 
 .enemy__txt {
@@ -390,7 +454,7 @@ h2.pack__h {
     right: 0;
 }
 
-.pack__btn::before {
+.pack__btn::before, .modal__btn::before {
     content: "";
     height: 65%;
     aspect-ratio: 1;
@@ -403,12 +467,14 @@ h2.pack__h {
     transition: var(--trans);
 }
 
+
+
 .pack:not(.pack--open) .pack__btn::before {
     background-image: url("../Assets/bag.svg");
     filter: invert(1);
 }
 
-.pack--open .pack__btn::before {
+.pack--open .pack__btn::before, .modal__btn::before {
     background-image: url("../Assets/close.svg");
     right: 17.5%;
 }

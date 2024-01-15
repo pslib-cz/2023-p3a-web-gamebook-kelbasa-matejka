@@ -9,11 +9,13 @@
     }
     else
     {
-        <h1>Prohrál si</h1>
-        @if (Model.pModel.CombatState.IsCombatActive)
-        {
-            <p>Zemøel jsi pøi souboji s entitou @Model.pModel.CombatState.CurrentEnemy.Name</p>
-        }
+        <div>
+                <h1>Prohrál si</h1>
+                @if (Model.pModel.CombatState.IsCombatActive)
+                {
+                    <p>Zemøel jsi pøi souboji s entitou @Model.pModel.CombatState.CurrentEnemy.Name</p>
+                }    
+        </div>
         <a class="btn" asp-page="Index">Domù</a>
     }    
 </main>
