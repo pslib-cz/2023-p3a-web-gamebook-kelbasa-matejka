@@ -8,7 +8,7 @@ builder.Services.AddSession();
 builder.Services.AddSingleton<ISessionService, SessionService>();
 builder.Services.AddSingleton<LocationService>();
 builder.Services.AddSingleton<EffectService>();
-builder.Services.AddScoped<PlayerService>();
+builder.Services.AddSingleton<PlayerService>();
 // Add services to the container.
 builder.Services.AddRazorPages();
 
