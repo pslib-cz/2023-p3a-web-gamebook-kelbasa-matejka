@@ -857,7 +857,7 @@
   {
     "LocationID": 39,
     "Name": "Castielova hrobka",
-    "Description": "Jsi uvnitř Castielovy hrobky. Jeho ostatky ale chybí.",
+    "Description": "Jsi uvnitř bohatě zdobené Castielovy hrobky. Všechno zlato tu je, jeho ostatky ale chybí...",
     "Background": "castiels_tomb.png",
     "Stage": 2,
     "Connections": [
@@ -1039,7 +1039,7 @@
     "Stage": 3,
     "Connections": [
       {
-        "Description": "Dveře do hodovní síně jsou zamčené a nerozbitné. Ach jo",
+        "Description": "Jít do hodovního sálu",
         "FromLocationID": 50,
         "ToLocationID": 58,
         "RequiredItem": {
@@ -1121,7 +1121,7 @@
         "ToLocationID": 51
       },
       {
-        "Description": "Jít pokračovat rovně chodbou",
+        "Description": "Jít rovně chodbou",
         "FromLocationID": 52,
         "ToLocationID": 53
       },
@@ -1254,7 +1254,7 @@
       "Damage": 9,
       "Hp": 50,
       "Img": "sword_master.png",
-      "NumberOfAttacks": 4
+      "NumberOfAttacks": 5
     }
   },
   {
@@ -1282,7 +1282,7 @@
   {
     "LocationID": 55,
     "Name": "Tajná místnost",
-    "Description": "Někdo si sem schovával peníze a i jiné věci. Svatý Grál tu ale není...",
+    "Description": "Někdo si sem schovával peníze a jiné cennosti. Svatý Grál tu ale není...",
     "Background": "secret_room.png",
     "Stage": 3,
     "Connections": [
