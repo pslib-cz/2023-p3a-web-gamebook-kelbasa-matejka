@@ -34,7 +34,13 @@
             {
                 <div class="item">
                     <h2 class="item__name">@i.Name</h2>
-                    <img class="item__img" src="Assets/ItemIcons/@i.Icon" alt="@i.Description">
+                    <form method="post">
+                        <button name="ItemID" value="@i.ID" type="submit" asp-page-handler="PickUpItem">
+                            <img class="item__img" src="Assets/ItemIcons/@i.Icon" alt="@i.Description">
+                        </button>
+                    </form>
+
+                    
                 </div>
             }
         }
