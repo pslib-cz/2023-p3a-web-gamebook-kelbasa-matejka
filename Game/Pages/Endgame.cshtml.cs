@@ -11,7 +11,7 @@ public class Endgame(ISessionService sessionSer, EffectService effSer, PlayerSer
     private readonly PlayerService PlayerSer = playerSer;
 
     private static readonly string PLAYER = "PlayerSessionKey";
-    private static readonly int WINNING_LOCATION_ID = 8;
+    private static readonly int WINNING_LOCATION_ID = 61;
 
     public PlayerModel pModel { get; set; }
     public bool Win { get; set; }

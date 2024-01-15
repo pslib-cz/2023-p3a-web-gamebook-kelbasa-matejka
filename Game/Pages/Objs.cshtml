@@ -14,7 +14,9 @@
                 <div style="width: @widthPercentage%"></div>            
             </div>
             <img class="enemy__img" src="Assets/Enemy/@Model.lModel.Enemy.Img" alt="@Model.lModel.Enemy.Name">    
-            <h2 class="enemy__txt">@Model.lModel.Enemy.Name</h2>                                                                                                 
+            <h2 class="enemy__txt">@Model.lModel.Enemy.Name 
+                <span>(@Model.pModel.CombatState.CurrentEnemy.NumberOfAttacks x @Model.pModel.CombatState.CurrentEnemy.Damage DMG)</span>
+            </h2>                                                                                                 
         }
         else if(!Model.lModel.Items.Any())
         {
@@ -32,7 +34,13 @@
             {
                 <div class="item">
                     <h2 class="item__name">@i.Name</h2>
-                    <img class="item__img" src="Assets/ItemIcons/@i.Icon" alt="@i.Description">
+                    <form method="post">
+                        <button name="ItemID" value="@i.ID" type="submit" asp-page-handler="PickUpItem">
+                            <img class="item__img" src="Assets/ItemIcons/@i.Icon" alt="@i.Description">
+                        </button>
+                    </form>
+
+                    
                 </div>
             }
         }

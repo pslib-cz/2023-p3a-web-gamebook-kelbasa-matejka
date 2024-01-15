@@ -5,12 +5,4 @@
         <button asp-page-handler="Attack" title="Slabý útok" class="ctrls__attack" type="submit" name="attackType" value="WeakAttack"></button>
         <button asp-page-handler="Attack" class="ctrls__attack" title="Silný útok" type="submit" name="attackType" value="StrongAttack"></button>    
     }
-
-    @if (Model.lModel.Items.Any() && !Model.lModel.Items.All(item => Model.pModel.PickedUpItems.Contains(item.ID)) && !Model.pModel.CombatState.IsCombatActive)
-    {
-        @foreach (var item in Model.lModel.Items.Where(i => !Model.pModel.PickedUpItems.Contains(i.ID)))
-        {
-            <button class="ctrls__item" name="ItemID" value="@item.ID" type="submit" asp-page-handler="PickUpItem">Sebrat @item.Name</button>
-        }
-    }
 </form>

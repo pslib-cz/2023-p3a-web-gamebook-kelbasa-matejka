@@ -10,7 +10,7 @@ public class Location(LocationService ls, ISessionService ss, EffectService es, 
     : PageModel
 {
     private static readonly string PLAYER = "PlayerSessionKey";
-    public readonly int WINNING_LOCATION_ID = 8;
+    public readonly int WINNING_LOCATION_ID = 61;
 
     public LocationModel lModel { get; private set; }
     public PlayerModel pModel { get; set; }
