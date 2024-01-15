@@ -13,56 +13,57 @@
         <button class="btn modal-open">O hře</button>    
     </div>
     <div class="modal" id="modal">
-        <button class="modal__btn modal-open"></button>
-        <h2 class="modal__h">O hře</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        
+        <div class="modal-box">
+            <button class="modal__btn modal-open"></button>
+            <h2 class="modal__h">O hře</h2>
+            <div class=modal__txt>
+                <p>
+                    Jsi neobyčejným zlodějem, který ale zapoměl své jméno. Při své poslední výpravě jsi se vloupal do pevnosti Fort Frolic a pokusil ukrást plukovníku Azazelovi Svatý Grál, jenž uloupil při jedné ze svých válečných výprav.
+                </p>
+                <p>
+                    To se ti ale moc nepovedlo, jelikož jsi byl spatřen v jeho pracovně strážemi a za trest vhozen do nedaleké propasti. Naštěstí jsi pád přežil. Jenom nyní nevíš kde jsi ani kudy se odsud dostaneš.
+                </p>
+                <p>
+                    Tvým úkolem je nyní uniknout na svobodu a cestou ukořistit Svatý Grál, který má plukovník Azazel schovaný ve své pokladnici. Cena Svatého Grálu je nevyčíslitelná.
+                </p>
+                <h3>Hráč:</h3>
+                <ul>
+                    <li>Máš 4 základní staty - HP (znak srdce), ENG (znak blesku), RES (znak štítu) a DMG (meč)</li>
+                    <li>Jakmile tvé HP klesne na 0 tak jsi zemřel; HP si lze doplnit různými itemy</li>
+                    <li>Energie se hodí na silné útoky; lze si ji doplnit různými itemy</li>
+                    <li>RES (= odolnost) redukuju poškození způsobené nepřítelem; navýšit se dá různou zbrojí</li>
+                    <li>DMG (= poškození) určuje jak velké poškození uděluješ hráči; navýšit se dá zbraněmi či jinými itemy</li>
+                </ul>
+                <h3>Souboj:</h3>
+                <ul>
+                    <li>Pokud jsi v souboji tak se nemůžeš pohybovat, musíš nejdřive porazit nepřítele</li>
+                    <li>Pokaždé když za útočíš, tak nepřítel ihned po tobě provede protiútok</li>
+                    <li>Během souboje můžeš používat použitelné věci</li>
+                    <li>Ty můžeš provádět dva typy útoků: silný a slabý</li>
+                    <li>Slabý dělá zhruba tolik poškození jako máš DMG, ale je to mírně znáhodněné; je "zdarma" (nestojí žádnou energii)</li>
+                    <li>Silný děla skoro 2x tolik co slabý, ale zase ti spotřebuje 15 ENG; je tedy třeba s ním šetřit</li>
+                    <li>I nepřítelův útok je mírně znáhodněný, plus je redukován tvojí RES</li>
+                    <li>Vedle nepřítelova jména vidíš kolikrát tě udeří a jaký DMG má</li>
+                </ul>
+                <h3>Navigace:</h3>
+                <ul>
+                    <li>Pohybovat mezi místnostmi se můžeš pomocí záložky "Kam dál?" v tvém batohu</li>
+                    <li>Některé cesty můžou být jednosměrné (nejde se vrátit)</li>
+                    <li>Jiné mohou být podmíněny vlastnictvím určitého itemu (třeba klíče). U cesty to bude napsané</li>
+                    <li>Ještě mohou být cesty takzvaně "Zamknuté". Aby jsi je odemknul tak musíš nejdříve vyřešit hádanku v danné místnosti.</li>
+                    <li>Cesty ti mohou i způsobit poškození, takže to ber v potaz</li>
+                    <li>Lokací je ve hře skoro 50, jsou rozdělené do 3 úrovní (jeskyně, katakomby, pevnost)</li>
+                </ul>
+                <h3>Rady:</h3>
+                <ul>
+                    <li>Prozkoumávání je většínou odměněno</li>
+                    <li>Je třeba šetřit s energií a použitelnými věcmi</li>
+                    <li>Chybami se člověk učí - na poprvé se ti to třeba dohrát nepovede</li>
+                    <li>Hraním se naučíš pořadí místností, jak je ideální je projít</li>
+                </ul>
+            </div>
+        </div>
     </div>
     <script type="text/javascript" src="js/main.js"></script>
 </main>
-
-<div class="about">
-    <p>
-        Jsi neobyčejným zlodějem, který ale zapoměl své jméno. Při své poslední výpravě jsi se vloupal do pevnosti Fort Frolic a pokusil ukrást plukovníku Azazelovi Svatý Grál, jenž uloupil při jedné ze svých válečných výprav.
-    </p>
-    <p>
-        To se ti ale moc nepovedlo, jelikož jsi byl spatřen v jeho pracovně strážemi a za trest vhozen do nedaleké propasti. Naštěstí jsi pád přežil. Jenom nyní nevíš kde jsi ani kudy se odsud dostaneš.
-    </p>
-    <p>
-        Tvým úkolem je nyní uniknout na svobodu a cestou ukořistit Svatý Grál, který má plukovník Azazel schovaný ve své pokladnici. Cena Svatého Grálu je nevyčíslitelná.
-    </p>
-    <p class="about-title">Hráč:</p>
-    <ul>
-        <li>Máš 4 základní staty - HP (znak srdce), ENG (znak blesku), RES (znak štítu) a DMG (meč)</li>
-        <li>Jakmile tvé HP klesne na 0 tak jsi zemřel; HP si lze doplnit různými itemy</li>
-        <li>Energie se hodí na silné útoky; lze si ji doplnit různými itemy</li>
-        <li>RES (= odolnost) redukuju poškození způsobené nepřítelem; navýšit se dá různou zbrojí</li>
-        <li>DMG (= poškození) určuje jak velké poškození uděluješ hráči; navýšit se dá zbraněmi či jinými itemy</li>
-    </ul>
-    <p class="about-title">Souboj:</p>
-    <ul>
-        <li>Pokud jsi v souboji tak se nemůžeš pohybovat, musíš nejdřive porazit nepřítele</li>
-        <li>Pokaždé když za útočíš, tak nepřítel ihned po tobě provede protiútok</li>
-        <li>Během souboje můžeš používat použitelné věci</li>
-        <li>Ty můžeš provádět dva typy útoků: silný a slabý</li>
-        <li>Slabý dělá zhruba tolik poškození jako máš DMG, ale je to mírně znáhodněné; je "zdarma" (nestojí žádnou energii)</li>
-        <li>Silný děla skoro 2x tolik co slabý, ale zase ti spotřebuje 15 ENG; je tedy třeba s ním šetřit</li>
-        <li>I nepřítelův útok je mírně znáhodněný, plus je redukován tvojí RES</li>
-        <li>Vedle nepřítelova jména vidíš kolikrát tě udeří a jaký DMG má</li>
-    </ul>
-    <p class="about-title">Navigace:</p>
-    <ul>
-        <li>Pohybovat mezi místnostmi se můžeš pomocí záložky "Kam dál?" v tvém batohu</li>
-        <li>Některé cesty můžou být jednosměrné (nejde se vrátit)</li>
-        <li>Jiné mohou být podmíněny vlastnictvím určitého itemu (třeba klíče). U cesty to bude napsané</li>
-        <li>Ještě mohou být cesty takzvaně "Zamknuté". Aby jsi je odemknul tak musíš nejdříve vyřešit hádanku v danné místnosti.</li>
-        <li>Cesty ti mohou i způsobit poškození, takže to ber v potaz</li>
-        <li>Lokací je ve hře skoro 50, jsou rozdělené do 3 úrovní (jeskyně, katakomby, pevnost)</li>
-    </ul>
-    <p class="about-title">Rady:</p>
-    <ul>
-        <li>Prozkoumávání je většínou odměněno</li>
-        <li>Je třeba šetřit s energií a použitelnými věcmi</li>
-        <li>Chybami se člověk učí - na poprvé se ti to třeba dohrát nepovede</li>
-        <li>Hraním se naučíš pořadí místností, jak je ideální je projít</li>
-    </ul>
-</div>
