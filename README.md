@@ -5,7 +5,7 @@
 <p>Hráč byl ale velmi brzy odhalen jednou z jeho hlídek a za trest byl svržen do nedaleké propasti</p>
 <p>Vaším úkolem je dostat se z propasti zpět do pevnosti, ukrást Svatý Grál a následně uprchnout</p>
 
-<img style="display: block;" width=800 src="/Game/wwwroot/Assets/MenuBG.jpg">
+<img style="display: block;" width=800 src="/Game/wwwroot/Assets/MenuBG.webp">
 
 ## Mechaniky
 ### Hráč
