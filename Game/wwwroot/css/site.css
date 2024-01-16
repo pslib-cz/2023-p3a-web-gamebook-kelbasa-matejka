@@ -318,7 +318,6 @@ main {
     color: white;
     text-transform: uppercase;
     font-size: 24px;
-    padding: 1rem;
 }
 
 .enemy {
@@ -328,6 +327,7 @@ main {
     align-items: center;
     justify-content: center;
     max-height: 100%;
+    width: 100%;
 }
 
 .enemy form {
@@ -337,6 +337,7 @@ main {
 
 .enemy__img {
     max-height: 100%;
+    max-width: 700px;
     object-fit: contain;
     -webkit-filter: drop-shadow(10px 10px 10px #222);
     filter: drop-shadow(10px 10px 10px #222);
