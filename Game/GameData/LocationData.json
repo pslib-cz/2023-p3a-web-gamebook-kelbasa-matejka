@@ -3,7 +3,7 @@
     "LocationID": 1,
     "Name": "Hluboká jáma",
     "Description": "Nacházíš se úplně na dně hluboké kamenné jámy, stěny jsou mírně vlhké a v dálce slyšíš nějaké cvakání",
-    "Background": "pit.png",
+    "Background": "pit.webp",
     "Stage": 1,
     "Connections": [
       {
@@ -22,7 +22,7 @@
         "ID": 1,
         "Name": "Dlouhé lano",
         "Description": "Staré ale pevné lano",
-        "Icon": "rope.png"
+        "Icon": "rope.webp"
       }
     ]
   },
@@ -30,7 +30,7 @@
     "LocationID": 2,
     "Name": "Jeskynní chodba",
     "Description": "Jsi v relativně úzké jeskynní chodbě, která je strašně tmavá. Cvakání je nyní mnohem hlasitější",
-    "Background": "dark_tunnel.png",
+    "Background": "dark_tunnel.webp",
     "Stage": 1,
     "Connections": [
       {
@@ -54,7 +54,7 @@
     "LocationID": 3,
     "Name": "Pavoučí doupě",
     "Description": "Nacházíš se v pavoučím doupěti, všude jsou pavučiny a nepříjemné klikavé zvuky",
-    "Background": "spiders_den.png",
+    "Background": "spiders_den.webp",
     "Stage": 1,
     "Connections": [
       {
@@ -77,7 +77,7 @@
       "Name": "Jeskynní pavouk",
       "Damage": 5,
       "Hp": 20,
-      "Img": "spider.png",
+      "Img": "spider.webp",
       "NumberOfAttacks": 2
     }
   },
@@ -85,7 +85,7 @@
     "LocationID": 4,
     "Name": "Srdce pavoučího hnízda",
     "Description": "Nacházíš se v hluboko v pavoučím hnízdě, všude je spousta pavučin a pavoučích kokonů",
-    "Background": "deep_spiders_den.png",
+    "Background": "deep_spiders_den.webp",
     "Stage": 1,
     "Connections": [
       {
@@ -103,7 +103,7 @@
       "Name": "Pavoučí královna",
       "Damage": 10,
       "Hp": 40,
-      "Img": "spider_queen.png",
+      "Img": "spider_queen.webp",
       "NumberOfAttacks": 2
     }
   },
@@ -111,7 +111,7 @@
     "LocationID": 5,
     "Name": "Kokon",
     "Description": "Nacházíš se uvnitř pavoučího kokonu",
-    "Background": "cocoon.png",
+    "Background": "cocoon.webp",
     "Stage": 1,
     "Connections": [
       {
@@ -125,7 +125,7 @@
         "ID": 2,
         "Name": "Ocelový meč",
         "Description": "Blyštící se ocelový meč, vzácný (15 DMG)",
-        "Icon": "iron_sword.png",
+        "Icon": "iron_sword.webp",
         "IsWearable": true,
         "WearableType": "Weapon",
         "OnWearEffect": {
@@ -139,7 +139,7 @@
     "LocationID": 6,
     "Name": "Most",
     "Description": "Nacházíš se před vratkým dřevěným mostem vedoucí přes rozprouděnou podzemní řeku",
-    "Background": "bridge.png",
+    "Background": "bridge.webp",
     "Stage": 1,
     "Connections": [
       {
@@ -159,7 +159,7 @@
     "LocationID": 7,
     "Name": "Krápníková jeskyně",
     "Description": "Nacházíš se v jeskyni plné krápníků, most je rozbitý, jelikož jsi byl moc těžký",
-    "Background": "cave.png",
+    "Background": "cave.webp",
     "Stage": 1,
     "Connections": [
       {
@@ -178,7 +178,7 @@
         "ID": 3,
         "Name": "Houba",
         "Description": "Jedlá houba. Asi.",
-        "Icon": "mushroom.png",
+        "Icon": "mushroom.webp",
         "Usable": true,
         "TargetIsEnemy": false,
         "OnUseEffect": {
@@ -190,7 +190,7 @@
         "ID": 4,
         "Name": "Červená Houba",
         "Description": "Jedlá houba. Asi.",
-        "Icon": "red_mushroom.png",
+        "Icon": "red_mushroom.webp",
         "Usable": true,
         "TargetIsEnemy": false,
         "OnUseEffect": {
@@ -204,7 +204,7 @@
     "LocationID": 8,
     "Name": "Krystalová chodba",
     "Description": "Chodba plná krystalů",
-    "Background": "left_crystal_tunnel.png",
+    "Background": "left_crystal_tunnel.webp",
     "Stage": 1,
     "Connections": [
       {
@@ -224,7 +224,7 @@
     "LocationID": 9,
     "Name": "Krystalová křižovatka",
     "Description": "Krystalová místnost, cesta se rozštěpuje",
-    "Background": "crystal_crossroad.png",
+    "Background": "crystal_crossroad.webp",
     "Stage": 1,
     "Connections": [
       {
@@ -253,7 +253,7 @@
       "Name": "Netopýr",
       "Damage": 5,
       "Hp": 30,
-      "Img": "bat.png",
+      "Img": "bat.webp",
       "NumberOfAttacks": 4
     }
   },
@@ -261,7 +261,7 @@
     "LocationID": 10,
     "Name": "Zavalená chodba",
     "Description": "Pěkná chodba, akorát je naprosto neprostupná",
-    "Background": "blocked_tunnel.png",
+    "Background": "blocked_tunnel.webp",
     "Stage": 1,
     "Connections": [
       {
@@ -281,7 +281,7 @@
           "Type": 0,
           "EffectScale": -5
         },
-        "Icon": "stone.png"
+        "Icon": "stone.webp"
       }
     ]
   },
@@ -289,7 +289,7 @@
     "LocationID": 11,
     "Name": "Dlouhá chodba",
     "Description": "Velmi dlohá chodba",
-    "Background": "long_tunnel.png",
+    "Background": "long_tunnel.webp",
     "Stage": 1,
     "Connections": [
       {
@@ -303,7 +303,7 @@
     "LocationID": 12,
     "Name": "Lesní jeskyně",
     "Description": "Jeskyně plná stromů a trávy. Překypuje životem",
-    "Background": "forest_cave.png",
+    "Background": "forest_cave.webp",
     "Stage": 1,
     "Connections": [
       {
@@ -316,7 +316,7 @@
       "Name": "Medvěd",
       "Damage": 15,
       "Hp": 50,
-      "Img": "bear.png",
+      "Img": "bear.webp",
       "NumberOfAttacks": 2
     },
     "Items": [
@@ -324,7 +324,7 @@
         "ID": 6,
         "Name": "Rezavý hrudní plát",
         "Description": "Starý více než 50 let, tehdy ještě dělali kvalitní zbroj (10 RES)",
-        "Icon": "rusty_chestplate.png",
+        "Icon": "rusty_chestplate.webp",
         "IsWearable": true,
         "WearableType": "Chestplate",
         "OnWearEffect": {
@@ -339,7 +339,7 @@
     "Name": "Zeď",
     "PuzzleKey": "45527891",
     "Description": "Uprostřed jeskyně je postavená mohutná zeď, na zdi je 8 kotoučů. Možná odemknou ty železné dveře.",
-    "Background": "wall.png",
+    "Background": "wall.webp",
     "Stage": 1,
     "Connections": [
       {
@@ -360,7 +360,7 @@
     "LocationID": 14,
     "Name": "Lávová chodba",
     "Description": "Obyčejná chodba, akorát zde teče láva a je tu velmi horko",
-    "Background": "lava_tunnel.png",
+    "Background": "lava_tunnel.webp",
     "Stage": 1,
     "Connections": [
       {
@@ -388,7 +388,7 @@
         "ID": 7,
         "Name": "Ohnivá houba",
         "Description": "Houba co ti dodá sílu (2 DMG)",
-        "Icon": "fire_mushroom.png",
+        "Icon": "fire_mushroom.webp",
         "IsWearable": false,
         "Usable": true,
         "OnUseEffect": {
@@ -402,7 +402,7 @@
     "LocationID": 15,
     "Name": "Slepá lávová ulička",
     "Description": "Je tu hodně horko, na stěně stojí nápis -7891",
-    "Background": "lava_dead_end.png",
+    "Background": "lava_dead_end.webp",
     "Stage": 1,
     "Connections": [
       {
@@ -420,7 +420,7 @@
         "ID": 8,
         "Name": "Ohnivé kalhoty",
         "Description": "Nejen slušivé kalhoty (7 RES)",
-        "Icon": "fire_trousers.png",
+        "Icon": "fire_trousers.webp",
         "IsWearable": true,
         "WearableType": "Leggings",
         "OnWearEffect": {
@@ -432,7 +432,7 @@
         "ID": 9,
         "Name": "Pivo",
         "Description": "Trochu zteplalé pivo (10 HP)",
-        "Icon": "beer.png",
+        "Icon": "beer.webp",
         "Usable": true,
         "OnUseEffect": {
           "Type": 0,
@@ -445,7 +445,7 @@
     "LocationID": 16,
     "Name": "Ohnivá jeskyně",
     "Description": "Místnost naplněná ohněm hořícím už stovky let. Vyskytují se zde ohnivý krabi - velmi nebezpeční nepřátelé",
-    "Background": "fire_cave.png",
+    "Background": "fire_cave.webp",
     "Stage": 1,
     "Connections": [
       {
@@ -469,7 +469,7 @@
       "Name": "Ohnivý krab",
       "Damage": 40,
       "Hp": 15,
-      "Img": "crab.png",
+      "Img": "crab.webp",
       "NumberOfAttacks": 1
     }
   },
@@ -477,7 +477,7 @@
     "LocationID": 17,
     "Name": "Díra",
     "Description": "Jsi hned před černočernou dírou, bůhvíjak hlubokou. Kolem tebe nic není.",
-    "Background": "black_hole.png",
+    "Background": "black_hole.webp",
     "Stage": 1,
     "Connections": [
       {
@@ -501,7 +501,7 @@
       "Name": "Ohnivý krab",
       "Damage": 40,
       "Hp": 15,
-      "Img": "crab.png",
+      "Img": "crab.webp",
       "NumberOfAttacks": 1
     }
   },
@@ -509,7 +509,7 @@
     "LocationID": 18,
     "Name": "Dno",
     "Description": "Jsi úplně na dně, hlouběji už jít nejde. Je tu úplná tma. Jediné co jde vidět je nápis na zdi: 4552-",
-    "Background": "bottom.png",
+    "Background": "bottom.webp",
     "Stage": 1,
     "Connections": [
       {
@@ -532,7 +532,7 @@
         "ID": 10,
         "Name": "Lektvar energie",
         "Description": "Nakopne i mrtvého (25 ENG)",
-        "Icon": "energy_potion.png",
+        "Icon": "energy_potion.webp",
         "Usable": true,
         "OnUseEffect": {
           "Type": 3,
@@ -545,7 +545,7 @@
     "LocationID": 19,
     "Name": "Sírová jeskyně",
     "Description": "Místnost naplněná pachem síry a špatnou atmosférou. Je tu jeden otvor do, kterého lze vlézt",
-    "Background": "sulfur_cave.png",
+    "Background": "sulfur_cave.webp",
     "Stage": 1,
     "Connections": [
       {
@@ -564,7 +564,7 @@
         "ID": 11,
         "Name": "Kolo sýra",
         "Description": "Kolo chutného uzrálého sýra (30 HP)",
-        "Icon": "cheese_wheel.png",
+        "Icon": "cheese_wheel.webp",
         "Usable": true,
         "OnUseEffect": {
           "Type": 0,
@@ -577,7 +577,7 @@
     "LocationID": 20,
     "Name": "Čertovo doupě",
     "Description": "Špinavé doupě kde bydlí zlomyslní čerti. Je tu dokonce i pec",
-    "Background": "devils_den.png",
+    "Background": "devils_den.webp",
     "Stage": 1,
     "Connections": [
       {
@@ -591,7 +591,7 @@
         "ID": 12,
         "Name": "Čertův prsten",
         "Description": "Pomocí černé magie ti zvýší tvoji sílu, snad ti nenaroste ocas",
-        "Icon": "devils_ring.png",
+        "Icon": "devils_ring.webp",
         "IsWearable": true,
         "OnWearEffect": {
           "Type": 1,
@@ -603,7 +603,7 @@
       "Name": "Čert",
       "Damage": 8,
       "Hp": 40,
-      "Img": "devil.png",
+      "Img": "devil.webp",
       "NumberOfAttacks": 4
     }
   },
@@ -617,7 +617,7 @@
     "LocationID": 30,
     "Name": "Počátek katakomb",
     "Description": "Nacházíš se v katakombách, určitě byly vybudovány člověkem. Už jsi o krok blíže dostat se do pevnosti.",
-    "Background": "dungeon_start.png",
+    "Background": "dungeon_start.webp",
     "Stage": 2,
     "Connections": [
       {
@@ -631,7 +631,7 @@
         "ID": 25,
         "Name": "Mošna vína",
         "Description": "Řádně tě posílí (15 ENG)",
-        "Icon": "wine_flask.png",
+        "Icon": "wine_flask.webp",
         "Usable": true,
         "OnUseEffect": {
           "Type": 3,
@@ -644,7 +644,7 @@
     "LocationID": 31,
     "Name": "Katakombová křižovatka",
     "Description": "Došel jsi na křižovatku. Chodby se rozdělují. Všude je vlhko a smrad",
-    "Background": "dungeon_crossroad.png",
+    "Background": "dungeon_crossroad.webp",
     "Stage": 2,
     "Connections": [
       {
@@ -673,7 +673,7 @@
         "ID": 30,
         "Name": "Vrhací šipka",
         "Description": "Může být vržena velikou rychlostí na nepřítele (- 5 DMG)",
-        "Icon": "throwing_dart.png",
+        "Icon": "throwing_dart.webp",
         "Usable": true,
         "TargetIsEnemy": true,
         "OnUseEffect": {
@@ -687,7 +687,7 @@
     "LocationID": 32,
     "Name": "Vchod do krypty",
     "Description": "Nacházíš se před vchodem do krypty. Kolem tebe jsou podivné nápisy",
-    "Background": "crypt_entrance.png",
+    "Background": "crypt_entrance.webp",
     "Stage": 2,
     "Connections": [
       {
@@ -711,7 +711,7 @@
         "ID": 32,
         "Name": "Neznámé maso",
         "Description": "Něčí maso, trochu propečené",
-        "Icon": "meat.png",
+        "Icon": "meat.webp",
         "Usable": true,
         "OnUseEffect": {
           "Type": 0,
@@ -724,7 +724,7 @@
     "LocationID": 35,
     "Name": "Krypta",
     "Description": "Všude kolem je prach a písek. Jsou zde i podivné nádoby.",
-    "Background": "crypt.png",
+    "Background": "crypt.webp",
     "Stage": 2,
     "Connections": [
       {
@@ -748,7 +748,7 @@
       "Name": "Kostlivec",
       "Damage": 10,
       "Hp": 50,
-      "Img": "skeleton.png",
+      "Img": "skeleton.webp",
       "NumberOfAttacks": 1
     }
 
@@ -757,7 +757,7 @@
     "LocationID": 36,
     "Name": "Horní krypta",
     "Description": "Jsi v místnosti s hrobkou krále Castiela. Vchod je ale zamčený",
-    "Background": "crypt_bottom_floor.png",
+    "Background": "crypt_bottom_floor.webp",
     "Stage": 2,
     "Connections": [
       {
@@ -781,14 +781,14 @@
         "ID": 39,
         "Name": "Mosazný klíč",
         "Description": "Klíč od skladu potravin co někdo ztratil",
-        "Icon": "brass_key.png"
+        "Icon": "brass_key.webp"
       }
     ],
     "Enemy": {
       "Name": "Pytel kostí",
       "Damage": 5,
       "Hp": 50,
-      "Img": "sack_of_bones.png",
+      "Img": "sack_of_bones.webp",
       "NumberOfAttacks": 1
     }
   },
@@ -796,7 +796,7 @@
     "LocationID": 37,
     "Name": "Kaple krypty",
     "Description": "Jsi v kapli v kryptě. Stojí zde oltář, pravděpodobně propojený s dveřmi vedle tebe. Ty druhé jsou falešné. Na oltář se dá psát. Hmmm",
-    "Background": "crypt_chaple.png",
+    "Background": "crypt_chaple.webp",
     "PuzzleKey": "PRAY",
     "Stage": 2,
     "Connections": [
@@ -818,7 +818,7 @@
     "LocationID": 38,
     "Name": "Archiv v kryptě",
     "Description": "Jsi v archivu plném zaprášených svitků. Má to zde zvláštní atmosféru. Je tu překvapivě dost světla.",
-    "Background": "crypt_archive.png",
+    "Background": "crypt_archive.webp",
     "Stage": 2,
     "Connections": [
       {
@@ -832,13 +832,13 @@
         "ID": 34,
         "Name": "Zachovalý svitek",
         "Description": "Skoro jediný zachovalý svitek z archivu. Je na něm napsána pouze fráze 'motus ad ianuam'",
-        "Icon": "scroll.png"
+        "Icon": "scroll.webp"
       },
       {
         "ID": 35,
         "Name": "Kávová zrna",
         "Description": "Když je rozžvýkáš, bude to jako kdyby jsi vypil dva litry kávy",
-        "Icon": "coffee_beans.png",
+        "Icon": "coffee_beans.webp",
         "Usable": true,
         "OnUseEffect": {
           "Type": 3,
@@ -850,7 +850,7 @@
       "Name": "Kostlivec válečník",
       "Damage": 12,
       "Hp": 50,
-      "Img": "skeleton_warrior.png",
+      "Img": "skeleton_warrior.webp",
       "NumberOfAttacks": 2
     }
   },
@@ -858,7 +858,7 @@
     "LocationID": 39,
     "Name": "Castielova hrobka",
     "Description": "Jsi uvnitř bohatě zdobené Castielovy hrobky. Všechno zlato tu je, jeho ostatky ale chybí...",
-    "Background": "castiels_tomb.png",
+    "Background": "castiels_tomb.webp",
     "Stage": 2,
     "Connections": [
       {
@@ -878,13 +878,13 @@
           "Type": 2,
           "EffectScale": 25
         },
-        "Icon": "castiels_chestplate.png"
+        "Icon": "castiels_chestplate.webp"
       },
       {
         "ID": 37,
         "Name": "Mana",
         "Description": "Kouzelná mana, vyléčí mnoho ran (45 HP)",
-        "Icon": "mana.png",
+        "Icon": "mana.webp",
         "Usable": true,
         "OnUseEffect": {
           "Type": 0,
@@ -897,7 +897,7 @@
     "LocationID": 33,
     "Name": "Mučírna",
     "Description": "Nacházíš se uvnitř mučírny. Před tebou jsou mohutné dveře, překvapivě otevřené",
-    "Background": "torture_chamber.png",
+    "Background": "torture_chamber.webp",
     "Stage": 2,
     "Connections": [
       {
@@ -916,7 +916,7 @@
       "Name": "Temný duch",
       "Damage": 17,
       "Hp": 45,
-      "Img": "dark_spirit.png",
+      "Img": "dark_spirit.webp",
       "NumberOfAttacks": 2
     }
   },
@@ -924,7 +924,7 @@
     "LocationID": 40,
     "Name": "Sklad lebek",
     "Description": "Nacházíš se v místnosti plné lebek. Jde ti mráz po zádech.",
-    "Background": "skull_room.png",
+    "Background": "skull_room.webp",
     "Stage": 2,
     "Connections": [
       {
@@ -938,13 +938,13 @@
         "ID": 31,
         "Name": "Klíč s lebkou",
         "Description": "Klíč s ornamentem lebky",
-        "Icon": "skull_key.png"
+        "Icon": "skull_key.webp"
       },
       {
         "ID": 38,
         "Name": "Obvaz",
         "Description": "Můžeš si s ním obvázat své rány (35 HP)",
-        "Icon": "bandage.png",
+        "Icon": "bandage.webp",
         "Usable": true,
         "TargetIsEnemy": false,
         "OnUseEffect": {
@@ -958,7 +958,7 @@
     "LocationID": 34,
     "Name": "Sklad potravin",
     "Description": "Jsi ve skladu. Odsud se určitě dá dostat do pevnosti. ",
-    "Background": "food_cellar.png",
+    "Background": "food_cellar.webp",
     "Stage": 2,
     "Connections": [
       {
@@ -987,7 +987,7 @@
         "ID": 40,
         "Name": "Mrkev",
         "Description": "Čerstvá, pěkně oranžová mrkev (20 HP)",
-        "Icon": "carrot.png",
+        "Icon": "carrot.webp",
         "Usable": true,
         "TargetIsEnemy": false,
         "OnUseEffect": {
@@ -1001,7 +1001,7 @@
     "LocationID": 41,
     "Name": "Samotka",
     "Description": "Nacházíš se v místnosti, která kdysi sloužila jako samotka pro neposlušné vězně. Nyní zde pouze straší.",
-    "Background": "prison_cell.png",
+    "Background": "prison_cell.webp",
     "Stage": 2,
     "Connections": [
       {
@@ -1015,14 +1015,14 @@
         "ID": 33,
         "Name": "Měděný disk",
         "Description": "Část nějakého důmyslného mechanismu",
-        "Icon": "copper_disk.png"
+        "Icon": "copper_disk.webp"
       }
     ],
     "Enemy": {
       "Name": "Pytel kostí",
       "Damage": 5,
       "Hp": 50,
-      "Img": "sack_of_bones.png",
+      "Img": "sack_of_bones.webp",
       "NumberOfAttacks": 1
     }
   },
@@ -1035,7 +1035,7 @@
     "LocationID": 50,
     "Name": "Kuchyň",
     "Description": "Nacházíš v nepoužívané kuchyni, jsou tu hrnce a zkažené potraviny. Nikdo z obyvatel pevnosti zřejmě nevaří.",
-    "Background": "kitchen.png",
+    "Background": "kitchen.webp",
     "Stage": 3,
     "Connections": [
       {
@@ -1059,7 +1059,7 @@
         "ID": 50,
         "Name": "Šéfkuchařova čepice",
         "Description": "Moc neochrání, ale vypadá velmi elegantně (5 RES)",
-        "Icon": "chefs_hat.png",
+        "Icon": "chefs_hat.webp",
         "IsWearable": true,
         "WearableType": "Hat",
         "OnWearEffect": {
@@ -1073,7 +1073,7 @@
     "LocationID": 51,
     "Name": "Komnaty",
     "Description": "Zde bydlí většina posádky pevnosti. Naštěstí jsou asi někde na hlídce, nebo úplně opilí",
-    "Background": "sleeping_room.png",
+    "Background": "sleeping_room.webp",
     "Stage": 3,
     "Connections": [
       {
@@ -1092,7 +1092,7 @@
         "ID": 51,
         "Name": "Léčivý lektvar",
         "Description": "Pravděpodobně se jedná o napůl vodku a napůl bylinky (40 HP)",
-        "Icon": "healing_potion.png",
+        "Icon": "healing_potion.webp",
         "Usable": true,
         "OnUseEffect": {
           "Type": 0,
@@ -1104,7 +1104,7 @@
       "Name": "Rytíř",
       "Damage": 20,
       "Hp": 60,
-      "Img": "knight.png",
+      "Img": "knight.webp",
       "NumberOfAttacks": 2
     }
   },
@@ -1112,7 +1112,7 @@
     "LocationID": 52,
     "Name": "Chodba",
     "Description": "Všude se zdá být ticho. Možná až moc ticho",
-    "Background": "hallway.png",
+    "Background": "hallway.webp",
     "Stage": 3,
     "Connections": [
       {
@@ -1137,7 +1137,7 @@
     "LocationID": 56,
     "Name": "Zbrojnice",
     "Description": "Většina vybavení zde je nefunkční a zastaralá. Všechno užitečné plukovník asi rozprodal",
-    "Background": "armory.png",
+    "Background": "armory.webp",
     "Stage": 3,
     "Connections": [
       {
@@ -1156,7 +1156,7 @@
         "ID": 52,
         "Name": "Černá bomba",
         "Description": "Účinná zbraň proti komukoliv kdo se ti postaví do cesty. Bum (20 DMG)",
-        "Icon": "black_bomb.png",
+        "Icon": "black_bomb.webp",
         "Usable": true,
         "TargetIsEnemy": true,
         "OnUseEffect": {
@@ -1168,7 +1168,7 @@
         "ID": 53,
         "Name": "Rytířské boty",
         "Description": "Používány hrdinými rytíři, otázka je co dělají zde (12 RES)",
-        "Icon": "knight_boots.png",
+        "Icon": "knight_boots.webp",
         "IsWearable": true,
         "WearableType": "Boots",
         "OnWearEffect": {
@@ -1181,7 +1181,7 @@
       "Name": "Kat",
       "Damage": 45,
       "Hp": 50,
-      "Img": "executioner.png",
+      "Img": "executioner.webp",
       "NumberOfAttacks": 1
     }
 
@@ -1190,7 +1190,7 @@
     "LocationID": 57,
     "Name": "Kovárna",
     "Description": "Ačkoliv výheň stále hoří, je jasné, že zde už dlouho žádná výzbroj nevznikla",
-    "Background": "forge.png",
+    "Background": "forge.webp",
     "Stage": 3,
     "Connections": [
       {
@@ -1204,13 +1204,13 @@
         "ID": 54,
         "Name": "Stříbrný klíč",
         "Description": "Klíč od hodovního sálu",
-        "Icon": "silver_key.png"
+        "Icon": "silver_key.webp"
       },
       {
         "ID": 55,
         "Name": "Jedová kapsle",
         "Description": "Otráví nepřítele a tím ho oslabí (-8 DMG)",
-        "Icon": "poison_capsule.png",
+        "Icon": "poison_capsule.webp",
         "Usable": true,
         "TargetIsEnemy": true,
         "OnUseEffect": {
@@ -1224,7 +1224,7 @@
     "LocationID": 53,
     "Name": "Chodba",
     "Description": "Už cítíš jak se blížíš k cíli. Vítězství je na dosah",
-    "Background": "second_hallway.png",
+    "Background": "second_hallway.webp",
     "Stage": 3,
     "Connections": [
       {
@@ -1253,7 +1253,7 @@
       "Name": "Šermíř",
       "Damage": 9,
       "Hp": 50,
-      "Img": "sword_master.png",
+      "Img": "sword_master.webp",
       "NumberOfAttacks": 5
     }
   },
@@ -1261,7 +1261,7 @@
     "LocationID": 54,
     "Name": "Knihovna",
     "Description": "Jsou tu pravděpodobně tisíce knih, každá s jiným názvem. Jedna z knihoven je ale očividně falešná a něco se za ní schovává. Bohužel se odemkne pouze vyřčením určité fráze.",
-    "Background": "library.png",
+    "Background": "library.webp",
     "Stage": 3,
     "Connections": [
       {
@@ -1283,7 +1283,7 @@
     "LocationID": 55,
     "Name": "Tajná místnost",
     "Description": "Někdo si sem schovával peníze a jiné cennosti. Svatý Grál tu ale není...",
-    "Background": "secret_room.png",
+    "Background": "secret_room.webp",
     "Stage": 3,
     "Connections": [
       {
@@ -1297,7 +1297,7 @@
         "ID": 56,
         "Name": "Meč archanděla Michaela",
         "Description": "Jeden z nejmocnějších mečů na světě (20 DMG)",
-        "Icon": "michaels_sword.png",
+        "Icon": "michaels_sword.webp",
         "IsWearable": true,
         "WearableType": "Weapon",
         "OnWearEffect": {
@@ -1311,7 +1311,7 @@
     "LocationID": 58,
     "Name": "Hodovní síň",
     "Description": "Někdo zde ještě velmi nedávno seděl a obědval",
-    "Background": "dinning_room.png",
+    "Background": "dinning_room.webp",
     "Stage": 3,
     "Connections": [
       {
@@ -1345,7 +1345,7 @@
         "ID": 57,
         "Name": "Pečená maso",
         "Description": "Velmi chutný pokrm (20 HP)",
-        "Icon": "roast_meat.png",
+        "Icon": "roast_meat.webp",
         "Usable": true,
         "OnUseEffect": {
           "Type": 0,
@@ -1356,7 +1356,7 @@
         "ID": 58,
         "Name": "Šálek kávy",
         "Description": "Šálek kvalitní kávy, pořádně tě nabudí (20 ENG)",
-        "Icon": "cup_of_coffee.png",
+        "Icon": "cup_of_coffee.webp",
         "Usable": true,
         "OnUseEffect": {
           "Type": 3,
@@ -1369,7 +1369,7 @@
     "LocationID": 59,
     "Name": "Pracovna plukovníka Azazela",
     "Description": "Vkusně zařízená pracovna plukovníka. Zde jsi byl naposledy přistižen. Dnes snad stejnou chybu nezopakuješ",
-    "Background": "bureau.png",
+    "Background": "bureau.webp",
     "Stage": 3,
     "Connections": [
       {
@@ -1398,7 +1398,7 @@
       "Name": "Plukovník Azazel",
       "Damage": 15,
       "Hp": 100,
-      "Img": "colonel_azazel.png",
+      "Img": "colonel_azazel.webp",
       "NumberOfAttacks": 3
     }
   },
@@ -1406,7 +1406,7 @@
     "LocationID": 60,
     "Name": "Pokladnice",
     "Description": "Tak zde plukovník uchovává svou kořist. Pro mě je důležitá ale pouze jenom jedna věc...",
-    "Background": "treasure_room.png",
+    "Background": "treasure_room.webp",
     "Stage": 3,
     "Connections": [
       {
@@ -1420,7 +1420,7 @@
         "ID": 59,
         "Name": "Svatý Grál",
         "Description": "Autentická relikvie nevyčíslitelné ceny",
-        "Icon": "holy_grail.png"
+        "Icon": "holy_grail.webp"
       }
     ]
   },
@@ -1428,7 +1428,7 @@
     "LocationID": 61,
     "Name": "Svoboda",
     "Description": "Konečně na čerstvém vzduchu. Čas opustit tuhle odpornou pevnost navždy",
-    "Background": "freedom.png",
+    "Background": "freedom.webp",
     "Stage": 3,
     "Connections": [
       {

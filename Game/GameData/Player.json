@@ -15,7 +15,7 @@
         "EffectScale": 10
       },
 
-      "Icon": "basic_sword.png"
+      "Icon": "basic_sword.webp"
     },
     {
       "ID": 101,
@@ -27,7 +27,7 @@
         "Type": 2,
         "EffectScale": 5
       },
-      "Icon": "leather_boots.png"
+      "Icon": "leather_boots.webp"
     },
     {
       "ID": 103,
@@ -39,7 +39,7 @@
         "Type": 0,
         "EffectScale": -10
       },
-      "Icon": "fire_bomb.png"
+      "Icon": "fire_bomb.webp"
     },
     {
       "ID": 151508,
@@ -51,7 +51,7 @@
         "Type": 0,
         "EffectScale": -1000
       },
-      "Icon": "kyanid_bottle.png"
+      "Icon": "kyanid_bottle.webp"
     }
   ],
   "CombatState": {
