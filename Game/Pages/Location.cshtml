@@ -39,7 +39,7 @@
                                         {
                                             if (Model.pModel.Items.Count > 0 && Model.pModel.Items.Count(a => a.ID == v.RequiredItem.ID) > 0)
                                             {
-                                                <span>Díky itemu<span class="lw">@v.RequiredItem.Name</span> mùžeš.</span>
+                                                <span>Díky itemu <span class="lw">@v.RequiredItem.Name</span> mùžeš.</span>
                                             }
                                             else
                                             {
@@ -63,7 +63,7 @@
                             @foreach (var item in Model.pModel.Items)
                             {
                                 <div class="pack-inv-item">
-                                    <img class="pack-inv-item__img" src="Assets/ItemIcons/@item.Icon" alt="@item.Name"/>
+                                    <img class="pack-inv-item__img" src="Assets/ItemIcons/@item.Icon" alt="@item.Name" loading="lazy"/>
                                     <div class="pack-inv-item__des">
                                         <h3>@item.Name</h3>
                                         <p>@item.Description</p>
