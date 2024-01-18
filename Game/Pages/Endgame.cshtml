@@ -1,10 +1,11 @@
 @page
 @model Game.Pages.Endgame
 
-<main class="main--info main--endgame" style="background-image: url(Assets/@(Model.Win ? "winBg.jpg" : "loseBg.jpg"))">
+<main class="main--info main--endgame" style="background-image: url(Assets/@(Model.Win ? "winBg.webp" : "loseBg.webp"))">
     @if(Model.Win)
     {
         <h1>Vyhrál si</h1>
+        <p style="color: black;">Zabralo ti to @Model.?Time.Value.ToLongTimeString()</p>
         <a class="btn" asp-page="Index">Domù</a>
     }
     else

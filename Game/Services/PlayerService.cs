@@ -22,6 +22,7 @@ namespace Game.Services
             var p = JsonSerializer.Deserialize<PlayerModel>(DEFAULT_PLAYER_JSON);
             if (p == null) throw new JsonException();
             p.VisitedConnections = new List<ShortConnection>();
+            p.CreatedAt = DateTime.Now;
 
             foreach(var item in p.Items.Where(a => a.IsWearable).ToArray())
             {

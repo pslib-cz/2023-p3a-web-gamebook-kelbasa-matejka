@@ -3,6 +3,8 @@ using Game.Models;
 namespace Game {
     public class PlayerModel {
         public int PlayerID { get; set; }
+        public DateTime CreatedAt { get; set; }
+        public DateTime FinishedAt { get; set; }
         public int Hp { get; set; }
         public List<ItemModel> Items { get; set; }
         public int CurrentLocationId { get; set; }

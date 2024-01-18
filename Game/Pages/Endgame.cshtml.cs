@@ -19,6 +19,16 @@ public class Endgame(ISessionService sessionSer, EffectService effSer, PlayerSer
         }
     }
 
+    public DateTime? Time
+    {
+        get
+        {
+            if (pModel.Won) return new DateTime(pModel.FinishedAt.Ticks - pModel.CreatedAt.Ticks);
+            else return null;
+        }
+    }
+
+
     public PlayerModel pModel { get; set; }
     public bool Win { get; set; }
 
@@ -30,6 +40,7 @@ public class Endgame(ISessionService sessionSer, EffectService effSer, PlayerSer
 
         if (pModel.CurrentLocationId == pModel.WinningLocationId && pModel.Hp > 0)
         {
+            pModel.FinishedAt = DateTime.Now;
             pModel.Won = true;
         }
 
