@@ -1,4 +1,5 @@
-﻿using Game.Models;
+﻿using Game.Helpers;
+using Game.Models;
 using System.Text.Json;
 
 namespace Game.Services
@@ -6,13 +7,14 @@ namespace Game.Services
     public class PlayerService
     {
         private static readonly string DEFAULT_PLAYER_JSON = File.ReadAllText(@"GameData/Player.json");
-
+        private ApplicationDbContext db;
 
         public string UniqueId { get; private set; }
 
         public PlayerService() 
         {
             Console.WriteLine("Jsem tvořený");
+            db = new ApplicationDbContext(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=GamebookDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False");
             UniqueId = Guid.NewGuid().ToString();
         }
 
@@ -23,6 +25,7 @@ namespace Game.Services
             if (p == null) throw new JsonException();
             p.VisitedConnections = new List<ShortConnection>();
             p.CreatedAt = DateTime.Now;
+            p.PlayerID = Guid.NewGuid().ToString();
 
             foreach(var item in p.Items.Where(a => a.IsWearable).ToArray())
             {
@@ -69,5 +72,25 @@ namespace Game.Services
             }
         
         }
+
+        public bool PutIntoLeaderboard(PlayerModel p, string name)
+        {
+            if (db.Records.Any(r => r.PlayerId == p.PlayerID)) return false;
+
+
+            var playTime = new DateTime(p.FinishedAt.Ticks - p.CreatedAt.Ticks);
+            db.Records.Add(new LeaderboardRecord { Name = name, PlayerId = p.PlayerID, PlayTime = playTime, SavedAt = DateTime.Now });
+            db.SaveChanges();
+
+            return true;
+            
+        }
+
+        public List<LeaderboardRecord> GetTopLeaderboardRecords()
+        {
+            return db.Records.OrderByDescending(r => r.PlayTime.Millisecond).Take(10).ToList();
+        }
+
+
     }
 }

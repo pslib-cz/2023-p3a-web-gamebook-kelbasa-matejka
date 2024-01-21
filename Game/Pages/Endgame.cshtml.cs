@@ -59,4 +59,16 @@ public class Endgame(ISessionService sessionSer, EffectService effSer, PlayerSer
 
 
     }
+
+    public IActionResult OnPostEnterLeaderboard(string name)
+    {
+        pModel = sessionSer.GetSession<PlayerModel>(HttpContext, FullPlayerSessionKey);
+
+        if (name == null || name.Length > 50 || name.Length == 0 || !pModel.Won || pModel.SavedToLeaderboard) return Page();
+        if (PlayerSer.PutIntoLeaderboard(pModel, name)) pModel.SavedToLeaderboard = true;
+
+        Win = true;
+        return Page();
+
+    }
 }

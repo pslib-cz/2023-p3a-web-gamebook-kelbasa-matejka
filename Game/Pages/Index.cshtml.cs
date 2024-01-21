@@ -30,6 +30,10 @@ namespace Game.Pages
 
         public IActionResult OnGet()
         {
+            foreach(var r in ps.GetTopLeaderboardRecords())
+            {
+                Console.WriteLine(r.Name + " | " + r.PlayTime.ToLongTimeString());
+            }
             return Page();
         }
 

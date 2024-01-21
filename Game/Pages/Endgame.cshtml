@@ -8,7 +8,16 @@
     {
         <h1>Vyhrál si</h1>
         <p style="color: black;">Zabralo ti to @Model.Time.Value.ToLongTimeString()</p>
+        @if (!Model.pModel.SavedToLeaderboard)
+        {
+            <p>Zde se mùžeš zapsat do žebøíèku top hráèù co hru dohráli</p>
+            <form method="post">
+                <input name="name" type="text" placeholder="Tvé jméno" />
+                <button asp-page-handler="EnterLeaderboard" type="submit">Zapsat se</button>
+            </form>
+        }
         <a class="btn" asp-page="Index">Domù</a>
+
     }
     else
     {
