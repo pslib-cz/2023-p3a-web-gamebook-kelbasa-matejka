@@ -65,5 +65,48 @@
             </div>
         </div>
     </div>
+
+    <div class="leaderboard">
+        <h2>Nejlepší časy</h2>
+        @if(Model.LeaderboardRecords != null && Model.LeaderboardRecords.Count > 0)
+        {
+            <table>
+                <thead>
+                    <tr>
+                        <th>
+                            Pozice
+                        </th>
+                        <th>
+                            Jméno
+                        </th>
+                        <th>
+                            Čas
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for(int i = 0; i < Model.LeaderboardRecords.Count; i++)
+                    {
+                        <tr>
+                            <td>
+                                @(i+1).
+                            </td>
+                            <td>
+                                @Model.LeaderboardRecords[i].Name
+                            </td>
+                            <td>
+                                @Model.LeaderboardRecords[i].PlayTime.ToLongTimeString()
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <p>Žádná data</p>
+        }
+
+    </div>
     <script type="text/javascript" src="js/main.js"></script>
 </main>

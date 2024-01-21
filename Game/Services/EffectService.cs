@@ -55,9 +55,7 @@ public class EffectService
             for(int i = 0; i < e.NumberOfAttacks; i++)
             {
                 int damage = -1 * CalculateDamage(e.Damage);
-                Console.WriteLine("Calculated dmg: " + damage);
                 damage = (int) (damage * (1.0 -  (double) p.Resistance / 200.0));
-                Console.WriteLine("After resistence: " + damage);
                 if (damage > 0) damage = 0;
 
                 ApplyEffect(new EffectModel { EffectScale = damage, Type = EffectTypeModel.Health }, p);

@@ -42,12 +42,6 @@ namespace Game.Services
         public bool ConnectionWasUsed(PlayerModel p, int from, int to)
         {
             int det = p.VisitedConnections.Count(a => a.FromId == from && a.ToId == to);
-            Console.WriteLine("Kontroluji");
-            foreach(var connection in p.VisitedConnections)
-            {
-                Console.WriteLine(connection.FromId + " -> " + connection.ToId);
-            }
-            Console.WriteLine("Počet shod s " + from + " -> " + to + " je " + det);
             return det >= 1;
         }
         
@@ -88,7 +82,7 @@ namespace Game.Services
 
         public List<LeaderboardRecord> GetTopLeaderboardRecords()
         {
-            return db.Records.OrderByDescending(r => r.PlayTime.Millisecond).Take(10).ToList();
+            return db.Records.OrderBy(r => r.PlayTime).Take(10).ToList();
         }
 
 

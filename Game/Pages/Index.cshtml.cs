@@ -1,5 +1,6 @@
 using System.Numerics;
 using System.Reflection.Metadata;
+using Game.Models;
 using Game.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -17,6 +18,8 @@ namespace Game.Pages
             }
         }
 
+        public List<LeaderboardRecord> LeaderboardRecords { get; set; }
+
         public IndexModel(PlayerService ps, ISessionService ss, LocationService ls)
         {
             this.ps = ps;
@@ -30,10 +33,7 @@ namespace Game.Pages
 
         public IActionResult OnGet()
         {
-            foreach(var r in ps.GetTopLeaderboardRecords())
-            {
-                Console.WriteLine(r.Name + " | " + r.PlayTime.ToLongTimeString());
-            }
+            LeaderboardRecords = ps.GetTopLeaderboardRecords();
             return Page();
         }
 
