@@ -1,4 +1,5 @@
 using Game.Services;
+using Microsoft.Data.SqlClient;
 
 var builder = WebApplication.CreateBuilder(args);
 

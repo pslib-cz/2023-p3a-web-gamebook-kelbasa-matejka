@@ -9,6 +9,7 @@ namespace Game.Services
         private static readonly string DEFAULT_PLAYER_JSON = File.ReadAllText(@"GameData/Player.json");
         private ApplicationDbContext db;
 
+
         public string UniqueId { get; private set; }
 
         public PlayerService() 

@@ -1,5 +1,3 @@
-using System.Numerics;
-using System.Reflection.Metadata;
 using Game.Models;
 using Game.Services;
 using Microsoft.AspNetCore.Mvc;
@@ -7,29 +5,14 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Game.Pages
 {
-    public class IndexModel : PageModel
+    public class IndexModel(PlayerService ps, ISessionService ss, LocationService ls, List<LeaderboardRecord> leaderboardRecords) : PageModel
     {
-        private static readonly string BASIC_PLAYER_SESSION_KEY = "PlayerSessionKey";
-        private string FullPlayerSessionKey
-        {
-            get
-            {
-                return BASIC_PLAYER_SESSION_KEY + ps.UniqueId;
-            }
-        }
+        private static readonly string BasicPlayerSessionKey = "PlayerSessionKey";
+        private string FullPlayerSessionKey => BasicPlayerSessionKey + ps.UniqueId;
 
-        public List<LeaderboardRecord> LeaderboardRecords { get; set; }
+        public List<LeaderboardRecord> LeaderboardRecords { get; set; } = leaderboardRecords;
 
-        public IndexModel(PlayerService ps, ISessionService ss, LocationService ls)
-        {
-            this.ps = ps;
-            this.ss = ss;
-            this.ls = ls;
-        }
-
-        private PlayerService ps;
-        private ISessionService ss;
-        public LocationService ls;
+        public LocationService Ls = ls;
 
         public IActionResult OnGet()
         {
@@ -48,7 +31,7 @@ namespace Game.Pages
                 player = ps.CreateDefaultModel();
                 player.CurrentLocationId = 1;
                 ss.SaveSession<PlayerModel>(HttpContext, FullPlayerSessionKey, player);
-                ls.ReloadAll();
+                Ls.ReloadAll();
 
             }
 
