@@ -1,5 +1,7 @@
+using Game.Helpers;
 using Game.Services;
 using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,9 +9,16 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddSession();
 builder.Services.AddSingleton<ISessionService, SessionService>();
+
+//Registrace databaze
+var connectionString = builder.Configuration.GetConnectionString("AppDbConnection");
+builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connectionString));
+
+
+// Samostatne servisy hry
 builder.Services.AddSingleton<LocationService>();
 builder.Services.AddSingleton<EffectService>();
-builder.Services.AddSingleton<PlayerService>();
+builder.Services.AddScoped<PlayerService>();
 // Add services to the container.
 builder.Services.AddRazorPages();
 

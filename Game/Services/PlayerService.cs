@@ -7,16 +7,16 @@ namespace Game.Services
     public class PlayerService
     {
         private static readonly string DEFAULT_PLAYER_JSON = File.ReadAllText(@"GameData/Player.json");
-        private ApplicationDbContext db;
+        private ApplicationDbContext _context;
 
 
         public string UniqueId { get; private set; }
 
-        public PlayerService() 
+        public PlayerService(ApplicationDbContext context) 
         {
-            Console.WriteLine("Jsem tvořený");
-            db = new ApplicationDbContext(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=GamebookDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False");
+            Console.WriteLine("PlayerService starting...");
             UniqueId = Guid.NewGuid().ToString();
+            _context = context;
         }
 
 
@@ -70,12 +70,12 @@ namespace Game.Services
 
         public bool PutIntoLeaderboard(PlayerModel p, string name)
         {
-            if (db.Records.Any(r => r.PlayerId == p.PlayerID)) return false;
+            if (_context.Records.Any(r => r.PlayerId == p.PlayerID)) return false;
 
 
             var playTime = new DateTime(p.FinishedAt.Ticks - p.CreatedAt.Ticks);
-            db.Records.Add(new LeaderboardRecord { Name = name, PlayerId = p.PlayerID, PlayTime = playTime, SavedAt = DateTime.Now });
-            db.SaveChanges();
+            _context.Records.Add(new LeaderboardRecord { Name = name, PlayerId = p.PlayerID, PlayTime = playTime, SavedAt = DateTime.Now });
+            _context.SaveChanges();
 
             return true;
             
@@ -83,7 +83,7 @@ namespace Game.Services
 
         public List<LeaderboardRecord> GetTopLeaderboardRecords()
         {
-            return db.Records.OrderBy(r => r.PlayTime).Take(10).ToList();
+            return _context.Records.OrderBy(r => r.PlayTime).Take(10).ToList();
         }
 
 
