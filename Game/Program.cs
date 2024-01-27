@@ -13,7 +13,7 @@ builder.Services.AddSingleton<PlayerService>();
 builder.Services.AddRazorPages();
 
 var app = builder.Build();
-
+app.UsePathBase("/EscapeTheFortress");
 
 
 // Configure the HTTP request pipeline.
