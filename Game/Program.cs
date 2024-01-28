@@ -12,7 +12,7 @@ builder.Services.AddSingleton<ISessionService, SessionService>();
 
 //Registrace databaze
 var connectionString = builder.Configuration.GetConnectionString("AppDbConnection");
-builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connectionString));
+builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlite(connectionString));
 
 
 // Samostatne servisy hry
