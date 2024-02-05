@@ -5,12 +5,12 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Game.Pages
 {
-    public class IndexModel(PlayerService ps, ISessionService ss, LocationService ls, List<LeaderboardRecord> leaderboardRecords) : PageModel
+    public class IndexModel(PlayerService ps, ISessionService ss, LocationService ls) : PageModel
     {
         private static readonly string BasicPlayerSessionKey = "PlayerSessionKey";
         private string FullPlayerSessionKey => BasicPlayerSessionKey + ps.UniqueId;
 
-        public List<LeaderboardRecord> LeaderboardRecords { get; set; } = leaderboardRecords;
+        public List<LeaderboardRecord> LeaderboardRecords { get; set; }
 
         public LocationService Ls = ls;
 
@@ -25,7 +25,7 @@ namespace Game.Pages
             PlayerModel player = ss.GetSession<PlayerModel>(HttpContext, FullPlayerSessionKey);
             Console.WriteLine(FullPlayerSessionKey);
 
-            // inicializuje novou hru a vše vyresetuje
+            // inicializuje novou hru a v?e vyresetuje
             if (player == null || player.Hp <= 0 || player.CurrentLocationId == -1)
             {
                 player = ps.CreateDefaultModel();
@@ -35,6 +35,8 @@ namespace Game.Pages
 
             }
 
+            Console.WriteLine("Start hry");
+            Console.WriteLine(player.CurrentLocationId);
             return RedirectToPage("Location", new{id = player.CurrentLocationId});
         }
     }

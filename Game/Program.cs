@@ -1,4 +1,5 @@
 using Game.Helpers;
+using Game.Models;
 using Game.Services;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
@@ -11,20 +12,19 @@ builder.Services.AddSession();
 builder.Services.AddSingleton<ISessionService, SessionService>();
 
 //Registrace databaze
-var connectionString = builder.Configuration.GetConnectionString("AppDbConnection");
-builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlite(connectionString));
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlite(connectionString), ServiceLifetime.Singleton);
 
 
 // Samostatne servisy hry
 builder.Services.AddSingleton<LocationService>();
 builder.Services.AddSingleton<EffectService>();
-builder.Services.AddScoped<PlayerService>();
+builder.Services.AddSingleton<PlayerService>();
 // Add services to the container.
 builder.Services.AddRazorPages();
 
 var app = builder.Build();
-
-
+app.UsePathBase("/EscapeTheFortress");
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

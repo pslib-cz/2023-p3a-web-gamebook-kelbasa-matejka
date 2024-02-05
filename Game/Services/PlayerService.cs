@@ -83,6 +83,12 @@ namespace Game.Services
 
         public List<LeaderboardRecord> GetTopLeaderboardRecords()
         {
+            Console.WriteLine("Getting top leaderboard records...");
+            var data = _context.Records.OrderBy(r => r.PlayTime).Take(10).ToList();
+            if (data == null || data.Count == 0)
+            {
+                return new List<LeaderboardRecord>();
+            }
             return _context.Records.OrderBy(r => r.PlayTime).Take(10).ToList();
         }
 
