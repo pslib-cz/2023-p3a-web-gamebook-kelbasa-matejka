@@ -89,9 +89,7 @@ namespace Game.Services
             {
                 return new List<LeaderboardRecord>();
             }
-            return _context.Records.OrderBy(r => r.PlayTime).Take(10).ToList();
+            return data;
         }
-
-
-    }
+        }
 }

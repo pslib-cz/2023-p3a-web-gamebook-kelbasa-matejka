@@ -21,7 +21,7 @@
                         <span>@Model.pModel.Resistance</span>
                         <span>@Model.pModel.Damage</span>
                     </div>
-                    <h2 class="pack__h">Co vlastním?</h2>
+                    <h2 class="pack__h">Co vlastnÃ­m?</h2>
                     @if (Model.pModel.Items.Count > 0)
                     {
                         <form method="post" class="pack-inv">
@@ -34,7 +34,7 @@
                                         <p>@item.Description</p>
                                         @if (item.Usable)
                                         {
-                                            <button type="submit" value="@item.ID" name="ItemId" class="btn" asp-page-handler="UseItem">Použít</button>
+                                            <button type="submit" value="@item.ID" name="ItemId" class="btn" asp-page-handler="UseItem">PouÅ¾Ã­t</button>
                                         }
                                     </div>
                                 </div>
@@ -43,10 +43,10 @@
                     }
                     else
                     {
-                        <p>Zøejmì je tlumok dìravý, páè tu nic není</p>
+                        <p>ZÅ™ejmÄ› je tlumok dÄ›ravÃ½, protoÅ¾e tu nic nenÃ­</p>
                     }
                 </div>
-                <button class="pack__btn" rel="nofollow" title="Otevøít inventáøe" id="packBtn">
+                <button class="pack__btn" rel="nofollow" title="Otevï¿½ï¿½t inventï¿½ï¿½e" id="packBtn">
                 </button>    
         </div>
         @if (objectPresent)

@@ -1,41 +1,41 @@
 @page
 @model Game.Pages.Endgame
 @{
-    ViewData["Title"] = "Escape The Fortress - Interaktivní gambook";
+    ViewData["Title"] = "Escape The Fortress - Interaktivnï¿½ gambook";
 }
 <main class="main--info main--endgame" style="background-image: url(Assets/@(Model.Win ? "winBg.webp" : "loseBg.webp"))">
     @if(Model.Win)
     {
-        <h1>Vyhrál si</h1>
+        <h1>VyhrÃ¡l si</h1>
         <div class="main__card @(!Model.pModel.SavedToLeaderboard ? "main__card--form" : "")">    
-            <h2>Zabralo ti to jen @Model.Time.Value.ToLongTimeString()</h2>
+            <h2>Zabralo ti to jen @Model.Time.Value.ToString("HH:mm:ss")</h2>
             @if (!Model.pModel.SavedToLeaderboard)
             {
-                <p>Pokud chceš zvìènit své bájné jméno, tak prosím...</p>
+                <p>Pokud chceÅ¡ zvÄ›Änit svÃ© bÃ¡jnÃ© jmÃ©no, tak prosÃ­m...</p>
                 <form method="post" class="leadboard-form">
-                    <input name="name" type="text" placeholder="Tvé jméno" />
+                    <input name="name" type="text" placeholder="TvÃ© jmÃ©no" />
                     <button asp-page-handler="EnterLeaderboard" type="submit">Zapsat se</button>
                 </form>
                 
             }
         </div>
-        <a class="btn" asp-page="Index">Domù</a>
+        <a class="btn" asp-page="Index">DomÅ¯</a>
     }
     else
     {
-            <h1>Prohrál si</h1>
+            <h1>Prohrï¿½l si</h1>
             <div class="main__card">
                 @if (Model.pModel.CombatState.IsCombatActive)
                 {
-                    <p>Zemøel jsi pøi souboji s entitou @Model.pModel.CombatState.CurrentEnemy.Name</p>
+                    <p>ZemÅ™el jsi pÅ™i souboji s entitou @Model.pModel.CombatState.CurrentEnemy.Name</p>
                 }
                 else
                 {
-                    <p>Proè umírat, kdy je ten ivot, tak krásnı?</p>
+                    <p>ProÄ umÃ­rat, kdyÅ¾ je ten Å¾ivot, tak krÃ¡snÃ½?</p>
                 }
             </div>
                    
-        <a class="btn" asp-page="Index">Domù</a>
+        <a class="btn" asp-page="Index">DomÅ¯</a>
     }    
 </main>
 

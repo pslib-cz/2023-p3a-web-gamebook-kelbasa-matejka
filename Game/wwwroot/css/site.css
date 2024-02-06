@@ -4,6 +4,7 @@
     --prim: #5e2400;
     --font: 'Caudex', serif;;
     --trans: .4s ease all;
+    --border: 3px solid var(--prim);
 }
 
 body {
@@ -25,7 +26,6 @@ body {
     text-decoration: none;
     color: black;
     transition: var(--trans);
-    box-shadow: 10px 10px 10px #222;
 }
 
 .br {
@@ -91,7 +91,7 @@ main {
     justify-content: center;
     padding: 1rem;
     background: var(--cd);
-    border: 3px solid var(--prim);
+    border: var(--border);
     border-radius: 1rem;
     color: black;
     font-size: min(7.5vw, 2.5em);
@@ -251,7 +251,7 @@ main {
 }
 
 .cont--story {
-    border: 3px solid var(--prim);
+    border: var(--border);
 }
 
 .cont--player {
@@ -259,7 +259,7 @@ main {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: bottom;
-    height: min(175px, 20%);
+    height: min(135px, 19%);
 }
 
 .ctrls button, .ctrls a{
@@ -269,7 +269,7 @@ main {
     justify-content: center;
     border-radius: .5rem;
     position: relative;
-    border: 3px solid var(--prim);
+    border: var(--border);
     font-size: 12px;
     text-transform: uppercase;
     word-break: break-word;
@@ -375,7 +375,7 @@ main {
 }
 
 .enemy__img {
-    max-width: min(700px, 60%);
+    max-width: min(700px, 50%);
     height: auto;
     object-fit: contain;
     -webkit-filter: drop-shadow(10px 10px 10px #222);
@@ -505,7 +505,7 @@ main {
     justify-content: center;
     background: var(--cd);
     border-radius: 1rem;
-    border: 3px solid var(--prim);
+    border: var(--border);
     padding: .5rem;
     font-weight: bold;
     font-family: var(--font);
@@ -681,7 +681,7 @@ h2.pack__h {
 }
 
 .leadboard-form input {
-    border-top: 3px solid var(--prim);
+    border-top: var(--border);
     border-radius: 0;
 }
 
@@ -751,6 +751,10 @@ h2.pack__h {
     }
     .ctrls a::before, .ctrls a::after {
         background-image: url("../Assets/doors.svg");
+    }
+    
+    .cont--player {
+        height: min(175px, 19%);
     }
 }
 
