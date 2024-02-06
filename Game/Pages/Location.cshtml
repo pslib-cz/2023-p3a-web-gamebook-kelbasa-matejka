@@ -3,9 +3,7 @@
 @{
     ViewData["Title"] =  $"{Model.lModel.Name} - Escape The Fortress";
     bool itemsPresent = Model.lModel.Items.Count > 0 && !Model.lModel.Items.All(item => Model.pModel.PickedUpItems.Any(pickedItem => pickedItem == item.ID));
-    bool enemyPresent = Model.lModel.Enemy != null && !Model.pModel.CombatState.CleanedLocations.Contains(Model.lModel.LocationID);
     bool objectPresent = Model.lModel.Enemy != null || itemsPresent || Model.lModel.PuzzleKey != null || Model.pModel.CurrentLocationId == Model.pModel.WinningLocationId;
-    bool ctrlsPresent = itemsPresent || enemyPresent;
 }
 
 <main style="background-image: url(Assets/LocationsBg/@Model.lModel.Background);">
@@ -15,48 +13,15 @@
     </section>
     <section class="obj">
             <div class="pack" id="pack">
-                <h2 class="pack__h">Tlumok</h2>
                 <div class="pack-cont">
-                    <p class="pack__h">Kam dál? - Podlaží #@Model.lModel.Stage</p>
-                    @if (!Model.pModel.CombatState.IsCombatActive)
-                    {
-                        <menu class="pack__map">
-                            @foreach (var v in Model.lModel.Connections)
-                            {
-                                <li>
-                                    <a asp-page="Location" asp-route-id="@v.ToLocationID">
-                                        @v.Description
-                                        @if (v.Locked && !Model.pModel.SolvedPuzzleLocations.Contains(v.FromLocationID))
-                                        {
-                                            <span class="closed">ZAMÈENO</span>
-                                        }
-                                        else if (v.Locked)
-                                        {
-                                            <span class="open">ODEMÈENO</span>
-                                        }
-
-                                        @if (v.RequiredItem != null)
-                                        {
-                                            if (Model.pModel.Items.Count > 0 && Model.pModel.Items.Count(a => a.ID == v.RequiredItem.ID) > 0)
-                                            {
-                                                <span>Díky itemu <span class="lw">@v.RequiredItem.Name</span> mùžeš.</span>
-                                            }
-                                            else
-                                            {
-                                                <span style="color: red;">Item <span class="lw">@v.RequiredItem.Name</span> je potøeba pro prùchod.</span>
-                                            }
-
-                                        }
-                                    </a>
-                                </li>
-                            }
-                        </menu>
-                    }
-                    else
-                    {
-                        <p> Abys mohl pokraèovat ve svém dobrodružství, tak musíš porazit entitu <span class="lw">@Model.lModel.Enemy.Name</span>.</p>
-                    }
-                    <p class="pack__h">Co vlastním?</p>
+                    <h2 class="pack__h">Moje staty</h2>
+                    <div class="pack__stats">
+                        <span>@Model.pModel.Hp</span>
+                        <span>@Model.pModel.Energy</span>
+                        <span>@Model.pModel.Resistance</span>
+                        <span>@Model.pModel.Damage</span>
+                    </div>
+                    <h2 class="pack__h">Co vlastním?</h2>
                     @if (Model.pModel.Items.Count > 0)
                     {
                         <form method="post" class="pack-inv">
@@ -80,10 +45,7 @@
                     {
                         <p>Zøejmì je tlumok dìravý, páè tu nic není</p>
                     }
-
-
                 </div>
-                
                 <button class="pack__btn" rel="nofollow" title="Otevøít inventáøe" id="packBtn">
                 </button>    
         </div>
@@ -93,14 +55,7 @@
         }
     </section>
     <section class="cont cont--player">
-        @if (ctrlsPresent)
-        {
-            @await Html.PartialAsync("controls", Model)
-        }
-        <span>@Model.pModel.Hp</span>
-        <span>@Model.pModel.Energy</span>
-        <span>@Model.pModel.Resistance</span>
-        <span>@Model.pModel.Damage</span>
+        @await Html.PartialAsync("controls", Model)
     </section>
 </main>
 <script type="text/javascript" src="js/location.js"></script>

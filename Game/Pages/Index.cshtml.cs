@@ -25,7 +25,7 @@ namespace Game.Pages
             PlayerModel player = ss.GetSession<PlayerModel>(HttpContext, FullPlayerSessionKey);
             Console.WriteLine(FullPlayerSessionKey);
 
-            // inicializuje novou hru a v?e vyresetuje
+            // inicializuje novou hru a vše vyresetuje
             if (player == null || player.Hp <= 0 || player.CurrentLocationId == -1)
             {
                 player = ps.CreateDefaultModel();

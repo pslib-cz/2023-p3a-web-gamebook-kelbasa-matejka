@@ -67,6 +67,12 @@
     <_ContentIncludedByDefault Remove="wwwroot\lib\jquery\dist\jquery.min.js" />
     <_ContentIncludedByDefault Remove="wwwroot\lib\jquery\dist\jquery.min.map" />
     <_ContentIncludedByDefault Remove="wwwroot\lib\jquery\LICENSE.txt" />
+    <_ContentIncludedByDefault Remove="Views\LeaderboardRecords\Create.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\LeaderboardRecords\Delete.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\LeaderboardRecords\Details.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\LeaderboardRecords\Edit.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\LeaderboardRecords\Index.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Shared\_ValidationScriptsPartial.cshtml" />
   </ItemGroup>
 
 

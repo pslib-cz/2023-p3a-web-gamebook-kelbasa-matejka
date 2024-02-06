@@ -68,7 +68,6 @@ public class Endgame(ISessionService sessionSer, EffectService effSer, PlayerSer
         if (PlayerSer.PutIntoLeaderboard(pModel, name)) pModel.SavedToLeaderboard = true;
 
         Win = true;
-        return Page();
-
+        return RedirectToPage("Index");
     }
 }

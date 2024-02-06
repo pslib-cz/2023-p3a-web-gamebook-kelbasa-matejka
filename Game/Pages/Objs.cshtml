@@ -1,11 +1,9 @@
 ﻿@model Game.Pages.Location
 
 
-@if (Model.lModel.Enemy != null)
+@if (Model.lModel.Enemy != null && !Model.pModel.CombatState.CleanedLocations.Contains(Model.lModel.LocationID))
 {
     <div class="enemy">
-        @if (!Model.pModel.CombatState.CleanedLocations.Contains(Model.lModel.LocationID))
-        {
             <div class="enemy__hp">
                 @{
                     int widthPercentage = (int)Math.Floor(Model.pModel.CombatState.CurrentEnemy.Hp / (Model.lModel.Enemy.Hp / 100.0));
@@ -21,11 +19,6 @@
             <h2 class="enemy__txt">@Model.lModel.Enemy.Name 
                 <span>(@Model.pModel.CombatState.CurrentEnemy.NumberOfAttacks x @Model.pModel.CombatState.CurrentEnemy.Damage DMG)</span>
             </h2>                                                                                                 
-        }
-        else if(!Model.lModel.Items.Any())
-        {
-            <h2 class="enemy__txt">@Model.lModel.Enemy.Name byl poražen</h2>
-        } 
     </div>
 }
 @if (!Model.pModel.CombatState.IsCombatActive)
