@@ -94,8 +94,29 @@ main {
     border: var(--border);
     border-radius: 1rem;
     color: black;
-    font-size: min(7.5vw, 2.5em);
+    font-size: min(7.5vw, 2.5rem);
     overflow: hidden;
+}
+
+.main__txt {
+    font-size: min(5vw,2rem);
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+    padding: .5rem 1rem;
+    background: var(--cd);
+    border: var(--border);
+    border-radius: 1rem;
+}
+
+.main__txt a {
+    color: #ff004d;
+    transition: var(--trans);
+    text-decoration: none;
+}
+
+.main__txt a:hover {
+    opacity: .5;
 }
 
 .main__card p {
@@ -112,8 +133,6 @@ main {
 .main__card--form h2 {
     margin: 1rem 1rem 0
 }
-
-
 
 .main--darker {
     filter: brightness(50%);
