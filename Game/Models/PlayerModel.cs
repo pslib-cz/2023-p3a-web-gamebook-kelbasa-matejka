@@ -2,7 +2,10 @@ using Game.Models;
 
 namespace Game {
     public class PlayerModel {
-        public int PlayerID { get; set; }
+        public string PlayerID { get; set; }
+        public DateTime CreatedAt { get; set; }
+        public DateTime FinishedAt { get; set; }
+        public bool SavedToLeaderboard { get; set; } = false;
         public int Hp { get; set; }
         public List<ItemModel> Items { get; set; }
         public int CurrentLocationId { get; set; }

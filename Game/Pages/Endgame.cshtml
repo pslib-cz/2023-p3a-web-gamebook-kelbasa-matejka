@@ -1,22 +1,41 @@
 @page
 @model Game.Pages.Endgame
-
-<main class="main--info main--endgame" style="background-image: url(./Assets/@(Model.Win ? "winBg.webp" : "loseBg.webp"))">
+@{
+    ViewData["Title"] = "Escape The Fortress - Interaktivní gambook";
+}
+<main class="main--info main--endgame" style="background-image: url(Assets/@(Model.Win ? "winBg.webp" : "loseBg.webp"))">
     @if(Model.Win)
     {
-        <h1>Vyhr�l si</h1>
-        <a class="btn" asp-page="Index">Dom�</a>
+        <h1>Vyhrál si</h1>
+        <div class="main__card @(!Model.pModel.SavedToLeaderboard ? "main__card--form" : "")">    
+            <h2>Zabralo ti to jen @Model.Time.Value.ToString("HH:mm:ss")</h2>
+            @if (!Model.pModel.SavedToLeaderboard)
+            {
+                <p>Pokud chceš zvěčnit své bájné jméno, tak prosím...</p>
+                <form method="post" class="leadboard-form">
+                    <input name="name" type="text" placeholder="Tvé jméno" />
+                    <button asp-page-handler="EnterLeaderboard" type="submit">Zapsat se</button>
+                </form>
+                
+            }
+        </div>
+        <a class="btn" asp-page="Index">Domů</a>
     }
     else
     {
-        <div>
-                <h1>Prohr�l si</h1>
+            <h1>Prohrál si</h1>
+            <div class="main__card">
                 @if (Model.pModel.CombatState.IsCombatActive)
                 {
-                    <p>Zem�el jsi p�i souboji s entitou @Model.pModel.CombatState.CurrentEnemy.Name</p>
-                }    
-        </div>
-        <a class="btn" asp-page="Index">Dom�</a>
+                    <p>Zemřel jsi při souboji s entitou @Model.pModel.CombatState.CurrentEnemy.Name</p>
+                }
+                else
+                {
+                    <p>Proč umírat, když je ten život, tak krásný?</p>
+                }
+            </div>
+                   
+        <a class="btn" asp-page="Index">Domů</a>
     }    
 </main>
 

@@ -10,12 +10,13 @@
         <form method="post">
             <button class="btn" type="submit" asp-page-handler="StartGame">Hrát</button>
         </form>
-        <button class="btn modal-open">O hře</button>    
+        <button class="btn modal-about-open">O hře</button>
+        <button class="btn modal-leadboard-open">Nejlepší časy</button>
     </div>
-    <div class="modal" id="modal">
-        
+    <p class="main__txt">Vytvořil <a href="https://pixelgon.cz/" target="_blank">Pixelgon</a> a <a href="https://github.com/TomasKelbasa" target="_blank">Tomáš Kelbasa</a></p>
+    <div class="modal" id="modal-about">
         <div class="modal-box">
-            <button class="modal__btn modal-open"></button>
+            <button class="modal__btn modal-about-open"></button>
             <h2 class="modal__h">O hře</h2>
             <div class=modal__txt>
                 <p>
@@ -63,6 +64,50 @@
                     <li>Hraním se naučíš pořadí místností, jak je ideální je projít</li>
                 </ul>
             </div>
+        </div>
+    </div>
+    <div class="modal" id="modal-leadboard">
+        <div class="modal-box">
+            <button class="modal__btn modal-leadboard-open"></button>
+            <h2 class="modal__h">Nejlepší časy</h2>
+            @if (Model.LeaderboardRecords != null && Model.LeaderboardRecords.Count > 0)
+            {
+                <table class="modal__table modal__txt">
+                    <thead>
+                    <tr>
+                        <th>
+                            Pozice
+                        </th>
+                        <th>
+                            Jméno
+                        </th>
+                        <th>
+                            Čas
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @for (int i = 0; i < Model.LeaderboardRecords?.Count; i++)
+                    {
+                        <tr>
+                            <td>
+                                @(i + 1).
+                            </td>
+                            <td>
+                                @Model.LeaderboardRecords[i].Name
+                            </td>
+                            <td>
+                                @Model.LeaderboardRecords[i].PlayTime.ToString("HH:mm:ss")
+                            </td>
+                        </tr>
+                    }
+                    </tbody>
+                </table>
+            }
+            else
+            {
+                <p>Žádná data</p>
+            }
         </div>
     </div>
     <script type="text/javascript" src="~/js/main.js"></script>

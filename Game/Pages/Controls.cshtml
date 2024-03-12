@@ -1,15 +1,36 @@
 ﻿@model Game.Pages.Location
 <form method="post" class="ctrls">
+    @if (!Model.pModel.CombatState.IsCombatActive)
+    {
+        @foreach (var v in Model.lModel.Connections)
+        {
+            <a asp-page="Location" asp-route-id="@v.ToLocationID">
+                @v.Description
+                @if (v.Locked && !Model.pModel.SolvedPuzzleLocations.Contains(v.FromLocationID))
+                {
+                    <span class="closed">ZAMČENO</span>
+                }
+                else if (v.Locked)
+                {
+                    <span class="open">ODEMČENO</span>
+                }
+                @if (v.RequiredItem != null && !(Model.pModel.Items.Count > 0 && Model.pModel.Items.Count(a => a.ID == v.RequiredItem.ID) > 0))
+                {
+                    <span style="color: red;">potřebuješ @v.RequiredItem.Name</span>
+                }
+            </a>
+        }
+    }
     @if (Model.lModel.Enemy != null && !Model.pModel.CombatState.CleanedLocations.Contains(Model.lModel.LocationID))
     {
         <button asp-page-handler="Attack" title="Slabý útok" class="ctrls__attack" type="submit" name="attackType" value="WeakAttack"></button>
-        <button asp-page-handler="Attack" class="ctrls__attack" title="Silný útok" type="submit" name="attackType" value="StrongAttack"></button>    
+        <button asp-page-handler="Attack" class="ctrls__attack" title="Silný útok" type="submit" name="attackType" value="StrongAttack"></button>
     }
     @if (Model.lModel.Items.Any() && !Model.lModel.Items.All(item => Model.pModel.PickedUpItems.Contains(item.ID)) && !Model.pModel.CombatState.IsCombatActive)
+    {
+        @foreach (var item in Model.lModel.Items.Where(i => !Model.pModel.PickedUpItems.Contains(i.ID)))
         {
-            @foreach (var item in Model.lModel.Items.Where(i => !Model.pModel.PickedUpItems.Contains(i.ID)))
-            {
-                <button class="ctrls__item" name="ItemID" value="@item.ID" type="submit" asp-page-handler="PickUpItem">Sebrat @item.Name</button>
-            }
+            <button class="ctrls__item" name="ItemID" value="@item.ID" type="submit" asp-page-handler="PickUpItem">Sebrat @item.Name</button>
         }
+    }
 </form>

@@ -1,10 +1,22 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const modalBtns = document.querySelectorAll(".modal-open");
-    const modal = document.getElementById("modal");
+    const modalAboutBtns = document.querySelectorAll(".modal-about-open");
+    console.log(modalAboutBtns);
+    const modalAbout = document.getElementById("modal-about");
+    console.log(modalAbout);
+    const modalLeadboardBtns = document.querySelectorAll(".modal-leadboard-open");
+    console.log(modalLeadboardBtns)
+    const modalLeadboard = document.getElementById("modal-leadboard");
+    console.log(modalLeadboard);
 
-    modalBtns.forEach(function (btn) {
+    modalLeadboardBtns.forEach(function (btn) {
         btn.addEventListener("click", function () {
-            modal.classList.toggle("modal--open");
+            modalLeadboard.classList.toggle("modal--open");
+        });
+    });
+
+    modalAboutBtns.forEach(function (btn) {
+        btn.addEventListener("click", function () {
+            modalAbout.classList.toggle("modal--open");
         });
     });
 });

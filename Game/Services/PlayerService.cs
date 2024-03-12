@@ -1,4 +1,5 @@
-﻿using Game.Models;
+﻿using Game.Helpers;
+using Game.Models;
 using System.Text.Json;
 
 namespace Game.Services
@@ -6,14 +7,16 @@ namespace Game.Services
     public class PlayerService
     {
         private static readonly string DEFAULT_PLAYER_JSON = File.ReadAllText(@"GameData/Player.json");
+        private ApplicationDbContext _context;
 
 
         public string UniqueId { get; private set; }
 
-        public PlayerService() 
+        public PlayerService(ApplicationDbContext context) 
         {
-            Console.WriteLine("Jsem tvořený");
+            Console.WriteLine("PlayerService starting...");
             UniqueId = Guid.NewGuid().ToString();
+            _context = context;
         }
 
 
@@ -22,6 +25,8 @@ namespace Game.Services
             var p = JsonSerializer.Deserialize<PlayerModel>(DEFAULT_PLAYER_JSON);
             if (p == null) throw new JsonException();
             p.VisitedConnections = new List<ShortConnection>();
+            p.CreatedAt = DateTime.Now;
+            p.PlayerID = Guid.NewGuid().ToString();
 
             foreach(var item in p.Items.Where(a => a.IsWearable).ToArray())
             {
@@ -38,12 +43,6 @@ namespace Game.Services
         public bool ConnectionWasUsed(PlayerModel p, int from, int to)
         {
             int det = p.VisitedConnections.Count(a => a.FromId == from && a.ToId == to);
-            Console.WriteLine("Kontroluji");
-            foreach(var connection in p.VisitedConnections)
-            {
-                Console.WriteLine(connection.FromId + " -> " + connection.ToId);
-            }
-            Console.WriteLine("Počet shod s " + from + " -> " + to + " je " + det);
             return det >= 1;
         }
         
@@ -68,5 +67,29 @@ namespace Game.Services
             }
         
         }
-    }
+
+        public bool PutIntoLeaderboard(PlayerModel p, string name)
+        {
+            if (_context.Records.Any(r => r.PlayerId == p.PlayerID)) return false;
+
+
+            var playTime = new DateTime(p.FinishedAt.Ticks - p.CreatedAt.Ticks);
+            _context.Records.Add(new LeaderboardRecord { Name = name, PlayerId = p.PlayerID, PlayTime = playTime, SavedAt = DateTime.Now });
+            _context.SaveChanges();
+
+            return true;
+            
+        }
+
+        public List<LeaderboardRecord> GetTopLeaderboardRecords()
+        {
+            Console.WriteLine("Getting top leaderboard records...");
+            var data = _context.Records.OrderBy(r => r.PlayTime).Take(10).ToList();
+            if (data == null || data.Count == 0)
+            {
+                return new List<LeaderboardRecord>();
+            }
+            return data;
+        }
+        }
 }

@@ -32,6 +32,7 @@ public class Location(LocationService ls, ISessionService ss, EffectService es, 
 
         if (pModel == null || pModel.CurrentLocationId == 0)
         {
+            Console.WriteLine("Location: " + pModel?.CurrentLocationId);
             return RedirectToPage("Index");
         }
 
